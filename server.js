@@ -175,12 +175,9 @@ bot.on("message", message => {
   }
 });
 // inside a command, event listener, etc.
-bot.on("message", message => {
-  if (message.content === "E/lol") {
-   let embed = new Discord.MessageEmbed()
-   .setTitle('reaction roles')
-   .setDescription('hehehe')
-   let msgEmbed = await message.channel.send(embed)
-   }
-})
+bot.on ('message', message) => {
+const swearwords = ['swear1', 'swear 4']
+if (swearWords.some(word => message.content.includes(word))) [
+message.delete()
+  }
 bot.login(TOKEN);
