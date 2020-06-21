@@ -175,14 +175,5 @@ bot.on("message", message => {
   }
 });
 // inside a command, event listener, etc.
-module.exports.run
-const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Some title')
-	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	.setDescription('Some description here ')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-message.channel.send(embed);
-usage:'embed'
+
 bot.login(TOKEN);
