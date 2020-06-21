@@ -174,10 +174,5 @@ bot.on("message", message => {
     );
   }
 });
-// inside a command, event listener, etc.
-bot.on ('message', message) => {
-const swearwords = ['swear1', 'swear 4']
-if (swearWords.some(word => message.content.contains(word))) [
-message.delete()
-  }
+
 bot.login(TOKEN);
