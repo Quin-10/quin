@@ -8,5 +8,11 @@ const embed = new Discord.MessageEmbed()
 	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
 	.setDescription('Some description here')
 	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-channel.send(embed)
+
+message.channel.send(embed)
+}
+
+
+module.exports.config = {
+usage: "E/embed"
 }
