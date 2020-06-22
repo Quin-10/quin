@@ -202,7 +202,7 @@ if (message.channel.type == "dm") {
   }
 
 
-  message.member.send(`${message.author.avatar} humans like you have low iQs`)
+  message.member.send(`${message.author} humans like you have low iQs`)
   }
 })
 
