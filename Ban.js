@@ -21,5 +21,13 @@ if(target.id === message.author.id) {
 return message.channel.send(`${message.author} are you like, dumb(jk) but you cannot ban yourself `)
 }
     let embed = discord.MessageEmbed()
-    .setTitle("Action")
+    .setTitle("Action : Ban")
+    .setDescription(`Banned ${target} (${target.id})`)
+    .setColor ("#FA8072")
+    .setThumbnail(target.avatarURL)
+    .setFooter(`Banned by ${message.author.tag}`)
+message.channel.send(embed)
+    target.ban(args[1])
+  }
+}
   
