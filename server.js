@@ -174,7 +174,7 @@ bot.on("message", message => {
 });
 bot.on('message', message => {
   
-const swearWords = ['Ass', 'damn']
+const swearWords = ['hell', 'damn']
   if(swearWords.some(word => message.content.includes(word)) ) {
 message.delete()
 
