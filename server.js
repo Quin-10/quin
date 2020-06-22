@@ -207,6 +207,6 @@ if (message.channel.type == "dm") {
 }
 })
 
-
+const embed = require('embed.js')
 
 bot.login(TOKEN);
