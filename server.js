@@ -174,6 +174,24 @@ bot.on("message", message => {
       "there, I gave you a direct message, happy now?") 
   }
 });
+bot.on('message', message => {
+  
+const swearWords = ['dammit', 'damn', 'fuck', 'nigga']
+  if(swearWords.some(word => message.content.includes(word)) ) {
+message.delete()
+
+  message.member.send('That word is not allowed! wash your filthy mouth ')
+  
+}
+})
+bot.on('message', message => {
+  
+const swearWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078> you suck', 'boo']
+  if(swearWords.some(word => message.content.includes(word)) ) {
 
 
+  message.member.send(`${}humans have low iQs`)
+  
+}
+})
 bot.login(TOKEN);
