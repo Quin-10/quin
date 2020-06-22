@@ -31,6 +31,10 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   if (message.content === "E/ran") {
+      
+if (message.channel.type == "dm") {
+    return;
+  }
     var choices = [
       "<:Diamondgem:723417011094552656> AWESOME! you got 10 points!",
       "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
@@ -190,8 +194,12 @@ message.delete()
 })
 bot.on('message', message => {
   
-const swearWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078> you suck', 'boo']
-  if(swearWords.some(word => message.content.includes(word)) ) {
+const meanWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078> you suck', 'boo']
+  if(meanWords.some(word => message.content.includes(word)) ) {
+      
+if (message.channel.type == "dm") {
+    return;
+  }
 
 
   message.member.send(`${message.author} humans like you have low iQs`)
