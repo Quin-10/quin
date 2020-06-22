@@ -10,6 +10,8 @@ const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 bot.once("ready", () => {
   console.log("ready!");
+  bot.user.setActivity('lol 2020 is a bad year lol')
+
 });
 bot.on("message", message => {
   if (message.content === "Hello") {
@@ -172,15 +174,6 @@ bot.on("message", message => {
       "there, I gave you a direct message, happy now?") 
   }
 });
-bot.on('message', message => {
-  
-const swearWords = ['dammit', 'damn', 'fuck', 'nigga']
-  if(swearWords.some(word => message.content.includes(word)) ) {
-message.delete()
 
-  message.member.send('That word is not allowed! wash your filthy mouth ')
-  
-}
-})
-bot.user.setActivity('a game...')
+
 bot.login(TOKEN);
