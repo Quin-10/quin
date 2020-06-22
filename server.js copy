@@ -174,7 +174,7 @@ bot.on("message", message => {
 });
 bot.on('message', message => {
   
-const swearWords = ['dammit', 'damn', 'fuck', 'nigga']
+const swearWords = ['dammit', 'damn']
   if(swearWords.some(word => message.content.includes(word)) ) {
 message.delete()
 
@@ -182,5 +182,4 @@ message.delete()
   
 }
 })
-bot.user.setActivity('a game...')
 bot.login(TOKEN);
