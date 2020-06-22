@@ -12,7 +12,7 @@ bot.once("ready", () => {
   console.log("ready!");
 });
 bot.on("message", message => {
-  if (message.content === "hello") {
+  if (message.content === "Hello") {
     message.channel.send("goodbye");
   }
 });
@@ -174,7 +174,7 @@ bot.on("message", message => {
 });
 bot.on('message', message => {
   
-const swearWords = ['hell', 'damn']
+const swearWords = ['dammit', 'damn']
   if(swearWords.some(word => message.content.includes(word)) ) {
 message.delete()
 
