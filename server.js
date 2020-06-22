@@ -202,23 +202,9 @@ if (message.channel.type == "dm") {
   }
 
 
-  message.member.send(`${message.author} humans like you have low iQs`)
-  
-}bot.on('message', message => {
-if (message.content ==='yo'){
-const embed = new discord.MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('Some title')
-	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-
-message.channel.send(embed)
-
-
+  message.member.send(`${message.author.avatar} humans like you have low iQs`)
+  }
 })
-
 
 
 bot.login(TOKEN);
