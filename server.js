@@ -173,14 +173,14 @@ bot.on("message", message => {
   }
 });
 
-bot.on ('message', async message => {
+bot.on ('message',  message => {
 
   
 const swearWords = ('swear1', 'swear2')
- 
 message.delete()
 
-  thenmessage.channel.send('That word is not allowed!')
+
+  
   
 }
 
