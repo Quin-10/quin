@@ -176,13 +176,13 @@ bot.on("message", message => {
 bot.on ('message', async message => {
 
   
-const swearWords = ['swear1']
- if(swearWords.some(word => message.content.contains(word)) ) {
+const swearWords = ('swear1', 'swear2')
+ 
 message.delete()
 
-  message.member.send('That word is not allowed!')
+  thenmessage.channel.send('That word is not allowed!')
   
 }
 
-})
+)
 bot.login(TOKEN);
