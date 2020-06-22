@@ -190,8 +190,16 @@ const swearWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078
   if(swearWords.some(word => message.content.includes(word)) ) {
 
 
-  message.member.send(`${}humans have low iQs`)
+  message.member.send(`${message.author} humans like you have low iQs`)
   
 }
 })
+const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('Some title')
+	.setURL('https://discord.js.org/')
+	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setDescription('Some description here')
+	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+channel.send (exampleEmbed)
 bot.login(TOKEN);
