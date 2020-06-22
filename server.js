@@ -15,6 +15,10 @@ bot.once("ready", () => {
 });
 bot.on("message", message => {
   if (message.content === "Hello") {
+  
+if (message.channel.type == "dm") {
+    return;
+  }
     message.channel.send("goodbye");
   }
 });
