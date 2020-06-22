@@ -169,9 +169,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   if (message.content === "E/dm") {
     message.member.send(
-      "there, I gave you a direct message, happy now?"), ("ok"
-    
-    );
+      "there, I gave you a direct message, happy now?") 
   }
 });
 
