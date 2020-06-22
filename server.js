@@ -172,9 +172,14 @@ bot.on("message", message => {
       "there, I gave you a direct message, happy now?") 
   }
 });
-bot.on("message", message => {
-const word = ['dang', 'dangit'] {message.delete()
-}
-}
+bot.on('message', message => {
+  
+const swearWords = ['Ass', 'damn']
+  if(swearWords.some(word => message.content.includes(word)) ) {
+message.delete()
 
+  message.member.send('That word is not allowed! wash your filthy mouth ')
+  
+}
+})
 bot.login(TOKEN);
