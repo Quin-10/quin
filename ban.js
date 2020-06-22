@@ -20,14 +20,13 @@ return message.channel.send(`${message.author.username} please mention the perso
 if(target.id === message.author.id) {
 return message.channel.send(`${message.author} are you like, dumb(jk) but you cannot ban yourself `)
 }
-    let embed = discord.MessageEmbed()
-    .setTitle("Action : Ban")
+    let embed = new discord.MessageEmbed()
+    .setTitle("Action: Kick")
     .setDescription(`Banned ${target} (${target.id})`)
-    .setColor ("#FA8072")
-    .setThumbnail(target.avatarURL)
-    .setFooter(`Banned by ${message.author.tag}`)
-message.channel.send(embed)
-    target.ban(args[1])
-  }
-}
-  
+    .setColor("#ff2050")
+    .setFooter(`Banned by ${message.author.username}`);
+    
+    message.channel.send(embed)
+    
+    target.kick(args[1]);
+    
