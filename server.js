@@ -172,17 +172,9 @@ bot.on("message", message => {
       "there, I gave you a direct message, happy now?") 
   }
 });
-
-bot.on ('message',  message => {
-
-  
-const swearWords = ('swear1', 'swear2')
-message.delete()
-
-
-  
-  
+bot.on("message", message => {
+const word = ['dang', 'dangit'] {message.delete()
+}
 }
 
-)
 bot.login(TOKEN);
