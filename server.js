@@ -207,4 +207,6 @@ if (message.channel.type == "dm") {
 }
 })
 
+
+
 bot.login(TOKEN);
