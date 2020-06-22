@@ -172,5 +172,17 @@ bot.on("message", message => {
       "there, I gave you a direct message, happy now?") 
   }
 });
+bot.on ('message', async message => {
+  //SWEAR WORD FILTER (episode 12)
+  
+const swearWords = ['swear1', 'swear2']
+ if(swearWords.some(word => message.content.contains(word)) ) {
+message.delete()
 
+  message.member.send('That word is not allowed!')
+  
+}
+
+var prefix ='++'
+})
 bot.login(TOKEN);
