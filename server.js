@@ -10,7 +10,7 @@ app.get("/", (request, response) => {
   response.sendStatus(200);
 });
 app.listen(process.env.PORT);
-
+//the discord login bot
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
@@ -19,13 +19,14 @@ bot.once("ready", () => {
   bot.user.setActivity('lol 2020 is a bad year lol')
 
 });
+//hello command
 bot.on("message", message => {
   if (message.content === "Hello") {
   
 if (message.channel.type == "dm") {
     return;
   }
-    message.channel.send("goodbye");
+    message.channel.send("Hello");
   }
 });
 bot.on("message", message => {
