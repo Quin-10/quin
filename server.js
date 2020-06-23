@@ -1,8 +1,4 @@
-
-
 // inside a command, event listener, etc.
-
-
 
 var express = require("express");
 var app = express();
@@ -16,16 +12,14 @@ const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 bot.once("ready", () => {
   console.log("ready!");
-  bot.user.setActivity('lol 2020 is a bad year lol')
-
+  bot.user.setActivity("lol 2020 is a bad year lol");
 });
 //hello command
 bot.on("message", message => {
   if (message.content === "Hello") {
-  
-if (message.channel.type == "dm") {
-    return;
-  }
+    if (message.channel.type == "dm") {
+      return;
+    }
     message.channel.send("it was fun while it lasted :[");
   }
 });
@@ -38,10 +32,9 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   if (message.content === "E/ran") {
-      
-if (message.channel.type == "dm") {
-    return;
-  }
+    if (message.channel.type == "dm") {
+      return;
+    }
     var choices = [
       "<:Diamondgem:723417011094552656> AWESOME! you got 10 points!",
       "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
@@ -185,74 +178,70 @@ bot.on("message", message => {
 
 bot.on("message", message => {
   if (message.content === "E/dm") {
-    message.member.send(
-      "there, I gave you a direct message, happy now?") 
+    message.member.send("there, I gave you a direct message, happy now?");
   }
 });
-bot.on('message', message => {
-  
-const swearWords = ['dammit', 'damn', 'fuck', 'nigga']
-  if(swearWords.some(word => message.content.includes(word)) ) {
-message.delete()
+bot.on("message", message => {
+  const swearWords = ["dammit", "damn", "fuck", "nigga"];
+  if (swearWords.some(word => message.content.includes(word))) {
+    message.delete();
 
-  message.member.send(`${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`)
-  
-}
-})
-bot.on('message', message => {
-  
-const meanWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078> you suck', 'boo']
-  if(meanWords.some(word => message.content.includes(word)) ) {
-   
-if (message.channel.type == "dm") {
-    message.member.send('that command cannot be dmed')
-  
-}
-
-
-  message.member.send(`${message.author} humans like you have low iQs`)
+    message.member.send(
+      `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
+    );
   }
-})
-bot.on('message', message => {
-if (message.content === "E/roast me") {
-  
+});
+bot.on("message", message => {
+  const meanWords = [
+    "your a dumb bot",
+    "I hate mr circle",
+    "<@711610924489769078> you suck",
+    "boo"
+  ];
+  if (meanWords.some(word => message.content.includes(word))) {
+    if (message.channel.type == "dm") {
+      message.member.send("that command cannot be dmed");
+    }
 
- 
-  message.channel.send(`you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`)
-}
-})
-bot.on('message', message => {
-  const key = ['@someone']
-  if(key.some(word => message.content.includes(word)) ) { 
-const someone = bot.users.get(message.guild.members.random().id).id
-  message.channel.send(`<@${someone}>`)
+    message.member.send(`${message.author} humans like you have low iQs`);
   }
-})
-bot.on('message', message => {
-	if (message.content === 'E/color') {
-    message.delete()
+});
+bot.on("message", message => {
+  if (message.content === "E/roast me") {
+    message.channel.send(
+      `you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`
+    );
+  }
+});
+bot.on("message", message => {
+  const key = ["@someone"];
+  if (key.some(word => message.content.includes(word))) {
+    const someone = bot.users.get(message.guild.members.random().id).id;
+    message.channel.send(`<@${someone}>`);
+  }
+});
+bot.on("message", message => {
+  if (message.content === "E/color") {
     const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('#FF5541')
-	.setTitle('Favorite colors')
-	.setAuthor('mr circle')
-	.setDescription('please chose your favorite color')
-	.setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F1F1CEACE-EE1D-45F7-BB84-A3A29383026F.png?v=1592943535895')
-    message.react() => message.react('🔴')
-    .then(() => message.react('🟠'))
-			.then(() => message.react('🟡'))
-			 .then(() => message.react('🟢'))
-    .then(() => message.react('🔵'))
-    .then(() => message.react('🟣'))
-    .then(() => message.react('🟤'))
-    .then(() => message.react('⚫')) 
-      .then(()=> message.react('⚪'))
-			.catch(() => console.error('One of the emojis failed to react.'));
-    message.channel.send(exampleEmbed)
-    
-	}
-    
-		
-			
-	
+      .setColor("#FF5541")
+      .setTitle("Favorite colors")
+      .setAuthor("mr circle")
+      .setDescription("please chose your favorite color")
+      .setThumbnail(
+        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F1F1CEACE-EE1D-45F7-BB84-A3A29383026F.png?v=1592943535895"
+      );
+    message
+      .react("🔴")
+      .then(() => message.react("🟠"))
+      .then(() => message.react("🟡"))
+      .then(() => message.react("🟢"))
+      .then(() => message.react("🔵"))
+      .then(() => message.react("🟣"))
+      .then(() => message.react("🟤"))
+      .then(() => message.react("⚫"))
+      .then(() => message.react("⚪"))
+      .catch(() => console.error("One of the emojis failed to react."));
+    message.channel.send(exampleEmbed);
+  }
 });
 bot.login(TOKEN);
