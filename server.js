@@ -211,6 +211,11 @@ if (message.channel.type == "dm") {
   message.member.send(`${message.author} humans like you have low iQs`)
   }
 })
-
-
+bot.on('message', message => {
+if (message.content === "E/o") {
+  
+message.channel.send(`'item1\nitem2\nitem3'`)
+}
+})
+       
 bot.login(TOKEN);
