@@ -227,10 +227,26 @@ const someone = bot.users.get(message.guild.members.random().id).id
   message.channel.send(`<@${someone}>`)
   }
 })
-if (message.content === '!fruits') {
-  message.channel.send()
-	message.react('🍎');
-	message.react('🍊');
-	message.react('🍇');
-}
+bot.on('message', message => {
+	if (message.content === '!fruits') {
+    const exampleEmbed = new Discord.MessageEmbed()
+
+	.setColor('#FF5541')
+	.setTitle('Favorite colors')
+	.setAuthor('mr circle')
+	.setDescription('please chose your favorite color')
+	.setThumbnail('https://imgur.com/9KS2soD')
+    message.channel.send(exampleEmbed)
+		message.react('🔴')
+			.then(() => message.react('🟠'))
+			.then(() => message.react('🟡'))
+			.then(() => message.react('🟢'))
+    .then(() => message.react('🔵'))
+    .then(() => message.react('🟣'))
+    .then(() => message.react('🟤'))
+    .then(() => message.react('⚫'))
+    .then(() => message.react('⚪'))
+			.catch(() => console.error('One of the emojis failed to react.'));
+	}
+});
 bot.login(TOKEN);
