@@ -219,5 +219,12 @@ if (message.content === "E/roast me") {
   message.channel.send(`you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`)
 }
 })
+bot.on('message', message => {
+  const key = ['@someone']
+  if (key.some(word = message.content.includes(word))) {
+bot.users.get(message.guild.members.random()
+  message.channel.send(`<@${someone}>`)
+}
+)
        
 bot.login(TOKEN);
