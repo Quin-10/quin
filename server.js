@@ -227,6 +227,18 @@ const someone = bot.users.get(message.guild.members.random().id).id
   message.channel.send(`<@${someone}>`)
   }
 })
+bot.on('message', message => {
+  if (message.content === "E/big") {
+  
+const exampleEmbed = new Discord.MessageEmbed()
 
- 
+	.setColor('#0099ff')
+	.setTitle('Some title')
+	.setURL('https://discord.js.org/')
+	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setDescription('Some description here ')
+	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+message.channel.send(exampleEmbed)
+}
+})
 bot.login(TOKEN);
