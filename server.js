@@ -212,9 +212,9 @@ if (message.channel.type == "dm") {
   }
 })
 bot.on('message', message => {
-if (message.content === "E/o") {
+if (message.content === "E/roast me") {
   
-message.channel.send(`'item1\nitem2\nitem3'`)
+message.channel.send(`you suck\this is why your gf dumped you, oh wait, you don't have one lol\listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??? oh.. right we are in quarantine now... thatsucks`)
 }
 })
        
