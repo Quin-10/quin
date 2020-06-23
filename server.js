@@ -221,10 +221,10 @@ if (message.content === "E/roast me") {
 })
 bot.on('message', message => {
   const key = ['@someone']
-  if (key.some(word = message.content.includes(word))) {
-bot.users.get(message.guild.members.random()
+  if(key.some(word => message.content.includes(word)) ) { 
+const someone = bot.users.get(message.guild.members.random().id).id
   message.channel.send(`<@${someone}>`)
-}
-)
+}}
+       )
        
 bot.login(TOKEN);
