@@ -198,7 +198,7 @@ const meanWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078>
   if(meanWords.some(word => message.content.includes(word)) ) {
       
 if (message.channel.type == "dm") {
-    return; message.channel.send('that command')
+    return; message.member.send('that command cannot be dmed')
   }
 
 
