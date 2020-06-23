@@ -228,7 +228,7 @@ const someone = bot.users.get(message.guild.members.random().id).id
   }
 })
 bot.on('message', message => {
-	if (message.content === '!fruits') {
+	if (message.content === 'E/color') {
     const exampleEmbed = new Discord.MessageEmbed()
 
 	.setColor('#FF5541')
@@ -236,9 +236,7 @@ bot.on('message', message => {
 	.setAuthor('mr circle')
 	.setDescription('please chose your favorite color')
 	.setThumbnail('https://imgur.com/9KS2soD')
-    message.channel.send(exampleEmbed)
-		message.react('🔴')
-			.then(() => message.react('🟠'))
+    .then(() => message.react('🟠'))
 			.then(() => message.react('🟡'))
 			.then(() => message.react('🟢'))
     .then(() => message.react('🔵'))
@@ -247,6 +245,12 @@ bot.on('message', message => {
     .then(() => message.react('⚫'))
     .then(() => message.react('⚪'))
 			.catch(() => console.error('One of the emojis failed to react.'));
+    message.channel.send(exampleEmbed)
+    
 	}
+    
+		
+			
+	
 });
 bot.login(TOKEN);
