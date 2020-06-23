@@ -229,12 +229,14 @@ const someone = bot.users.get(message.guild.members.random().id).id
 })
 bot.on('message', message => {
 	if (message.content === 'E/color') {
+    message.delete()
     const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#FF5541')
 	.setTitle('Favorite colors')
 	.setAuthor('mr circle')
 	.setDescription('please chose your favorite color')
-	.setThumbnail('https://imgur.com/9KS2soD')
+	.setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F1F1CEACE-EE1D-45F7-BB84-A3A29383026F.png?v=1592943535895')
+    message.react('🔴')
     .then(() => message.react('🟠'))
 			.then(() => message.react('🟡'))
 			.then(() => message.react('🟢'))
