@@ -232,12 +232,11 @@ bot.on('message', message => {
   
 const exampleEmbed = new Discord.MessageEmbed()
 
-	.setColor('#')
-	.setTitle('Some title')
-	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	.setDescription('Some description here ')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	.setColor('#FF5541')
+	.setTitle('Favorite colors')
+	.setAuthor('mr circle')
+	.setDescription('please chose your favorite color')
+	.setThumbnail('https://imgur.com/9KS2soD')
 message.channel.send(exampleEmbed).then(async message => {
 await message.react("🔴")
   await message.react("🟠")
@@ -248,7 +247,7 @@ await message.react("🔴")
   await message.react("🟤")
   await message.react("⚫")
   await message.react("⚪")
-}
 })
+
 
 bot.login(TOKEN);
