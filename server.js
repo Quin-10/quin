@@ -242,6 +242,6 @@ bot.on("message", message => {
       .then(() => message.react("⚪"))
       .catch(() => console.error("One of the emojis failed to react."));
     message.channel.send(exampleEmbed);
-  }
-});
+  
+}})
 bot.login(TOKEN);
