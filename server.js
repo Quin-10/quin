@@ -194,7 +194,7 @@ const swearWords = ['dammit', 'damn', 'fuck', 'nigga']
   if(swearWords.some(word => message.content.includes(word)) ) {
 message.delete()
 
-  message.member.send(`/nThat word is not allowed! wash your filthy mouth/n @${message.author}`)
+  message.member.send(`${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`)
   
 }
 })
@@ -202,7 +202,7 @@ bot.on('message', message => {
   
 const meanWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078> you suck', 'boo']
   if(meanWords.some(word => message.content.includes(word)) ) {
-      
+   
 if (message.channel.type == "dm") {
     message.member.send('that command cannot be dmed')
   
