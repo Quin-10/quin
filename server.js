@@ -206,18 +206,18 @@ const meanWords = ['your a dumb bot', 'I hate mr circle', '<@711610924489769078>
 if (message.channel.type == "dm") {
     message.member.send('that command cannot be dmed')
   
-}}
+}
 
 
   message.member.send(`${message.author} humans like you have low iQs`)
   }
-)
+})
 bot.on('message', message => {
 if (message.content === "E/roast me") {
   
 
  
-  message.channel.send(`you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`)
+  message.channel.send(```you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??E/roast meE/roast me`)
 }
 })
 bot.on('message', message => {
