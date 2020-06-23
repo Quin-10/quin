@@ -232,13 +232,23 @@ bot.on('message', message => {
   
 const exampleEmbed = new Discord.MessageEmbed()
 
-	.setColor('#0099ff')
+	.setColor('#')
 	.setTitle('Some title')
 	.setURL('https://discord.js.org/')
 	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
 	.setDescription('Some description here ')
 	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-message.channel.send(exampleEmbed)
+message.channel.send(exampleEmbed).then(async message => {
+await message.react("🔴")
+  await message.react("🟠")
+  await message.react("🟡")
+  await message.react("🟢")
+  await message.react("🔵")
+  await message.react("🟣")
+  await message.react("🟤")
+  await message.react("⚫")
+  await message.react("⚪")
 }
 })
+
 bot.login(TOKEN);
