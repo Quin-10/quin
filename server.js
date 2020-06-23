@@ -227,27 +227,10 @@ const someone = bot.users.get(message.guild.members.random().id).id
   message.channel.send(`<@${someone}>`)
   }
 })
-bot.on('message', message => {
-  if (message.content === "E/big") {
-  
-const exampleEmbed = new Discord.MessageEmbed()
-
-	.setColor('#FF5541')
-	.setTitle('Favorite colors')
-	.setAuthor('mr circle')
-	.setDescription('please chose your favorite color')
-	.setThumbnail('https://imgur.com/9KS2soD')
-message.channel.send(exampleEmbed).then(async message => {
-await message.react("🔴")
-  await message.react("🟠")
-  await message.react("🟡")
-  await message.react("🟢")
-  await message.react("🔵")
-  await message.react("🟣")
-  await message.react("🟤")
-  await message.react("⚫")
-  await message.react("⚪")
-})
-
-
+if (message.content === '!fruits') {
+  message.channel.send()
+	message.react('🍎');
+	message.react('🍊');
+	message.react('🍇');
+}
 bot.login(TOKEN);
