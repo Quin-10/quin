@@ -26,7 +26,7 @@ bot.on("message", message => {
 if (message.channel.type == "dm") {
     return;
   }
-    message.channel.send("Hello");
+    message.channel.send("it was fun while it lasted :[");
   }
 });
 bot.on("message", message => {
