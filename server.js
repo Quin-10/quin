@@ -230,7 +230,6 @@ const someone = bot.users.get(message.guild.members.random().id).id
 bot.on('message', message => {
 	if (message.content === 'E/color') {
     const exampleEmbed = new Discord.MessageEmbed()
-
 	.setColor('#FF5541')
 	.setTitle('Favorite colors')
 	.setAuthor('mr circle')
