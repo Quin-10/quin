@@ -194,7 +194,7 @@ const swearWords = ['dammit', 'damn', 'fuck', 'nigga']
   if(swearWords.some(word => message.content.includes(word)) ) {
 message.delete()
 
-  message.member.send('That word is not allowed! wash your filthy mouth ')
+  message.member.send(`/nThat word is not allowed! wash your filthy mouth/n @${message.author}`)
   
 }
 })
@@ -217,7 +217,7 @@ if (message.content === "E/roast me") {
   
 
  
-  message.channel.send(```you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??E/roast meE/roast me`)
+  message.channel.send(`you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`)
 }
 })
 bot.on('message', message => {
