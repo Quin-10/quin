@@ -222,8 +222,5 @@ bot.on("message", message => {
 });
 
   
-var sites = {
-sites: ["https://ping.willm.xyz/"]
-}
   
 bot.login(TOKEN);
