@@ -232,9 +232,9 @@ bot.on("message", message => {
       );
     
       
-    channel.send(exampleEmbed).then(async message => {
-  message
-      
+    message.channel.send(exampleEmbed).
+  
+      message.react('')
       .then(() => message.react("🟠"))
       .then(() => message.react("🟡"))
       .then(() => message.react("🟢"))
@@ -245,6 +245,6 @@ bot.on("message", message => {
       .then(() => message.react("⚪"))
       .catch(() => console.error("One of the emojis failed to react."));
     }
-)}}
+})
 
 bot.login(TOKEN);
