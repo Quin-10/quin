@@ -246,4 +246,10 @@ bot.on("message", message => {
 });
   
 
+  client.users.get(args[0]).send(message.content.split(' ').slice(2).join(' '))
+  r DMs! :mailbox_with_mail:")
+    }
+  })
+    
+  }
 bot.login(TOKEN);
