@@ -221,7 +221,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content === "E/color") {
+  if (message.content === 'E/color') {
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setTitle("Favorite colors")
@@ -230,20 +230,8 @@ bot.on("message", message => {
       .setThumbnail(
         "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F1F1CEACE-EE1D-45F7-BB84-A3A29383026F.png?v=1592943535895"
       );
-    message.react('🤙')
-      .then(() => message.react("🟠"))
-      .then(() => message.react("🟡"))
-      .then(() => message.react("🟢"))
-      .then(() => message.react("🔵"))
-      .then(() => message.react("🟣"))
-      .then(() => message.react("🟤"))
-      .then(() => message.react("⚫"))
-      .then(() => message.react("⚪"))
-      .catch(() => console.error("One of the emojis failed to react."));
-    
-
-      
-    message.channel.send(exampleEmbed).
+  }
+});
   
 
 bot.login(TOKEN);
