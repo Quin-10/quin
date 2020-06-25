@@ -148,7 +148,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   if (message.content === "sneeze") {
     message.channel.send("`uhm corona!`");
-    message.channel.edit ('cough');
+    message.edit ('cough');
     message.react ('👋');
   }
 });
@@ -247,8 +247,6 @@ bot.on("message", message => {
 
   }
 });
-
-  
 
               
 bot.login(TOKEN);
