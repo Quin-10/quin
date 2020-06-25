@@ -262,4 +262,5 @@ message.delete();
     if (message.reply === 'no') 
 message.channel.send("ok then...")
       })
+ 
 bot.login(TOKEN);
