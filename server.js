@@ -246,6 +246,6 @@ bot.on("message", message => {
   }
 });
 
-  
+  var testchannel = bot.channels.find(channel => channel.id === '')
   
 bot.login(TOKEN);
