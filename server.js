@@ -254,7 +254,12 @@ message.channel.send("blah blah").then((message)=>{ message.edit('hello') })
   }
 })
       bot.on("message", message => {
-  const swearWords = ["dammit", "@", "@yahoo", "@gmail.com"];
+  const swearWords = [ "@yahoo.com", "@gmail.com"];
   if (swearWords.some(word => message.content.includes(word))) {
-
+message.delete();
+  }
+    message.member.send('are you tryna leak your account information of somethin?').then
+    if (message.reply === 'no') 
+message.channel.send("ok then...")
+      })
 bot.login(TOKEN);
