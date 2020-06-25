@@ -253,5 +253,8 @@ message.channel.send("blah blah").then((message)=>{ message.edit('hello') })
   .then((message)=>{message.react('🟡') })
   }
 })
-           
+      bot.on("message", message => {
+  const swearWords = ["dammit", "@", "@yahoo", "@gmail.com"];
+  if (swearWords.some(word => message.content.includes(word))) {
+
 bot.login(TOKEN);
