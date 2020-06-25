@@ -253,5 +253,5 @@ message.channel.send("blah blah").then((message)=>{ message.edit('hello') })
   .then((message)=>{message.react('🟡') })
   }
 })
-            
+           
 bot.login(TOKEN);
