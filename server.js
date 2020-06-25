@@ -241,11 +241,17 @@ bot.on("message", message => {
       .then(() => message.react("🟤"))
       .then(() => message.react("⚫"))
       .then(() => message.react("⚪"))
-      .catch(() => console.error("One of the emojis failed to react."));
+      .catch(() => console.error("One of the emojis failed to react.")); 
 
   }
 });
 
-  var testchannel = bot.channels.find(channel => channel.id === '')
+  var testchannel = bot.channels.find(channel => channel.id === '725742328303845446')
   
+  setInterval(() =>
+var choices = [
+              "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FB8566972-7702-4207-B151-905B7C4B4F80.gif?v=1593100662758",
+  "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FF5CE2150-1C42-4F0D-9BCC-2F229F19CD61.gif?v=1593100650548",
+              ]
+  var output = choices[Math.floor(Math.random() * choices.length)];
 bot.login(TOKEN);
