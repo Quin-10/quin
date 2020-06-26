@@ -257,12 +257,16 @@ message.channel.send("blah blah").then((message)=>{ message.edit('hello') })
   const infoWords = [ "@yahoo.com", "@gmail.com"];
   if (infoWords.some(word => message.content.includes(word))) {
 message.delete();
-  
+  }
+      }
+    message.member.send ('are you trying to leak your account?')
     bot.on ("message", message => {
-    message.member.send('are you tryna leak your account information of somethin?')
-      .then((message)=>{ if (message.reply ==='hello') {
-    
-message.channel.send("ok then...")
+    if (message.reply === 'no') {
+message.member.send ('ok')
     }
-})
+    })
+
+
+
+    
 bot.login(TOKEN);
