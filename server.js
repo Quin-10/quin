@@ -249,7 +249,7 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   if (message.content === 'E/edit') {
-message.channel.send("blah blah").then((message)=>{ message.edit('hello') })
+message.channel.send('lol').then((message)=>{ message.edit('hello') })
   .then((message)=>{message.react('🟡') })
   }
 })
