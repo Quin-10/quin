@@ -254,8 +254,8 @@ message.channel.send("blah blah").then((message)=>{ message.edit('hello') })
   }
 })
       bot.on("message", message => {
-  const swearWords = [ "@yahoo.com", "@gmail.com"];
-  if (swearWords.some(word => message.content.includes(word))) {
+  const infoWords = [ "@yahoo.com", "@gmail.com"];
+  if (infoWords.some(word => message.content.includes(word))) {
 message.delete();
   }
     message.member.send('are you tryna leak your account information of somethin?').then
