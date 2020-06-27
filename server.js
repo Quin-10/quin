@@ -276,7 +276,7 @@ bot.on('message', function(message) {
     if (message.content === "E/daily") { 
         var interval = setInterval (function () {
             // use the message's channel (TextChannel) to send a new message
-            bot.channels.get('725601168092299274')
+            
           message.channel.send("!d bump")
             .catch(console.error); // add error handling here
         }, 1 *1000); 
