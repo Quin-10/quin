@@ -279,7 +279,7 @@ bot.on('message', function(message) {
             bot.channels.get('725601168092299274')
           message.channel.send("!d bump")
             .catch(console.error); // add error handling here
-        }, 1 *1210000); 
+        }, 1 *1000); 
     }
 });
 bot.login(TOKEN);
