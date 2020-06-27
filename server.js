@@ -271,5 +271,15 @@ bot.on('message', function(message) {
     }
 });
 
-
+bot.on('message', function(message) {
+    // Now, you can use the message variable inside
+    if (message.content === "E/daily") { 
+        var interval = setInterval (function () {
+            // use the message's channel (TextChannel) to send a new message
+            bot.channels.get('725601168092299274')
+          message.channel.send("!d bump")
+            .catch(console.error); // add error handling here
+        }, 1 *1210000); 
+    }
+});
 bot.login(TOKEN);
