@@ -262,7 +262,7 @@ message.delete();
       })
 bot.on('message', function(message) {
     // Now, you can use the message variable inside
-    if (message.content === "E/daily") { 
+    if (message.content === "E/interval") { 
         var interval = setInterval (function () {
             // use the message's channel (TextChannel) to send a new message
             message.channel.send("123")
@@ -273,13 +273,13 @@ bot.on('message', function(message) {
 
 bot.on('message', function(message) {
     // Now, you can use the message variable inside
-    if (message.content === "E/daily10382082910") { 
+    if (message.content === "E/daily404") { 
         var interval = setInterval (function () {
             // use the message's channel (TextChannel) to send a new message
             
           message.channel.send("!d bump")
             .catch(console.error); // add error handling here
-        }, 1 *120000); 
+        }, 1 *120); 
     }
 });
 
