@@ -114,7 +114,8 @@ bot.on("message", message => {
       .setDescription("please chose your favorite color")
       .setThumbnail(
         "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396"
-      );
+      )
+    .addField("Time assigned", message.createdAt, true)
     message.channel.send(exampleEmbed).then(sentMessage => {
       sentMessage.react("🔴");
       sentMessage.react("🟠");
@@ -197,10 +198,5 @@ bot.on("message", message => {
     
   }
 })
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}lol`)) {
-const user = message.mentions.users.first();
-Guild.members.ban(user);
-  }
-})
+
 bot.login(TOKEN);
