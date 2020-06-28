@@ -192,11 +192,8 @@ bot.on("message", message => {
       .slice(1)
       .join(" ");
     if (!text) return message.reply("what do you want to say?");
-    message.channel.send(`${text}, is what you wanted to say?`).then
-    if (message.content.startsWith(`${prefix}yes`)) {
-      message.reply('ok nice')
-    }
+    message.channel.send(`${text}, is what you wanted to say?`)
+    
   }
-});
-
+})
 bot.login(TOKEN);
