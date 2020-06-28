@@ -30,7 +30,7 @@ bot.on("message", message => {
     );
   }
 });
-
+var prefix = "o"
 bot.on("message", message => {
   if (message.content === "E/nitro") {
     var choices = [
@@ -175,11 +175,15 @@ setTimeout(() => {
   console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
   // expected output : seconds elapsed = 2
 }, 2000);
+
 bot.on("message", message => {
-if(message.content ==='finn') {
+if(message.content ==='!finn') {
     var text = message.content.split(' ').slice(1).join(' ')
     if(!text) return message.reply('Please give me some text to say! :)')
-   message.channel.send(text)
+  if(message.content ===(text)) {
+  message.channel.send(text)
   }
-})
+}}
+)
+
 bot.login(TOKEN);
