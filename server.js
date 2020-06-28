@@ -224,10 +224,11 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content === 'E/color') {
+  if (message.content === 'E/Reacticolor') {
     message.delete()
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
+    .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTitle("Favorite colors")
       .setAuthor("mr circle")
       .setDescription("please chose your favorite color")
@@ -283,5 +284,22 @@ bot.on('message', function(message) {
         }, 1 *120); 
     }
 });
-
+const { GiveawaysManager } = require("discord-giveaways");
+// Starts updating currents giveaways
+const manager = new GiveawaysManager(bot, {
+    storage: "./giveaways.json",
+    updateCountdownEvery: 10000,
+    default: {
+        botsCanWin: false,
+        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
+        embedColor: "#FF0000",
+        reaction: "🎉"
+    }
+});
+// We now have a giveawaysManager property to access the manager everywhere!
+bot.giveawaysManager = manager;
+ 
+bot.on("ready", () => {
+    console.log("I'm ready !");
+});
 bot.login(TOKEN);
