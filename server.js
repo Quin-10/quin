@@ -284,22 +284,16 @@ bot.on('message', function(message) {
         }, 1 *120); 
     }
 });
-const { GiveawaysManager } = require("discord-giveaways");
-// Starts updating currents giveaways
-const manager = new GiveawaysManager(bot, {
-    storage: "./giveaways.json",
-    updateCountdownEvery: 10000,
-    default: {
-        botsCanWin: false,
-        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
-        embedColor: "#FF0000",
-        reaction: "🎉"
-    }
-});
-// We now have a giveawaysManager property to access the manager everywhere!
-bot.giveawaysManager = manager;
- 
-bot.on("ready", () => {
-    console.log("I'm ready !");
-});
+
+const start = Date.now();
+
+console.log('starting timer...');
+// expected output: starting timer...
+
+setTimeout(() => {
+  const millis = Date.now() - start;
+
+  console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
+  // expected output : seconds elapsed = 2
+}, 2000);
 bot.login(TOKEN);
