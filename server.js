@@ -185,13 +185,17 @@ bot.on("message", message => {
     const glitchWords = ["E/say E/say"];
     if (glitchWords.some(word => message.content.includes(word))) {
       message.delete();
+      return
     }
     var text = message.content
       .split(" ")
       .slice(1)
       .join(" ");
     if (!text) return message.reply("what do you want to say?");
-    message.channel.send(text), "is what you wanted to say?";
+    message.channel.send(`${text}, is what you wanted to say?`).then
+    if (message.content.startsWith(`${prefix}yes`)) {
+      message.reply('ok nice')
+    }
   }
 });
 
