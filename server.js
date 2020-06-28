@@ -64,6 +64,7 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   const swearWords = ["dammit", "damn", "fuck", "nigga"];
+  const stopWord = ["E/stop"];
   if (swearWords.some(word => message.content.includes(word))) {
     message.delete();
 
@@ -146,9 +147,7 @@ bot.on("message", message => {
   if (infoWords.some(word => message.content.includes(word))) {
     message.delete();
     message.member.send("are you trying to leak your account?");
-   if (message.content.startsWith(`${prefix}stop`)) {
-return
-  }
+   
   }
 })
 bot.on("message", function(message) {
@@ -187,8 +186,9 @@ bot.on("message", message => {
   if (message.content.startsWith(`${prefix}say`)) {
     const glitchWords = ["E/say E/say"];
     if (glitchWords.some(word => message.content.includes(word))) {
-      message.delete();
       return
+      message.delete();
+      
     }
     var text = message.content
       .split(" ")
