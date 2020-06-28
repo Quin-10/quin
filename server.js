@@ -30,128 +30,7 @@ bot.on("message", message => {
     );
   }
 });
-bot.on("message", message => {
-  if (message.content === "E/ran") {
-    if (message.channel.type == "dm") {
-      return;
-    }
-    var choices = [
-      "<:Diamondgem:723417011094552656> AWESOME! you got 10 points!",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Rocks:723417089465122816> awww you just got a couple of rocks, how cute (:",
-      "<:Goldgem:723416863429623888> nice! you got 3 points!",
-      "<:Goldgem:723416863429623888> nice! you got 3 points!",
-      "<:Bomb:723417161556557834> oh no! you lost 3 points!",
-      "<:Bomb:723417161556557834> oh no! you lost 3 points!",
-      "<:Bomb:723417161556557834> oh no! you lost 3 points!",
-      "<:Bomb:723417161556557834> oh no! you lost 3 points!",
-      "<:Bomb:723417161556557834> oh no! you lost 3 points!"
-    ];
 
-    var output = choices[Math.floor(Math.random() * choices.length)];
-
-    message.channel.send(
-      ` the thing you claimed**${output}**, ${message.author}`
-    );
-  }
-});
-
-bot.on("message", message => {
-  if (message.content === "E/call") {
-    var choices = [
-      "stop annoying me, <@!639971658035363840>, help meee please",
-      "ahh",
-      "my owner won't be happy about this",
-      "go away",
-      "If you wanna see something ugly, go look in the mirror...  sorry I just had to, but y'know I was joking, you look pretty... ok to me but I'm hotter",
-      "this should be illegal",
-      "did you know everytime you do this... you're wasting your time",
-      "you should really be more careful about avoiding my hammer hitting your face!",
-      "hey there's a new thing that you can get. it's called a life",
-      "lol watch this video it's very funny! https://youtu.be/wFmYHGJf9KI ",
-      "Ima smack u",
-      "do you hate tik tok? because I hate it, it's so cringe",
-      "`OH FRICK BELLE DEPHINE IS BACK`",
-      "this is my owner https://www.youtube.com/c/Quin10Animates"
-    ];
-    var output = choices[Math.floor(Math.random() * choices.length)];
-
-    message.channel.send(`mr circle says **${output}**!`);
-  }
-});
-bot.on("message", message => {
-  if (message.content === "sneeze") {
-    message.channel.send("`uhm corona!`");
-    message.edit ("cough");
-    message.react ('👋');
-  }
-});
 bot.on("message", message => {
   if (message.content === "E/nitro") {
     var choices = [
@@ -164,7 +43,7 @@ bot.on("message", message => {
 
     message.channel.send(`${message.author}**${output}**!`);
   }
-});
+})
 bot.on("message", message => {
   if (message.content === "E/delete") {
     message.delete();
