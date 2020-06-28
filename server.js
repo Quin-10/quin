@@ -180,28 +180,8 @@ if(message.content.startsWith(`${prefix}say`)) {
     var text = message.content.split(' ').slice(1).join(' ')
     if(!text) return message.reply('Please give me some text to say! :)').then
   if(message.content === (text)) {
-   message.channel.send(`text`)
+   message.channel.send(text)
   }}
 })
 
-if(message.content.startsWith(`${prefix}subc`)) {
-    
-    var request = require('request')
-    var id = 'UCA3QtGSDbBoS5ogCitr_KQw'
-    var key= process.env.YT_KEY
-    
-    var url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=" + key;
-    
-    request({
-      method: 'GET',
-      url: url
-    }, function (err, response, text) {
-if(err) {
-return
-}
-      
-      var json = JSON.parse(text);
-      var subc = json.items[0].statistics.subscriberCount
-message.channel.send(`${subc} is how many subs that channel has!`)
-      }) }
 bot.login(TOKEN);
