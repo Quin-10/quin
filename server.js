@@ -63,15 +63,14 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const swearWords = ["dammit", "damn", "fuck", "nigga"];
+  const swearWords = ["dammit", "damn", "fuck", "nigga", "9202993$329"];
   if (swearWords.some(word => message.content.includes(word))) {
+    message.delete()
     message.member.send(
       `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
-      )
-    35573026816>`
-    );
+)
   }
-});
+})
 bot.on("message", message => {
   const meanWords = [
     "your a dumb bot",
@@ -196,6 +195,12 @@ bot.on("message", message => {
     if (!text) return message.reply("what do you want to say?");
     message.channel.send(`${text}, is what you wanted to say?`)
     
+  }
+})
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}lol`)) {
+const user = message.mentions.users.first();
+Guild.members.ban(user);
   }
 })
 bot.login(TOKEN);
