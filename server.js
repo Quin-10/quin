@@ -24,15 +24,15 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}emotes`)) {
+  if (message.content.startsWith(`${prefix}emotes`)) {
     message.channel.send(
       "<:SURPRISED:719733158509281370><:LIKE:719733158332858499><:EYES:719733159608057866><:happy:719733157099733056><:check:719733159079575710><:K_:719733159297679400>these are my favorite emotes lol"
     );
   }
 });
-var prefix = "E/"
+var prefix = "E/";
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}nitro`)){
+  if (message.content.startsWith(`${prefix}nitro`)) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -43,9 +43,9 @@ bot.on("message", message => {
 
     message.channel.send(`${message.author}**${output}**!`);
   }
-})
+});
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}delete`)) {
+  if (message.content.startsWith(`${prefix}delete`)) {
     message.delete();
   }
 });
@@ -58,7 +58,7 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}dm`)) {
+  if (message.content.startsWith(`${prefix}dm`)) {
     message.member.send("there, I gave you a direct message, happy now?");
   }
 });
@@ -88,7 +88,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}roast`)){
+  if (message.content.startsWith(`${prefix}roast`)) {
     message.channel.send(
       `you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`
     );
@@ -103,70 +103,75 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}Reactcolor`)) {
-    message.delete()
+  if (message.content.startsWith(`${prefix}Reactcolor`)) {
+    message.delete();
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
-    .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
+      .setImage(
+        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258"
+      )
       .setTitle("Favorite colors")
       .setAuthor("mr circle")
       .setDescription("please chose your favorite color")
       .setThumbnail(
         "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396"
       );
- message.channel.send(exampleEmbed).then(sentMessage => {
-	sentMessage.react('🔴');
-   sentMessage.react('🟠');
-   sentMessage.react('🟡');
-   sentMessage.react('🟢');
-   sentMessage.react('🔵');
-   sentMessage.react('🟣');
-   sentMessage.react('🟤');
-   sentMessage.react('⚫');
-   sentMessage.react('⚪');
-    }
-                                            )
+    message.channel.send(exampleEmbed).then(sentMessage => {
+      sentMessage.react("🔴");
+      sentMessage.react("🟠");
+      sentMessage.react("🟡");
+      sentMessage.react("🟢");
+      sentMessage.react("🔵");
+      sentMessage.react("🟣");
+      sentMessage.react("🟤");
+      sentMessage.react("⚫");
+      sentMessage.react("⚪");
+    });
   }
-})
+});
 bot.on("message", message => {
-  if(message.content.startsWith(`${prefix}lol`)) {
-message.channel.send('lol').then((message)=>{ message.author.edit('hello') })
-  .then((message)=>{message.react('🟡') })
-  }
-})
-      bot.on("message", message => {
-  const infoWords = [ "@yahoo.com", "@gmail.com"];
-  if (infoWords.some(word => message.content.includes(word))) {
-message.delete();
-    message.member.send ('are you trying to leak your account?')
-  }
+  if (message.content.startsWith(`${prefix}lol`)) {
+    message.channel
+      .send("lol")
+      .then(message => {
+        message.author.edit("hello");
       })
-bot.on('message', function(message) {
-    // Now, you can use the message variable inside
-    if (message.content === "E/interval") { 
-        var interval = setInterval (function () {
-            // use the message's channel (TextChannel) to send a new message
-            message.channel.send("123")
-            .catch(console.error); // add error handling here
-        }, 1 *10000); 
-    }
+      .then(message => {
+        message.react("🟡");
+      });
+  }
+});
+bot.on("message", message => {
+  const infoWords = ["@yahoo.com", "@gmail.com"];
+  if (infoWords.some(word => message.content.includes(word))) {
+    message.delete();
+    message.member.send("are you trying to leak your account?");
+  }
+});
+bot.on("message", function(message) {
+  // Now, you can use the message variable inside
+  if (message.content === "E/interval") {
+    var interval = setInterval(function() {
+      // use the message's channel (TextChannel) to send a new message
+      message.channel.send("123").catch(console.error); // add error handling here
+    }, 1 * 10000);
+  }
 });
 
-bot.on('message', function(message) {
-    // Now, you can use the message variable inside
-     if(message.content.startsWith(`${prefix}daily`)){ 
-        var interval = setInterval (function () {
-            // use the message's channel (TextChannel) to send a new message
-            
-          message.channel.send("!d bump")
-            .catch(console.error); // add error handling here
-        }, 1 *120); 
-    }
+bot.on("message", function(message) {
+  // Now, you can use the message variable inside
+  if (message.content.startsWith(`${prefix}daily`)) {
+    var interval = setInterval(function() {
+      // use the message's channel (TextChannel) to send a new message
+
+      message.channel.send("!d bump").catch(console.error); // add error handling here
+    }, 1 * 120);
+  }
 });
 
 const start = Date.now();
 
-console.log('starting timer...');
+console.log("starting timer...");
 // expected output: starting timer...
 
 setTimeout(() => {
@@ -176,12 +181,18 @@ setTimeout(() => {
   // expected output : seconds elapsed = 2
 }, 2000);
 bot.on("message", message => {
-if(message.content.startsWith(`${prefix}say`)) {
-    var text = message.content.split(' ').slice(1).join(' ')
-    if(!text) return message.reply('Please give me some text to say! :)').then
-  if(message.content === (text)) {
-   message.channel.send(text)
-  }}
-})
+  if (message.content.startsWith(`${prefix}say`)) {
+    const glitchWords = ["E/say E/say"];
+    if (glitchWords.some(word => message.content.includes(word))) {
+      message.delete();
+    }
+    var text = message.content
+      .split(" ")
+      .slice(1)
+      .join(" ");
+    if (!text) return message.reply("what do you want to say?");
+    message.channel.send(text), "is what you wanted to say?";
+  }
+});
 
 bot.login(TOKEN);
