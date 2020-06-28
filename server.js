@@ -146,8 +146,11 @@ bot.on("message", message => {
   if (infoWords.some(word => message.content.includes(word))) {
     message.delete();
     message.member.send("are you trying to leak your account?");
+   if (message.content.startsWith(`${prefix}stop`)) {
+return
   }
-});
+  }
+})
 bot.on("message", function(message) {
   // Now, you can use the message variable inside
   if (message.content === "E/interval") {
