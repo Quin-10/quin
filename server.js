@@ -283,10 +283,11 @@ bot.on('message', function(message) {
     }
 });
 bot.on ("message", message => {
-if(message.content === "copycat") {
-    var text = message.content.split(' ').slice(1).join(' ')
-    if(!text) return message.reply('Please give me some text to say! :)')
-   message.channel.send(text)
-  }
+  if (message.content === 'say') {
+let msg = message.content.split ('say').join("")
+if (!msg)return message.channel.send('lol what message')
+    message.delete()
+  message.channel.send(msg)
+}
 })
 bot.login(TOKEN);
