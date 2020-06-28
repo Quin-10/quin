@@ -64,12 +64,11 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   const swearWords = ["dammit", "damn", "fuck", "nigga"];
-  const stopWord = ["E/stop"];
   if (swearWords.some(word => message.content.includes(word))) {
-    message.delete();
-
     message.member.send(
       `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
+      )
+    35573026816>`
     );
   }
 });
