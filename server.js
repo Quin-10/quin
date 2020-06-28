@@ -224,7 +224,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content === '``E/color``') {
+  if (message.content === 'E/color') {
+    message.delete()
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setTitle("Favorite colors")
@@ -234,14 +235,15 @@ bot.on("message", message => {
         "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396"
       );
  message.channel.send(exampleEmbed).then(sentMessage => {
-	sentMessage.react('');
-   sentMessage.react('');
-   sentMessage.react('');
-   sentMessage.react('');
-   sentMessage.react('');
-   sentMessage.react('');
-   sentMessage.react('');
-   sentMessage.react('');
+	sentMessage.react('🔴');
+   sentMessage.react('🟠');
+   sentMessage.react('🟡');
+   sentMessage.react('🟢');
+   sentMessage.react('🔵');
+   sentMessage.react('🟣');
+   sentMessage.react('🟤');
+   sentMessage.react('⚫');
+   sentMessage.react('⚪');
     }
                                             )
   }
