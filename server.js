@@ -24,15 +24,15 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content === "E/emotes") {
+  if(message.content.startsWith(`${prefix}emotes`)) {
     message.channel.send(
       "<:SURPRISED:719733158509281370><:LIKE:719733158332858499><:EYES:719733159608057866><:happy:719733157099733056><:check:719733159079575710><:K_:719733159297679400>these are my favorite emotes lol"
     );
   }
 });
-var prefix = "o"
+var prefix = "E/"
 bot.on("message", message => {
-  if (message.content === "E/nitro") {
+  if(message.content.startsWith(`${prefix}nitro`)){
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -45,7 +45,7 @@ bot.on("message", message => {
   }
 })
 bot.on("message", message => {
-  if (message.content === "E/delete") {
+  if(message.content.startsWith(`${prefix}delete`)) {
     message.delete();
   }
 });
@@ -58,7 +58,7 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content === "E/dm") {
+  if(message.content.startsWith(`${prefix}dm`)) {
     message.member.send("there, I gave you a direct message, happy now?");
   }
 });
@@ -88,7 +88,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content === "E/roast me") {
+  if(message.content.startsWith(`${prefix}roast`)){
     message.channel.send(
       `you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`
     );
@@ -103,7 +103,7 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content === 'E/Reacticolor') {
+  if(message.content.startsWith(`${prefix}Reactcolor`)) {
     message.delete()
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
@@ -129,7 +129,7 @@ bot.on("message", message => {
   }
 })
 bot.on("message", message => {
-  if (message.content === 'E/edit') {
+  if(message.content.startsWith(`${prefix}lol`)) {
 message.channel.send('lol').then((message)=>{ message.author.edit('hello') })
   .then((message)=>{message.react('🟡') })
   }
@@ -154,7 +154,7 @@ bot.on('message', function(message) {
 
 bot.on('message', function(message) {
     // Now, you can use the message variable inside
-    if (message.content === "E/daily404") { 
+     if(message.content.startsWith(`${prefix}daily`)){ 
         var interval = setInterval (function () {
             // use the message's channel (TextChannel) to send a new message
             
@@ -175,15 +175,11 @@ setTimeout(() => {
   console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
   // expected output : seconds elapsed = 2
 }, 2000);
-
 bot.on("message", message => {
-if(message.content ==='!finn') {
+if(message.content.startsWith(`${prefix}say`)) {
     var text = message.content.split(' ').slice(1).join(' ')
     if(!text) return message.reply('Please give me some text to say! :)')
-  if(message.content ===(text)) {
-  message.channel.send(text)
+   message.channel.send(text)
   }
-}}
-)
-
+})
 bot.login(TOKEN);
