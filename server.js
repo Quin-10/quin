@@ -282,6 +282,11 @@ bot.on('message', function(message) {
         }, 1 *120); 
     }
 });
-
-
+bot.on ("message", message => {
+if(message.content === "copycat") {
+    var text = message.content.split(' ').slice(1).join(' ')
+    if(!text) return message.reply('Please give me some text to say! :)')
+   message.channel.send(text)
+  }
+})
 bot.login(TOKEN);
