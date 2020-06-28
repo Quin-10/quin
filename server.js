@@ -284,10 +284,8 @@ bot.on('message', function(message) {
 });
 bot.on ("message", message => {
   if (message.content === 'say') {
-let msg = message.content.split ('say').join("")
-if (!msg)return message.channel.send('lol what message')
-    message.delete()
-  message.channel.send(msg)
+
+    
 }
 })
 bot.login(TOKEN);
