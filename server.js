@@ -179,7 +179,8 @@ bot.on("message", message => {
 if(message.content.startsWith(`${prefix}say`)) {
     var text = message.content.split(' ').slice(1).join(' ')
     if(!text) return message.reply('Please give me some text to say! :)')
+  if(message.content === (text)) {
    message.channel.send(text)
-  }
+  }}
 })
 bot.login(TOKEN);
