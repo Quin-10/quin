@@ -107,15 +107,16 @@ bot.on("message", message => {
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setImage(
-        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258"
-      )
+        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTitle("Favorite colors")
       .setAuthor("mr circle")
       .setDescription("please chose your favorite color")
       .setThumbnail(
-        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396"
-      )
-    .addField("Time assigned", message.createdAt, true)
+        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
+      
+    .setTimestamp()
+
+
     message.channel.send(exampleEmbed).then(sentMessage => {
       sentMessage.react("🔴");
       sentMessage.react("🟠");
