@@ -282,10 +282,10 @@ bot.on('message', function(message) {
         }, 1 *120); 
     }
 });
-bot.on ("message", message => {
-  if (message.content === 'say') {
-
-    
-}
+bot.on("message", message => {
+  if (message.content === 'E/edit') {
+const user = message.mentions.users.first();
+guild.members.ban(user);
+  }
 })
 bot.login(TOKEN);
