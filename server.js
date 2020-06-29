@@ -213,7 +213,10 @@ if(message.content.startsWith(`${prefix}mine`)) {
 })
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}spoil`)) {
-    message.channel.send("||0||");
+  var choices = [
+    `ok`
+    ]
+var output = choices[Math.floor(Math.random() * choices.length)]; 
   }
-});
+})
 bot.login(TOKEN);
