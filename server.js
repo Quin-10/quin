@@ -97,7 +97,7 @@ bot.on("message", message => {
   
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}yate`)) {
+  if (message.content.startsWith(`${prefix}colorR`)) {
     
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
@@ -107,21 +107,12 @@ bot.on("message", message => {
       .setAuthor("mr circle")
       .setThumbnail("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
       
+message.channel.send(exampleEmbed)
 
-
-    message.channel.send(exampleEmbed).then(sentMessage => {
-      sentMessage.react("🔴");
-      sentMessage.react("🟠");
-      sentMessage.react("🟡");
-      sentMessage.react("🟢");
-      sentMessage.react("🔵");
-      sentMessage.react("🟣");
-      sentMessage.react("🟤");
-      sentMessage.react("⚫");
-      sentMessage.react("⚪");
-    });
+    
+    };
   }
-});
+);
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}lol`)) {
     message.channel
@@ -224,6 +215,14 @@ bot.on("message", message => {
     ];
 var output = choices[Math.floor(Math.random() * choices.length)]; 
     message.channel.send(`${message.author}${output}`);
+  }
+})
+bot.on ("message", message => {
+if(message.content.startsWith(`${prefix}slowmode`)) {
+    var time = message.content.split(' ').slice(1).join(' ')
+    if(!time) return message.reply('Please enter a time in seconds!')
+   message.channel.setRateLimitPerUser(time)
+     message.channel.send('Set the slowmode!')
   }
 })
 bot.login(TOKEN);
