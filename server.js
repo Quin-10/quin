@@ -197,49 +197,50 @@ if(message.content.startsWith(`${prefix}mine`)) {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}number`)) {
   var choices = [
-    `\n [**01**]`,
-`\n [**02**]`,
-`\n [**03**]`,
-`\n [**04**]`,
-`\n [**05**]`,
-`\n [**06**]`,
-`\n [**07**]`,
-`\n [**08**]`,
-`\n [**09**]`,
-`\n [**10**]`,
+    ` [**01**]`,
+` [**02**]`,
+` [**03**]`,
+` [**04**]`,
+` [**05**]`,
+` [**06**]`,
+` [**07**]`,
+` [**08**]`,
+` [**09**]`,
+` [**10**]`,
     ]
-    
+    var output3 = choices[Math.floor(Math.random() * choices.length)]; 
   var choices = [
-    `\n [**01**]`,
-`\n [**02**]`,
-`\n [**03**]`,
-`\n [**04**]`,
-`\n [**07**]`,
-`\n [**10**]`,
-`\n [**01**]`,
-`\n [**08**]`,
-`\n [**09**]`,
-`\n [**10**]`,
+    ` [**05**]`,
+` [**06**]`,
+` [**03**]`,
+` [**09**]`,
+` [**07**]`,
+` [**10**]`,
+` [**01**]`,
+` [**08**]`,
+` [**10**]`,
+` [**02**]`,
 
 
     ];
-    
+var output2 = choices[Math.floor(Math.random() * choices.length)];     
     var choices = [
-    `\n [**02**]`,
-`\n [**10**]`,
-`\n [**06**]`,
-`\n [**07**]`,
-`\n [**05**]`,
-`\n [**01**]`,
-`\n [**09**]`,
-`\n [**04**]`,
-`\n [**03**]`,
-`\n [**08**]`,
+    ` [**02**]`,
+` [**10**]`,
+` [**06**]`,
+` [**07**]`,
+` [**05**]`,
+` [**01**]`,
+` [**09**]`,
+` [**04**]`,
+` [**03**]`,
+` [**08**]`,
 
 
     ];
 var output = choices[Math.floor(Math.random() * choices.length)]; 
-    message.channel.send(`${message.author}${output}${output}${output}`);
+    
+    message.channel.send(`${message.author}\n\n${output3}${output2}${output}`);
     
   }
 })
