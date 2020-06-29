@@ -97,6 +97,8 @@ bot.on("message", message => {
   
 
 bot.on("message", message => {
+  //will needs to edit this part ⬇️
+  
   if (message.content.startsWith(`${prefix}coler`)) {   
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
