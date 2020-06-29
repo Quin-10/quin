@@ -200,4 +200,15 @@ bot.users.get(message.guild.members.random())
 
 }
 })
+bot.on("message", message => {
+if(message.content.startsWith(`${prefix}mine`)) {
+  const Minesweeper = require('discord.js-minesweeper');
+    
+    const minesweeper = new Minesweeper({
+      returnType: 'emoji'
+    });
+    var mines = minesweeper.start()
+    message.channel.send(mines)
+}
+})
 bot.login(TOKEN);
