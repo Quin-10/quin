@@ -97,7 +97,7 @@ bot.on("message", message => {
   
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}Reactcolor`)) {
+  if (message.content.startsWith(`${prefix}Reactcol`)) {
     message.delete();
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
@@ -177,12 +177,8 @@ setTimeout(() => {
 }, 2000);
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}say`)) {
-    const glitchWords = ["E/say E/say"];
-    if (glitchWords.some(word => message.content.includes(word))) {
-      return
-      message.delete();
-      
-    }
+    
+    
     var text = message.content
       .split(" ")
       .slice(1)
