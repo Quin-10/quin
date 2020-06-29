@@ -52,7 +52,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   if (message.content === "E/") {
     message.channel.send(
-      `${message.author.avatarUrl}  umm I hate to burst your bubble but... there's a command missing`
+      `${message.author}  umm I hate to burst your bubble but... there's a command missing`
     );
   }
 });
@@ -94,12 +94,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const key = ["@someone"];
-  if (key.some(word => message.content.includes(word))) {
-    const someone = bot.users.get(message.guild.members.random().id).id;
-    message.channel.send(`<@${someone}>`);
-  }
-});
+  
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}Reactcolor`)) {
@@ -194,8 +189,7 @@ bot.on("message", message => {
       .join(" ");
     if (!text) return message.reply("what do you want to say?");
     message.channel.send(`${text}, is what you wanted to say?`)
-    
-  }
+  }}
+)
 })
-
 bot.login(TOKEN);
