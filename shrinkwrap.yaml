@@ -1,5 +1,6 @@
 dependencies:
   discord.js: 12.2.0
+  discord.js-minesweeper: 1.0.5
   express: 4.17.1
 packages:
   /@discordjs/collection/0.1.5:
@@ -118,6 +119,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+  /discord.js-minesweeper/1.0.5:
+    dev: false
+    engines:
+      node: '>=8.0.0'
+    resolution:
+      integrity: sha512-1aKwIH4rsb1UBDmZ31cAX1FI6TKENZuNIKhhB9vQHSHMEirIf45g/gC/OhmeYiO/IimvNmzesK3eDaWXRjyKxA==
   /discord.js/12.2.0:
     dependencies:
       '@discordjs/collection': 0.1.5
@@ -495,4 +502,5 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   discord.js: ^12.2.0
+  discord.js-minesweeper: ^1.0.5
   express: ^4.17.1
