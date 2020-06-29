@@ -52,7 +52,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   if (message.content === "E/") {
     message.channel.send(
-      `${message.author} umm I hate to burst your bubble but... there's a command missing`
+      `${message.author.avatarUrl}  umm I hate to burst your bubble but... there's a command missing`
     );
   }
 });
