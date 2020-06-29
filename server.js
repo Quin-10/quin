@@ -97,30 +97,30 @@ bot.on("message", message => {
   
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}color`)) {
-    
+  if (message.content.startsWith(`${prefix}color`)) {   
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
-      .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
-      .setTimestamp()
-      .setTitle("Favorite yes")
+      .setTitle("Favorite colors")
       .setAuthor("mr circle")
-      .setThumbnail("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
-      .then(sentMessage => {
-    sentMessage.react("🔴");
-      sentMessage.react("🟠");
-      sentMessage.react("🟡");
-      sentMessage.react("🟢");
-      sentMessage.react("🔵");
-      sentMessage.react("🟣");
-      sentMessage.react("🟤");
-      sentMessage.react("⚫");
-      sentMessage.react("⚪");
-message.channel.send(exampleEmbed)
-      })
-  }}
-)
+      .setDescription("please chose your favorite color")
+      .setThumbnail(
+        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396"
+      );
+    message.channel.send(exampleEmbed)
+    message.react('🤙')
+      .then(() => message.react("🟠"))
+      .then(() => message.react("🟡"))
+      .then(() => message.react("🟢"))
+      .then(() => message.react("🔵"))
+      .then(() => message.react("🟣"))
+      .then(() => message.react("🟤"))
+      .then(() => message.react("⚫"))
+      .then(() => message.react("⚪"))
+      .catch(() => console.error("One of the emojis failed to react."));
+  }
+});
 
+  
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}lol`)) {
     message.channel
