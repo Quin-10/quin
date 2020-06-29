@@ -73,7 +73,7 @@ bot.on("message", message => {
 })
 bot.on("message", message => {
   const meanWords = [
-    "your a dumb bot",
+    "your a dumb bot", 
     "I hate mr circle",
     "<@711610924489769078> you suck",
     "boo"
@@ -97,17 +97,16 @@ bot.on("message", message => {
   
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}Reactcol`)) {
-    message.delete();
+  if (message.content.startsWith(`${prefix}yate`)) {
+    
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTimestamp()
       .setTitle("Favorite colors")
       .setAuthor("mr circle")
-      .setDescription("please chose your favorite color")
       .setThumbnail("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
-      .setFooter('lel')
+      
 
 
     message.channel.send(exampleEmbed).then(sentMessage => {
