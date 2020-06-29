@@ -93,27 +93,36 @@ bot.on("message", message => {
     );
   }
 });
-bot.on("message", message => {
-  
 
-bot.on("message", message => {
-  //will needs to edit this part ⬇️
-  
-  if (message.content.startsWith(`${prefix}coler`)) {   
+  bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}colorReact`)) {
+    
     const exampleEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
+      .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
+      .setTimestamp()
       .setTitle("Favorite colors")
       .setAuthor("mr circle")
       .setDescription("please chose your favorite color")
-    .setImage('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258')
-      .setThumbnail(
-        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396"
-      );
-    
-    message.channel.send(exampleEmbed)
-    
+      .setThumbnail("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
+      .setFooter('lel')
+      message.channel.send(exampleEmbed).then(sentMessage => {
+      sentMessage.react("🔴");
+      sentMessage.react("🟠");
+      sentMessage.react("🟡");
+      sentMessage.react("🟢");
+      sentMessage.react("🔵");
+      sentMessage.react("🟣");
+      sentMessage.react("🟤");
+      sentMessage.react("⚫");
+      sentMessage.react("⚪");
+    });
   }
-})
+});
+
+
+    
+ 
   
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}lol`)) {
@@ -156,24 +165,15 @@ bot.on("message", function(message) {
   }
 });
 
-const start = Date.now();
 
-console.log("starting timer...");
-// expected output: starting timer...
-
-setTimeout(() => {
-  const millis = Date.now() - start;
-
-  console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
   // expected output : seconds elapsed = 2
-}, 2000);
   bot.on("message", message => {
 if(message.content.startsWith(`${prefix}say`)) {
   var text = message.content.split(' ').slice(1).join(' ');
   if(!text) return message.reply("Incorrect Usage. Ex. !l say hi");
    message.channel.send(text);
  }})
-})
+
 
 
 bot.on('message', message => {
