@@ -195,7 +195,7 @@ if(message.content.startsWith(`${prefix}mine`)) {
 }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}number`)) {
+  if (message.content.startsWith(`${prefix}slots`)) {
   var choices = [
     ` [**01**]`,
 ` [**02**]`,
@@ -240,10 +240,10 @@ var output2 = choices[Math.floor(Math.random() * choices.length)];
     ];
 var output = choices[Math.floor(Math.random() * choices.length)]; 
     
-    message.channel.send(`${message.author}\n🟦🟦🟦🟦🟦\n🟦${output3}      🟦\n🟦${output2}      🟦\n🟦${output}      🟦\n🟦🟦🟦🟦🟦`);
-    
-  }
-})
+    message.channel.send(`${message.author} ooh lets see what you got\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`);
+    const slotWords = ["888", "555", "333", "444", "222", "999", "777"];
+  if (slotWords.some(word => message.content.includes(word))) {
+  message.channel.send(`omg`)
 bot.on ("message", message => {
 if(message.content.startsWith(`${prefix}slowmode`)) {
     var time = message.content.split(' ').slice(1).join(' ')
