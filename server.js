@@ -244,11 +244,15 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on ("message", message => {
-if(message.content.startsWith(`${prefix}slowmode`)) {
-    var time = message.content.split(' ').slice(1).join(' ')
-    if(!time) return message.reply('Please enter a time in seconds!')
-   message.channel.setRateLimitPerUser(time)
-     message.channel.send('Set the slowmode!')
-  }
+const filter = m => m.content.includes('discord');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+
+collector.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+
+collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
 })
+});
 bot.login(TOKEN);
