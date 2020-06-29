@@ -214,12 +214,21 @@ if(message.content.startsWith(`${prefix}mine`)) {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}spoil`)) {
   var choices = [
-    `\n ||   01   |`,
+    `\n [**01**]`,
+`\n [**02**]`,
+`\n [**03**]`,
+`\n [**04**]`,
+`\n [**05**]`,
+`\n [**06**]`,
+`\n [**07**]`,
+`\n [**08**]`,
+`\n [**09**]`,
+`\n [**10**]`,
 
 
     ];
 var output = choices[Math.floor(Math.random() * choices.length)]; 
-    message.channel.send(`${message.author}**${output}**`);
+    message.channel.send(`${message.author}${output}`);
   }
 })
 bot.login(TOKEN);
