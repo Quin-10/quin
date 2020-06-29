@@ -240,7 +240,7 @@ var output2 = choices[Math.floor(Math.random() * choices.length)];
     ];
 var output = choices[Math.floor(Math.random() * choices.length)]; 
     
-    message.channel.send(`${message.author}\n\n${output3}${output2}${output}`);
+    message.channel.send(`${message.author}\n🟦🟦🟦🟦🟦\n🟦${output3}      🟦\n🟦${output2}      🟦\n🟦${output}      🟦\n🟦🟦🟦🟦🟦`);
     
   }
 })
