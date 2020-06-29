@@ -211,4 +211,9 @@ if(message.content.startsWith(`${prefix}mine`)) {
     message.channel.send(mines)
 }
 })
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}spoil`)) {
+    message.channel.send("||0||");
+  }
+});
 bot.login(TOKEN);
