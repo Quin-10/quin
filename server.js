@@ -214,9 +214,10 @@ if(message.content.startsWith(`${prefix}mine`)) {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}spoil`)) {
   var choices = [
-    `ok`
-    ]
+    `\n \n ok`
+    ];
 var output = choices[Math.floor(Math.random() * choices.length)]; 
+    message.channel.send(`${message.author}**${output}**!`);
   }
 })
 bot.login(TOKEN);
