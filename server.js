@@ -173,20 +173,15 @@ setTimeout(() => {
   console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
   // expected output : seconds elapsed = 2
 }, 2000);
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}say`)) {
-    
-    
-    var text = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    if (!text) return message.reply("what do you want to say?");
-    message.channel.send(`${text}, is what you wanted to say?`)
-    
-  }}
-)
+  bot.on("message", message => {
+if(message.content.startsWith(`${prefix}say`)) {
+  var text = message.content.split(' ').slice(1).join(' ');
+  if(!text) return message.reply("Incorrect Usage. Ex. !l say hi");
+   message.channel.send(text);
+ }})
 })
+
+
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}someone`)) {
 bot.users.get(message.guild.members.random())
