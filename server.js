@@ -212,7 +212,7 @@ if(message.content.startsWith(`${prefix}mine`)) {
 }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}spoil`)) {
+  if (message.content.startsWith(`${prefix}number`)) {
   var choices = [
     `\n [**01**]`,
 `\n [**02**]`,
