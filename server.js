@@ -189,7 +189,15 @@ bot.on("message", message => {
       .join(" ");
     if (!text) return message.reply("what do you want to say?");
     message.channel.send(`${text}, is what you wanted to say?`)
+    
   }}
 )
+})
+bot.on('message', message => {
+  if (message.content.startsWith(`${prefix}someone`)) {
+bot.users.get(message.guild.members.random())
+    message.channel.send(``)
+
+}
 })
 bot.login(TOKEN);
