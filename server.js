@@ -148,7 +148,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const infoWords = ["@yahoo.com", "@gmail.com"];
   if (infoWords.some(word => message.content.includes(word))) {
-    message.delete();
+    message.delete();return
     message.member.send("are you trying to leak your account?");
    
   }
