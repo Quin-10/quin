@@ -148,7 +148,8 @@ bot.on("message", message => {
 bot.on("message", message => {
   const infoWords = ["@yahoo.com", "@gmail.com"];
   if (infoWords.some(word => message.content.includes(word))) {
-    message.delete();return
+    return
+    message.delete();
     message.member.send("are you trying to leak your account?");
    
   }
@@ -178,9 +179,9 @@ bot.on("message", function(message) {
   // expected output : seconds elapsed = 2
   bot.on("message", message => {
 if(message.content.startsWith(`${prefix}say`)) {
-  var text = message.content.split(' ').slice(1).join(' ');
-  if(!text) return message.reply("Incorrect Usage. Ex. !l say hi");
-   message.channel.send(text);
+  var tex = message.content.split(' ').slice(1).join(' ');
+  if(!tex) return message.reply("Incorrect Usage. Ex. !l say hi");
+   message.channel.send(tex);
  }})
 
 
