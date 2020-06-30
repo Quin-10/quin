@@ -253,5 +253,17 @@ var output = choices[Math.floor(Math.random() * choices.length)];
     message.channel.send(`${message.author} ooh lets see what you got\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`);
   }
 })
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}nitro`)) {
+    var choices = [
+      "2020 may be hard but if you come this far you’ll get passed that part",
+      "If you ever are hated for no reason, just remember: only less than 1% of the world hates you. there are lots of opportunity",
+      "there will probably be a bad thing that occurs every month of 2020 so be prepeard for the worst",
+      "don't be a "
+    ];
+    var output = choices[Math.floor(Math.random() * choices.length)];
 
+    message.channel.send(`${message.author}**${output}**!`);
+  }
+});
 bot.login(TOKEN);
