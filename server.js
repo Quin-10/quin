@@ -253,16 +253,5 @@ var output = choices[Math.floor(Math.random() * choices.length)];
     message.channel.send(`${message.author} ooh lets see what you got\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`);
   }
 })
-bot.on ("message", message => {
-const filter = m => m.content.includes('discord');
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
-collector.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-});
-
-collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-})
-});
 bot.login(TOKEN);
