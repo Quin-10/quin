@@ -267,7 +267,8 @@ bot.on("message", message => {
       "anyone who dislike bombs someone's video, don't deserve there accounts",
       "at least `1` person can relate to you what your going through",
       "don't be toxic",
-      ""
+      "the previous fortune cookie is true",
+     
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 
