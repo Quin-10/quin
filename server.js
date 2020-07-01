@@ -288,4 +288,7 @@ bot.on('message', message => {
 message.channel.send(exampleEmbed1)
   }
 })
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}hype`)) {
+    message.channel.send{}
 bot.login(TOKEN);
