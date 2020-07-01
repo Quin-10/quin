@@ -288,5 +288,10 @@ bot.on('message', message => {
 message.channel.send(exampleEmbed1)
   }
 })
-
+bot.on('message', message => {
+  if (message.content.startsWith(`${prefix}announce`)) {
+let channel = message.mentions.channels.first()
+message.channel.send(`ok then `)
+  }
+})
 bot.login(TOKEN);
