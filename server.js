@@ -148,7 +148,6 @@ bot.on("message", message => {
 bot.on("message", message => {
   const infoWords = ["@yahoo.com", "@gmail.com"];
   if (infoWords.some(word => message.content.includes(word))) {
-    return
     message.delete();
     message.member.send("are you trying to leak your account?");
    
@@ -294,9 +293,15 @@ let channel = message.mentions.channels.first()
 message.channel.send(`ok then `)
   }
 })
-bot.on('message', message => {
-  
-    
-  }
-})
+bot.on('message', message => {   
+if (message.content.startsWith(`${prefix}safetyoff`)) {
+const infoWords = ["@yahoo.com", "@gmail.com"];
+  if (infoWords.some(word => message.content.includes(word))) {
+    return
+    message.delete();
+    message.member.send("are you trying to leak your account?");
+}
+}
+}
+)
 bot.login(TOKEN);
