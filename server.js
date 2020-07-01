@@ -283,6 +283,7 @@ bot.on('message', message => {
   if (message.content.startsWith(`${prefix}time`)) {
     const exampleEmbed1 = new Discord.MessageEmbed()
 .setTimestamp()
+
 .setFooter('here is the time')
 message.channel.send(exampleEmbed1)
   }
