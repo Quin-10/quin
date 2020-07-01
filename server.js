@@ -254,7 +254,7 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}`)) {
+  if (message.content.startsWith(`${prefix}fortune`)) {
     var choices = [
       "2020 may be hard but if you come this far you’ll get passed that part",
       "If you ever are hated for no reason, just remember: only less than 1% of the world hates you. there are lots of opportunity",
@@ -271,7 +271,7 @@ bot.on("message", message => {
       "everyone needs there day :)",
       "we all tend to be squidward someday",
       "at least one person loves you",
-      '777 is lucky'
+      '777 is lucky' 
      
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
