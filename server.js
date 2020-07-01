@@ -279,4 +279,11 @@ bot.on("message", message => {
     message.channel.send(`${message.author}, here is your fortune: **${output}**!`);
   }
 });
+bot.on('message', message => {
+  if (message.content.startsWith(`${prefix}time`)) {
+    const exampleEmbed1 = new Discord.MessageEmbed()
+.setTimestamp()
+message.channel.send(exampleEmbed1)
+  }
+})
 bot.login(TOKEN);
