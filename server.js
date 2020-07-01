@@ -259,7 +259,15 @@ bot.on("message", message => {
       "2020 may be hard but if you come this far you’ll get passed that part",
       "If you ever are hated for no reason, just remember: only less than 1% of the world hates you. there are lots of opportunity",
       "there will probably be a bad thing that occurs every month of 2020 so be prepeard for the worst",
-      "don't be a "
+      "don't be afraid to try new things",
+      "If someone's hates your opinion, they're probably not good people (unless if your opinion has anything to do with something bad and liking that bad thing)",
+      "most of the things that you learn in school are probably useless but don't wory, a lot of people felt that way too",
+      "if your a man and your reading this quote, if a woman pushes you and you feel offended and you just want to push her back, go for it, stand for your gender!",
+      "not everyone has a good day",
+      "anyone who dislike bombs someone's video, don't deserve there accounts",
+      "at least `1` person can relate to you what your going through",
+      "don't be toxic",
+      ""
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 
