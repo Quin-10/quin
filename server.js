@@ -254,7 +254,7 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}nitro`)) {
+  if (message.content.startsWith(`${prefix}`)) {
     var choices = [
       "2020 may be hard but if you come this far you’ll get passed that part",
       "If you ever are hated for no reason, just remember: only less than 1% of the world hates you. there are lots of opportunity",
@@ -268,11 +268,15 @@ bot.on("message", message => {
       "at least `1` person can relate to you what your going through",
       "don't be toxic",
       "the previous fortune cookie is true",
+      "everyone needs there day :)",
+      "we all tend to be squidward someday",
+      "at least one person loves you",
+      '777 is lucky'
      
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 
-    message.channel.send(`${message.author}**${output}**!`);
+    message.channel.send(`${message.author}, here is your fortune: **${output}**!`);
   }
 });
 bot.login(TOKEN);
