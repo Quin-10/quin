@@ -296,7 +296,7 @@ message.channel.send(`ok then `)
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}avatar`)) {
-bot.user.setAvatar(`{Url}`);
+
   }
 })
 bot.login(TOKEN);
