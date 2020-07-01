@@ -180,7 +180,7 @@ bot.on("message", function(message) {
   bot.on("message", message => {
 if(message.content.startsWith(`${prefix}say`)) {
   var tex = message.content.split(' ').slice(1).join(' ');
-  if(!tex) return message.reply("Incorrect Usage. Ex. !l say hi");
+  if(tex) return message.reply("Incorrect Usage. Ex. !l say hi");
    message.channel.send(tex);
  }})
 
