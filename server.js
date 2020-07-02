@@ -185,10 +185,12 @@ if(message.content.startsWith(`${prefix}say`)) {
  }})
 
 bot.on('message', message => {
-  
-  if (key.some(word = message.content.includes(word))) {
-bot.users.get(message.guild.members.random()
-  message.channel.send(`${someone}`)
+  const sWords = [`someone`];
+  if (sWords.some(word => message.content.includes(word))) {
+bot.users.get(message.guild.members.random())  
+  message.channel.send(`someone`)
+  }
+})
 
 bot.on("message", message => {
 
