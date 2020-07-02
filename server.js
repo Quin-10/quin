@@ -311,44 +311,8 @@ bot.on('message', message => {
   message.channel.send(`**Mr circle** server count: ${message.guilds.cache.size} servers!`);
 	}
 })
-bot.on('message', message => {
-  if (message.content.startsWith(``)) {
-let score;
-    if (message.guild) {
-        score = bot.getScore.get(message.author.id, message.guild.id);
-        if (!score) {
-            score = {
-                id: `${message.guild.id}-${message.author.id}`,
-                user: message.author.id,
-                guild: message.guild.id,
-                points: 0,
-                level: 1,
-            };
-        }
-        const xpAdd = Math.floor(Math.random() * 10) + 50;
-        const curxp = score.points;
-        const curlvl = score.level;
-        const nxtLvl = score.level * 5000;
-        score.points = curxp + xpAdd;
-        if (nxtLvl <= score.points) {
-            score.level = curlvl + 1;
-            const lvlup = new Discord.MessageEmbed()
-                .setAuthor(
-                    `Congrats ${message.author.username}`,
-                    message.author.displayAvatarURL()
-                )
-                .setTitle('You have leveled up!')
-                .setThumbnail('https://i.imgur.com/lXeBiMs.png')
-         
-                .addField('New Level', curlvl + 1);
-            message.channel.send(lvlup).then(msg => {
-                msg.delete({
-                    timeout: 1000,
-                });
-            });
-        }
-        bot.setScore.run(score);
-    }
-  }
-})
+
+
+
+
 bot.login(TOKEN);
