@@ -185,10 +185,9 @@ if(message.content.startsWith(`${prefix}say`)) {
  }})
 
 bot.on('message', message => {
-  const sWords = [`someone`];
-  if (sWords.some(word => message.content.includes(word))) {
-bot.users.get(message.guild.members.random())  
-  message.channel.send(`someone`)
+  if(message.content.startsWith(`${prefix}someone`)) {
+const someone = (message.guild.members.random())  
+  message.channel.send(`${someone}`)
   }
 })
 
@@ -306,7 +305,7 @@ bot.on('message', message => {
 if (message.content.startsWith(`${prefix}ban`)) {
   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
     const user = message.mentions.users.first();
-message.guild.members.ban(user);
+  message.guild.members.ban(user);
     }}
 )
 bot.on('message', message => {
