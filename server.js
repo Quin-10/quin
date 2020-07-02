@@ -315,7 +315,8 @@ bot.on('message', message => {
 	}
 })
 
-
-
+bot.on('message', message => {
+bot.users.get(message.guild.members.random())
+  message.channel.send(`someone`)
 
 bot.login(TOKEN);
