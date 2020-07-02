@@ -297,7 +297,7 @@ message.channel.send(`ok then `)
 bot.on('message', message => {   
 if (message.content.startsWith(`${prefix}avatar10292810289201ggok`)) {
   message.delete()
-bot.user.Avatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F5857818D-54B3-443D-BEED-5E13FE31B038.jpeg?v=1593643313203')
+bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F5857818D-54B3-443D-BEED-5E13FE31B038.jpeg?v=1593643313203')
 }}
 )
 bot.on('message', message => {
