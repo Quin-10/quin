@@ -303,8 +303,8 @@ bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%
 }}
 )
 bot.on('message', message => {
-if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms')
-  if (message.content.startsWith(`${prefix}ban`)) {
+if (message.content.startsWith(`${prefix}ban`)) {
+  if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
     const user = message.mentions.users.first();
 message.guild.members.ban(user);
     }}
