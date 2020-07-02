@@ -306,7 +306,7 @@ if (message.content.startsWith(`${prefix}ban`)) {
  const user = message.mentions.users.first();
   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
   let reason = message.content.split(' ').slice(1).join(' ');
-  if(reason == undefined)
+  if(reason === undefined) reason = 'unknown'
 message.guild.members.ban(user);
 }
 })
