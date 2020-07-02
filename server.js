@@ -332,7 +332,7 @@ let score;
         score.points = curxp + xpAdd;
         if (nxtLvl <= score.points) {
             score.level = curlvl + 1;
-            const lvlup = new MessageEmbed()
+            const lvlup = new Discord.MessageEmbed()
                 .setAuthor(
                     `Congrats ${message.author.username}`,
                     message.author.displayAvatarURL()
@@ -343,7 +343,7 @@ let score;
                 .addField('New Level', curlvl + 1);
             message.channel.send(lvlup).then(msg => {
                 msg.delete({
-                    timeout: 10000,
+                    timeout: 1000,
                 });
             });
         }
