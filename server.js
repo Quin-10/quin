@@ -184,16 +184,16 @@ if(message.content.startsWith(`${prefix}say`)) {
    message.channel.send(tex);
  }})
 
-
-
 bot.on('message', message => {
-  if (message.content.startsWith(`${prefix}someone`)) {
-bot.users.get(message.guild.members.random())
-    message.channel.send(``)
+  
+  if (key.some(word = message.content.includes(word))) {
+bot.users.get(message.guild.members.random()
+  message.channel.send(`${someone}`)
 
-}
-})
 bot.on("message", message => {
+
+
+
 if(message.content.startsWith(`${prefix}mine`)) {
   const Minesweeper = require('discord.js-minesweeper');
     
