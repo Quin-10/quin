@@ -308,7 +308,7 @@ message.guild.members.ban(user);
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}stats1`)) {
-  message.channel.send(`Server count: ${bot.guilds.cache.size}`);
+  message.channel.send(`How many servers I'm in: ${message.author.guilds.cache.size}`);
 	}
 })
 
