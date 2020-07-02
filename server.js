@@ -304,9 +304,10 @@ bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%
 )
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}ban`)) {
+    if (user.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) {
     const user = message.mentions.users.first();
 message.guild.members.ban(user);
-  }
+    }}
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}stats1`)) {
