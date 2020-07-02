@@ -114,7 +114,7 @@ bot.on("message", message => {
     .addField('black = ⚫', true)
     .addField('white = ⚪', true)
       .setThumbnail("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
-      .setFooter('lel')
+      .setFooter('<:Diamondgemtoken:723417011094552656>')
       message.channel.send(exampleEmbed).then(sentMessage => {
       sentMessage.react("🔴");
       sentMessage.react("🟠");
@@ -306,4 +306,7 @@ bot.on('message', message => {
 message.guild.members.ban(user);
   }
 })
+return message.channel.send(`Server count: ${client.guilds.cache.size}`);
+	}
+});
 bot.login(TOKEN);
