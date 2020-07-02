@@ -306,7 +306,10 @@ bot.on('message', message => {
 message.guild.members.ban(user);
   }
 })
-return message.channel.send(`Server count: ${client.guilds.cache.size}`);
+bot.on('message', message => {
+  if (message.content.startsWith(`${prefix}stats1`)) {
+  message.channel.send(`Server count: ${bot.guilds.cache.size}`);
 	}
-});
+})
+
 bot.login(TOKEN);
