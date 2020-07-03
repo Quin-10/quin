@@ -330,7 +330,7 @@ bot.on('message', message => {
 })
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}GiveRole`)) {
-const role = message.guild.roles.cache.find(role => role.name === message.mention.roles.first())
+const role = message.mention.guild.roles.first()
 const member = message.mentions.members.first();
 member.roles.add(role).then
   message.channel.send('ok I gave the role to the user you mentioned')
