@@ -290,9 +290,10 @@ message.channel.send(exampleEmbed1)
   }
 })
 bot.on('message', message => {
-  if (message.content.startsWith(`${prefix}announce`)) {
-let channel = message.mentions.channels.first()
-message.channel.send(`ok then, what would you like me to say? `)
+  if (message.content.startsWith(`${prefix}announce`,`channel`)) {
+var announce = message.content.split(' ').slice(1).join(' ');
+    let channel = message.mentions.channels.first()
+channel.send(announce)
   }
 })
 bot.on('message', message => {   
