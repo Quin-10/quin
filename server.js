@@ -313,6 +313,7 @@ const exampleEmbed2 = new Discord.MessageEmbed()
 .setTitle('**YOU GOT BANNED**')
 .setDescription("REASON:", reason)
 .addField("Name", user)
+.addImage("")
 }
 })
 bot.on('message', message => {
