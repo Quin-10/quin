@@ -292,7 +292,7 @@ message.channel.send(exampleEmbed1)
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}announce`)) {
 let channel = message.mentions.channels.first()
-channel.send(`ok then `)
+message.channel.send(`ok then, what would you like me to say? `)
   }
 })
 bot.on('message', message => {   
