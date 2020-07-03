@@ -306,15 +306,15 @@ if (message.content.startsWith(`${prefix}ban`)) {
  const user = message.mentions.users.first();
   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
   let reason = message.content.split(' ').slice(1).join(' ');
-  if(reason === undefined) reason = 'unknown'
+  
 message.guild.members.ban(user)
 const exampleEmbed2 = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTimestamp()
-      .setTitle("Favorite colors")
+      .setTitle("got banned", user)
       .setAuthor("mr circle")
-      .setDescription(`REASON:`, reason)
+      .setDescription('REASON:', reason)
 message.channel.send(exampleEmbed2)
 
 }
