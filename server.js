@@ -328,6 +328,12 @@ bot.on('message', message => {
   message.channel.send(`**Mr circle** server count: ${bot.guilds.cache.size} servers!`);
 	}
 })
-
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}GiveRole`)) {
+var role = message.guild.roles.find(role => role.name === (message.mention.roles.first))
+var member = message.mention.member.first()
+message.member.addRole(role);
+}
+})
 
 bot.login(TOKEN);
