@@ -308,14 +308,15 @@ if (message.content.startsWith(`${prefix}ban`)) {
   let reason = message.content.split(' ').slice(1).join(' ');
   
 message.guild.members.ban(user)
-  const exampleEmbed = new Discord.MessageEmbed()
+  const exampleEmbedlol = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTimestamp()
-      .setTitle("Favorite colo")
+      .setTitle("he/she got banned")
       .setAuthor("mr circle")
-      .setDescription("please chose your favorite color")
-
+  .addField(reason)
+      .setDescription("Reason")
+message.channel.send(exampleEmbedlol)
 }
 })
 bot.on('message', message => {
