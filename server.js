@@ -291,7 +291,6 @@ message.channel.send(exampleEmbed1)
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}announce`)) {
-if (!message.member.hasPermission(['ADMINISTRATOR'])) return
     var announce = message.content.split('').slice(1).join('');
     let channel = message.mentions.channels.first()
 channel.send(announce)
