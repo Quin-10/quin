@@ -310,7 +310,9 @@ if (message.content.startsWith(`${prefix}ban`)) {
 message.guild.members.ban(user);
   message.channel.send(`${user} has been succesfuly banned!`)
 const exampleEmbed2 = new Discord.MessageEmbed()
-.setTitle()
+.setTitle('**YOU GOT BANNED**')
+.setDescription("REASON:", reason)
+.addField("Name", user)
 }
 })
 bot.on('message', message => {
