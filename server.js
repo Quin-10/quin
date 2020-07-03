@@ -315,6 +315,7 @@ message.guild.members.ban(user)
       .setAuthor("from: Mr circle")
   .addField('banned for:',reason)
   .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F3699BA8D-4C6F-493A-85DB-547F84B7C1F6.gif?v=1593739244463')
+  .setDescription(`requested by:${message.author}`)
 message.channel.send(exampleEmbedlol)
 }
 })
