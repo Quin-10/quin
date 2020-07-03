@@ -312,17 +312,14 @@ if (message.content.startsWith(`${prefix}ban`)) {
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = ''
   if(user.id === message.author.id) return message.channel.send ('are you crazy? you cannot ban yourself bruh')
-  if(user.id === message.bot) return message.channel.send ('why would I ban my own self?')
 message.guild.members.ban(user)
   const exampleEmbedlol = new Discord.MessageEmbed()
       .setColor("#FF5541")
-  .setTimestamp()
-      .setTitle("he/she got banned")
+  .setTitle("he/she got banned")
       .setAuthor("from: Mr circle")
   .addField('banned for:',reason)
   .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F3699BA8D-4C6F-493A-85DB-547F84B7C1F6.gif?v=1593739244463',)
-
-  .setFooter(`requested by:${message.author},`)
+  .setFooter(`requested by:${message.author.Id}`)
 message.channel.send(exampleEmbedlol)
 }
 })
