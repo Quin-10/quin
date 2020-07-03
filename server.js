@@ -308,7 +308,15 @@ if (message.content.startsWith(`${prefix}ban`)) {
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = 'unknown'
 message.guild.members.ban(user)
-message.channel.send ('ok')
+const exampleEmbed2 = new Discord.MessageEmbed()
+.setTitle('**YOU GOT BANNED**')
+.setDescription("REASON:", reason)
+.addField("Name", user)
+.addImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F3699BA8D-4C6F-493A-85DB-547F84B7C1F6.gif?v=1593739244463")
+.setColor('#FF3068')
+.setFooter('AVATAR:',bot.user.displayAvatarUrl)
+message.channel.send(exampleEmbed2)
+
 }
 })
 bot.on('message', message => {
