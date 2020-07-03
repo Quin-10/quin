@@ -336,5 +336,14 @@ member.roles.add(role).then
   message.channel.send('ok I gave the role to the user you mentioned')
 }
 })
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}Online`)) {
+message.guild.members.fetch().then(fetchedMembers => {
+	const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
+	// We now have a collection with all online member objects in the totalOnline variable
+	message.channel.send(`There are currently ${totalOnline.size} members online in this guild!`);
+})
+}
+})
 
 bot.login(TOKEN);
