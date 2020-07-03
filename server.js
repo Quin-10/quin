@@ -308,7 +308,7 @@ if (message.content.startsWith(`${prefix}ban`)) {
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = 'unknown'
 message.guild.members.ban(user);
-  message.channel.send(`${user} has been succesfuly banned!`)
+  message.channel.send(`${user} has been succesfuly banned!`).then
 const exampleEmbed2 = new Discord.MessageEmbed()
 .setTitle('**YOU GOT BANNED**')
 .setDescription("REASON:", reason)
