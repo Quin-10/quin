@@ -309,12 +309,12 @@ if (message.content.startsWith(`${prefix}ban`)) {
   if(reason === undefined) reason = 'unknown'
 message.guild.members.ban(user)
 const exampleEmbed2 = new Discord.MessageEmbed()
-.setTitle('**YOU GOT BANNED**')
-.setDescription("REASON:", reason)
-.addField("Name", user)
-.addImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F3699BA8D-4C6F-493A-85DB-547F84B7C1F6.gif?v=1593739244463")
-.setColor('#FF3068')
-.setFooter('AVATAR:',bot.user.displayAvatarUrl)
+      .setColor("#FF5541")
+      .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
+      .setTimestamp()
+      .setTitle("Favorite colors")
+      .setAuthor("mr circle")
+      .setDescription(`REASON:`, reason)
 message.channel.send(exampleEmbed2)
 
 }
