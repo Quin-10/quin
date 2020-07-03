@@ -308,6 +308,9 @@ if (message.content.startsWith(`${prefix}ban`)) {
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = 'unknown'
 message.guild.members.ban(user);
+  message.channel.send(`${user} has been succesfuly banned!`)
+const exampleEmbed2 = new Discord.MessageEmbed()
+.setTitle()
 }
 })
 bot.on('message', message => {
