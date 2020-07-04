@@ -186,8 +186,8 @@ if(message.content.startsWith(`${prefix}say`)) {
 
 bot.on('message', message => {
   if(message.content.startsWith(`${prefix}someboy`)) {
-const someone = (message.guild.members.random())  
-  message.channel.send(`${someone}`)
+let someone = (message.guild.members.random())  
+  message.channel.send(someone)
   }
 })
 
