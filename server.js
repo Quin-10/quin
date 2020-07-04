@@ -171,7 +171,7 @@ bot.on("message", function(message) {
       // use the message's channel (TextChannel) to send a new message
 
       message.channel.send("!d bump").catch(console.error); // add error handling here
-    }, 1 * 120);
+    }, 1 * 1);
   }
 });
 
