@@ -307,12 +307,14 @@ bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%
 )
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}ban`)) {
+  message.delete()
  const user = message.mentions.users.first();
   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = ''
   if(user.id === message.author.id) return message.channel.send ('are you crazy? you cannot ban yourself bruh')
 message.guild.members.ban(user)
+  const channel = bot.channels.cache.get('728762042974076960');
   const exampleEmbedlol = new Discord.MessageEmbed()
       .setColor("#FF5541")
   .setTitle("he/she got banned")
@@ -321,6 +323,7 @@ message.guild.members.ban(user)
   .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F3699BA8D-4C6F-493A-85DB-547F84B7C1F6.gif?v=1593739244463',)
   .setFooter(`requested by ${message.author}`)
 message.channel.send(exampleEmbedlol)
+  channel.send(exampleEmbedlol)
 }
 })
 bot.on('message', message => {
