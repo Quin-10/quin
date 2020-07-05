@@ -343,27 +343,13 @@ bot.on('message', message => {
 if (message.content.startsWith(`${prefix}Online`)) {
 message.guild.members.fetch().then(fetchedMembers => {
 	const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
+  const totalOnline = fetchedMembers.filter(member => member.presence.status === 'offline');
+  const totalOnline = fetchedMembers.filter(member => member.presence.status === 'idle');
+  const totalOnline = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
 	// We now have a collection with all online member objects in the totalOnline variable
-	message.channel.send(`There are currently **${totalOnline.size}** members **online** in this guild!`);
+	message.channel.send(`There are currently **${totalOnline.size}${totalOffline.size}** members **online** in this guild!`);
 })
 }
 })
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}Offline`)) {
-message.guild.members.fetch().then(fetchedMembers => {
-	const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
-	// We now have a collection with all online member objects in the totalOnline variable
-	message.channel.send(`There are currently **${totalOffline.size}** members **offline** in this guild!`);
-})
-}
-})
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}idle`)) {
-message.guild.members.fetch().then(fetchedMembers => {
-	const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
-	// We now have a collection with all online member objects in the totalOnline variable
-	message.channel.send(`There are currently **${totalidle.size}** members **idle** in this guild!`);
-})
-}
-})
+
 bot.login(TOKEN);
