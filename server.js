@@ -346,11 +346,17 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totalDoNotDisturb = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
-  const statusEmbed = new Discord.MessageEmbed()
-  .setTitle (`**STATS**`)
-  .setdescription (`OFFLINE **${totalOffline.size}** \`)
-  message.channel.send(statusEmbed)
-})
+  
+  bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}status`)) {
+    
+    const statusEmbed = new Discord.MessageEmbed()
+      .setColor("#FF5541")
+      .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
+      .setTimestamp()
+      .setTitle("Favorite colors")
+    message.channel.send(statusEmbed)
+}
 }
 })
 
