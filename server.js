@@ -348,12 +348,11 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalDoNotDisturb = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
 
   const statusEmbed = new Discord.MessageEmbed()
-.setTitle(`**STATUS**`,(true))
-.addField(`IDLE: **${totalidle.size}**`,(true))
-.addField(`OFFLINE: **${totalOffline.size}**`,(true))
-.addField(`ONLINE: **${totalOnline.size}**`,(true))
-.addField(`DON'T DISTURB: **${totalDoNotDisturb.size}**`) 
-message.channel.send(statusEmbed)
+.addField(
+  { name: `IDLE`,value: `**${totalidle.size}**`,inline: true},
+  { name: `OFFLINE`,value: `**${totalOffline.size}**`,inline: true},
+  )
+  message.channel.send(statusEmbed)
 })
 }
 })
