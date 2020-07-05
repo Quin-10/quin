@@ -340,23 +340,22 @@ member.roles.add(role).then
 }
 })
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}Online`)) {
+if (message.content.startsWith(`${prefix}memberStats`)) {
 message.guild.members.fetch().then(fetchedMembers => {
 	const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totalDoNotDisturb = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
   
-  bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}status`)) {
+  
     
     const statusEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
-      .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTimestamp()
-      .setTitle("Favorite colors")
+      .setTitle(`**STATS**`)
+    .setDescription(`IDLE: **${totalidle.size}** \n OFFLINE: **${totalOffline.size}** \n ONLINE: **${totalOnline.size}** \n DON'T DISTURB: **${totalDoNotDisturb.size}**`)
     message.channel.send(statusEmbed)
-}
+})
 }
 })
 
