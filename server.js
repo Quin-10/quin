@@ -346,12 +346,9 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totalDoNotDisturb = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
-
   const statusEmbed = new Discord.MessageEmbed()
-.addField(
-  { name: `IDLE`,value: `**${totalidle.size}**`,inline: true},
-  { name: `OFFLINE`,value: `**${totalOffline.size}**`,inline: true},
-  )
+  .setTitle (`**STATS**`)
+  .setdescription (`OFFLINE **${totalOffline.size}** \`)
   message.channel.send(statusEmbed)
 })
 }
