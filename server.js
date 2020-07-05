@@ -171,7 +171,7 @@ bot.on("message", function(message) {
       // use the message's channel (TextChannel) to send a new message
 
       message.channel.send("!d bump").catch(console.error); // add error handling here
-    }, 1 * 5000);
+    }, 1000 * 1);
   }
 });
 
@@ -358,5 +358,5 @@ message.guild.members.fetch().then(fetchedMembers => {
 })
 }
 })
-
+let memberCount =
 bot.login(TOKEN);
