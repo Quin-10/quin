@@ -358,11 +358,11 @@ message.guild.members.fetch().then(fetchedMembers => {
 }
 })
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}Idle`)) {
+if (message.content.startsWith(`${prefix}idle`)) {
 message.guild.members.fetch().then(fetchedMembers => {
-	const totalIdle = fetchedMembers.filter(member => member.presence.status === 'Idle');
+	const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
 	// We now have a collection with all online member objects in the totalOnline variable
-	message.channel.send(`There are currently **${totalIdle.size}** members **Idle** in this guild!`);
+	message.channel.send(`There are currently **${totalidle.size}** members **idle** in this guild!`);
 })
 }
 })
