@@ -364,5 +364,9 @@ message.guild.channels.create('new-channel', { type: 'text',  reason: 'New chann
 }
 })
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}channel`)) {
+if (message.content.startsWith(`${prefix}unban`)) {
+const user1 = message.mentions.members.first()
+  message.guild.members.unban(`user1`);
+}
+})
 bot.login(TOKEN);
