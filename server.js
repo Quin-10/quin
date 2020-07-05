@@ -171,7 +171,7 @@ bot.on("message", function(message) {
       // use the message's channel (TextChannel) to send a new message
 
       message.channel.send("!d bump").catch(console.error); // add error handling here
-    }, 1 * 1);
+    }, 1 * 5000);
   }
 });
 
@@ -307,13 +307,13 @@ bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%
 )
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}ban`)) {
-  message.delete()
+  
  const user = message.mentions.users.first();
   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = ''
   if(user.id === message.author.id) return message.channel.send ('are you crazy? you cannot ban yourself bruh')
-  if(!user.bannable) return
+  if(!user.bannable) return message.channel.send(`${message.author}you can not ban that user because the user is either an admin, mod, orowner of the server`)
 message.guild.members.ban(user)
   const channel = bot.channels.cache.get('728762042974076960');
   const exampleEmbedlol = new Discord.MessageEmbed()
