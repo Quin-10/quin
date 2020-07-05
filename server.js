@@ -313,6 +313,7 @@ if (message.content.startsWith(`${prefix}ban`)) {
   let reason = message.content.split(' ').slice(1).join(' ');
   if(reason === undefined) reason = ''
   if(user.id === message.author.id) return message.channel.send ('are you crazy? you cannot ban yourself bruh')
+  if(!user.bannable) return
 message.guild.members.ban(user)
   const channel = bot.channels.cache.get('728762042974076960');
   const exampleEmbedlol = new Discord.MessageEmbed()
