@@ -353,7 +353,7 @@ message.guild.members.fetch().then(fetchedMembers => {
       .setColor("#FF5541")
       .setTimestamp()
       .setTitle(`**STATS**`)
-    .setDescription(`IDLE: **${totalidle.size}** \n OFFLINE: **${totalOffline.size}** \n ONLINE: **${totalOnline.size}** \n DON'T DISTURB: **${totalDoNotDisturb.size}**`)
+    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947> OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462> ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totalDoNotDisturb.size}**`)
     message.channel.send(statusEmbed)
 })
 }
