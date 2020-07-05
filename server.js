@@ -346,7 +346,13 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totalDoNotDisturb = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
-	// We now have a collection with all online member objects in the totalOnline variable
+const statusEmbed = new Discord.MessageEmbed()
+.setTitle(`**STATUS**`,true)
+.addField(`IDLE: **${totalidle.size}**`,true)
+.addField(`OFFLINE: **${totalOffline.size}**`,true)
+.addField(`ONLINE: **${totalOnline.size}**`,true)
+.addField(`DON'T DISTURB: **${totalDoNotDisturb.size}**`)
+message.channel.send(statusEmbed)
 })
 }
 })
