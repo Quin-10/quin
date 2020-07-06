@@ -363,5 +363,10 @@ if (message.content.startsWith(`${prefix}channel`)) {
 message.guild.channels.create('new-channel', { type: 'text',  reason: 'New channel added for fun!' });
 }
 })
-
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}avatar`)) {
+  const pic = (message.author.displayavatarUrl)
+  message.channel.send(pic)
+}
+})
 bot.login(TOKEN);
