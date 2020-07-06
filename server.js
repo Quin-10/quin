@@ -346,14 +346,15 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totalDoNotDisturb = fetchedMembers.filter(member => member.presence.status === 'do not disturb');
-  
+  const all = fetchedMembers
+  const bots = fetchedMembers = fetchedMembers.filter(bot => bot.presence.status === )
   
     
     const statusEmbed = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setTimestamp()
       .setTitle(`**STATS**`)
-    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947> OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462> ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totalDoNotDisturb.size}**`)
+    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947> OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462> ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totalDoNotDisturb.size}** \n\<:check:719733159079575710> ALL: **${all.size}** \n\<:Bot:726542396871147600> BOTS: **${bots.size}**`)
     message.channel.send(statusEmbed)
 })
 }
