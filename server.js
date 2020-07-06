@@ -365,8 +365,11 @@ message.guild.channels.create('new-channel', { type: 'text',  reason: 'New chann
 })
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}avatar`)) {
-  const pic = (message.author.displayavatarUrl)
-  message.channel.send(pic)
+  
+  const avaEmbed = new Discord.MessageEmbed()
+  .setTitle('this is your avatar')
+  .setThumbnail(message.author.displayavatarUrl())
+  message.channel.send(avaEmbed)
 }
 })
 bot.login(TOKEN);
