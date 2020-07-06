@@ -367,7 +367,7 @@ bot.on("message", message => {
 if (message.content.startsWith(`${prefix}avatar`)) {
   const avaEmbed = new Discord.MessageEmbed()
   .setTitle('this is your avatar')
-.setImage(message.member.displayAvatarURL)
+.setImage(message.author.avatarURL)
   message.channel.send(avaEmbed)
 }
 })
