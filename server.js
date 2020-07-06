@@ -351,7 +351,7 @@ message.guild.members.fetch().then(fetchedMembers => {
   
     
     const statusEmbed = new Discord.MessageEmbed()
-      .setColor("#FF5541")
+      .setColor('RANDOM')
       .setTimestamp()
       .setTitle(`**STATS**`)
     .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947> OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462> ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totalDoNotDisturb.size}** \n\<:check:719733159079575710> ALL: **${all.size}**`)
