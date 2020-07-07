@@ -405,17 +405,25 @@ bot.on('message', message => {
 if (message.content.startsWith(`${prefix}colle`)) {
 const filter = m => m.content.includes('discord');
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+  const collector1 = message.channel.createMessageCollector(filter, { time: 15000 });
 
 collector.on('collect', m => {
-  q1.on("collect", async (message, collect) => {
-        let channel = message.mentions.channels.first()
-        message.channel.send('what do you want me to send in that channel?')
+        
 	console.log(`Collected ${m.content}`);
 });
-
+let channel = message.mentions.channels.first()
+        message.channel.send('what do you want me to send in that channel?')
+  collector1.on('collect', m => {
+        
+	console.log(`Collected ${m.content}`);
+});
+  channel.send(message.content)
+     message.react ('📩')
+    message.channel.send(`look in ${channel}`)
 collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 });  
 }
-})
+}
+)
 bot.login(TOKEN); 
