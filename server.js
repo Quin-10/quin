@@ -379,7 +379,7 @@ message.channel.send('Hi')
 })
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}anoun`)) {
-const filter = m => m.content.includes('discord');
+let filter = m => m.author.id === message.author.id;
 let b1 = new Discord.MessageCollecter(message.channel, filter, {
 max: 1
 })
