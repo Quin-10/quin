@@ -420,8 +420,10 @@ let channel = message.mentions.channels.first()
 });
   channel.send(message.content)
      message.react ('📩')
-    
-collector1.stop()
+    collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+});
+
 	
 };  
 }
