@@ -386,5 +386,17 @@ max: 1
 message.channel.send('what channel do you want the message sent to?')
   b1.on("collect", async (message, col) => {
         let channel1 = message.mentions.channels.first()
-        message.channel.send
+        message.channel.send('what do you want me to send in that channel?')
+    b1.stop()
+    let b2 = new Discord.MessageCollecter(message.channel, filter, {
+      max: 1
+    })
+  b2.on("collect", async (message, col) => {
+    channel1.send(message.content)
+    await message.react ('📩')
+    message.channel.send(`look in ${channel1}`)
+  })
+  })
+}})
+  
 bot.login(TOKEN); 
