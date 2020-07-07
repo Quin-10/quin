@@ -368,12 +368,12 @@ bot.on("message", message => {
 if (message.content.startsWith(`${prefix}avatar`)) {
   const avaEmbed = new Discord.MessageEmbed()
   .setTitle('this is your ava')
-.setImage(message.author.avatarURL)
+.setImage(bot.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
   message.channel.send(avaEmbed)
 }
 })
   bot.on('message', message => {
-if (message.content.startsWith(`${prefix}Hello`)) {
+if (message.content.startsWith.(`${prefix}Hello`)) {
 message.channel.send('Hi')
 }
 })
