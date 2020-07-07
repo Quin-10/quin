@@ -373,8 +373,22 @@ if (message.content.startsWith(`${prefix}avatar`)) {
 }
 })
   bot.on('message', message => {
-if (message.content.startsWith.(`${prefix}Hello`)) {
+if (message.content.startsWith(`${prefix}Hello`)) {
 message.channel.send('Hi')
+}
+})
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}anoun`)) {
+const filter = m => m.content.includes('discord');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+message.channel.send('what do you want me to say')
+collector.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+let channel1 = message.mention.channels.first()
+collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+});
 }
 })
 bot.login(TOKEN); 
