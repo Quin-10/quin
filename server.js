@@ -402,8 +402,8 @@ message.channel.send('what channel do you want the message sent to?')
 }
 })
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}colle`)) {
-const filter = m => m.content.includes('discord');
+if (message.content.startsWith(`${prefix}col`)) {
+const filter = m => m.content.includes('discord') &&  m.author.id === message.author.id;
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
   const collector1 = message.channel.createMessageCollector(filter, { time: 15000 });
 
@@ -413,6 +413,7 @@ collector.on('collect', m => {
 });
 let channel = message.mentions.channels.first()
         message.channel.send('what do you want me to send in that channel?')
+  collector.stop()
   collector1.on('collect', m => {
         
 	console.log(`Collected ${m.content}`);
@@ -420,10 +421,9 @@ let channel = message.mentions.channels.first()
   channel.send(message.content)
      message.react ('📩')
     message.channel.send(`look in ${channel}`)
-collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-});  
-}
+collector1.stop()
+	
+};  
 }
 )
 bot.login(TOKEN); 
