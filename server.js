@@ -380,7 +380,7 @@ message.channel.send('Hi')
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}oof`)) {
 let filter = m => m.author.id === message.author.id;
-let b1 = new Discord.MessageCollecter(message.channel, filter, {
+let q1 = new Discord.MessageCollecter(message.channel, filter, {
 max: 1
 })
 message.channel.send('what channel do you want the message sent to?')
@@ -388,16 +388,18 @@ message.channel.send('what channel do you want the message sent to?')
         let channel = message.mentions.channels.first()
         message.channel.send('what do you want me to send in that channel?')
     q1.stop()
-    let b2 = new Discord.MessageCollecter(message.channel, filter, {
+  
+    let q2 = new Discord.MessageCollecter(message.channel, filter, {
       max: 1
     })
   q2.on("collect", async (message, col) => {
     channel.send(message.content.startsWith)
-    await message.react ('📩')
+     message.react ('📩')
     message.channel.send(`look in ${channel}`)
     q2.stop()
   })
   })
-}})
+}
+})
   
 bot.login(TOKEN); 
