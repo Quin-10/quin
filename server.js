@@ -80,10 +80,10 @@ bot.on("message", message => {
   ];
   if (meanWords.some(word => message.content.includes(word))) {
     if (message.channel.type == "dm") {
-      message.member.send("that command cannot be dmed");
+    return  message.member.send("that command cannot be dmed");
     }
 
-    message.member.send(`${message.author} humans like you have low iQs`);
+    message.member.send(`@**${message.author.tag}** humans like you have low iQs`);
   }
 });
 bot.on("message", message => {
@@ -186,7 +186,7 @@ if(message.content.startsWith(`${prefix}say`)) {
 
 bot.on('message', message => {
   if(message.content.startsWith(`${prefix}someboy`)) {
-let someone = (message.guild.members.random())  
+const someone = (message.guild.members.random())  
   message.channel.send(someone)
   }
 })
