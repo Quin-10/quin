@@ -380,15 +380,11 @@ message.channel.send('Hi')
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}anoun`)) {
 const filter = m => m.content.includes('discord');
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-message.channel.send('what do you want me to say')
-collector.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-});
-let channel1 = message.mention.channels.first()
-collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-});
-}
+let b1 = new Discord.MessageCollecter(message.channel, filter, {
+max: 1
 })
+message.channel.send('what channel do you want the message sent to?')
+  b1.on("collect", async (message, col) => {
+        let channel1 = message.mentions.channels.first()
+        message.channel.send
 bot.login(TOKEN); 
