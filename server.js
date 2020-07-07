@@ -370,6 +370,9 @@ if (message.content.startsWith(`${prefix}avatar`)) {
   .setTitle('this is your ava')
 .setImage(message.author.avatarURL)
   message.channel.send(avaEmbed)
+  bot.on('message', message => {
+if (message.content.startsWith(`${prefix}Hello`)) {
+message.channel.send('Hi')
 }
 })
 bot.login(TOKEN); 
