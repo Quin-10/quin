@@ -372,4 +372,4 @@ if (message.content.startsWith(`${prefix}avatar`)) {
   message.channel.send(avaEmbed)
 }
 })
-bot.login(TOKEN);
+bot.login(TOKEN); 
