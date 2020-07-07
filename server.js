@@ -384,7 +384,7 @@ let q1 = new Discord.MessageCollecter(message.channel, filter, {
 max: 1
 })
 message.channel.send('what channel do you want the message sent to?')
-  q1.on("collect", async (message, col) => {
+  q1.on("collect", async (message, collect) => {
         let channel = message.mentions.channels.first()
         message.channel.send('what do you want me to send in that channel?')
     q1.stop()
@@ -392,7 +392,7 @@ message.channel.send('what channel do you want the message sent to?')
     let q2 = new Discord.MessageCollecter(message.channel, filter, {
       max: 1
     })
-  q2.on("collect", async (message, col) => {
+  q2.on("collect", async (message, collect) => {
     channel.send(message.content.startsWith)
      message.react ('📩')
     message.channel.send(`look in ${channel}`)
@@ -401,5 +401,21 @@ message.channel.send('what channel do you want the message sent to?')
   })
 }
 })
-  
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}colle`)) {
+const filter = m => m.content.includes('discord');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+
+collector.on('collect', m => {
+  q1.on("collect", async (message, collect) => {
+        let channel = message.mentions.channels.first()
+        message.channel.send('what do you want me to send in that channel?')
+	console.log(`Collected ${m.content}`);
+});
+
+collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+});  
+}
+})
 bot.login(TOKEN); 
