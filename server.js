@@ -417,16 +417,11 @@ collector.on('end', collected => {
 })
   bot.on("message", message => {
 if (message.content.startsWith(`${prefix}nuke`)) {
-  
+  return message.channel.send('**ERROR:** This command is either broken, not working or is being worked on. sorry for the inconvenience')
   let channel = message.mentions.channels.first()
   if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
-channel.bulkDelete(amount)
-  const amount = parseInt([]);
-if (isNaN(amount)) {
-		return message.reply('that doesn\'t seem to be a valid number.');
-	
+channel.bulkDelete(100)
   
-}
 }})
   
 bot.on("message", message => {
