@@ -429,7 +429,15 @@ if (message.content.startsWith(`${prefix}discord`)) {
 }
 )
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}exit`)) {
-  	client.commands.get('ping').execute(message, args);
+if (message.content.startsWith(`${prefix}discord`)) {
+  const command = (`Hello`)
+if (!bot.commands.has(command)) return;
+
+try {
+bot.commands.get(Hello).execute(message, args);
+} catch (error) {
+	console.error(error);
+	message.reply('there was an error trying to execute that command!');
 }
+}})
 bot.login(TOKEN); 
