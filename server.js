@@ -406,7 +406,7 @@ collector.on('collect', m => {
   console.log(`Collected ${m.content}`);
 });
 
-	if (message.content = (`${message.mentions.channels.first()}`))
+	
     message.channel.send('what to say in there')
 
 collector1.on('collect', m => {
