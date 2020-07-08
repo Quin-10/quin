@@ -421,7 +421,7 @@ if (message.content.startsWith(`${prefix}nuke`)) {
   let channel = message.mentions.channels.first()
   if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
 channel.bulkDelete(amount)
-  const amount = parseInt(args[0]);
+  const amount = parseInt([]);
 if (isNaN(amount)) {
 		return message.reply('that doesn\'t seem to be a valid number.');
 	
