@@ -408,16 +408,16 @@ collector.on('collect', m => {
         
 	console.log(`Collected ${m.content}`);
 });
-let channel = message.mentions.channels.first()
-        message.member.send('what do you want me to send in that channel?')
-  
-  collector1.on('collect', m => {
+collector.on('collect', m => {
         
 	console.log(`Collected ${m.content}`);
 });
-  channel.send(message.content)
-     message.react ('📩')
-    collector.on('end', collected => {
+  
+  collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+});
+  
+    collector1.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 });
 
