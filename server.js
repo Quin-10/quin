@@ -403,5 +403,27 @@ if (message.content.startsWith(`${prefix}discord`)) {
 }
 }
 )
+bot.on('message', message => {
+if (message.content = 'E/ok') {
+const filter = m => m.content.includes('discord') &&  m.author.id === message.author.id;
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+  const collector1 = message.channel.createMessageCollector( { time: 15000 });
+collector.on('collect', m => {
+	if (message.content = (`${message.mentions.channels.first()}`))
+    message.channel.send('what to say in there')
 
+collector1.on('collect', m => {
+	
+  
+  collector.on('end', collected => {
+	
+  
+    collector1.on('end', collected => {
+	
+    })
+  })
+})
+})
+}
+})
 bot.login(TOKEN); 
