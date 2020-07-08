@@ -401,4 +401,27 @@ if (message.content === 'E/discord') {
 }
 )
 
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}trivia`)) {
+const filter = m => m.content.includes('discord');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+
+collector.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+
+collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+});
+}
+})
+  bot.on("message", message => {
+if (message.content.startsWith(`${prefix}nuke`)) {
+  let channel = message.mentions.channels.first()
+  if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
+channel.bulkDelete(5)
+  .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
+  .catch(console.error);
+}
+  })
 bot.login(TOKEN); 
