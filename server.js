@@ -417,9 +417,10 @@ collector.on('end', collected => {
 })
   bot.on("message", message => {
 if (message.content.startsWith(`${prefix}nuke`)) {
+  let a = message
   let channel = message.mentions.channels.first()
   if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
-channel.bulkDelete(9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999)
+channel.bulkDelete(all)
   .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
   .catch(console.error);
 }
@@ -434,7 +435,6 @@ const picture = user.displayAvatarURL();
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}pinned`)) {
  const pin = message.channel.messages.fetchPinned();
-  message.channel.send(pin)
 }
 })
 
