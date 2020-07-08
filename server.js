@@ -396,33 +396,5 @@ if (message.content.startsWith(`${prefix}discord`)) {
 }
 }
 )
-bot.on('message', message => {
-if (message.content = 'E/ok') {
-const filter = m => m.content.includes('discord') &&  m.author.id === message.author.id;
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-  const channel = message.mentions.channels.first()
-  const collector1 = message.channel.createMessageCollector( { time: 15000 });
-collector.on('collect', m => {
-  console.log(`Collected ${m.content}`);
-});
 
-	
-    message.channel.send('what to say in there')
-
-collector1.on('collect', m => {
-  console.log(`Collected ${m.content}`);
-});
-
-	var tex = message.content.split(' ').slice(1).join(' ');
-  if(!tex) return
-  
-  collector.on('end', collected => {
-		console.log(`Collected ${collected.size} items`);
-});
-    collector1.on('end', collected => {
-		console.log(`Collected ${collected.size} items`);
-      channel.send(tex)
-});
-}
-})
 bot.login(TOKEN); 
