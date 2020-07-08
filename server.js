@@ -390,7 +390,7 @@ let q1 = message.channel.createMessageCollector( { time: 15000 }).then
 })
 
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}discord`)) {
+if (message.content === 'E/discord') {
 
   message.channel.send('ok lol')
 }
