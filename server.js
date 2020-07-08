@@ -391,7 +391,7 @@ let q1 = message.channel.createMessageCollector( { time: 15000 }).then
   
     let q2 = message.channel.createMessageCollector( { time: 15000 });
   q2.on("collect", async (message, collect) => {
-    channel.send(message.content.startsWith)
+    channel.send(message.content)
      message.react ('📩')
     message.channel.send(`look in ${channel}`)
     q2.stop()
@@ -425,4 +425,19 @@ collector.on('collect', m => {
 };  
 }
 )
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}discord`)) {
+return
+  message.channel.send('ok lol')
+}
+}
+)
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}discord`)) {
+return
+  message.channel.send('ok lol')
+}
+}
+)
+
 bot.login(TOKEN); 
