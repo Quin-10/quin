@@ -372,11 +372,7 @@ if (message.content.startsWith(`${prefix}avatar`)) {
   message.channel.send(avaEmbed)
 }
 })
-  bot.on('message', message => {
-if (message.content = `Hello`) {
-message.channel.send('Hi')
-}
-})
+  
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}oof`)) {
   message.channel.send('what channel do you want the message sent to?').then
@@ -399,28 +395,7 @@ let q1 = message.channel.createMessageCollector( { time: 15000 }).then
   })
 }
 })
-bot.on('message', message => {
-if (message.content = 'E/ok') {
-const filter = m => m.content.includes('discord') &&  m.author.id === message.author.id;
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-  const collector1 = message.channel.createMessageCollector( { time: 15000 });
-collector.on('collect', m => {
-	
-  
-collector1.on('collect', m => {
-	
-  
-  collector.on('end', collected => {
-	
-  
-    collector1.on('end', collected => {
-	
-    })
-  })
-})
-})
-}
-})
+
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}discord`)) {
 
@@ -428,16 +403,5 @@ if (message.content.startsWith(`${prefix}discord`)) {
 }
 }
 )
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}discord`)) {
-  const command = (`Hello`)
-if (!bot.commands.has(command)) return;
 
-try {
-bot.commands.get(Hello).execute(message, args);
-} catch (error) {
-	console.error(error);
-	message.reply('there was an error trying to execute that command!');
-}
-}})
 bot.login(TOKEN); 
