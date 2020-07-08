@@ -255,29 +255,22 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}fortune`)) {
+  if (message.content.startsWith(`${prefix}8ball`)) {
     var choices = [
-      "2020 may be hard but if you come this far you’ll get passed that part",
-      "If you ever are hated for no reason, just remember: only less than 1% of the world hates you. there are lots of opportunity",
-      "there will probably be a bad thing that occurs every month of 2020 so be prepeard for the worst",
-      "don't be afraid to try new things",
-      "If someone's hates your opinion, they're probably not good people (unless if your opinion has anything to do with something bad and liking that bad thing)",
-      "most of the things that you learn in school are probably useless but don't wory, a lot of people felt that way too",
-      "if your a man and your reading this quote, if a woman pushes you and you feel offended and you just want to push her back, go for it, stand for your gender!",
-      "not everyone has a good day",
-      "anyone who dislike bombs someone's video, don't deserve there accounts",
-      "at least `1` person can relate to you what your going through",
-      "don't be toxic",
-      "the previous fortune cookie is true",
-      "everyone needs there day :)",
-      "we all tend to be squidward someday",
-      "at least one person loves you",
-      '777 is lucky' 
+      "no",
+      "depends",
+      "perhaps, I think so",
+      "yes",
+      "you must be stupid to ask a question like that",
+      "over my dead body",
+      "maybe",
+      "depends, can you breath air",
+      "OH HECK NO! THAT’S MORE THAN STUPID!!!1!"
      
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 
-    message.channel.send(`${message.author}, here is your fortune: **${output}**!`);
+    message.channel.send(`${message.author}, the 8ball says: **${output}**!`);
   }
 });
 bot.on('message', message => {
@@ -413,8 +406,8 @@ collector.on('collect', m => {
     message.channel.send('what to say in there')
 
 collector1.on('collect', m => {
-	
-  
+	var tex = message.content.split(' ').slice(1).join(' ');
+  if(!tex) return mes
   collector.on('end', collected => {
 	
   
