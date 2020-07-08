@@ -400,7 +400,7 @@ let q1 = message.channel.createMessageCollector( { time: 15000 }).then
 }
 })
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}col`)) {
+if (message.content =`${prefix}col`)) {
 const filter = m => m.content.includes('discord') &&  m.author.id === message.author.id;
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
   const collector1 = message.channel.createMessageCollector( { time: 15000 });
@@ -415,11 +415,12 @@ collector1.on('collect', m => {
   
     collector1.on('end', collected => {
 	
-
-	
-};  
+    })
+  })
+})
+})
 }
-)
+})
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}discord`)) {
 
@@ -427,6 +428,12 @@ if (message.content.startsWith(`${prefix}discord`)) {
 }
 }
 )
-
+bot.on('message', message => {
+if (message.content.startsWith(`${prefix}exit`)) {
+  
+	const command = bot.commands.get();
+		bot.command.execute(message);
+}
+})
 
 bot.login(TOKEN); 
