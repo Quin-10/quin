@@ -171,7 +171,7 @@ bot.on("message", function(message) {
       // use the message's channel (TextChannel) to send a new message
 
       message.channel.send("!d bump").catch(console.error); // add error handling here
-    }, 1000 * 1);
+    }, 1000 * 120);
   }
 });
 
@@ -265,7 +265,11 @@ bot.on("message", message => {
       "over my dead body",
       "maybe",
       "depends, can you breath air",
-      "OH HECK NO! THAT’S MORE THAN STUPID!!!1!"
+      "OH HECK NO! THAT’S MORE THAN STUPID!!!1!",
+      "why not",
+      "sadly yes",
+      "sadly no",
+      "umm"
      
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
