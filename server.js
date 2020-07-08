@@ -405,21 +405,16 @@ const filter = m => m.content.includes('discord') &&  m.author.id === message.au
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
   const collector1 = message.channel.createMessageCollector( { time: 15000 });
 collector.on('collect', m => {
-        
-	console.log(`Collected ${m.content}`);
-});
-collector.on('collect', m => {
-        
-	console.log(`Collected ${m.content}`);
-});
+	
+  
+collector1.on('collect', m => {
+	
   
   collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-});
+	
   
     collector1.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-});
+	
 
 	
 };  
@@ -427,17 +422,11 @@ collector.on('collect', m => {
 )
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}discord`)) {
-return
+
   message.channel.send('ok lol')
 }
 }
 )
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}discord`)) {
-return
-  message.channel.send('ok lol')
-}
-}
-)
+
 
 bot.login(TOKEN); 
