@@ -419,9 +419,21 @@ collector.on('end', collected => {
 if (message.content.startsWith(`${prefix}nuke`)) {
   let channel = message.mentions.channels.first()
   if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
-channel.bulkDelete(5)
+channel.bulkDelete(9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999)
   .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
   .catch(console.error);
 }
   })
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}profile`)) {
+  const user = message.author
+const picture = user.displayAvatarURL();
+  message.channel.send(picture)
+}
+})
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}welcome`)) {
+  
+}
+})
 bot.login(TOKEN); 
