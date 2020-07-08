@@ -432,8 +432,11 @@ const picture = user.displayAvatarURL();
 }
 })
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}welcome`)) {
-  
+if (message.content.startsWith(`${prefix}pinned`)) {
+ const pin = message.channel.messages.fetchPinned();
+  message.channel.send(pin)
 }
 })
+
+
 bot.login(TOKEN); 
