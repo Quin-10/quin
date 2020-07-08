@@ -417,14 +417,18 @@ collector.on('end', collected => {
 })
   bot.on("message", message => {
 if (message.content.startsWith(`${prefix}nuke`)) {
-  let a = message
+  
   let channel = message.mentions.channels.first()
   if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
-channel.bulkDelete(all)
-  .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
-  .catch(console.error);
+channel.bulkDelete(amount)
+  const amount = parseInt(args[0]);
+if (isNaN(amount)) {
+		return message.reply('that doesn\'t seem to be a valid number.');
+	
+  
 }
-  })
+}})
+  
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
   const user = message.author
