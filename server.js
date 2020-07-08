@@ -379,19 +379,17 @@ message.channel.send('Hi')
 })
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}oof`)) {
+  message.channel.send('what channel do you want the message sent to?').then
 let filter = m => m.author.id === message.author.id;
-let q1 = new Discord.MessageCollecter(message.channel, filter, {
-max: 1
-})
-message.channel.send('what channel do you want the message sent to?')
+let q1 = message.channel.createMessageCollector( { time: 15000 }).then
+
+
   q1.on("collect", async (message, collect) => {
         let channel = message.mentions.channels.first()
         message.channel.send('what do you want me to send in that channel?')
     q1.stop()
   
-    let q2 = new Discord.MessageCollecter(message.channel, filter, {
-      max: 1
-    })
+    let q2 = message.channel.createMessageCollector( { time: 15000 });
   q2.on("collect", async (message, collect) => {
     channel.send(message.content.startsWith)
      message.react ('📩')
@@ -406,14 +404,13 @@ if (message.content.startsWith(`${prefix}col`)) {
 const filter = m => m.content.includes('discord') &&  m.author.id === message.author.id;
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
   const collector1 = message.channel.createMessageCollector( { time: 15000 });
-
 collector.on('collect', m => {
         
 	console.log(`Collected ${m.content}`);
 });
 let channel = message.mentions.channels.first()
         message.member.send('what do you want me to send in that channel?')
-  collector.stop()
+  
   collector1.on('collect', m => {
         
 	console.log(`Collected ${m.content}`);
