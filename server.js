@@ -274,7 +274,7 @@ bot.on("message", message => {
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 
-    message.channel.send(`${message.author}, the 8ball says: **${output}**!`);
+    message.channel.send(`${message.author}, the 8ball says: ${output}`);
   }
 });
 bot.on('message', message => {
