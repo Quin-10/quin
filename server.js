@@ -446,7 +446,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
 collector.on('collect', m => {
 	console.log(`Collected ${m.content}`);
 });
-message.channel.send("what would you like to send in that channel")
+message.channel.send("what channel do you wa")
 collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 });
