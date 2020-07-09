@@ -455,7 +455,7 @@ max:1
     })
       q2.on('collect', async (message, col) => {
 channel.send('ok')
-        await message.react('')
+        await message.react('📩')
         message.channel.send('its sended')
         q2.stop()
       })
