@@ -452,7 +452,17 @@ max: 1
 q1.stop
     let q2 = new Discord.MessageCollecter(message.channel, filter, {
 max:1
+    })
+      q2.on('collect', async (message, col) => {
+channel.send('ok')
+        await message.react('')
+        message.channel.send('its sended')
+        q2.stop()
+      })
+  })
+}
+})
  
 
-
+ 
 bot.login(TOKEN); 
