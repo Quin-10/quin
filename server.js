@@ -437,10 +437,22 @@ collector.on('end', collected => {
   
 }
 })
-bot.on("message", async message => {
-if (message.content.startsWith(`${prefix}working`)) {
 
+bot.on('message', message => {
+if(message.content.toLowerCase() === 'test') {
+  let filter = m => m.author.id === message.author.id;
+  let q1 = new Discord.MessageCollecter(message.channel, filter, {
+max: 1
+  })
+  message.channel.send('which channel you want me to send?')
+  q1.on('collect', async (message, col) => {
+    let channel = message.mentions.first()
+    
+    message.channel.send('what message do you want me to send in there?')
+q1.stop
+    let q2 = new Discord.MessageCollecter(message.channel, filter, {
+max:1
  
 
-}})
+
 bot.login(TOKEN); 
