@@ -301,7 +301,7 @@ channel.send(announce)
 bot.on('message', message => {   
 if (message.content.startsWith(`${prefix}avatar10292810289201ggok`)) {
   message.delete()
-bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F5857818D-54B3-443D-BEED-5E13FE31B038.jpeg?v=1593643313203')
+bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F778695C6-D47F-4D77-A210-F67751712694.jpeg?v=1594337340714')
 }}
 )
 bot.on('message', message => {
@@ -477,6 +477,21 @@ if (message.content.startsWith(`${prefix}404`)) {
 const args = message.content.slice().trim().split(/ +/g)
 message.channel.bulkDelete(amount, true);
 	
+}
+})
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}403`)) {
+message.channel.send('Please enter more input.').then(() => {
+	const filter = m => message.author.id === m.author.id;
+
+	message.channel.awaitMessages(filter, { time: 60000, max: 1, errors: ['time'] })
+		.then(messages => {
+			message.channel.send(`You've entered: ${messages.first().content}`);
+		})
+		.catch(() => {
+			message.channel.send('You did not enter any input!');
+		});
+});
 }
 })
 bot.login(TOKEN); 
