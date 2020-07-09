@@ -457,10 +457,11 @@ let channel = message.mentions.channels.first()
 collector1.on('collect', m => {
 	console.log(`Collected ${m.content}`);
 });
-message.channel.send("what channel do you want to send the message to?")
+
 collector1.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 })
+message.channel.send("what channel do you want to send the message to?")
 }
        })
 bot.login(TOKEN); 
