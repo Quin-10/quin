@@ -439,7 +439,7 @@ if (message.content.startsWith(`${prefix}pinned`)) {
 }
 })
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}work`)) {
+if (message.content.startsWith(`${prefix}xx3`)) {
   const filter = m => m.content.includes('discord') && m.author.id === message.author.id
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 const collector1 = message.channel.createMessageCollector(filter, { time: 15000 });
@@ -454,27 +454,18 @@ collector.on('end', collected => {
 })
 
  
-collector1.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-const channel1 = message.mentions.channels.first()
-});
 
-collector1.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-message.channel.send("what do you want to say")
-})
-
-
- collector2.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-const lolipop = message.content.split(' ').slice(1).join(' ');
-});
-
-collector2.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-message.channel.send ("ok it's sended")
-
-}) 
+  
 }
 })
+bot.on("message", async message => {
+if (message.content.startsWith(`${prefix}working`)) {
+const {MessageCollector} = require('discord.js-collector');
+ 
+const botMessage = await message.channel.send('Awaiting a message');
+const userMessage = await MessageCollector.asyncQuestion({ botMessage, user: message.author.id });
+if (userMessage.content === 'ping') {
+    await message.channel.send('pong!');
+}
+}})
 bot.login(TOKEN); 
