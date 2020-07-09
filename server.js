@@ -440,17 +440,28 @@ if (message.content.startsWith(`${prefix}pinned`)) {
 })
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}work`)) {
+  message.channel.send("what channel do you want to send the message to?1")
   const filter = m => m.content.includes('discord');
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+const collector1 = message.channel.createMessageCollector(filter, { time: 15000 });
+  const collector2 = message.channel.createMessageCollector(filter, { time: 15000 });
 
-collector.on('collect', m => {
+
+collector1.on('collect', m => {
 	console.log(`Collected ${m.content}`);
-});
-message.channel.send("what channel do you wa")
-collector.on('end', collected => {
+})
+let channel = message.mentions.channels.first()
+message.channel.send('what do you want me to send in there?')
+collector1.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
-});
+})
+collector2.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+})
+channel.send(message.content)
+  collector2.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+})
 }
 })
-
 bot.login(TOKEN); 
