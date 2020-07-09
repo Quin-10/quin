@@ -464,6 +464,17 @@ collector1.on('end', collected => {
 message.channel.send("what do you want to say")
 })
 
+
+ collector2.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+const lolipop = message.content.split(' ').slice(1).join(' ');
+});
+
+collector2.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+message.channel.send ("ok it's sended")
+
+}) 
 }
-       })
+})
 bot.login(TOKEN); 
