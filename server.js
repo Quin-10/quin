@@ -460,8 +460,21 @@ collector.on('collect', m => {
 collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 })
-message.channel.send("what d")
-}
-}
-)
+
+collector1.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+collector1.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+
+
+message.channel.send("what do you want the message to say?")
+})
+
+collector1.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+collector1.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+  
 bot.login(TOKEN); 
