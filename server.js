@@ -269,7 +269,9 @@ bot.on("message", message => {
       "why not",
       "sadly yes",
       "sadly no",
-      "umm"
+      "umm",
+      `even if that were possible, it would still be a no`,
+      'that's physicaly imposibble 
      
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
@@ -444,7 +446,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
 collector.on('collect', m => {
 	console.log(`Collected ${m.content}`);
 });
-
+message.channel.send("what would you like to send in that channel")
 collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 });
