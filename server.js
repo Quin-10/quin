@@ -453,15 +453,17 @@ collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 })
 
-let channel = message.mentions.channels.first()
+ 
 collector1.on('collect', m => {
 	console.log(`Collected ${m.content}`);
+const channel1 = message.mentions.channels.first()
 });
 
 collector1.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
+message.channel.send("what do you want to say")
 })
-message.channel.send("what channel do you want to send the message to?")
+
 }
        })
 bot.login(TOKEN); 
