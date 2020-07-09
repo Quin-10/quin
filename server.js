@@ -471,10 +471,15 @@ collector1.on('end', collected => {
 message.channel.send("what do you want the message to say?")
 })
 
-collector1.on('collect', m => {
+collector2.on('collect', m => {
 	console.log(`Collected ${m.content}`);
 });
-collector1.on('end', collected => {
+collector2.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
   
+  channel.send(message.content)
+})
+}
+})
+
 bot.login(TOKEN); 
