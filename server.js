@@ -464,8 +464,12 @@ bot.on('messageDelete', async message => {
 	}
 }
 })
-
- 
+bot.on('messageDelete', async message => {
+	if (message.content.startsWith(`${prefix}`)) {
+ var high = message.guildMember.roles.highest;
+    message.channel.send(message.content)
+  }
+})
 
  
 bot.login(TOKEN); 
