@@ -456,7 +456,6 @@ let channel = message.mentions.channels.first()
 collector.on('collect', m => {
 	console.log(`Collected ${m.content}`);
 });
-
 collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 })
@@ -468,7 +467,7 @@ collector1.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 
 
-message.channel.send("what do you want the message to say?")
+
 })
 
 collector2.on('collect', m => {
