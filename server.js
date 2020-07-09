@@ -271,8 +271,8 @@ bot.on("message", message => {
       "sadly no",
       "umm",
       `even if that were possible, it would still be a no`,
-      'that's physicaly imposibble 
-     
+      'that’s physicaly impossible',
+     'idk'
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 
