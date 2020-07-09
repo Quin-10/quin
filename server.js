@@ -1,5 +1,5 @@
 // inside a command, event listener, etc.
-
+//circle
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -74,7 +74,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const meanWords = [
     "your a dumb bot", 
-    "I hate mr circle",
+    "I hate think bot",
     "<@711610924489769078> you suck",
     "boo"
   ];
@@ -102,7 +102,7 @@ bot.on("message", message => {
       .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
       .setTimestamp()
       .setTitle("Favorite colors")
-      .setAuthor("mr circle")
+      .setAuthor("think bot")
       .setDescription("please chose your favorite color")
     .addField('red = 🔴', true)
     .addField('orange = 🟠', true)
@@ -317,17 +317,18 @@ message.guild.members.ban(user)
   const exampleEmbedlol = new Discord.MessageEmbed()
       .setColor("#FF5541")
   .setTitle("he/she got banned")
-      .setAuthor("from: Mr circle")
+      .setAuthor("from: Think bot")
   .addField('banned for:',reason)
   .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F3699BA8D-4C6F-493A-85DB-547F84B7C1F6.gif?v=1593739244463',)
   .setFooter(`requested by ${message.author.username}`)
 message.channel.send(exampleEmbedlol)
   channel.send(exampleEmbedlol)
+  
 }
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}stats1`)) {
-  message.channel.send(`**Mr circle** server count: ${bot.guilds.cache.size} servers!`);
+  message.channel.send(`**Think bot** server count: ${bot.guilds.cache.size} servers!`);
 	}
 })
 bot.on('message', message => {
@@ -465,11 +466,20 @@ bot.on('messageDelete', async message => {
 }
 })
 bot.on('messageDelete', async message => {
-	if (message.content.startsWith(`${prefix}`)) {
+	if (message.content.startsWith(`${prefix}lead`)) {
  var high = message.guildMember.roles.highest;
-    message.channel.send(message.content)
+    message.channel.send(high)
   }
 })
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}xx3`)) {
+ const amount = parseInt(args[0]);
 
- 
+	if (isNaN(amount)) {
+		return message.reply('that doesn\'t seem to be a valid number.');
+	}
+
+	// ...
+}
+})
 bot.login(TOKEN); 
