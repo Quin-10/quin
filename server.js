@@ -472,14 +472,11 @@ bot.on('messageDelete', async message => {
   }
 })
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}xx3`)) {
- const amount = parseInt(args[0]);
-
-	if (isNaN(amount)) {
-		return message.reply('that doesn\'t seem to be a valid number.');
-	}
-
-	// ...
+if (message.content.startsWith(`${prefix}404`)) {
+ const amount = parseInt(args[0])+ 1;
+const args = message.content.slice().trim().split(/ +/g)
+message.channel.bulkDelete(amount, true);
+	
 }
 })
 bot.login(TOKEN); 
