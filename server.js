@@ -452,27 +452,16 @@ message.channel.send("what channel do you want to send the message to?")
 collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 })
-
-
-collector1.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-})
 let channel = message.mentions.channels.first()
-
-message.channel.send('what do you want me to send in there?')
-
-collector1.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-})
-collector2.on('collect', m => {
+collector.on('collect', m => {
 	console.log(`Collected ${m.content}`);
-})
-  if (message.content === '') {
-channel.send(message.content)
-  }
-  collector2.on('end', collected => {
+});
+
+collector.on('end', collected => {
 	console.log(`Collected ${collected.size} items`);
 })
+message.channel.send("what d")
 }
-})
+}
+)
 bot.login(TOKEN); 
