@@ -372,28 +372,7 @@ if (message.content.startsWith(`${prefix}avatar`)) {
 }
 })
   
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}oof`)) {
-  message.channel.send('what channel do you want the message sent to?').then
-let filter = m => m.author.id === message.author.id;
-let q1 = message.channel.createMessageCollector( { time: 15000 }).then
 
-
-  q1.on("collect", async (message, collect) => {
-        let channel = message.mentions.channels.first()
-        message.channel.send('what do you want me to send in that channel?')
-    q1.stop()
-  
-    let q2 = message.channel.createMessageCollector( { time: 15000 });
-  q2.on("collect", async (message, collect) => {
-    channel.send(message.content)
-     message.react ('📩')
-    message.channel.send(`look in ${channel}`)
-    q2.stop()
-  })
-  })
-}
-})
 
 bot.on('message', message => {
 if (message.content === 'E/discord') {
@@ -460,12 +439,8 @@ collector.on('end', collected => {
 })
 bot.on("message", async message => {
 if (message.content.startsWith(`${prefix}working`)) {
-const {MessageCollector} = require('discord.js-collector');
+
  
-const botMessage = await message.channel.send('Awaiting a message');
-const userMessage = await MessageCollector.asyncQuestion({ botMessage, user: message.author.id });
-if (userMessage.content === 'ping') {
-    await message.channel.send('pong!');
-}
+
 }})
 bot.login(TOKEN); 
