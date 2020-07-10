@@ -341,20 +341,22 @@ member.roles.add(role).then
 })
 bot.on('message', message => {
 if (message.content.startsWith(`${prefix}memberStats`)) {
+  
 message.guild.members.fetch().then(fetchedMembers => {
 	const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totaldnd = fetchedMembers.filter(member => member.presence.status === 'Do Not Disrurb');
   const all = fetchedMembers
-  
+  message.guild.bots.fetch()
+  const BOTS = fetchedbots
   
     
     const statusEmbed = new Discord.MessageEmbed()
       .setColor('RANDOM')
       .setTimestamp()
       .setTitle(`**STATS**`)
-    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}**`)
+    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `)
     message.channel.send(statusEmbed)
 })
 }}
