@@ -348,8 +348,7 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totaldnd = fetchedMembers.filter(member => member.presence.status === 'Do Not Disrurb');
   const all = fetchedMembers
-  message.guild.bots.fetch()
-  const BOTS = fetchedbots
+  
   
     
     const statusEmbed = new Discord.MessageEmbed()
@@ -359,7 +358,8 @@ message.guild.members.fetch().then(fetchedMembers => {
     .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `)
     message.channel.send(statusEmbed)
 })
-}}
+}
+}
 )
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}channel`)) {
@@ -495,5 +495,12 @@ message.channel.send('Please enter more input.').then(() => {
 		});
 });
 }
+})
+
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}trivia`)) {
+  const infoEmbed = new Discord.MessageEmbed()
+  .setTitle('user info')
+  }
 })
 bot.login(TOKEN); 
