@@ -478,8 +478,16 @@ const swearWords2 = ["19202993$329"]
   }
 }
 )
-bot.on("message", async message => {
+bot.on("message", message => {
 if (message.content.startsWith(`${prefix}give`)) {
+  const {Message3Embed} = require('discord.js')
+const ms = require ('ms')
+module.exports={
+name: 'giveaway',
+  description: 'create a giveaway',
+  usage: '<time> <channel> <prize>',
+  category: 'fun',
+  run: async(bot,message,args)=>{
 if(!args[0]) return message.channel.send('you did not say the time')
     if(!args[0].endsWith("d")&&!args[0].endsWith("m")) return('you did not use the correct formatting')
     if(isNaN(args[0][0])) return message.channel.send('that is not a number')
@@ -489,7 +497,7 @@ if(!args[0]) return message.channel.send('you did not say the time')
     if(!prize) return message.channel.send('you did not say the prize!')
   }
 }
-)
+}})
 
   
 bot.login(TOKEN); 
