@@ -76,14 +76,19 @@ bot.on("message", message => {
     "your a dumb bot", 
     "I hate think bot",
     "<@711610924489769078> you suck",
-    "boo"
+    "boo",
+    "I hate you",
+    "you suck",
+    "your the worst bot",
+    "I don't like you",
+    "dumb bot"
   ];
   if (meanWords.some(word => message.content.includes(word))) {
-    if (message.channel.type == "dm") {
-    return  message.member.send("that command cannot be dmed");
+    if (!message.channel.type == "dm") {
+    return
     }
 
-    message.member.send(`${message.author} humans like you have low iQs`);
+    message.author.send(`${message.author} humans like you have low iQs`);
   }
 });
 bot.on("message", message => {
@@ -94,45 +99,6 @@ bot.on("message", message => {
   }
 });
 
-  bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}colorReact`)) {
-    
-    const exampleEmbed = new Discord.MessageEmbed()
-      .setColor("#FF5541")
-      .setImage("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F81C8E5B9-D7EF-4C56-8F95-5B7174AC0923.gif?v=1593336009258")
-      .setTimestamp()
-      .setTitle("Favorite colors")
-      .setAuthor("think bot")
-      .setDescription("please chose your favorite color")
-    .addField('red = 🔴', true)
-    .addField('orange = 🟠', true)
-    .addField('yellow = 🟡', true)
-    .addField('green = 🟢', true)
-    .addField('blue = 🔵', true)
-    .addField('purple = 🟣', true)
-    .addField('brown = 🟤', true)
-    .addField('black = ⚫', true)
-    .addField('white = ⚪', true)
-      .setThumbnail("https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396")
-      .setFooter('<:Diamondgemtoken:723417011094552656>')
-      message.channel.send(exampleEmbed).then(sentMessage => {
-      sentMessage.react("🔴");
-      sentMessage.react("🟠");
-      sentMessage.react("🟡");
-      sentMessage.react("🟢");
-      sentMessage.react("🔵");
-      sentMessage.react("🟣");
-      sentMessage.react("🟤");
-      sentMessage.react("⚫");
-      sentMessage.react("⚪");
-    });
-  }
-});
-
-
-    
- 
-  
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}lol`)) {
     message.channel
@@ -352,7 +318,7 @@ message.guild.members.fetch().then(fetchedMembers => {
   
     
     const statusEmbed = new Discord.MessageEmbed()
-      .setColor('RANDOM')
+      .setColor('303136')
       .setTimestamp()
       .setTitle(`**STATS**`)
     .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `)
@@ -502,5 +468,15 @@ if (message.content.startsWith(`${prefix}trivia`)) {
   const infoEmbed = new Discord.MessageEmbed()
   .setTitle('user info')
   }
+})
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}trivia`)) {
+const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
+  if (swearWords1.some(word => message.content.includes(word))) {
+    message.delete()
+    message.member.send(
+      `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
+)}
+}
 })
 bot.login(TOKEN); 
