@@ -301,7 +301,7 @@ channel.send(announce)
 bot.on('message', message => {   
 if (message.content === 'propro') {
   message.delete()
-bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F88477730-5E1D-4D35-A52B-90D2345C69E1.jpeg?v=1594348145763');
+bot.user.setAvatar('');
 }}
 )
 bot.on('message', message => {
