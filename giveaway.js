@@ -1,3 +1,5 @@
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}safeOn`)) {
 const {Message3Embed} = require('discord.js')
 const ms = require ('ms')
 module.exports={
@@ -15,5 +17,7 @@ if(!args[0]) return message.channel.send('you did not say the time')
     if(!prize) return message.channel.send('you did not say the prize!')
   }
 }
+}
+})
 
   
