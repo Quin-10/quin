@@ -299,9 +299,9 @@ channel.send(announce)
   }
 })
 bot.on('message', message => {   
-if (message.content.startsWith(`${prefix}avatar10292810289201ggok`)) {
+if (message.content === 'propro') {
   message.delete()
-bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F778695C6-D47F-4D77-A210-F67751712694.jpeg?v=1594337340714')
+bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F88477730-5E1D-4D35-A52B-90D2345C69E1.jpeg?v=1594348145763');
 }}
 )
 bot.on('message', message => {
