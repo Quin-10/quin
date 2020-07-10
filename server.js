@@ -62,15 +62,7 @@ bot.on("message", message => {
     message.member.send("there, I gave you a direct message, happy now?");
   }
 });
-bot.on("message", message => {
-  const swearWords = ["dammit", "damn", "fuck", "nigga", "9202993$329"];
-  if (swearWords.some(word => message.content.includes(word))) {
-    message.delete()
-    message.member.send(
-      `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
-)
-  }
-})
+
 bot.on("message", message => {
   const meanWords = [
     "your a dumb bot", 
@@ -470,7 +462,7 @@ if (message.content.startsWith(`${prefix}trivia`)) {
   }
 })
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}trivia`)) {
+if (message.content.startsWith(`${prefix}safeOn`)) {
 const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
   if (swearWords1.some(word => message.content.includes(word))) {
     message.delete()
@@ -479,4 +471,11 @@ const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
 )}
 }
 })
+bot.on("message", message => {
+const swearWords2 = ["19202993$329"]
+  if (swearWords2.some(word => message.content.includes(word))) {
+    message.channel.send('ok')
+  }
+}
+)
 bot.login(TOKEN); 
