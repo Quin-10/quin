@@ -511,8 +511,21 @@ message.channel.send(invite)
 
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}poll`)) {
-  const channel = message.mentions.channels.first()}
-if (message.content === ``)
+  const filter = m => m.content.includes('discord');
+const collector = message.channel.createMessageCollector(filter, { time: 150 });
+
+collector.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+  const channel = message.mentions.channels.first()
+
+collector.on('end', collected => {
+  channel.send()
+	console.log(`Collected ${collected.size} items`);
+});
+}
+})
+
 
 
 
