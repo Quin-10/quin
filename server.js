@@ -499,6 +499,11 @@ if(!args[0]) return message.channel.send('you did not say the time')
   }
 }
 }})
-
-  
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}invite`)) {
+  const channel = message.mentions.channels.first()
+const invite = channel.createInvite({ temporary: true, reason: 'Just testing' });
+message.channel.send(invite)
+}
+})
 bot.login(TOKEN); 
