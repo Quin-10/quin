@@ -512,15 +512,25 @@ message.channel.send(invite)
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}poll`)) {
   const filter = m => m.content.includes('discord');
-const collector = message.channel.createMessageCollector(filter, { time: 150 });
+const collector = message.channel.createMessageCollector(filter, { time: 150 })   
+  const collector1 = message.channel.createMessageCollector(filter, { time: 150 })  
 
 collector.on('collect', m => {
+  message.au
 	console.log(`Collected ${m.content}`);
 });
   const channel = message.mentions.channels.first()
-
 collector.on('end', collected => {
-  channel.send()
+  message.channel.send('ok, what next?')
+	console.log(`Collected ${collected.size} items`);
+});
+  collector1.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+  
+var announce = message.content.split(' ').slice(1).join(' ');
+collector1.on('end', collected => {
+  channel.send(announce)
 	console.log(`Collected ${collected.size} items`);
 });
 }
