@@ -512,9 +512,9 @@ message.channel.send(invite)
 
 
 
-  bot.on('message', async message => {
-	if (message.member.voice.channel) {
-	const connection = await message.member.voice.channel.join();
+  bot.on('message', message => {
+	if (message.member.voice.channel.join()) {
+	const connection = message.member.voice.channel.join();
     connection.play('https://youtu.be/IIyfO0cKGjY');
 	}
 });
