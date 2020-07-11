@@ -506,4 +506,10 @@ const invite = channel.createInvite({ temporary: true, reason: 'Just testing' })
 message.channel.send(invite)
 }
 })
+
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}invite`)) {
+  const dispatcher = connection.play(ytdl())
+  
+
 bot.login(TOKEN); 
