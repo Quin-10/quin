@@ -305,6 +305,7 @@ message.guild.members.fetch().then(fetchedMembers => {
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
   const totaldnd = fetchedMembers.filter(member => member.presence.status === 'Do Not Disrurb');
+  const totalbot = fetchedMembers.filter(member => bot.user.presence.status === 'online');
   const all = fetchedMembers
   
   
