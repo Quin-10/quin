@@ -507,9 +507,17 @@ message.channel.send(invite)
 }
 })
 
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}invite`)) {
-  const dispatcher = connection.play(ytdl())
-  
-
+bot.on("message", async message => {
+if (message.content.startsWith(`${prefix}play`)) {
+  const voiceChannel = message.member.voice.channel
+  const args = message.content.substring(prefix.length).split("")
+const ytdl = require('ytdl-core')
+  var connection = await voiceChannel.join()
+const dispatcher = connection.play(ytdl(args[1]))
+.on('finish', () => {
+voiceChannel.leave()
+})
+dispatcher.setVolumeLogarithmic(5/5)
+}
+})
 bot.login(TOKEN); 
