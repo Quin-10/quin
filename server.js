@@ -509,12 +509,15 @@ message.channel.send(invite)
 }
 })
 
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}poll`)) {
-  
-  
-}
-})
+
+
+
+  bot.on('message', async message => {
+	if (message.member.voice.channel) {
+	const connection = await message.member.voice.channel.join();
+    connection.play('https://youtu.be/IIyfO0cKGjY');
+	}
+});
 
 
 
