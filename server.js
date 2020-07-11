@@ -473,6 +473,7 @@ const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
 }
 })
 bot.on("message", message => {
+   if (message.content.startsWith(`${prefix}uni`)) {
 const swearWords2 = ["19202993$329"]
   if (swearWords2.some(word => message.content.includes(word))) {
     message.channel.send('ok')
@@ -507,26 +508,4 @@ message.channel.send(invite)
 }
 })
 
-bot.on("message", async message => {
-if (message.content.startsWith(`${prefix}play`)) {
-  const voiceChannel = message.member.voice.channel
-  if(!voiceChannel) return ('get in the van')
-  const permissions = voiceChannel.permissionsFor(message.bot.user)
-  if(!permissions.has('CONNECT')) return ('I don‘t1')
-  if(!permissions.has('SPEAK')) return ('I don‘t2')
-  try {
-var connection = await voiceChannel.join()
-}
-  const args = message.content.substring(prefix.length).split("")
-const ytdl = require('ytdl-core')
-const dispatcher = connection.play(ytdl(args[1]))
-.on('finish', () => {
-voiceChannel.leave()
-})
-dispatcher.setVolumeLogarithmic(5/5)
-  
-} else if (message.content.startsWith(`${prefix}stop`)) {
-  message.member.voice.channel.leave()
-}
-})
-bot.login(TOKEN); 
+bot.login(TOKEN)
