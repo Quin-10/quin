@@ -478,8 +478,9 @@ const swearWords2 = ["19202993$329"]
   if (swearWords2.some(word => message.content.includes(word))) {
     message.channel.send('ok')
   }
-}
+}}
 )
+
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}give`)) {
   const {Message3Embed} = require('discord.js')
@@ -507,5 +508,12 @@ const invite = channel.createInvite({ temporary: true, reason: 'Just testing' })
 message.channel.send(invite)
 }
 })
+
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}poll`)) {
+  const channel = message.mentions.channels.first()}
+if (message.content === ``)
+
+
 
 bot.login(TOKEN)
