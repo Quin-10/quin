@@ -501,7 +501,7 @@ if(!args[0]) return message.channel.send('you did not say the time')
   }
 }
 }})
-bot.on("message", message => {
+bot.on("message", async message => {
 if (message.content.startsWith(`${prefix}invite`)) {
   const channel = message.mentions.channels.first()
 const invite = channel.createInvite({ temporary: true, reason: 'Just testing' });
@@ -515,24 +515,26 @@ if (message.content.startsWith(`${prefix}poll`)) {
 const collector = message.channel.createMessageCollector(filter, { time: 150 })   
   const collector1 = message.channel.createMessageCollector(filter, { time: 150 })  
 
-collector.on('collect', m => {
-  message.au
-	console.log(`Collected ${m.content}`);
-});
-  const channel = message.mentions.channels.first()
-collector.on('end', collected => {
-  message.channel.send('ok, what next?')
-	console.log(`Collected ${collected.size} items`);
-});
   collector1.on('collect', m => {
 	console.log(`Collected ${m.content}`);
 });
   
 var announce = message.content.split(' ').slice(1).join(' ');
 collector1.on('end', collected => {
-  channel.send(announce)
+  message.channel.send('ok, what next?')
 	console.log(`Collected ${collected.size} items`);
 });
+  
+collector.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+  
+  const channel = message.mentions.channels.first()
+collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+  channel.send(announce)
+});
+  
 }
 })
 
