@@ -369,12 +369,12 @@ channel.bulkDelete(100)
   
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
-  const user = message.author
-const picture = user.displayAvatarURL();
+  const user = message.mentions.members.first()
+const picture = bot.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
   .setColor('303136')
   .setTitle('Your embed')
-  .setDescription(`NAM \n ${message.author.username}`)
+  .setDescription(`**NAME:** \n ${message.author.username}`)
   .setThumbnail(picture)
   message.channel.send(picEmbed)
 }
