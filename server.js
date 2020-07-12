@@ -372,17 +372,18 @@ if (message.content.startsWith(`${prefix}profile`)) {
   const member = message.mentions.members.first()
 const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
- if (member => member.presence.status === 'online') member.presence.status === 'online'
-  let status = member.presence.status
+ 
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
   	.addField('---Name---', `${member.user.tag}`, true)
   .addField('---BirthDate---', `${member.user.createdAt}`, true)
-  .addField('---Status---', `${ok}`, true)
+  .addField('---Status---', `${member.presence.status}`, true)
   message.channel.send(picEmbed)
 }
+
 })
+
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}pinned`)) {
  const pin = message.channel.messages.fetchPinned();
