@@ -378,7 +378,7 @@ const picture = member.user.displayAvatarURL();
   .setThumbnail(picture)
   	.addField('---Name---', `${member.user.tag}`, true)
   .addField('---BirthDate---', `${member.user.createdAt}`, true)
-  .addField('---guilds---', `${}`, true)
+  .addField('---Statys---', `${ok}`, true)
   message.channel.send(picEmbed)
 }
 })
