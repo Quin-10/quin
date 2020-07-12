@@ -66,7 +66,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const meanWords = [
     "your a dumb bot", 
-    "I hate think bot",
+    "I hate Mr circle",
     "<@711610924489769078> you suck",
     "boo",
     "I hate you",
@@ -286,7 +286,7 @@ message.channel.send(exampleEmbedlol)
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}stats1`)) {
-  message.channel.send(`**Think bot** server count: ${bot.guilds.cache.size} servers!`);
+  message.channel.send(`**Mr Circle** server count: ${bot.guilds.cache.size} servers!`);
 	}
 })
 bot.on('message', message => {
@@ -481,9 +481,9 @@ const swearWords2 = ["19202993$329"]
 }}
 )
 bot.on("message", message => {
-   if (message.content.startsWith(`${prefix}server`)) {
-if (message.content === `${prefix}server`) {
-	message.channel.send(`This server's name is: ${message.guild.name}`);
+   if (message.content.startsWith(`${prefix}serverName`)) {
+	message.channel.send(`This server's name is: **${message.guild.name}.** Can't you read?`);
 }
-
+   }
+)
 bot.login(TOKEN)
