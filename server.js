@@ -253,7 +253,7 @@ bot.on('message', message => {
         return
       }
     
-    var announce = message.content.split('/').slice(1).join(' ');
+    var announce = message.content.split('#','>').slice(2).join(' ');
     let channel = message.mentions.channels.first()
       channel.send(announce)
   }
