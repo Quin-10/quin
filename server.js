@@ -371,7 +371,12 @@ bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
   const user = message.author
 const picture = user.displayAvatarURL();
-  message.channel.send(picture)
+  const picEmbed = new Discord.MessageEmbed()
+  .setColor('303136')
+  .setTitle('Your embed')
+  .setDescription(`NAM \n ${message.author.username}`)
+  .setThumbnail(picture)
+  message.channel.send(picEmbed)
 }
 })
 bot.on("message", message => {
