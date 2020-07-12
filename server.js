@@ -374,7 +374,7 @@ const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
   
   .setColor('303136')
-  .setTitle('Your embed')
+  .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
   	.addField('**---Name---**', `${member.user.tag}`, true)
   .addField('**---BirthDate---**', `${member.user.createdAt}`, true)
@@ -488,8 +488,10 @@ const swearWords2 = ["19202993$329"]
 }}
 )
 bot.on("message", message => {
-   if (message.content.startsWith(`${prefix}serverName`)) {
-	message.channel.send(`This server's name is: **${message.guild.name}.** Can't you read?`);
+   if (message.content.startsWith(`${prefix}serverInfo`)) {
+	const infoEmbed = new Discord.MessageEmbed()
+     .setTitle(`**NAME:** ${message.guild.name}`)
+  message.channel.send(infoEmbed)
 }
    }
 )
