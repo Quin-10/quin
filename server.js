@@ -374,8 +374,8 @@ const picture = bot.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
   .setColor('303136')
   .setTitle('Your embed')
-  .setDescription(`**NAME:** \n ${message.author.username}`)
   .setThumbnail(picture)
+  	.addField('Inline field title', 'Some value here', true)
   message.channel.send(picEmbed)
 }
 })
