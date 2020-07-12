@@ -248,6 +248,7 @@ message.channel.send(exampleEmbed1)
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}announce`)) {
+  } else if  (message.content.endsWith(`${announce}`))
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
         return
       }
@@ -369,7 +370,7 @@ channel.bulkDelete(100)
   
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
-  const member = message.mentions.members.first()
+  const member = message.mentions.members.first() && member === message.members.id.first()
 const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
  
