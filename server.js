@@ -248,15 +248,21 @@ message.channel.send(exampleEmbed1)
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}announce`)) {
-  } else if  (message.content.endsWith(`${announce}`))
+  
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
         return
       }
+    if (message.content.endsWith(announce)) {
+      channel.send(announce)
+    }
     var announce = message.content.split(' ').slice(1).join(' ');
     let channel = message.mentions.channels.first()
-channel.send(announce)
+
   }
 })
+
+
+
 bot.on('message', message => {   
 if (message.content === 'propro') {
   message.delete()
