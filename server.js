@@ -253,11 +253,13 @@ bot.on('message', message => {
         return
       }
     
-    var announce = message.content.split('#','>').slice(2).join(' ');
-    let channel = message.mentions.channels.first()
-      channel.send(announce)
-  }
-})
+    var announce = message.content.split('>').slice(1).join(' ');
+    var channel = message.mentions.channels.first()
+      const anEmbed = new Discord.MessageEmbed()
+      .setTitle('NEW ANNOUNCMENT ')
+  
+}}
+       )
 
 
 
