@@ -378,7 +378,7 @@ const picture = member.user.displayAvatarURL();
   .setThumbnail(picture)
   	.addField('---Name---', `${member.user.tag}`, true)
   .addField('---BirthDate---', `${member.user.createdAt}`, true)
-  .addField('---guilds---', `${member.user.createdAt}`, true)
+  .addField('---guilds---', `${}`, true)
   message.channel.send(picEmbed)
 }
 })
@@ -492,7 +492,7 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
 	const infoEmbed = new Discord.MessageEmbed()
      .setTitle(`**NAME:** ${message.guild.name}`)
-  .addField('**CHANNELS**'`${message.guild.channels.size}`, true)
+  .addField('**CHANNELS**'`${message.author.guilds.cache.size}`, true)
   message.channel.send(infoEmbed)
 }
    }
