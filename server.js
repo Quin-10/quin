@@ -369,13 +369,14 @@ channel.bulkDelete(100)
   
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
-  const user = message.mentions.members.first()
+  const member = message.mentions.members.first()
 const picture = bot.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
   .setColor('303136')
   .setTitle('Your embed')
   .setThumbnail(picture)
-  	.addField('Inline field title', 'Some value here', true)
+  	.addField('**---Name---**', `${member.user.tag}`, true)
+  .addField('**---BirthDate---**', `${member.user.createdAt}`, true)
   message.channel.send(picEmbed)
 }
 })
