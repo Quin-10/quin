@@ -213,7 +213,8 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}8ball`)) {
+  var luck = message.content.split('').slice(1).join('l');
+ if (message.content.startsWith(`${prefix}8ball`)) {
     var choices = [
       "no",
       "depends",
@@ -233,7 +234,9 @@ bot.on("message", message => {
      'idk'
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
-
+if(!luck) {
+  return
+}
     message.channel.send(`${message.author}, the 8ball says: ${output}`);
   }
 });
