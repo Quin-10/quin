@@ -456,7 +456,7 @@ bot.on("message", message => {
 if (message.content.startsWith(`${prefix}404`)) {
  const amount = parseInt(args[0])+ 1;
 const args = message.content.slice().trim().split(/ +/g)
-message.channel.bulkDelete(amount, true);
+message.channel.bulkDelete(amount, true)
 	
 }
 })
