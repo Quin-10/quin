@@ -255,8 +255,11 @@ bot.on('message', message => {
     
     var announce = message.content.split('>').slice(1).join(' ');
     var channel = message.mentions.channels.first()
+    var $. = message.mentions.channels.first()
       const anEmbed = new Discord.MessageEmbed()
-      .setTitle('NEW ANNOUNCMENT ')
+      .setTitle('\<:Announce:731965302971302000>NEW ANNOUNCMENT')
+      .setDescription(announce)
+      message.channel.send(anEmbed)
   
 }}
        )
