@@ -79,6 +79,9 @@ bot.on("message", message => {
     if (!message.channel.type == "dm") {
     return
     }
+    if (message.channel.type == "text") {
+    return
+    }
 
     message.author.send(`${message.author} humans like you have low iQs`);
   }
