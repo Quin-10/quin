@@ -507,7 +507,7 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
 	const infoEmbed = new Discord.MessageEmbed()
      .setTitle(`**NAME:** ${message.guild.name}`)
-  .addField('**CHANNELS**'`${message.author.guilds.cache.size}`, true)
+  .addField('**CHANNELS**'`${message.guild.channels.cache.size}`, true)
   message.channel.send(infoEmbed)
 }
    }
