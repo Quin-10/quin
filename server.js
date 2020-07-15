@@ -259,7 +259,7 @@ bot.on('message', message => {
         return
       }
     
-    var announcelel = message.content.split(`${prefix} ${channel}`).slice(0).join(' ');
+    var announcelel = message.content.split(`${channel}`).slice(0).join(' ');
     var channel = message.mentions.channels.first()
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
@@ -377,10 +377,11 @@ collector.on('end', collected => {
 })
   bot.on("message", message => {
 if (message.content.startsWith(`${prefix}nuke`)) {
-  return message.channel.send('**ERROR:** This command is either broken, not working or is being worked on. sorry for the inconvenience')
-  let channel = message.mentions.channels.first()
-  if (!message.mentions.channels.first()) return message.channel.send ('which channel do you want to nuke?')
-channel.bulkDelete(100)
+        if(!message.member.hasPermission("MANAGE_CHANNELS")) {return message.channel.send("you do not have permissons")}
+        let clearchannel = message.channel.mentions.first()
+        clearchannel.clone()
+        clearchannel.delete()
+
   
 }})
   
