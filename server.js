@@ -379,9 +379,7 @@ collector.on('end', collected => {
 if (message.content.startsWith(`${prefix}nuke`)) {
         if(!message.member.hasPermission("MANAGE_CHANNELS")) {return message.channel.send("you do not have permissons")}
         let clearchannel = message.channel.mentions.first()
-        clearchannel.clone()
-        clearchannel.delete()
-
+        message.messages.removeAll();
   
 }})
   
