@@ -524,8 +524,9 @@ bot.on("message", message => {
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(`NAME: **${message.guild.name}** \n CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}**`)
+  .setDescription(` \<:Name:733049594694598726> NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}**`)
   message.channel.send(infoEmbed)
+     message.channel.send('')
 }
    }
 )
