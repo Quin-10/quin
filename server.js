@@ -253,13 +253,13 @@ message.channel.send(exampleEmbed1)
   }
 })
 bot.on('message', message => {
-  if (message.content.startsWith(`${prefix}announce`)) {
+  if (message.content.startsWith(`E/announce`)) {
   
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
         return
       }
     
-    var announcelel = message.content.split(`${prefix}announce ${channel.id}`).slice(0).join(' ');
+    var announcelel = message.content.split(`${prefix} ${channel}`).slice(0).join(' ');
     var channel = message.mentions.channels.first()
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
