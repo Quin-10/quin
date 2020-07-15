@@ -252,6 +252,7 @@ bot.on('message', message => {
 message.channel.send(exampleEmbed1)
   }
 })
+
 bot.on('message', message => {
   if (message.content.startsWith(`E/announce`)) {
   
@@ -259,7 +260,7 @@ bot.on('message', message => {
         return
       }
     
-    var announcelel = message.content.split(`${channel}`).slice(0).join(' ');
+    var announcelel = message.content.split(``).slice(1).join(' ');
     var channel = message.mentions.channels.first()
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
@@ -267,8 +268,8 @@ bot.on('message', message => {
       .setDescription(announcelel)
       .setColor('49328')
       channel.send(anEmbed)
-  
-}}
+}
+}
        )
 
 
