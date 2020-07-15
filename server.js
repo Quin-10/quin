@@ -30,7 +30,7 @@ bot.on("message", message => {
     );
   }
 });
-var prefix = "E/";
+var prefix = "E/"
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}nitro`)) {
     var choices = [
@@ -259,12 +259,13 @@ bot.on('message', message => {
         return
       }
     
-    var announce = message.content.split(`${bot.prefix}announce ${channel}`).slice(1).join(' ');
+    var announce = message.content.split(`${bot.prefix}announce ${channel}`).slice(0).join(' ');
     var channel = message.mentions.channels.first()
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
       .setTitle('\<:Announce:731965302971302000>NEW ANNOUNCMENT')
       .setDescription(announce)
+      .setColor('49328')
       channel.send(anEmbed)
   
 }}
