@@ -239,7 +239,7 @@ bot.on("message", message => {
     var output = choices[Math.floor(Math.random() * choices.length)];
 if(!luck) {
   return
-}
+} 
     message.channel.send(`${message.author}, the 8ball says: ${output}`);
   }
 });
@@ -514,7 +514,7 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
 	const infoEmbed = new Discord.MessageEmbed()
      .setTitle(`**NAME:** ${message.guild.name}`)
-  .addField('**CHANNELS**'`${message.guild.channels.cache.size}`, true)
+  .setdescription(`**CHANNELS** ${message.guild.channels.cache.size}`)
   message.channel.send(infoEmbed)
 }
    }
