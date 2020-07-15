@@ -512,8 +512,7 @@ const swearWords2 = ["19202993$329"]
 )
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
-	const infoEmbed = new Discord.MessageEmbed()
-  var choices = [
+    const choices = [
 '\<:LOL:719733158266011708>',
     '\<:K_:719733159297679400>',
     '\<:SURPRISED:719733158509281370>',
@@ -521,6 +520,7 @@ bot.on("message", message => {
     '\<:happy:719733157099733056>'
     ]
   var output1 = choices[Math.floor(Math.random() * choices.length)]
+	const infoEmbed = new Discord.MessageEmbed()
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
