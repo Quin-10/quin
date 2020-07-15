@@ -265,7 +265,7 @@ bot.on('message', message => {
       const anEmbed = new Discord.MessageEmbed()
       .setTitle('\<:Announce:731965302971302000>NEW ANNOUNCMENT')
       .setDescription(announce)
-      message.channel.send(anEmbed)
+      channel.send(anEmbed)
   
 }}
        )
