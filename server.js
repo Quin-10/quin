@@ -513,9 +513,18 @@ const swearWords2 = ["19202993$329"]
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
 	const infoEmbed = new Discord.MessageEmbed()
+  var choices = [
+'\<:LOL:719733158266011708>',
+    '\<:K_:719733159297679400>',
+    '\<:SURPRISED:719733158509281370>',
+    '\<:EYES:719733159608057866>',
+    '\<:happy:719733157099733056>'
+    ]
+  var output1 = choices[Math.floor(Math.random() * choices.length)]
+     
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(`NAME: **${message.guild.name}** \n CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n EMOJIS: **${message.guild.emojis.cache.size}**`)
+  .setDescription(`NAME: **${message.guild.name}** \n CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}**`)
   message.channel.send(infoEmbed)
 }
    }
