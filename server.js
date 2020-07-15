@@ -259,12 +259,12 @@ bot.on('message', message => {
         return
       }
     
-    var announce = message.content.split(`${bot.prefix}announce ${channel}`).slice(0).join(' ');
+    var announcelel = message.content.split(`${prefix}announce ${channel.id}`).slice(0).join(' ');
     var channel = message.mentions.channels.first()
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
       .setTitle('\<:Announce:731965302971302000>NEW ANNOUNCMENT')
-      .setDescription(announce)
+      .setDescription(announcelel)
       .setColor('49328')
       channel.send(anEmbed)
   
