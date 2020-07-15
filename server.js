@@ -514,7 +514,8 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
 	const infoEmbed = new Discord.MessageEmbed()
      .setTitle(`SERVER INFO`)
-  .setDescription(` NAME: **${message.guild.name}** \n CHANNELS: **${message.guild.channels.cache.size}** `)
+  .setColor('363940')
+  .setDescription(`NAME: **${message.guild.name}** \n CHANNELS: **${message.guild.channels.cache.size}** \n SERVER ID: **${message.guild.id}**`)
   message.channel.send(infoEmbed)
 }
    }
