@@ -513,8 +513,8 @@ const swearWords2 = ["19202993$329"]
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
 	const infoEmbed = new Discord.MessageEmbed()
-     .setTitle(`**NAME:** ${message.guild.name}`)
-  .setdescription(`**CHANNELS** ${message.guild.channels.cache.size}`)
+     .setTitle(`SERVER INFO`)
+  .setDescription(` NAME: **${message.guild.name}** \n CHANNELS: **${message.guild.channels.cache.size}** `)
   message.channel.send(infoEmbed)
 }
    }
