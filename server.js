@@ -305,7 +305,9 @@ message.channel.send(exampleEmbedlol)
 })
 bot.on('message', message => {
   if (message.content.startsWith(`${prefix}stats1`)) {
-  message.channel.send(`**Mr Circle** server count: ${bot.guilds.cache.size} servers!`);
+    const statusEmbed = new Discord.MessageEmbed()
+    .setTitle('bot stats')
+  message.channel.send(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers! \n **${message.guild.name}** channel count: **${message.guild.channels.cache.size}** channels!`);
 	}
 })
 bot.on('message', message => {
