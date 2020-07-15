@@ -260,7 +260,8 @@ bot.on('message', message => {
         return
       }
     
-    var announcelel = message.content.split(`E/announce ${channel}`).slice(0).join(' ');
+    var announcelel = message.content.split(`E/announce`).join(' ');
+    var announcelel = message.content.split(`${channel}`).join(' ');
     var channel = message.mentions.channels.first()
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
