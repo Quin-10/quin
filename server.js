@@ -531,14 +531,13 @@ bot.on("message", message => {
    }
 )
 bot.on("message", message => {
-   if (message.content.startsWith(`${prefix}bulk 10`)) {
+   if (message.content.startsWith(`${prefix}bulk`)) {
      const all = message.content.split('').slice(1).join(" ")
-message.channel.bulkDelete(10)
-   } else if (message.content.startsWith(`${prefix}bulk 20`)) {
-   message.channel.bulkDelete(20)
+message.channel.bulkDelete(all)
+   
    }
    }
-})
+)
 
 
 bot.login(TOKEN)
