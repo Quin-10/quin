@@ -532,8 +532,9 @@ bot.on("message", message => {
 )
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}bulk`)) {
-     const all = message.content.split('').slice(1).join(" ")
-message.channel.bulkDelete(all)
+     
+    
+
    
    }
    }
