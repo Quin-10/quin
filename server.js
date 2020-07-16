@@ -257,7 +257,7 @@ bot.on('message', message => {
   if (message.content.startsWith(`E/announce`)) {
   
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
-        return message.channel.send('you need the `ADMINISTRATOR`')
+        return message.channel.send('you need the permission: `ADMINISTRATOR` to make an announcment ')
       }
     
     var channel = message.mentions.channels.first()
@@ -530,7 +530,15 @@ bot.on("message", message => {
 }
    }
 )
-
+bot.on("message", message => {
+   if (message.content.startsWith(`${prefix}bulk 10`)) {
+     const all = message.content.split('').slice(1).join(" ")
+message.channel.bulkDelete(10)
+   } else if (message.content.startsWith(`${prefix}bulk 20`)) {
+   message.channel.bulkDelete(20)
+   }
+   }
+})
 
 
 bot.login(TOKEN)
