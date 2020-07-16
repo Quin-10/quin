@@ -257,11 +257,12 @@ bot.on('message', message => {
   if (message.content.startsWith(`E/announce`)) {
   
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
-        return
+        return message.channel.send('you need the `ADMINISTRATOR`')
       }
     
-    var announcelel = message.content.split(`E/announce`).slice(1).join(' ');
     var channel = message.mentions.channels.first()
+    var announcelel = message.content.split(`${prefix}announce ${channel}`).slice(1).join(' ');
+    
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
       .setTitle('\<:Announce:731965302971302000>NEW ANNOUNCMENT')
