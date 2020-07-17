@@ -376,7 +376,7 @@ const picture = member.user.displayAvatarURL();
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
-  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.user.createdAt}** \nSTATUS: ${member.presence.status}`)
+  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.user.createdAt}** \nSTATUS: ${member.presence.status} \nJOINDATE: ${member.user.joinedAt}`)
   message.channel.send(picEmbed)
 }
 })
@@ -427,7 +427,7 @@ bot.on("message", message => {
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(` \<:Name:733049594694598726> NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}**`)
+  .setDescription(` \<:Name:733049594694598726> NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n ${message.guild.region}`)
   message.channel.send(infoEmbed)
      message.channel.send('')
 }
