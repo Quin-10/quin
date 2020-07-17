@@ -376,7 +376,7 @@ const picture = member.user.displayAvatarURL();
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
-  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.user.}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
+  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.createdTimestamp}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
   message.channel.send(picEmbed)
 }
 })
