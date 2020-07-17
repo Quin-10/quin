@@ -371,13 +371,14 @@ if (message.content.startsWith(`${prefix}nuke`)) {
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
   const member = message.mentions.members.first() 
+  const user = message.mentions.members.first() 
 const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
-  
+  const join = (member.user.createdAt).format("dddd")
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
-  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.user.joinedAt}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
+  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${join}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
   message.channel.send(picEmbed)
 }
 })
@@ -428,7 +429,7 @@ bot.on("message", message => {
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(` \<:Name:733049594694598726> NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n ${message.guild.region}`)
+  .setDescription(` \<:Name:733049594694598726> NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}**`)
   message.channel.send(infoEmbed)
      message.channel.send('')
 }
