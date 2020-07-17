@@ -530,19 +530,6 @@ bot.on("message", message => {
 }
    }
 )
-bot.on("message", message => {
-   if (message.content.startsWith(`${prefix}bulk`)) {
-     message.channel.send('no')
 
-   
-   }
-   }
-)
-bot.on("message", message => {
-   if (message.content.startsWith(`${prefix}bio`)) {
-var channel = message.mentions.channels.first()
-     channel.edit('poop')
-   }
-})
 
 bot.login(TOKEN)
