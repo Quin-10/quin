@@ -265,7 +265,7 @@ bot.on('message', message => {
     
     var $L = (`\n`)
       const anEmbed = new Discord.MessageEmbed()
-      .setTitle('\<:Announce:731965302971302000>NEW ANNOUNCMENT')
+      .setTitle('\<:Announce:731965302971302000>`NEW ANNOUNCMENT`')
       .setDescription(announcelel)
       .setColor('49328')
       channel.send(anEmbed)
@@ -538,6 +538,11 @@ bot.on("message", message => {
    }
    }
 )
-
+bot.on("message", message => {
+   if (message.content.startsWith(`${prefix}bio`)) {
+var channel = message.mentions.channels.first()
+     channel.edit('poop')
+   }
+})
 
 bot.login(TOKEN)
