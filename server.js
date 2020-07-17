@@ -503,12 +503,12 @@ const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
 }
 })
 bot.on("message", message => {
-   if (message.content.startsWith(`${prefix}uni`)) {
 const swearWords2 = ["19202993$329"]
+
   if (swearWords2.some(word => message.content.includes(word))) {
     message.channel.send('ok')
   }
-}}
+}
 )
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
