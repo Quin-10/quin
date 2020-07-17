@@ -357,28 +357,9 @@ if (message.content.startsWith(`${prefix}avatar`)) {
   
 
 
-bot.on('message', message => {
-if (message.content === 'E/discord') {
 
-  message.channel.send('ok lol')
-}
-}
-)
 
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}trivia`)) {
-const filter = m => m.content.includes('discord');
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
-collector.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-});
-
-collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-});
-}
-})
   bot.on("message", message => {
 if (message.content.startsWith(`${prefix}nuke`)) {
         if(!message.member.hasPermission("MANAGE_CHANNELS")) {return message.channel.send("you do not have permissons")}
@@ -389,19 +370,17 @@ if (message.content.startsWith(`${prefix}nuke`)) {
   
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}profile`)) {
-  const member = message.mentions.members.first() && member === message.members.id.first()
+  const member = message.mentions.members.first() 
 const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
- 
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
   	.addField('---Name---', `${member.user.tag}`, true)
   .addField('---BirthDate---', `${member.user.createdAt}`, true)
-  .addField('---Status---', `${member.presence.status}`, true)
+  .addField(`---Status---, ${member.presence.status}`, true)
   message.channel.send(picEmbed)
 }
-
 })
 
 bot.on("message", message => {
@@ -409,91 +388,17 @@ if (message.content.startsWith(`${prefix}pinned`)) {
  const pin = message.channel.messages.fetchPinned();
 }
 })
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}xx3`)) {
-  const filter = m => m.content.includes('discord') && m.author.id === message.author.id
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-const collector1 = message.channel.createMessageCollector(filter, { time: 15000 });
-  const collector2 = message.channel.createMessageCollector(filter, { time: 15000 }) 
-  
-collector.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-});
-message.channel.send("what channel do you want to send the message to?")
-collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-})
 
- 
-
-  
-}
-})
-bot.on('messageDelete', async message => {
-	if (message.content.startsWith(`${prefix}snipe`)) {
-	if (!message.guild) return;
-	const fetchedLogs = await message.guild.fetchAuditLogs({
-		limit: 1,
-		type: 'MESSAGE_DELETE',
-	});
-	// Since we only have 1 audit log entry in this collection, we can simply grab the first one
-	const deletionLog = fetchedLogs.entries.first();
-
-	// Let's perform a sanity check here and make sure we got *something*
-	if (!deletionLog) return console.log(`A message by ${message.author.tag} was deleted, but no relevant audit logs were found.`);
-
-	// We now grab the user object of the person who deleted the message
-	// Let us also grab the target of this action to double check things
-	const { executor, target } = deletionLog;
-
-
-	// And now we can update our output with a bit more information
-	// We will also run a check to make sure the log we got was for the same author's message
-	if (target.id === message.author.id) {
-		console.log(`A message by ${message.author.tag} was deleted by ${executor.tag}.`);
-	}	else {
-		console.log(`A message by ${message.author.tag} was deleted, but we don't know by who.`);
-	}
-}
-})
 bot.on('messageDelete', async message => {
 	if (message.content.startsWith(`${prefix}lead`)) {
  var high = message.guildMember.roles.highest;
     message.channel.send(high)
   }
 })
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}404`)) {
- const amount = parseInt(args[0])+ 1;
-const args = message.content.slice().trim().split(/ +/g)
-message.channel.bulkDelete(amount, true)
-	
-}
-})
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}403`)) {
-message.channel.send('Please enter more input.').then(() => {
-	const filter = m => message.author.id === m.author.id;
 
-	message.channel.awaitMessages(filter, { time: 60000, max: 1, errors: ['time'] })
-		.then(messages => {
-			message.channel.send(`You've entered: ${messages.first().content}`);
-		})
-		.catch(() => {
-			message.channel.send('You did not enter any input!');
-		});
-});
-}
-})
+
 
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}trivia`)) {
-  const infoEmbed = new Discord.MessageEmbed()
-  .setTitle('user info')
-  }
-})
-bot.on("message", message => {
-if (message.content.startsWith(`${prefix}safeOn`)) {
 const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
   if (swearWords1.some(word => message.content.includes(word))) {
     message.delete()
@@ -501,7 +406,7 @@ const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"]
       `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
 )}
 }
-})
+)
 bot.on("message", message => {
 const swearWords2 = ["19202993$329"]
 
