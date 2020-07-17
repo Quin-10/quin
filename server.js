@@ -373,10 +373,11 @@ if (message.content.startsWith(`${prefix}profile`)) {
   const member = message.mentions.members.first() 
 const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
+  
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
-  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.createdTimestamp}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
+  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.user.joinedAt}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
   message.channel.send(picEmbed)
 }
 })
