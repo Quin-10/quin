@@ -376,9 +376,7 @@ const picture = member.user.displayAvatarURL();
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
-  	.addField('---Name---', `${member.user.tag}`, true)
-  .addField('---BirthDate---', `${member.user.createdAt}`, true)
-  .addField(`---Status---, ${member.presence.status}`, true)
+  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${member.user.createdAt}** \nSTATUS: ${member.presence.status}`)
   message.channel.send(picEmbed)
 }
 })
