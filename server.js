@@ -532,8 +532,7 @@ bot.on("message", message => {
 )
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}bulk`)) {
-     
-    
+     message.channel.send('no')
 
    
    }
