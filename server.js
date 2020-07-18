@@ -216,7 +216,9 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on("message", message => {
-  var luck = message.content.split('').slice(1).join('l');
+  if (!message.content.split('').slice(1).join('')) {
+return
+  }
  if (message.content.startsWith(`${prefix}8ball`)) {
     var choices = [
       "no",
@@ -237,9 +239,7 @@ bot.on("message", message => {
      'idk'
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
-if(!luck) {
-  return
-} 
+
     message.channel.send(`${message.author}, the 8ball says: ${output}`);
   }
 });
@@ -434,10 +434,11 @@ bot.on("message", message => {
 }
    }
 )
-bot.on('message', message => {   
-  bot.user.setAvatar('')
 
-}
+bot.on("message", message => {
+   if (message.content.startsWith(`${prefix}prank`)) {
+     let member = message.members.mention.first()
+     message.member.send('lol you got pranked didnt you :)')
+   }
 })
-
 bot.login(TOKEN)
