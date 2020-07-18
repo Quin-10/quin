@@ -350,7 +350,7 @@ bot.on("message", message => {
 if (message.content.startsWith(`${prefix}avatar`)) {
   const avaEmbed = new Discord.MessageEmbed()
   .setTitle('this is your ava')
-.setImage(bot.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
+.setImage
   message.channel.send(avaEmbed)
 }
 })
@@ -374,11 +374,10 @@ if (message.content.startsWith(`${prefix}profile`)) {
   const user = message.mentions.members.first() 
 const picture = member.user.displayAvatarURL();
   const picEmbed = new Discord.MessageEmbed()
-  const join = (member.user.createdAt).format("dddd")
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
   .setThumbnail(picture)
-  .setDescription(`NAME:${member.user.tag} \nBIRTHDATE: **${join}** \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
+  .setDescription(`NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
   message.channel.send(picEmbed)
 }
 })
