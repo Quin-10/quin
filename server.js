@@ -278,7 +278,7 @@ bot.on('message', message => {
 bot.on('message', message => {   
 if (message.content === 'propro') {
   message.delete()
-bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F87A46C1D-0A16-4419-8F85-5FF7597A6684.png?v=1595108757117');
+bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FF0826EC9-3966-4B08-899B-3DC9653F517D.png?v=1595110044169');
 }}
 )
 bot.on('message', message => {
