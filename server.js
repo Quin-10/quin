@@ -435,10 +435,8 @@ bot.on("message", message => {
    }
 )
 bot.on('message', message => {   
-if (bot.user.presence.status === 'online') {
-  bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FAA4A4096-D50C-404B-AA83-41C77BD546C2.png?v=1595110050117')
-} else if (bot.user.presence.status === 'idle') {
-  bot.user.setAvatar('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FF0826EC9-3966-4B08-899B-3DC9653F517D.png?v=1595110044169')
+  bot.user.setAvatar('')
+
 }
 })
 
