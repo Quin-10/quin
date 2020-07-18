@@ -437,8 +437,9 @@ bot.on("message", message => {
 
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}prank`)) {
-     let member = message.members.mention.first()
-     message.member.send('lol you got pranked didnt you :)')
+     const user = message.mentions.members.first()
+     const hm = message.content.split('>').slice(1).join(" ")
+     user.send(`from: ${message.author}${hm}`)
    }
 })
 bot.login(TOKEN)
