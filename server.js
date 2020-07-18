@@ -439,7 +439,7 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}prank`)) {
      const user = message.mentions.members.first()
      const hm = message.content.split('>').slice(1).join(" ")
-     user.send(`from: ${message.author}${hm}`)
+     user.send(`from ${message.author}: \n${hm}`)
    }
 })
 bot.login(TOKEN)
