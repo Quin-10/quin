@@ -293,7 +293,7 @@ if (message.content.startsWith(`${prefix}ban`)) {
   
  const user = message.mentions.users.first();
   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) return message.channel.send('you don’t have those perms, you need to have the `KICK_MEMBERS` and `BAN_MEMBERS` permissions')
-  let reason = message.content.split(``).slice(1).join(' ');
+  let reason = message.content.split(`${prefix}ban ${user}`).slice(1).join(' ');
   if(reason === undefined) reason = ''
   if(user.id === message.author.id) return message.channel.send ('are you crazy? you cannot ban yourself bruh')
 message.guild.members.ban(user)
@@ -452,7 +452,7 @@ bot.on("message", message => {
 
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
-    
+    const user = message.mentions.members.first()
     const clel = [
 'you aren`t even cool at all'
     ]
@@ -482,10 +482,11 @@ bot.on('message', message => {
     `🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 100% \n ${c4}`,
 
     ]
+  
   var square = choices[Math.floor(Math.random() * choices.length)]
   const coolEmbed = new Discord.MessageEmbed()
   .setTitle('**COOL POWER**')
-  .setDescription('this is how cool you are :)')
+  .setDescription(`this is how cool you are :) ${user}`)
   .addField('cool power results:',`${square}`, true)
   
   message.channel.send(coolEmbed)
