@@ -254,7 +254,7 @@ message.channel.send(exampleEmbed1)
 })
 
 bot.on('message', message => {
-  if (message.content.startsWith(`E/announce`)) {
+  if (message.content.toLowerCase().startsWith(`E/announce`)) {
   
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
         return message.channel.send('you need the permission: `ADMINISTRATOR` to make an announcment ')
@@ -335,7 +335,7 @@ message.guild.members.fetch().then(fetchedMembers => {
       .setColor('303136')
       .setTimestamp()
       .setTitle(`**STATS**`)
-    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}**`)
+    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `)
     message.channel.send(statusEmbed)
 })
 }
