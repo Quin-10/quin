@@ -448,9 +448,7 @@ bot.on("message", message => {
 
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
-    const cpoo = [
-'you aren`t even cool at all'
-    ]
+    
     const clel = [
 'you aren`t even cool at all'
     ]
@@ -467,17 +465,17 @@ bot.on('message', message => {
       'WOW YOU ARE MORE THAN JUST COOL. YOU ARE SUPER EPIC'
 ]
   const choices = [
-    
-    `🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10%`,
-    `🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛ 20%`,
-    `🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛ 30%`,
-    `🟦🟦🟦🟦⬛⬛⬛⬛⬛⬛ 40%`,
-    `🟦🟦🟦🟦🟦⬛⬛⬛⬛⬛ 50%`,
-    `🟦🟦🟦🟦🟦🟦⬛⬛⬛⬛ 60%`,
-    `🟦🟦🟦🟦🟦🟦🟦⬛⬛⬛ 70%`,
-    `🟦🟦🟦🟦🟦🟦🟦🟦⬛⬛ 80%`,
-    `🟦🟦🟦🟦🟦🟦🟦🟦🟦⬛ 90%`,
-    `🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 100%`,
+    `⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ 0% \n ${clel}`,
+    `🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10% \n ${c1}`,
+    `🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛ 20% \n ${c1}`,
+    `🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛ 30% \n ${c1}`,
+    `🟦🟦🟦🟦⬛⬛⬛⬛⬛⬛ 40% \n ${c2}`,
+    `🟦🟦🟦🟦🟦⬛⬛⬛⬛⬛ 50% \n ${c2}`,
+    `🟦🟦🟦🟦🟦🟦⬛⬛⬛⬛ 60% \n ${c2}`,
+    `🟦🟦🟦🟦🟦🟦🟦⬛⬛⬛ 70% \n ${c3}`,
+    `🟦🟦🟦🟦🟦🟦🟦🟦⬛⬛ 80% \n ${c3}`,
+    `🟦🟦🟦🟦🟦🟦🟦🟦🟦⬛ 90% \n ${c3}`,
+    `🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 100% \n ${c4}`,
 
     ]
   var square = choices[Math.floor(Math.random() * choices.length)]
