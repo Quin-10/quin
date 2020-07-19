@@ -325,7 +325,7 @@ message.guild.members.fetch().then(fetchedMembers => {
 	const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
   const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
   const totalidle = fetchedMembers.filter(member => member.presence.status === 'idle');
-  const totaldnd = fetchedMembers.filter(member => member.presence.status === 'Do Not Disrurb');
+  const totaldnd = fetchedMembers.filter(member => member.presence.status === 'dnd');
   const totalbot = fetchedMembers.filter(member => bot.user.presence.status === 'online');
   const all = fetchedMembers
   
@@ -335,7 +335,7 @@ message.guild.members.fetch().then(fetchedMembers => {
       .setColor('303136')
       .setTimestamp()
       .setTitle(`**STATS**`)
-    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `)
+    .setDescription(`\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:check:719733159079575710> ALL: **${all.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}**`)
     message.channel.send(statusEmbed)
 })
 }
