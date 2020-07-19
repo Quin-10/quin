@@ -12,11 +12,13 @@ const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 bot.once("ready", () => {
   console.log("ready!");
-  bot.user.setActivity("lol 2020 is a bad year lol");
+  bot.user.setActivity("no")
 });
 //hello command
 bot.on("message", message => {
   if (message.content === "Hello") {
+    var args = message.content.split(' ')
+    var cmd = args.shift().slice(prefix.length).toLowerCase()
     if (message.channel.type == "dm") {
       return;
     }
@@ -30,6 +32,7 @@ bot.on("message", message => {
     );
   }
 });
+
 var prefix = "E/"
 
 bot.on("message", message => {
@@ -443,4 +446,8 @@ bot.on("message", message => {
      user.send(`from ${message.author}: \n${hm}`)
    }
 })
+
+bot.on('message', message => {
+	if (message.content.startsWith(`${prefix}lead`)) {
+    
 bot.login(TOKEN)
