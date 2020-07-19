@@ -437,8 +437,8 @@ bot.on("message", message => {
 
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}mail`)) {
-     const user = message.mentions.members.first()
-     const hm = message.content.split('>').slice(1).join(" ")
+     var user = message.mentions.members.first()
+     var hm = message.content.split(`${user}`).slice(1).join(" ")
      user.send(`from ${message.author}: \n${hm}`)
    }
 })
