@@ -453,10 +453,12 @@ bot.on("message", message => {
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
     let user = message.mentions.members.first()
-    if (user === undefined)
+    if (user === undefined) {
       user = message.author
-    if (user === '<@711610924489769078>')
-      user = message.author
+    }
+    if (user === '<@711610924489769078>') {
+return message.channel.send('I don`t need a machine to tell how cool I am, I`m LEGENDARY')
+    }
     
     const clel = [
 'you aren`t even cool at all'
@@ -490,9 +492,9 @@ bot.on('message', message => {
   
   var square = choices[Math.floor(Math.random() * choices.length)]
   const coolEmbed = new Discord.MessageEmbed()
-  .setTitle('**COOL POWER**')
+  .setTitle('**COOL POWER MACHINE**')
   .setDescription(`this is how cool ${user} is:`)
-  .addField('cool power results:',`${square}`, true)
+  .addField('cool power machine results:',`${square}`, true)
   
   message.channel.send(coolEmbed)
   }
