@@ -453,6 +453,10 @@ bot.on("message", message => {
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
     const user = message.mentions.members.first()
+    if(!user) {
+      return
+      message.channel.send('please specify a user to see how cool they are')
+    }
     const clel = [
 'you aren`t even cool at all'
     ]
@@ -482,7 +486,7 @@ bot.on('message', message => {
     `🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 100% \n ${c4}`,
 
     ]
-  if (user = undefined) user = ''
+  
   var square = choices[Math.floor(Math.random() * choices.length)]
   const coolEmbed = new Discord.MessageEmbed()
   .setTitle('**COOL POWER**')
