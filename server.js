@@ -482,7 +482,7 @@ bot.on('message', message => {
     `🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 100% \n ${c4}`,
 
     ]
-  
+  if (user = undefined) user = ''
   var square = choices[Math.floor(Math.random() * choices.length)]
   const coolEmbed = new Discord.MessageEmbed()
   .setTitle('**COOL POWER**')
