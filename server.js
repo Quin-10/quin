@@ -31,6 +31,7 @@ bot.on("message", message => {
   }
 });
 var prefix = "E/"
+
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}nitro`)) {
     var choices = [
@@ -254,7 +255,7 @@ message.channel.send(exampleEmbed1)
 })
 
 bot.on('message', message => {
-  if (message.content.toLowerCase().startsWith(`E/announce`)) {
+  if (message.content.toLowerCase === `${prefix}announce`) {
   
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
         return message.channel.send('you need the permission: `ADMINISTRATOR` to make an announcment ')
