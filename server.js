@@ -448,19 +448,37 @@ bot.on("message", message => {
 
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
+    const cpoo = [
+'you aren`t even cool at all'
+    ]
+    const clel = [
+'you aren`t even cool at all'
+    ]
+    const c1 = [
+'I`m not mad, I`m just dissapointed'
+    ]
+    const c2 = [
+      'that`s kinda average, but it`s something we can work on'
+]
+    const c3 = [
+'That`s pretty cool!'
+    ]
+    const c4 = [
+      'WOW YOU ARE MORE THAN JUST COOL. YOU ARE SUPER EPIC'
+]
   const choices = [
     
-    '🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10%',
-    '🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛ 20%',
-    '🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛ 30%',
-    '🟦🟦🟦🟦⬛⬛⬛⬛⬛⬛ 40%',
-    '🟦🟦🟦🟦🟦⬛⬛⬛⬛⬛ 50%',
+    `🟦⬛⬛⬛⬛⬛⬛⬛⬛⬛ 10%`,
+    `🟦🟦⬛⬛⬛⬛⬛⬛⬛⬛ 20%`,
+    `🟦🟦🟦⬛⬛⬛⬛⬛⬛⬛ 30%`,
+    `🟦🟦🟦🟦⬛⬛⬛⬛⬛⬛ 40%`,
+    `🟦🟦🟦🟦🟦⬛⬛⬛⬛⬛ 50%`,
     `🟦🟦🟦🟦🟦🟦⬛⬛⬛⬛ 60%`,
     `🟦🟦🟦🟦🟦🟦🟦⬛⬛⬛ 70%`,
     `🟦🟦🟦🟦🟦🟦🟦🟦⬛⬛ 80%`,
-    🟦🟦🟦🟦🟦🟦🟦🟦🟦⬛ 
-    🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 `100%`
-    
+    `🟦🟦🟦🟦🟦🟦🟦🟦🟦⬛ 90%`,
+    `🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 100%`,
+
     ]
   var square = choices[Math.floor(Math.random() * choices.length)]
   const coolEmbed = new Discord.MessageEmbed()
