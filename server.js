@@ -219,10 +219,11 @@ var output = choices[Math.floor(Math.random() * choices.length)];
   }
 })
 bot.on("message", message => {
-  if (!message.content.split(' ').slice(1).join('')) {
-return
-  }
+  
  if (message.content.startsWith(`${prefix}8ball`)) {
+   if (!message.content.split(' ').slice(1).join(' ')) {
+return message.channel.send('say something in the 8ball stupid')
+  }
     var choices = [
       "no",
       "depends",
