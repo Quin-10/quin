@@ -17,8 +17,7 @@ bot.once("ready", () => {
 //hello command
 bot.on("message", message => {
   if (message.content === "Hello") {
-    var args = message.content.split(' ')
-    var cmd = args.shift().slice(prefix.length).toLowerCase()
+    
     if (message.channel.type == "dm") {
       return;
     }
@@ -448,6 +447,27 @@ bot.on("message", message => {
 })
 
 bot.on('message', message => {
-	if (message.content.startsWith(`${prefix}lead`)) {
+	if (message.content.startsWith(`${prefix}coolSize`)) {
+  const choices = [
     
+    '🟦',
+    '🟦🟦',
+    '🟦🟦🟦',
+    '🟦🟦🟦🟦',
+    '🟦🟦🟦🟦🟦',
+    '🟦🟦🟦🟦🟦🟦',
+    '🟦🟦🟦🟦🟦🟦🟦',
+    '🟦🟦🟦🟦🟦🟦🟦🟦',
+    '🟦🟦🟦🟦🟦🟦🟦🟦🟦',
+    '🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦'
+    
+    ]
+  var square = choices[Math.floor(Math.random() * choices.length)]
+  const coolEmbed = new Discord.MessageEmbed()
+  .setTitle('coolnes size')
+  .setDescription('this is how cool you are :)')
+  .addField('cool power results:',`${square}`, true)
+  message.channel.send(coolEmbed)
+  }
+})
 bot.login(TOKEN)
