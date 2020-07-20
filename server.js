@@ -12,7 +12,7 @@ const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 bot.once("ready", () => {
   console.log("ready!");
-  bot.user.setActivity("no")
+  bot.user.setActivity('with my bot friends!', {type: 'STREAMING' });
 });
 //hello command
 bot.on("message", message => {
