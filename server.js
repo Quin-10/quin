@@ -513,4 +513,15 @@ bot.on('message', message => {
     message.channel.send('ok')
   }
 })
+
+bot.on('message', async message => {
+	if (message.content === `${prefix}deletelel`) {
+		await message.channel.send('this message will be deleted')
+    const meez = message.content.split(`${prefix}deletelel`).slice(0).join(" ")
+			.then(sentMessage => sentMessage.delete({ timeout: meez }))
+			.catch(error => {
+				// handle error
+			});
+	}
+});
 bot.login(TOKEN)
