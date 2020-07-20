@@ -448,7 +448,7 @@ bot.on("message", message => {
      var hm = message.content.split(`${user}`).slice(1).join(" ")
      const mailEmbed = new Discord.MessageEmbed()
      .setTitle(`**YOU GOT MAIL!**`)
-     .setColor('20193')
+     .setColor('FE615E')
      .setDescription('Someone delivered mail to you :)')
      .addField(`FROM **${message.author.username}:**`, `\n \n ${hm}`, true)
      user.send(mailEmbed)
