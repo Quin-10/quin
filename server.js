@@ -453,7 +453,7 @@ bot.on("message", message => {
      .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F278C5B76-AE6C-4317-BAB4-F6125F717FF7.gif?v=1595260274009')
      .addField(`FROM **${message.author.tag}:**`, `\n \n ${hm}`, true)
      .setTimestamp()
-     .setFooter('this is a footer',`https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FF0826EC9-3966-4B08-899B-3DC9653F517D.png?v=1595110044169`)
+     .setFooter('this is an email',`https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FE3479A13-7EC9-4D6A-A767-61897E20FA9F.png?v=1595260810009`)
      user.send(mailEmbed)
    }
 }) 
