@@ -510,8 +510,9 @@ return message.channel.send('I don`t need a machine to tell how cool I am, I`m L
 })
 
 bot.on('message', message => {
-	if (message.content.toLowerCase() ===`${prefix}lower`) {
-    message.channel.send('ok')
+	if (message.content.startsWith(`${prefix}l`)) {
+   const afkEmbed = new Discord.MessageEmbed()
+   .setTitle(`${message.author.tag} is now AFK`)
   }
 })
 
