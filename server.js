@@ -462,6 +462,7 @@ bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
     let user = message.mentions.members.first()
     if (user === undefined) {
+      
       user = message.author
     }
     if (user === `<@711610924489769078>`) {
@@ -513,7 +514,5 @@ bot.on('message', message => {
     message.channel.send('ok')
   }
 })
-bot.on('message', message => {
-  if (message.content ===`${prefix}am`) {
 
 bot.login(TOKEN)
