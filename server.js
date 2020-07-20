@@ -446,6 +446,7 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}mail`)) {
      var user = message.mentions.members.first()
      var hm = message.content.split(`${user}`).slice(1).join(" ")
+     const mailEmbed = new
      user.send(`from ${message.author}: \n${hm}`)
    }
 })
