@@ -456,7 +456,7 @@ bot.on('message', message => {
     if (user === undefined) {
       user = message.author
     }
-    if (user === '<@711610924489769078>') {
+    if (user === `<@711610924489769078>`) {
 return message.channel.send('I don`t need a machine to tell how cool I am, I`m LEGENDARY')
     }
     
