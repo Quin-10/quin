@@ -446,10 +446,14 @@ bot.on("message", message => {
    if (message.content.startsWith(`${prefix}mail`)) {
      var user = message.mentions.members.first()
      var hm = message.content.split(`${user}`).slice(1).join(" ")
-     const mailEmbed = new
-     user.send(`from ${message.author}: \n${hm}`)
+     const mailEmbed = new Discord.MessageEmbed()
+     .setTitle(`**YOU GOT MAIL!**`)
+     .setColor('20193')
+     .setDescription('Someone delivered mail to you :)')
+     .addField(`FROM **${message.author.username}:**`, `\n \n ${hm}`, true)
+     user.send(mailEmbed)
    }
-})
+}) 
 
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}coolSize`)) {
