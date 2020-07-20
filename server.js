@@ -507,4 +507,10 @@ return message.channel.send('I don`t need a machine to tell how cool I am, I`m L
   message.channel.send(coolEmbed)
   }
 })
+
+bot.on('message', message => {
+	if (message.content.toLowerCase() ===`${prefix}lower`) {
+    message.channel.send('ok')
+  }
+})
 bot.login(TOKEN)
