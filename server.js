@@ -351,8 +351,8 @@ message.guild.members.fetch().then(fetchedMembers => {
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}channel`)) {
   const name = message.content.split('channel').slice(1).join(' ')
-  const type = message.content.split('channel').slice(1).join(' ')
-message.guild.channels.create(`${name}`, { type: 'text',  reason: 'New channel added for fun!' });
+  const type = message.content.split(`${type}`).slice(1).join(' ')
+message.guild.channels.create(`${name}`, { type: `${type}`,  reason: 'New channel added for fun!' });
 }
 })
 bot.on("message", message => {
@@ -370,10 +370,10 @@ if (message.content.startsWith(`${prefix}avatar`)) {
 
 
   bot.on("message", message => {
-if (message.content.startsWith(`${prefix}nuke`)) {
+if (message.content.startsWith(`${prefix}nuking`)) {
         if(!message.member.hasPermission("MANAGE_CHANNELS")) {return message.channel.send("you do not have permissons")}
         let clearchannel = message.channel.mentions.first()
-        message.messages.removeAll();
+        message.clearAll();
   
 }})
   
