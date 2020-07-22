@@ -261,7 +261,7 @@ message.channel.send(exampleEmbed1)
 })
 
 bot.on('message', message => {
-  if (message.content.toLowerCase === `${prefix}announce`) {
+  if (message.content.startsWith(`${prefix}announce`)) {
   
       if (!message.member.hasPermission(['ADMINISTRATOR'])) {
         return message.channel.send('you need the permission: `ADMINISTRATOR` to make an announcment ')
