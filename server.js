@@ -350,7 +350,9 @@ message.guild.members.fetch().then(fetchedMembers => {
 )
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}channel`)) {
-message.guild.channels.create('new-channel', { type: 'text',  reason: 'New channel added for fun!' });
+  const name = message.content.split('channel').slice(1).join(' ')
+  const type = message.content.split('channel').slice(1).join(' ')
+message.guild.channels.create(`${name}`, { type: 'text',  reason: 'New channel added for fun!' });
 }
 })
 bot.on("message", message => {
