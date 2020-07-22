@@ -510,10 +510,17 @@ return message.channel.send('I don`t need a machine to tell how cool I am, I`m L
 })
 
 bot.on('message', message => {
-	if (message.content.startsWith(`${prefix}nuked`)) {
+	if (message.content.startsWith(`${prefix}channelDelete`)) {
     const channel = message.mentions.channels.first()
    channel.delete()
   }
 })
+
+bot.on('message', async message => {
+	// Join the same voice channel of the author of the message
+	if (message.member.voice.channel) {
+		const connection = await message.member.voice.channel.join();
+	}
+});
 
 bot.login(TOKEN)
