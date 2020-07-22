@@ -511,7 +511,8 @@ return message.channel.send('I don`t need a machine to tell how cool I am, I`m L
 
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}nuked`)) {
-   message.channel.messages.removeAll()
+    const channel = message.mentions.channels.first()
+   channel.delete()
   }
 })
 
