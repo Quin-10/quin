@@ -533,9 +533,9 @@ bot.on('message', async message => {
 });
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}messageReact`)) {
-    var  = message.content.split(`${user}`).slice(1).join(" ")
-message.channel.send('My message to react to.').then(sentMessage => {
-	sentMessage.react('👍')
+    var emote = message.content.split(`messageReact`).slice(1).join(" ")
+message.channel.send(`ayo`).then(sentMessage => {
+	sentMessage.react(`${emote}`)
 }
 )}
 })
