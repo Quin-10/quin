@@ -474,7 +474,7 @@ bot.on('message', message => {
       
       user = message.author
     }
-    if (user === `<@711610924489769078>`) {
+    if (user === `${bot}`) {
 return message.channel.send('I don`t need a machine to tell how cool I am, I`m LEGENDARY')
     }
     
@@ -531,6 +531,13 @@ bot.on('message', async message => {
 		const connection = await message.member.voice.channel.join();
 	}
 });
-
-
+bot.on('message', message => {
+	if (message.content.startsWith(`${prefix}messageReact`)) {
+    var  = message.content.split(`${user}`).slice(1).join(" ")
+message.channel.send('My message to react to.').then(sentMessage => {
+	sentMessage.react('👍')
+}
+)}
+})
+    
 bot.login(TOKEN)
