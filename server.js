@@ -426,18 +426,18 @@ const swearWords2 = ["19202993$329"]
 bot.on("message", message => {
    if (message.content.startsWith(`${prefix}serverInfo`)) {
     const choices = [
-'\<:LOL:719733158266011708>',
-    '\<:K_:719733159297679400>',
-    '\<:SURPRISED:719733158509281370>',
-    '\<:EYES:719733159608057866>',
-    '\<:happy:719733157099733056>'
+'\<:Sweat:735651779152314376>',
+'\<:Eyes:735650818983985222>',
+'\<:Blushing:735650993731272735>',
+'\<:Lolz:735651656817049701>',
+'\<:Happy:735650561952710718>'
     ]
   var output1 = choices[Math.floor(Math.random() * choices.length)]
 	const infoEmbed = new Discord.MessageEmbed()
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(` \<:Name:733049594694598726> NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}**`)
+  .setDescription(` NAME: **${message.guild.name}** \n \<:Channel:733049665356038195> CHANNELS: **${message.guild.channels.cache.size}** \n \<:IDcard:733039512850268230> SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}**`)
   message.channel.send(infoEmbed)
      message.channel.send('')
 }
