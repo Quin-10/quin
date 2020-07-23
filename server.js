@@ -224,6 +224,9 @@ bot.on("message", message => {
    if (!message.content.split(' ').slice(1).join(' ')) {
 return message.channel.send('say something in the 8ball stupid')
   }
+   if (!message.content.endsWith(`?`)) {
+     return message.channel.send('please put `?` at the end of your question.')
+   }
    if (message.channel.type == "dm") {
       return
    }
@@ -247,7 +250,7 @@ return message.channel.send('say something in the 8ball stupid')
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 const ballEmbed = new Discord.MessageEmbed()
-.setColor
+.setColor('9AF8FF')
 .setTitle(`**8BALL**`)
 .setDescription(`The 8ball says: **${output}**`)
 .setFooter(`requested by ${message.author.username}`)
