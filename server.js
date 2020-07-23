@@ -620,6 +620,7 @@ message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
 		if (reaction.emoji.name === '👍') {
 			message.reply('you reacted with a thumbs up.');
+    
     }
 	})
 	.catch(collected => {
