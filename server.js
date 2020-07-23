@@ -606,11 +606,12 @@ return message.channel.send('you need the permission(s) `MANAGE_MESSAGES` to use
     })
   }
 })
-bot.on('message', async message => {
+bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}bro`)) {
-    await message.delete()
-message.member.roles.add('728396334956019722')
- await message.channel.send('ok that role was added')
+    const role = '728396334956019722'
+    message.author.roles.add(role);
+     message.delete()
+  message.channel.send('ok that role was added')
   }
 })
 bot.login(TOKEN)
