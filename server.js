@@ -525,16 +525,10 @@ bot.on('message', message => {
   }
 })
 
-bot.on('message', async message => {
-	// Join the same voice channel of the author of the message
-	if (message.member.voice.channel) {
-		await message.member.voice.channel.leave();
-    
-	}
-});
+
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}messageReact`)) {
-    var emote = message.content.split(`messageReact`).slice(1).join(" ").then
+    var emote = message.content.split(`messageReact`).slice(1).join(" ")
  message.channel.send(`ayo`).then(sentMessage => {
 	sentMessage.react(`${emote}`)
 }
