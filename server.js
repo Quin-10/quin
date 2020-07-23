@@ -444,7 +444,7 @@ bot.on("message", message => {
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}**`)
+  .setDescription(` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}**`)
   message.channel.send(infoEmbed)
      message.channel.send('')
 }
@@ -521,6 +521,8 @@ return message.channel.send('I don`t need a machine to tell how cool I am, I`m L
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}channelDelete`)) {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
+    if(!args[0]) return message.channel.send('but how many')
+    if(parseInt(args[0]) > 99) return message.reply('too many')
    message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
 message.channel.send(`cleared ${args[0]}`)
    })
