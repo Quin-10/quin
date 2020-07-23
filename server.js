@@ -469,7 +469,7 @@ bot.on("message", message => {
      
      .setTitle(`SERVER INFO`)
   .setColor('363940')
-  .setDescription(` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner}**`)
+  .setDescription(` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.tag}**`)
   message.channel.send(infoEmbed)
      message.channel.send('')
 }
@@ -563,5 +563,7 @@ bot.on('message', message => {
 }
 )}
 })
-    
+bot.on('message', message => {
+	if (message.content.startsWith(`${prefix}pinme`)) {
+  
 bot.login(TOKEN)
