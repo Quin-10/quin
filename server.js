@@ -33,8 +33,10 @@ bot.on("message", message => {
 });
 
 var prefix = "E/"
+bot.on("message", message => {
 var args = message.content.slice(prefix.length).trim().split(' ');
-var command = args.shift().toLowerCase();
+var command = args.shift().toLowerCase()
+
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}nitro`)) {
@@ -624,6 +626,6 @@ if (command === 'hiya') {
 message.channel.send('hiyo')
   }
 })
-
+})
 
 bot.login(TOKEN)
