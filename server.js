@@ -606,5 +606,11 @@ return message.channel.send('you need the permission(s) `MANAGE_MESSAGES` to use
     })
   }
 })
-message.member.roles.add('')
+bot.on('message', async message => {
+	if (message.content.startsWith(`${prefix}bro`)) {
+    await message.delete()
+message.member.roles.add('728396334956019722')
+ await message.channel.send('ok that role was added')
+  }
+})
 bot.login(TOKEN)
