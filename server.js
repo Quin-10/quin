@@ -224,6 +224,9 @@ bot.on("message", message => {
    if (!message.content.split(' ').slice(1).join(' ')) {
 return message.channel.send('say something in the 8ball stupid')
   }
+   if (message.channel.type == "dm") {
+      return
+   }
     var choices = [
       "no",
       "depends",
@@ -244,6 +247,7 @@ return message.channel.send('say something in the 8ball stupid')
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
 const ballEmbed = new Discord.MessageEmbed()
+.setColor
 .setTitle(`**8BALL**`)
 .setDescription(`The 8ball says: **${output}**`)
 .setFooter(`requested by ${message.author.username}`)
@@ -311,10 +315,10 @@ message.channel.send(exampleEmbedlol)
 }
 })
 bot.on('message', message => {
-  if (message.content.startsWith(`${prefix}stats1`)) {
+  if (message.content.startsWith(`${prefix}serversCircle`)) {
     const statusEmbed = new Discord.MessageEmbed()
     .setTitle('bot stats')
-  message.channel.send(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers! \n **${message.guild.name}** channel count: **${message.guild.channels.cache.size}** channels!`);
+  message.channel.send(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `);
 	}
 })
 bot.on('message', message => {
