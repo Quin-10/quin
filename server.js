@@ -565,5 +565,14 @@ bot.on('message', message => {
 })
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}pinme`)) {
-  
+  const pinning = (message.content.split(`pinme`).slice(1).join(" ")) 
+if (!pinning) {
+return message.channel.send('what?')
+}
+    message.channel.send(pinning).then
+    (sentMessage => {
+  sentMessage.pin()
+    })
+  }
+})
 bot.login(TOKEN)
