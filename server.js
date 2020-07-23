@@ -385,10 +385,16 @@ if (message.content.startsWith(`${prefix}nuking`)) {
 }})
   
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}profile`)) {
+if (message.content.startsWith(`${prefix}userProfile`)) {
   const member = message.mentions.members.first() 
   const user = message.mentions.members.first() 
-const picture = member.user.displayAvatarURL();
+const picture = member.user.displayAvatarURL()
+if (member.user.bot) {
+return
+  }
+  if (member.user.bot) {
+return
+  }
   const picEmbed = new Discord.MessageEmbed()
   .setColor('303136')
   .setTitle(`${member.user.username}`, 'card', true)
@@ -397,7 +403,26 @@ const picture = member.user.displayAvatarURL();
   message.channel.send(picEmbed)
 }
 })
-
+bot.on("message", message => {
+if (message.content.startsWith(`${prefix}botProfile`)) {
+  const member = message.mentions.members.first() 
+  
+  const user = message.mentions.members.first() 
+const picture = member.user.displayAvatarURL()
+if (!member.user.bot) {
+return
+  }
+  if (!member.user.bot) {
+return
+  }
+  const picEmbed = new Discord.MessageEmbed()
+  .setColor('303136')
+  .setTitle(`${member.user.username}`, 'card', true)
+  .setThumbnail(picture)
+  .setDescription(`NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`)
+  message.channel.send(picEmbed)
+}
+})
 bot.on("message", message => {
 if (message.content.startsWith(`${prefix}pinned`)) {
  const pin = message.channel.messages.fetchPinned();
