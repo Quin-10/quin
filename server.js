@@ -606,25 +606,5 @@ return message.channel.send('you need the permission(s) `MANAGE_MESSAGES` to use
     })
   }
 })
-bot.on('message', message => {
-	if (message.content.startsWith(`${prefix}verify`)) {
-message.react('👍')
-
-const filter = (reaction, user) => {
-	return ['👍'].includes(reaction.emoji.name) && user.id === message.author.id;
-};
-
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-	.then(collected => {
-		const reaction = collected.first();
-
-		if (reaction.emoji.name === '👍') {
-			message.reply('you reacted with a thumbs up.');
-    
-    }
-	})
-	.catch(collected => {
-		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
-	})
-  }})
+message.member.roles.add('')
 bot.login(TOKEN)
