@@ -528,29 +528,17 @@ bot.on('message', message => {
 bot.on('message', async message => {
 	// Join the same voice channel of the author of the message
 	if (message.member.voice.channel) {
-		const connection = await message.member.voice.channel.join();
+		await message.member.voice.channel.leave();
+    
 	}
 });
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}messageReact`)) {
-    var emote = message.content.split(`messageReact + `).slice(1).join(" ")
-message.channel.send(`ayo`).then(sentMessage => {
+    var emote = message.content.split(`messageReact`).slice(1).join(" ").then
+ message.channel.send(`ayo`).then(sentMessage => {
 	sentMessage.react(`${emote}`)
 }
 )}
 })
-    bot.on('message', message => {
-	if (message.content.startsWith(`${prefix}proon`)) {
-const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const amount = parseInt(args[0]);
-
-	if (isNaN(amount)) {
-		return message.reply('that doesn\'t seem to be a valid number.');
-	} else if (amount < 2 || amount > 100) {
-	return message.reply('you need to input a number between 2 and 100.');
-}
-message.channel.bulkDelete(amount);
-	// ...
-}
-    })
+    
 bot.login(TOKEN)
