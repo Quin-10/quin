@@ -615,15 +615,18 @@ bot.on('message', message => {
   }
 })
 bot.on('message', message => {
+var args = message.content.slice(prefix.length).trim().split(' ');
+var command = args.shift().toLowerCase();
+})
+bot.on('message', async message => {
 	if (message.content.startsWith(`${prefix}setPrefix`)) {
-    prefix.delete()
-const db = require("quick.db")
-let prefix = message.content.split(`${prefix}setPrefix`).slice(1).join(" ")
-const prefixEmbed = new Discord.MessageEmbed()
-.setTitle('New Prefix')
-.addField(`The new prefix is now ${prefix}`)
-db.set(`Prefix_${message.guild.id}`, prefix)
-message.channel.send(prefixEmbed)
+    let prefix;
+    let prefixes = await (`prefix_${message.guild.id}`)
+  }
+})
+
+bot.on('message', async message => {
+	if (command === '') {
   }
 })
 bot.login(TOKEN)
