@@ -589,6 +589,7 @@ bot.on('message', message => {
 )}
 })
 bot.on('message', message => {
+  
 	if (message.content.startsWith(`${prefix}pinme`)) {
   const pinning = (message.content.split(`pinme`).slice(1).join(" ")) 
 if (!pinning) {
@@ -615,8 +616,12 @@ bot.on('message', message => {
   }
 })
 bot.on('message', message => {
+  
 var args = message.content.slice(prefix.length).trim().split(' ');
-var command = args.shift().toLowerCase();
+let command = args.shift().toLowerCase();
+if (command === 'hiya') {
+message.channel.send('hiyo')
+  }
 })
 bot.on('message', async message => {
 	if (message.content.startsWith(`${prefix}setPrefix`)) {
@@ -625,8 +630,4 @@ bot.on('message', async message => {
   }
 })
 
-bot.on('message', async message => {
-	if (command === '') {
-  }
-})
 bot.login(TOKEN)
