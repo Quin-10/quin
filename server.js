@@ -150,8 +150,8 @@ if(message.content.startsWith(`${prefix}say`)) {
 
 bot.on('message', message => {
   if(message.content.startsWith(`${prefix}someboy`)) {
-var someone = (message.guild.members.random())  
-  message.channel.send(someone)
+const someone = (message.guild.members.random())  
+  message.channel.send(`the random person is${someone}`)
   }
 })
 
@@ -623,11 +623,6 @@ if (command === 'hiya') {
 message.channel.send('hiyo')
   }
 })
-bot.on('message', async message => {
-	if (message.content.startsWith(`${prefix}setPrefix`)) {
-    let prefix;
-    let prefixes = await (`prefix_${message.guild.id}`)
-  }
-})
+
 
 bot.login(TOKEN)
