@@ -520,8 +520,10 @@ return message.channel.send('I don`t need a machine to tell how cool I am, I`m L
 
 bot.on('message', message => {
 	if (message.content.startsWith(`${prefix}channelDelete`)) {
-    const channel = message.mentions.channels.first()
-   message.channel.bulkDelete(5);
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+   message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
+message.channel.send(`cleared ${args[0]}`)
+   })
   }
 })
 
