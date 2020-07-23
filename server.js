@@ -569,7 +569,13 @@ bot.on('message', message => {
 if (!pinning) {
 return message.channel.send('what?')
 }
-    message.channel.send(pinning).then
+    if (pinning) {
+ message.delete()
+}
+    if (!message.member.hasPermission(['MANAGE_MESSAGES'])) {
+return message.channel.send('you need the permission(s) `MANAGE_MESSAGES` to use this command')
+    }
+    message.channel.send(`From: ${message.author.tag} \n\n${pinning}`).then
     (sentMessage => {
   sentMessage.pin()
     })
