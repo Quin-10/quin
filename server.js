@@ -608,8 +608,8 @@ return message.channel.send('you need the permission(s) `MANAGE_MESSAGES` to use
   }
 })
 bot.on('message', message => {
-	if (message.content.startsWith(`${prefix}bro`)) {
-    const role = message.guild.roles.cache.get('728396334956019722')
+	if (message.content.startsWith(`${prefix}role`)) {
+    const role = message.mentions.roles.first()
     message.author.roles.add(role);
      message.delete()
   message.channel.send('ok that role was added')
