@@ -303,7 +303,7 @@ bot.on('message', message => {
       channel.send(anEmbed).then
     (sentMessage => {
   sentMessage.react('🟣')
-        if (message.user.react.emoji.name === '🟣') {
+        if (message.user.messageReactionAdd === '🟣') {
           message.channel.send('ok')
         }
     })
