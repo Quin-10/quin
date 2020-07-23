@@ -614,4 +614,15 @@ bot.on('message', message => {
   message.channel.send('ok that role was added')
   }
 })
+bot.on('message', message => {
+	if (message.content.startsWith(`${prefix}setPrefix`)) {
+const db = require("quick.db")
+let prefix = message.content.split(`${prefix}setPrefix`).slice(1).join(" ")
+db.set(`Prefix_${message.guild.id}`, prefix)
+const prefixEmbed = new Discord.MessageEmbed()
+.setTitle('New Prefix')
+.addField(`The new prefix is now ${prefix}`)
+message.channel.send(prefixEmbed)
+  }
+})
 bot.login(TOKEN)
