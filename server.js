@@ -295,14 +295,18 @@ bot.on('message', message => {
     
     var channel = message.mentions.channels.first()
     var announcelely = message.content.split(`${prefix}reactRoles ${channel}`).slice(1).join(' ');
-    (sentMessage => {
-  sentMessage.react('')
-    })
+    
       const anEmbed = new Discord.MessageEmbed()
       .setTitle('\<:Announce:731965302971302000>`NEW ROLE REACTIONS`')
       .setDescription(announcelely)
       .setColor('49328')
-      channel.send(anEmbed)
+      channel.send(anEmbed).then
+    (sentMessage => {
+  sentMessage.react('🟣')
+        if (message.user.react.emoji.name === '🟣') {
+          message.channel.send('ok')
+        }
+    })
 }
 
 })
