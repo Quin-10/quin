@@ -386,10 +386,10 @@ message.guild.members.fetch().then(fetchedMembers => {
 }
 )
 bot.on("message", message => {
-if (message.content.startsWith(`${prefix}channel`)) {
-  const name = message.content.split('channel').slice(1).join(' ')
-  const type = message.content.split(`${type}`).slice(1).join(' ')
-message.guild.channels.create(`${name}`, { type: `${type}`,  reason: 'New channel added for fun!' });
+if (message.content.startsWith(`${prefix}textChannel`)) {
+  const name = message.content.split(`${prefix}textChannel`).slice(1).join(' ')
+  
+message.guild.channels.create(`${name}`, { type: 'text',  reason: 'New channel added for fun!' });
 }
 })
 bot.on("message", message => {
@@ -620,15 +620,6 @@ bot.on('message', message => {
   message.channel.send('ok that role was added')
   }
 })
-bot.on('message', message => {
-  
 
-if(message.content.startsWith(`${prefix}slowmode`)) {
-    var time = message.content.split('').slice(1).join(' ')
-    if(!time) return message.reply('Please enter a time in seconds!')
-   message.channel.setRateLimitPerUser(time)
-     message.channel.send('Set the slowmode!')
-  }
-})
 
 bot.login(TOKEN)
