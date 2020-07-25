@@ -613,13 +613,8 @@ return message.channel.send('you need the permission(s) `MANAGE_MESSAGES` to use
   }
 })
 bot.on('message', message => {
-	if (message.content.startsWith(`${prefix}role`)) {
-    if (message.author.id = '639971658035363840') {
-return
-      message.channel.send('your my owner')
-    }  else if (!message.author.id === '639971658035363840') {
-message.channel.send('no, you are not my owner')
-    }
+	if (message.content.startsWith(`${prefix}slow`)) {
+   
   }
 })
 
