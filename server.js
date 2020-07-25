@@ -31,8 +31,10 @@ bot.on("message", message => {
     );
   }
 });
+var prefix = [
+'E/'
+  ]
 
-var prefix = "E/"
 bot.on("message", message => {
 var args = message.content.slice(prefix.length).trim().split(' ');
 var command = args.shift().toLowerCase()
