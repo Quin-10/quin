@@ -652,5 +652,10 @@ bot.on("message", message => {
   }
 });
  //using quick.db package
-
+bot.on("message", async message => {
+  let prefix;
+  let prefixes = await db.fetch(`prefix_${message.guild.id}`)
+  if (prefixes == null) {
+prefix = bot.prefix
+  } else
 bot.login(TOKEN);
