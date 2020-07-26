@@ -651,9 +651,9 @@ bot.on("message", message => {
       });
   }
 });
-bot.on("guildMemberAdd", member member => {
+bot.on("guildMemberAdd", member  => {
   const channel = member.guild.channels.cache.get('728407592866545674')
-  channel.send(`hello ${member}`)
+  channel.send(`hello ${member}, welcome to: ${member.guild.name}`)
   }
 )
 
