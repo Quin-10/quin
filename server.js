@@ -428,7 +428,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}avatar`)) {
     const avaEmbed = new Discord.MessageEmbed().setTitle("this is your avatar")
-      .setImage(message.author.displayAvatarURL())
+      .setImage(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     message.channel.send(avaEmbed);
   }
 });
@@ -662,5 +662,20 @@ bot.on("message", function(message) {
     }, 1000 * 7);
   }
 });
+bot.on("message", message => {
+let channel = message.mentions.channels.first() //mentioned channel
+    
+    if(!channel) { //if channel is not mentioned
+      return message.channel.send("Please Mention the channel first")
+    }
+    
+    //Now we gonna use quick.db
+    
+    db.set(`welchannel_${message.guild.id}`, channel.id) //set id in var
+    
+    message.channel.send(`Welcome Channel is seted as ${channel}`) //send success message
+})
+
+
 
 bot.login(TOKEN);
