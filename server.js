@@ -662,7 +662,11 @@ bot.on("message", function(message) {
     }, 1000 * 7);
   }
 });
-
-
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}killme`)) {
+const user = message.author
+message.guild.members.ban(user);
+  }
+})
 
 bot.login(TOKEN);
