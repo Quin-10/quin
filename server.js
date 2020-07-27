@@ -662,7 +662,7 @@ bot.on("message", function(message) {
     }, 1000 * 7);
   }
 });
-bot.on("message", function(message) {
+bot.on("message",message => {
   const db = require("quick.db")
 if (message.content.startsWith(`${prefix}sleep`)) {
     let channel = message.mentions.channels.first() //mentioned channel
