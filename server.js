@@ -663,7 +663,6 @@ bot.on("message", function(message) {
   }
 });
 
-bot.on("message", async message => {
-  const db = require('quick.db')
-  
+
+
 bot.login(TOKEN);
