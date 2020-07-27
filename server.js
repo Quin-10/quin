@@ -665,12 +665,5 @@ bot.on("message", function(message) {
 
 bot.on("message", async message => {
   const db = require('quick.db')
-  let prefix;
-let prefixes = await db.fetch(`prefix_${message.guild.id}`)
-if (prefixes == null){
-  prefix = "E/"
-} else {
-  prefix = prefixes
-}
-})
+  
 bot.login(TOKEN);
