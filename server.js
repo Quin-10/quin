@@ -663,8 +663,9 @@ bot.on("message", function(message) {
   }
 });
 bot.on("message",message => {
-  const db = require("quick.db")
+  
 if (message.content.startsWith(`${prefix}sleep`)) {
+  const db = require("quick.db")
     let channel = message.mentions.channels.first() //mentioned channel
     
     if(!channel) { //if channel is not mentioned
@@ -676,9 +677,26 @@ if (message.content.startsWith(`${prefix}sleep`)) {
     db.set(`welchannel_${message.guild.id}`, channel.id) //set id in var
     
     message.channel.send(`Welcome Channel is seted as ${channel}`) //send success message
-  }
-})
+  
+} //using quick.db package
 
+bot.on("guildMemberAdd", (member) => { //usage of welcome event
+  const db = require("quick.db")
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+  
+  if(chx === null) { //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+  .setAuthor(member.user.username, member.user.avatarURL())
+  .setColor("#ff2050")
+  .setThumbnail(member.user.avatarURL())
+  .setDescription(`We are very happy to have you in our server`);
+  
+  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
+})
+})
 
 
 bot.login(TOKEN);
