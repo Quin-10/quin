@@ -422,7 +422,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}avatar`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `avatar`){
     const avaEmbed = new Discord.MessageEmbed().setTitle("this is your avatar")
       .setImage(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     message.channel.send(avaEmbed);
@@ -440,7 +442,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}userProfile`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `userProfile`) {
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
@@ -461,7 +465,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}botProfile`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `botProfile`) {
+    
     const member = message.mentions.members.first();
 
     const user = message.mentions.members.first();
@@ -483,27 +490,23 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}pinned`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}pinned`) {
     const pin = message.channel.messages.fetchPinned();
   }
 });
 
 bot.on("messageDelete", async message => {
-  if (message.content.startsWith(`${prefix}lead`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `lead`) {
     var high = message.guildMember.roles.highest;
     message.channel.send(high);
   }
 });
 
-bot.on("message", message => {
-  const swearWords1 = ["dammit", "damn", "fuck", "nigga", "9202993$329"];
-  if (swearWords1.some(word => message.content.includes(word))) {
-    message.delete();
-    message.member.send(
-      `${message.author},bruh watch the profanity or... get the hammer \<:HAMMERTIME:721185435573026816>`
-    );
-  }
-});
+
 bot.on("message", message => {
   const swearWords2 = ["19202993$329"];
 
@@ -512,7 +515,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}serverInfo`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}serverInfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
@@ -534,7 +539,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}mail`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `mail`) {
     var user = message.mentions.members.first();
     var hm = message.content
       .split(`${user}`)
@@ -558,7 +565,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}coolSize`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `coolSize`) {
     let user = message.mentions.members.first();
     if (user === undefined) {
       user = message.author;
@@ -612,7 +621,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}pinme`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `pinme`) {
     const pinning = message.content
       .split(`pinme`)
       .slice(1)
@@ -661,9 +672,10 @@ message.guild.members.ban(user);
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
+  const user = message.mentions.members.first()
   if (command === `murder`) {
     if (command === `kill`) {
-var deaths = [
+var choices = [
       `swimming in lava`,
   `slipping on a soap bar`,
   `drinking corona`,
@@ -678,7 +690,7 @@ var deaths = [
   `not getting his/her picture in 3d`,
   `shining a flashlight in their eyes`,
   `being called a simp`,
-  `waisting money on discord nitro classic`,
+  `waisting money on discord nitro 𝓒𝓵𝓪𝓼𝓼𝓲𝓬`,
   `being crucified`,
   `being a furry`,
   `not being thicc`,
@@ -693,9 +705,12 @@ var deaths = [
   `choking`,
   `B E L T`
   `stabbed`
-  `kissing someone`
-  ``
+  `kissing someone`,
+  `waisting money on discord nitro`,
     ];
-    var output = choices[Math.floor(Math.random() * choices.length)];
-    
+    var deaths = choices[Math.floor(Math.random() * choices.length)];
+      const deathEmbed = new Discord.MessageEmbed()
+      .setTitle(``)
+    }
+  }})
 bot.login(TOKEN)
