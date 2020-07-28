@@ -37,10 +37,10 @@ bot.on("message", message => {
     .trim()
     .split(" "); 
   let command = args.shift().toLowerCase();
-});
+
 
 bot.on("message", message => {
-  if (message.content.slice(prefix.length).trim().split(" ").shift().toLowerCase()(`${prefix}nitro`)) {
+  if (message.content.startsWith(`${prefix}nitro`)) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -660,7 +660,8 @@ const user = message.mentions.members.first()
 message.guild.members.ban(user);
   }
 })
-
+})
+    
 bot.login(TOKEN)
 
 
