@@ -32,15 +32,15 @@ bot.on("message", message => {
 var prefix = "E/"
 
 bot.on("message", message => {
-  let args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" "); 
-  let command = args.shift().toLowerCase();
-
+  let args = message.content.slice(prefix.length).trim().split(" ")
+  let command = args.shift().toLowerCase()
+  }
+)
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}nitro`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command ===`nitro`) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -53,16 +53,23 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}delete`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}delete`) {
     message.delete();
   }
 });
 bot.on("message", message => {
-  if (message.content === "E/") {
+  
+  if (message.content === `E/`) {
     message.channel.send(
       `${message.author}  umm I hate to burst your bubble but... there's a command missing`
     );
   }
+  else if (message.content === `e/`) {
+    message.channel.send(
+      `${message.author}  umm I hate to burst your bubble but... there's a command missing`
+      )}
 });
 
 bot.on("message", message => {
@@ -72,6 +79,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
   const meanWords = [
     "your a dumb bot",
     "I hate Mr circle",
@@ -660,8 +669,6 @@ const user = message.mentions.members.first()
 message.guild.members.ban(user);
   }
 })
-})
+
     
 bot.login(TOKEN)
-
-
