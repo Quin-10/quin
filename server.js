@@ -639,6 +639,27 @@ bot.on("message", message => {
   }
 });
  //using quick.db package
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}newPre`)) {
+  const db = require('quick.db')
+  const args = message.content.slice(prefix.length).trim().split(' ');
+let prefix = [0]
+if(!prefix) return message.channel.send('whats the prefix')
+  let preEmbed = Discord.MessageEmbed()
+  .setTitle('new prefix')
+  .addField(`prefix has been changed to ${prefix}`)
+  db.set(`prefix_${message.guild.id}`, prefix)
+  message.channel.send(preEmbed)
+}
+})
+
+
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}killme`)) {
+const user = message.author
+message.guild.members.ban(user);
+  }
+})
 
 bot.login(TOKEN)
 
