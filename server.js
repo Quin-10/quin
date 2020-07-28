@@ -484,7 +484,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nOWNER: ${}`
       );
     message.channel.send(picEmbed);
   }
@@ -572,7 +572,7 @@ bot.on("message", message => {
     if (user === undefined) {
       user = message.author;
     }
-    if (user === `${bot}`) {
+    if (user.bot) {
       return message.channel.send(
         "I don`t need a machine to tell how cool I am, I`m LEGENDARY"
       );
@@ -679,6 +679,9 @@ bot.on("message", message => {
       if (!user) {
 message.channel.send('please specify the user you want to kill')
   }
+      if(user.bot) {
+return message.channel.send('bots don`t die')
+      }
 var choices = [
       `swimming in lava`,
   `slipping on a soap bar`,
@@ -720,7 +723,7 @@ var choices = [
       const deathEmbed = new Discord.MessageEmbed()
       .setColor(`YELLOW`)
       .setTitle(`**${user.tag}** died`)
-      .addFooter(`**reason: ${deaths}**`)
+      .setFooter(`reason: ${deaths}`)
       message.channel.send(deathEmbed)
     }
 })
