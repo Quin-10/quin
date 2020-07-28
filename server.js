@@ -416,16 +416,9 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command`${prefix}textChannel`) {
-    const name = message.content
-      .split(`${prefix}textChannel`)
-      .slice(1)
-      .join(" ");
-
-    message.guild.channels.create(`${name}`, {
-      type: "text",
-      reason: "New channel added for fun!"
-    });
+  if (command === `textChannel`) {
+    message.guild.channels.create('new-channel', { type: 'text', reason: 'New channel added for fun!' })
+    
   }
 });
 bot.on("message", message => {
