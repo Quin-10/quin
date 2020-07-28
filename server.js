@@ -374,14 +374,16 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `GiveRole`) {
-    const role = message.mentions.roles.first();
-    const member = message.mentions.members.first();
-    member.roles.add(role).then;
+    const role = message.mentions.roles.first()
+    const member = message.mentions.members.first()
+    member.roles.add(role).then
     message.channel.send("ok I gave the role to the user you mentioned");
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}memberStats`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}memberStats`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
         member => member.presence.status === "online"
@@ -412,7 +414,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}textChannel`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command`${prefix}textChannel`) {
     const name = message.content
       .split(`${prefix}textChannel`)
       .slice(1)
