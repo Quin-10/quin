@@ -443,7 +443,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `userProfile`){
+  if (command === `userprofile`){
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
@@ -466,7 +466,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `botProfile`) {
+  if (command === `botprofile`) {
     
     const member = message.mentions.members.first();
 
@@ -475,15 +475,13 @@ bot.on("message", message => {
     if (!user.bot) {
       return;
     }
-    if (!user.bot) {
-      return;
-    }
+    
     const picEmbed = new Discord.MessageEmbed()
       .setColor("303136")
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nOWNER: ${member.user.owner}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} `
       );
     message.channel.send(picEmbed);
   }
