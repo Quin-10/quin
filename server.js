@@ -672,7 +672,7 @@ message.guild.members.ban(user);
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  const user = message.members..first()
+  const user = message.mentions.users.first()
   
   
     if (command === `kill`) {
@@ -714,8 +714,10 @@ var choices = [
     ];
     var deaths = choices[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
-      .setTitle(`${user.username} died`)
-      .setDescription(`REASON: ${deaths}`)
+      .setColor('54902')
+      
+      .setTitle(`**${user.tag}** died`)
+      .setDescription(`**reason: ${deaths}**`)
       message.channel.send(deathEmbed)
     }
 })
