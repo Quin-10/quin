@@ -658,5 +658,31 @@ message.guild.members.ban(user);
   }
 })
 
+bot.on("message", message => {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `murder`) {
+    if (command === `kill`) {
+var deaths = [
+      `swimming in lava`,
+  `slipping on a soap bar`
+  `drinking corona`
+  `having to many homework assignments`
+  `not subscribing to my owner: Quin10 Animates`
+  `liking morgz`
+  `poking her/himself in the eye`
+  `getting hit by my hammer`
+  `saying club penguin is kill`
+  `dying`
+  `getting hit by a car`
+  `not getting his/her picture in 3d`
+  `shining a flashlight in their eyes`
+  `being called a simp`
+  `waisting money on discord nitro`
+  `being crucified`
+  `being a furry`
+  `not being thicc`
+    ];
+    var output = choices[Math.floor(Math.random() * choices.length)];
     
 bot.login(TOKEN)
