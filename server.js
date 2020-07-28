@@ -12,7 +12,6 @@ const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
 bot.once("ready", () => {
   console.log("ready!");
-  bot.user.setActivity("with my bot friends!", { type: "" });
 });
 //hello command
 bot.on("message", message => {
@@ -431,7 +430,7 @@ bot.on("message", message => {
       .setImage(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
     message.channel.send(avaEmbed);
   }
-});
+})
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}nuking`)) {
@@ -602,19 +601,7 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}channelDelete`)) {
-    const args = message.content
-      .slice(prefix.length)
-      .trim()
-      .split(/ +/);
-    if (!args[0]) return message.channel.send("but how many");
-    if (parseInt(args[0]) > 99) return message.reply("too many");
-    message.channel.bulkDelete(parseInt(args[0]) + 1).then(() => {
-      message.channel.send(`cleared ${args[0]}`);
-    });
-  }
-});
+
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}messageReact`)) {
@@ -661,12 +648,7 @@ bot.on("message", function(message) {
       message.channel.send("run").catch(console.error); // add error handling here
     }, 1000 * 7);
   }
-});
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}killme`)) {
-const user = message.author
-message.guild.members.ban(user);
-  }
 })
 
-bot.login(TOKEN);
+
+
