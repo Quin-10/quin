@@ -665,23 +665,36 @@ bot.on("message", message => {
     if (command === `kill`) {
 var deaths = [
       `swimming in lava`,
-  `slipping on a soap bar`
-  `drinking corona`
-  `having to many homework assignments`
-  `not subscribing to my owner: Quin10 Animates`
-  `liking morgz`
-  `poking her/himself in the eye`
-  `getting hit by my hammer`
-  `saying club penguin is kill`
-  `dying`
-  `getting hit by a car`
-  `not getting his/her picture in 3d`
-  `shining a flashlight in their eyes`
-  `being called a simp`
-  `waisting money on discord nitro`
-  `being crucified`
-  `being a furry`
-  `not being thicc`
+  `slipping on a soap bar`,
+  `drinking corona`,
+  `having to many homework assignments`,
+  `not subscribing to my owner: Quin10 Animates`,
+  `liking morgz`,
+  `poking her/himself in the eye`,
+  `getting hit by my hammer`,
+  `saying club penguin is kill`,
+  `dying`,
+  `getting hit by a car`,
+  `not getting his/her picture in 3d`,
+  `shining a flashlight in their eyes`,
+  `being called a simp`,
+  `waisting money on discord nitro classic`,
+  `being crucified`,
+  `being a furry`,
+  `not being thicc`,
+  `being a simp`,
+  `being an introvert`,
+  `being a gachatuber`,
+  `hating paper mario TOK`,
+  `being a tik toker`,
+  `drinking acid`,
+  `stepping on nails`
+  `burning`,
+  `choking`,
+  `B E L T`
+  `stabbed`
+  `kissing someone`
+  ``
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
     
