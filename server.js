@@ -32,15 +32,15 @@ bot.on("message", message => {
 var prefix = "E/"
 
 bot.on("message", message => {
-  var args = message.content
+  let args = message.content
     .slice(prefix.length)
     .trim()
-    .split(" ");
-  var command = args.shift().toLowerCase();
+    .split(" "); 
+  let command = args.shift().toLowerCase();
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}nitro`)) {
+  if (message.content.slice(prefix.length).trim().split(" ").shift().toLowerCase()(`${prefix}nitro`)) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
