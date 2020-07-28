@@ -79,8 +79,7 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+
   const meanWords = [
     "your a dumb bot",
     "I hate Mr circle",
@@ -111,18 +110,7 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}lol`)) {
-    message.channel
-      .send("lol")
-      .then(message => {
-        message.author.edit("hello");
-      })
-      .then(message => {
-        message.react("🟡");
-      });
-  }
-});
+
 bot.on("message", message => {
   const infoWords = ["@yahoo.com", "@gmail.com"];
   if (infoWords.some(word => message.content.includes(word))) {
@@ -131,30 +119,15 @@ bot.on("message", message => {
     message.member.send("are you trying to leak your account?");
   }
 });
-bot.on("message", function(message) {
-  // Now, you can use the message variable inside
-  if (message.content === "E/interval") {
-    var interval = setInterval(function() {
-      // use the message's channel (TextChannel) to send a new message
-      message.channel.send("123").catch(console.error); // add error handling here
-    }, 1 * 10000);
-  }
-});
 
-bot.on("message", function(message) {
-  // Now, you can use the message variable inside
-  if (message.content.startsWith(`${prefix}daily`)) {
-    var interval = setInterval(function() {
-      // use the message's channel (TextChannel) to send a new message
 
-      message.channel.send("!d bump").catch(console.error); // add error handling here
-    }, 1000 * 120);
-  }
-});
+
 
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}say`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command ===`${prefix}say`) {
     var tex = message.content
       .split(" ")
       .slice(1)
@@ -172,7 +145,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}mine`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
     const minesweeper = new Minesweeper({
@@ -183,7 +158,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}slots`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}slots`) {
     var choices = [
       ` [**01**]`,
       ` [**02**]`,
@@ -230,7 +207,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}8ball`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}8ball`) {
     if (
       !message.content
         .split(" ")
@@ -275,7 +254,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}time`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}time`) {
     const exampleEmbed1 = new Discord.MessageEmbed()
       .setTimestamp()
 
@@ -285,7 +266,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}announce`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}announce`) {
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make an announcment "
@@ -342,7 +325,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}ban`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}ban`) {
     const user = message.mentions.users.first();
     if (!message.member.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"]))
       return message.channel.send(
@@ -374,7 +359,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}serversCircle`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}serversCircle`) {
     const statusEmbed = new Discord.MessageEmbed().setTitle("bot stats");
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
@@ -382,7 +369,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}GiveRole`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `GiveRole`) {
     const role = message.mentions.roles.first();
     const member = message.mentions.members.first();
     member.roles.add(role).then;
