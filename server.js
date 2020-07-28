@@ -127,7 +127,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command ===`${prefix}say`) {
+  if (command ===`say`) {
     var tex = message.content
       .split(" ")
       .slice(1)
@@ -147,7 +147,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}mine`) {
+  if (command === `mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
     const minesweeper = new Minesweeper({
@@ -160,7 +160,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}slots`) {
+  if (command === `slots`) {
     var choices = [
       ` [**01**]`,
       ` [**02**]`,
@@ -200,16 +200,18 @@ bot.on("message", message => {
       ` [**08**]`
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
+const slotEmbed = new Discord.MessageEmbed()
 
-    message.channel.send(
-      `${message.author} ooh lets see what you got\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`
-    );
+      .setTitle(`${message.author.username} ooh lets see what you got`)
+.setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`)
+message.channel.send(slotEmbed)
+    
   }
 });
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}8ball`) {
+  if (command === `8ball`) {
     if (
       !message.content
         .split(" ")
@@ -268,7 +270,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}announce`) {
+  if (command === `announce`) {
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make an announcment "
@@ -327,7 +329,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}ban`) {
+  if (command === `ban`) {
     const user = message.mentions.users.first();
     if (!message.member.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"]))
       return message.channel.send(
