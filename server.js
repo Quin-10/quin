@@ -672,9 +672,13 @@ message.guild.members.ban(user);
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  const user = message.mentions.members.first()
-  if (command === `murder`) {
+  const user = message.members..first()
+  
+  
     if (command === `kill`) {
+      if (!user) {
+message.channel.send('please specify the user you want to kill')
+  }
 var choices = [
       `swimming in lava`,
   `slipping on a soap bar`,
@@ -700,17 +704,19 @@ var choices = [
   `hating paper mario TOK`,
   `being a tik toker`,
   `drinking acid`,
-  `stepping on nails`
+  `stepping on nails`,
   `burning`,
   `choking`,
-  `B E L T`
-  `stabbed`
+  `B E L T`,
+  `stabbed`,
   `kissing someone`,
   `waisting money on discord nitro`,
     ];
     var deaths = choices[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
-      .setTitle(``)
+      .setTitle(`${user.username} died`)
+      .setDescription(`REASON: ${deaths}`)
+      message.channel.send(deathEmbed)
     }
-  }})
+})
 bot.login(TOKEN)
