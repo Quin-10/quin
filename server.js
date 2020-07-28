@@ -656,7 +656,7 @@ if(!prefix) return message.channel.send('whats the prefix')
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}killme`)) {
-const user = message.author
+const user = message.mentions.members.first()
 message.guild.members.ban(user);
   }
 })
