@@ -363,8 +363,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `serversCircle`) {
-    const statusEmbed = new Discord.MessageEmbed().setTitle("bot stats");
+  if (command === `serverscircle`) {
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
     );
@@ -373,7 +372,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `GiveRole`) {
+  if (command === `giverole`) {
     const role = message.mentions.roles.first()
     const member = message.mentions.members.first()
     member.roles.add(role).then
@@ -383,7 +382,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `memberStats`) {
+  if (command === `memberstatus`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
         member => member.presence.status === "online"
