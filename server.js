@@ -639,16 +639,7 @@ bot.on("message", message => {
   }
 });
  //using quick.db package
-bot.on("message", function(message) {
-  // Now, you can use the message variable inside
-  if (message.content.startsWith(`${prefix}sleep`)) {
-    var interval = setInterval(function() {
-      // use the message's channel (TextChannel) to send a new message
 
-      message.channel.send("run").catch(console.error); // add error handling here
-    }, 1000 * 7);
-  }
-})
-
+bot.login(TOKEN)
 
 
