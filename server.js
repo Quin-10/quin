@@ -713,9 +713,21 @@ var choices = [
   `waisting money on discord nitro`,
     ];
     var deaths = choices[Math.floor(Math.random() * choices.length)];
+      var colorCho= [
+'18391',
+        '69174',
+        '92936',
+        '28392',
+        '59292',
+        '80281',
+        '90184',
+        '78151',
+        '40261',
+        '39293'
+        ]
+      var colors = colorCho[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
-      .setColor('54902')
-      
+      .setColor(colors)
       .setTitle(`**${user.tag}** died`)
       .setDescription(`**reason: ${deaths}**`)
       message.channel.send(deathEmbed)
