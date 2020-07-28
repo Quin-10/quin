@@ -363,7 +363,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}serversCircle`) {
+  if (command === `serversCircle`) {
     const statusEmbed = new Discord.MessageEmbed().setTitle("bot stats");
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
@@ -383,7 +383,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}memberStats`) {
+  if (command === `memberStats`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
         member => member.presence.status === "online"
@@ -444,7 +444,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `userProfile`) {
+  if (command === `userProfile`){
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
@@ -473,10 +473,10 @@ bot.on("message", message => {
 
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    if (!member.user.bot) {
+    if (!user.bot) {
       return;
     }
-    if (!member.user.bot) {
+    if (!user.bot) {
       return;
     }
     const picEmbed = new Discord.MessageEmbed()
@@ -484,7 +484,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nOWNER: ${}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nOWNER: ${member.user.owner}`
       );
     message.channel.send(picEmbed);
   }
