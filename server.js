@@ -643,7 +643,7 @@ bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}newPre`)) {
   const db = require('quick.db')
   const args = message.content.slice(prefix.length).trim().split(' ');
-let prefix = [0]
+let prefix = args[0]
 if(!prefix) return message.channel.send('whats the prefix')
   let preEmbed = Discord.MessageEmbed()
   .setTitle('new prefix')
