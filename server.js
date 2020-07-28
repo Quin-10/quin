@@ -714,22 +714,13 @@ var choices = [
     ];
     var deaths = choices[Math.floor(Math.random() * choices.length)];
       var colorCho= [
-'18391',
-        '69174',
-        '92936',
-        '28392',
-        '59292',
-        '80281',
-        '90184',
-        '78151',
-        '40261',
-        '39293'
+'yellow'
         ]
-      var colors = colorCho[Math.floor(Math.random() * choices.length)];
+      var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
-      .setColor(colors)
+      .setColor(`YELLOW`)
       .setTitle(`**${user.tag}** died`)
-      .setDescription(`**reason: ${deaths}**`)
+      .addFooter(`**reason: ${deaths}**`)
       message.channel.send(deathEmbed)
     }
 })
