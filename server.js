@@ -292,7 +292,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}reactRoles`)) {
+  if (message.content.startsWith(`${prefix}reactroles`)) {
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make a reaction role message"
@@ -301,7 +301,7 @@ bot.on("message", message => {
 
     var channel = message.mentions.channels.first();
     var announcelely = message.content
-      .split(`${prefix}reactRoles ${channel}`)
+      .split(`${prefix}reactroles ${channel}`)
       .slice(1)
       .join(" ");
 
@@ -311,8 +311,8 @@ bot.on("message", message => {
       .setColor("49328");
     channel.send(anEmbed).then(sentMessage => {
       sentMessage.react("🟣");
-      if (message.user.messageReactionAdd === "🟣") {
-        message.channel.send("ok");
+      if (message.reaction.emoji.name === '🟣') {
+        channel.send("ok");
       }
     });
   }
