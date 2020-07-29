@@ -694,14 +694,20 @@ message.channel.send('please specify the user you want to kill')
   }
       
       if (user == message.author) {
-        
+        const suicidEmbed = new Discord.MessageEmbed()
+      .setColor(`8B0B0B`)
+      .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
+      .setFooter(`reason: suicide`)
+     return message.channel.send(suicidEmbed) 
+      }
+        if (command === `myself`) {
         const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
-      .setTitle(`**${user.tag}** died \<:Bloodyknife:738090624326041711>`)
+      .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
       .setFooter(`reason: suicide`)
      return message.channel.send(suicideEmbed) 
+      
       }
-
       if(user.bot) {
 return message.channel.send('bots don`t die')
       }
@@ -747,8 +753,8 @@ const choices = [
       var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
       .setColor(`YELLOW`)
-      .setTitle(`**${user.tag}** died `)
-      .setFooter(`reason: ${deaths} \<:Knife:738090560316768266>`)
+      .setTitle(`**${user.tag}** died \<:Knife:738090560316768266> `)
+      .setFooter(`reason: ${deaths}`)
       message.channel.send(deathEmbed)
     }
 })
