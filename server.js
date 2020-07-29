@@ -753,4 +753,26 @@ message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	});
     }})
 
+
+
+bot.on("message", async message => {
+const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  
+  
+    if (command === `varif1`) {
+      const channel = message.mentions.channels.first()
+      const user = message.author
+  var embed2 = new Discord.MessageEmbed()
+                    .setColor('#add8e6')
+                    .setAuthor('Server Rules')
+                    .setDescription(`${message.content}`)
+                    
+               let hi = await channel.send(embed2)
+               hi.react('🌱')
+               await message.guild.members.cache.get(user.id).roles.add("");
+      channel.send(embed2)
+      
+    }
+})
 bot.login(TOKEN)
