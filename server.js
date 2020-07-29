@@ -841,4 +841,6 @@ if (!args[0]) return message.channel.send(`You did not specify your time!`);
     }, ms(args[0]));
   }})
 
+bot.on("message", async message => {
+  
 bot.login(TOKEN)
