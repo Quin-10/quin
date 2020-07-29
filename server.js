@@ -699,11 +699,10 @@ message.channel.send('please specify the user you want to kill')
       .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
       .setFooter(`reason: suicide`)
      return message.channel.send(suicidEmbed) 
-      }
-        if (command === `myself`) {
+      } else if (command === `killmyself`) {
         const suicideEmbed = new Discord.MessageEmbed()
-      .setColor(`8B0B0B`)
-      .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
+      .setColor(`BLUE`)
+      .setTitle(`**${message.author.tag}** died <:Bloodyknife:738090624326041711>`)
       .setFooter(`reason: suicide`)
      return message.channel.send(suicideEmbed) 
       
