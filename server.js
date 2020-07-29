@@ -762,15 +762,16 @@ const args = message.content.slice(prefix.length).trim().split(" ")
   
     if (command === `varif1`) {
       const channel = message.mentions.channels.first()
-      const user = message.author
+      const role = message.mentions.roles.first()
+      const rules = message.content
   var embed2 = new Discord.MessageEmbed()
                     .setColor('#add8e6')
                     .setAuthor('Server Rules')
-                    .setDescription(`${message.content}`)
+                    .setDescription(``)
                     
                let hi = await channel.send(embed2)
                hi.react('🌱')
-               await message.guild.members.cache.get(user.id).roles.add("");
+               await message.guild.members.cache.get(message.author.id).roles.add(role);
       channel.send(embed2)
       
     }
