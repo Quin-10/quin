@@ -43,4 +43,4 @@ module.exports = {
       message.channel.send(`The winnder of the giveaway is ${winner}`);
     }, ms(args[0]));
   }
-}```
+}
