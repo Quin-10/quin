@@ -540,7 +540,7 @@ bot.on("message", message => {
       .setTitle(`SERVER INFO`)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.tag}**`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}**`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
@@ -842,26 +842,16 @@ if (!args[0]) return message.channel.send(`You did not specify your time!`);
   }})
 
 bot.on("message", async message => {
-  const db = require("quick.db")
-  if (message.author.bot) return;
-  let pref = db.get(`prefix.${message.guild.id}`)
+  if (message.author.bot) return; // Ignore if the user is a bot.
+  const db = require('quick.db')
+  let pref = db.get(`prefix.${message.guild.id}`);
   let prefix;
+  
   if (!pref) {
-    prefix = "E/"
+    prefix = ";"; // If the server doesn't have any custom prefix, return default.
   } else {
-prefix = pref;
-    message.flags = []
-    if (message.content.startsWith(`${prefix}prefi`))
-      if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('you don`t have the perms')
-    let data = db.get(`prefix.${message.guild.id}`)
-    if (message.flags[0] === "default") {
-await db.delete(`prefix.${message.guild}`)
-      return message.channel.send('prefix is now default')
-    }
-    let symbol = message.content.split(`${prefix}prefi`).slice(1).join(" ")
-    if (!symbol) return message.channel.send('please input the prefix')
-    db.set(`prefix.${message.guild.id}`, symbol)
-    return message.channel.send(`the server prefix has been changed to **${symbol}**`)
+    prefix = pref;
   }
-})
+  }
+)
 bot.login(TOKEN)
