@@ -850,7 +850,18 @@ bot.on("message", async message => {
     prefix = "E/"
   } else {
 prefix = pref;
+    message.flags = []
     if (message.content.startsWith(`${prefix}prefi`))
+      if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('you don`t have the perms')
+    let data = db.get(`prefix.${message.guild.id}`)
+    if (message.flags[0] === "default") {
+await db.delete(`prefix.${message.guild}`)
+      return message.channel.send('prefix is now default')
+    }
+    let symbol = message.content.split(`${prefix}prefi`).slice(1).join(" ")
+    if (!symbol) return message.channel.send('please input the prefix')
+    db.set(`prefix.${message.guild.id}`, symbol)
+    return message.channel.send(`the server prefix has been changed to **${symbol}**`)
   }
 })
 bot.login(TOKEN)
