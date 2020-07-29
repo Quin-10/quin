@@ -697,7 +697,7 @@ message.channel.send('please specify the user you want to kill')
         
         const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
-      .setTitle(`**${user.tag}** died ${ded}`)
+      .setTitle(`**${user.tag}** died \<:Bloodyknife:738090624326041711>`)
       .setFooter(`reason: suicide`)
      return message.channel.send(suicideEmbed) 
       }
@@ -747,8 +747,8 @@ const choices = [
       var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
       .setColor(`YELLOW`)
-      .setTitle(`**${user.tag}** died ${ded}`)
-      .setFooter(`reason: ${deaths}`)
+      .setTitle(`**${user.tag}** died `)
+      .setFooter(`reason: ${deaths} \<:Knife:738090560316768266>`)
       message.channel.send(deathEmbed)
     }
 })
