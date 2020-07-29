@@ -767,11 +767,12 @@ const args = message.content.slice(prefix.length).trim().split(" ")
 return message.channel.send('what is the description of the role')
       }
       if(!role) {
-return }
+return message.channel.send('the role isn`t specified')
+      }
  message.delete
       var embed2 = new Discord.MessageEmbed()
                     .setColor('#add8e6')
-                    .setAuthor('Server Rules')
+                    .setAuthor('Reaction role')
                     .setDescription(`${rules}`)
                     
                let hi = await message.channel.send(embed2)
