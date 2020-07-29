@@ -842,5 +842,15 @@ if (!args[0]) return message.channel.send(`You did not specify your time!`);
   }})
 
 bot.on("message", async message => {
-  
+  const db = require("quick.db")
+  if (message.author.bot) return;
+  let pref = db.get(`prefix.${message.guild.id}`)
+  let prefix;
+  if (!pref) {
+    prefix = "E/"
+  } else {
+prefix = pref;
+    if (message.content.startsWith(`${prefix}prefi`))
+  }
+})
 bot.login(TOKEN)
