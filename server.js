@@ -309,13 +309,10 @@ const role = message.mentions.roles.first()
       .setTitle("<:Announce:731965302971302000>`NEW ROLE REACTIONS`")
       .setDescription(announcelely)
       .setColor("49328");
-    channel.send(anEmbed).then(sentMessage => {
-      sentMessage.react("🟣");
-      if (message.reaction.emoji.name === '🟣') {
-        message.author.roles.add(role)
-        
-      }
-    });
+    channel.send(anEmbed).then (sentMessage => {
+      sentMessage.react("🟣")
+    
+    })
   }
 });
 
