@@ -526,6 +526,10 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
+  let x = Date.now() - message.guild.createdAt;
+  let h = Math.floor(x / 86400000) // 86400000, 5 digits-zero.
+    let created = (message.guild.createdAt); // Install "dateformat" first.
+    
   if (command === `serverinfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
@@ -540,7 +544,7 @@ bot.on("message", message => {
       .setTitle(`SERVER INFO`)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}**`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: **${created} since ${h} day(s)**`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
@@ -688,6 +692,7 @@ bot.on("message", message => {
       if (!user) {
 message.channel.send('please specify the user you want to kill')
   }
+      if (!user) {
       if(user.bot) {
 return message.channel.send('bots don`t die')
       }
@@ -854,4 +859,18 @@ bot.on("message", async message => {
   }
   }
 )
+bot.on("message", async message => {
+if (message.content.startsWith(prefix + 'ping')) {
+    try {
+      const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
+      const embed = new Discord.MessageEmbed()
+      .setColor("RANDOM") // Tired of choosing the embed colors? Just type "RANDOM" on it!
+      .addField("⌛ Latency", `**${m.createdTimestamp -  message.createdTimestamp}ms**`)
+      .addField("💓 API", `**${Math.floor(bot.ws.ping)}ms**`) // Use "client.ping" if your Discord.js is < 1.15.1 --- Use "client.ws.ping" if your Discord.js is > 12.0.0
+      return m.edit(`🏓 Pong!`, embed);
+    } catch (error) {
+      return message.channel.send(`Something went wrong: ${error.message}`);
+      // Restart the bot as usual.
+    }
+  }}) // easy way.
 bot.login(TOKEN)
