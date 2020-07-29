@@ -704,7 +704,7 @@ message.channel.send('please specify the user you want to kill')
       if(user.bot) {
 return message.channel.send('bots don`t die')
       }
-var choices = [
+const choices = [
       `swimming in lava`,
   `slipping on a soap bar`,
   `drinking corona`,
