@@ -692,7 +692,15 @@ bot.on("message", message => {
       if (!user) {
 message.channel.send('please specify the user you want to kill')
   }
-      if (!user) {
+      if (user == message.author) {
+        
+        const suicideEmbed = new Discord.MessageEmbed()
+      .setColor(`8B0B0B`)
+      .setTitle(`**${user.tag}** died`)
+      .setFooter(`reason: suicide`)
+     return message.channel.send(suicideEmbed) 
+      }
+
       if(user.bot) {
 return message.channel.send('bots don`t die')
       }
