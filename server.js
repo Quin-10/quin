@@ -304,7 +304,7 @@ bot.on("message", message => {
       .split(`${prefix}reactroles ${channel}`)
       .slice(1)
       .join(" ");
-
+const role = message.mentions.roles.first()
     const anEmbed = new Discord.MessageEmbed()
       .setTitle("<:Announce:731965302971302000>`NEW ROLE REACTIONS`")
       .setDescription(announcelely)
@@ -312,7 +312,8 @@ bot.on("message", message => {
     channel.send(anEmbed).then(sentMessage => {
       sentMessage.react("🟣");
       if (message.reaction.emoji.name === '🟣') {
-        channel.send("ok");
+        message.author.roles.add(role)
+        
       }
     });
   }
@@ -494,7 +495,7 @@ bot.on("message", message => {
   }
 });
 
-bot.on("messageDelete", async message => {
+bot.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `lead`) {
@@ -732,6 +733,8 @@ const args = message.content.slice(prefix.length).trim().split(" ")
     if (command === `varif`) {
       message.channel.send('ok')
 message.react('👍').then(() => message.react('👎'));
+      
+    
 
 const filter = (reaction, user) => {
 	return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
@@ -743,6 +746,7 @@ message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
 		if (reaction.emoji.name === '👍') {
 			message.reply('you reacted with a thumbs up.');
+      
 		} else {
 			message.reply('you reacted with a thumbs down.');
 		}
