@@ -769,9 +769,6 @@ return message.channel.send('what is the description of the role')
       if(!role) {
 return message.channel.send('the role isn`t specified')
       }
-      if (!message.member.hasPermission("MANAGE_ROLES",)) {
-      return message.channel.send("you do not have permissons");
-    }
  message.delete
       var embed2 = new Discord.MessageEmbed()
                     .setColor('#add8e6')
