@@ -763,7 +763,7 @@ const args = message.content.slice(prefix.length).trim().split(" ")
     if (command === `varif1`) {
       const channel = message.mentions.channels.first()
       const role = message.mentions.roles.first()
-      const rules = message.content.split(`${prefix}varif1 ${role} ${channel}`)
+      const rules = message.content.split(`${prefix}varif1 ${channel}${role}`).slice(1).join(" ")
   var embed2 = new Discord.MessageEmbed()
                     .setColor('#add8e6')
                     .setAuthor('Server Rules')
