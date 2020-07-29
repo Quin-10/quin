@@ -761,19 +761,27 @@ const args = message.content.slice(prefix.length).trim().split(" ")
   
   
     if (command === `varif1`) {
-      const channel = message.mentions.channels.first()
       const role = message.mentions.roles.first()
-      const rules = message.content.split(`${prefix}varif1 ${channel}${role}`).slice(1).join(" ")
-  var embed2 = new Discord.MessageEmbed()
+      const rules = message.content.split(`${prefix}varif1 ${role}`).slice(1).join(" ")
+      if (!message.content.split(`${prefix}varif1 ${role}`).slice(1).join(" ")) {
+return message.channel.send('what is the description of the role')
+      }
+      if(!role) {
+return }
+ message.delete
+      var embed2 = new Discord.MessageEmbed()
                     .setColor('#add8e6')
                     .setAuthor('Server Rules')
                     .setDescription(`${rules}`)
                     
-               let hi = await channel.send(embed2)
+               let hi = await message.channel.send(embed2)
                hi.react('🌱')
-               await message.guild.members.cache.get(message.author.id).roles.add(role);
-      channel.send(embed2)
+               await message.guild.members.cache.get(message.author.id).roles.add(role)
       
+      .then(sentMessage => {
+      sentMessage.delete()
+      message.channel.send(embed2)
+               })
     }
 })
 bot.login(TOKEN)
