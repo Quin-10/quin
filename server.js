@@ -526,7 +526,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  if (command === `${prefix}serverInfo`) {
+  if (command === `serverinfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
