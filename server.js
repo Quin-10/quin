@@ -128,6 +128,8 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command ===`say`) {
+    if (message.author.bot) {
+return }
     var tex = message.content
       .split(" ")
       .slice(1)
@@ -271,6 +273,8 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `announce`) {
+    if (message.author.bot) {
+return }
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make an announcment "
@@ -293,6 +297,7 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}reactroles`)) {
+    return
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make a reaction role message"
@@ -328,6 +333,8 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `ban`) {
+    if (message.author.bot) {
+return }
     const user = message.mentions.users.first();
     if (!message.member.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"]))
       return message.channel.send(
@@ -371,6 +378,8 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `giverole`) {
+    if (message.author.bot) {
+return }
     const role = message.mentions.roles.first()
     const member = message.mentions.members.first()
     member.roles.add(role).then
@@ -380,6 +389,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
+  
   if (command === `memberstatus`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
@@ -394,9 +404,10 @@ bot.on("message", message => {
       const totaldnd = fetchedMembers.filter(
         member => member.presence.status === "dnd"
       );
-      const totalbot = fetchedMembers.filter(
-        member => bot.user.presence.status === "online"
-      );
+      message.guild.bots.fetch().then(fetchedBots => {
+      const totalbot = fetchedBots
+      })
+      
       const all = fetchedMembers;
 
       const statusEmbed = new Discord.MessageEmbed()
@@ -404,7 +415,7 @@ bot.on("message", message => {
         .setTimestamp()
         .setTitle(`**STATS**`)
         .setDescription(
-          `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `
+          `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** \nBOTS: ${totalbot.size}`
         );
       message.channel.send(statusEmbed);
     });
