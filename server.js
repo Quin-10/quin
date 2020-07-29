@@ -699,13 +699,6 @@ message.channel.send('please specify the user you want to kill')
       .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
       .setFooter(`reason: suicide`)
      return message.channel.send(suicidEmbed) 
-      } else if (command === `killmyself`) {
-        const suicideEmbed = new Discord.MessageEmbed()
-      .setColor(`BLUE`)
-      .setTitle(`**${message.author.tag}** died <:Bloodyknife:738090624326041711>`)
-      .setFooter(`reason: suicide`)
-     return message.channel.send(suicideEmbed) 
-      
       }
       if(user.bot) {
 return message.channel.send('bots don`t die')
@@ -889,4 +882,15 @@ if (message.content.startsWith(prefix + 'ping')) {
       // Restart the bot as usual.
     }
   }}) // easy way.
+bot.on("message", async message => {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  
+if (command === `killmyself`) {
+        const suicideEmbed = new Discord.MessageEmbed()
+      .setColor(`8B0B0B`)
+      .setTitle(`**${message.author.tag}** died <:Bloodyknife:738090624326041711>`)
+      .setFooter(`reason: suicide`)
+     return message.channel.send(suicideEmbed) 
+}})
 bot.login(TOKEN)
