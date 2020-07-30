@@ -660,19 +660,6 @@ bot.on("message", message => {
   }
 });
  //using quick.db package
-bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}newPre`)) {
-  const db = require('quick.db')
-  const args = message.content.slice(prefix.length).trim().split(' ');
-let prefix = args[0]
-if(!prefix) return message.channel.send('whats the prefix')
-  let preEmbed = Discord.MessageEmbed()
-  .setTitle('new prefix')
-  .addField(`prefix has been changed to ${prefix}`)
-  db.set(`prefix_${message.guild.id}`, prefix)
-  message.channel.send(preEmbed)
-}
-})
 
 
 bot.on("message", message => {
@@ -855,19 +842,7 @@ if (!args[0]) return message.channel.send(`You did not specify your time!`);
     }, ms(args[0]));
   }})
 
-bot.on("message", async message => {
-  if (message.author.bot) return; // Ignore if the user is a bot.
-  const db = require('quick.db')
-  let pref = db.get(`prefix.${message.guild.id}`);
-  let prefix;
-  
-  if (!pref) {
-    prefix = ";"; // If the server doesn't have any custom prefix, return default.
-  } else {
-    prefix = pref;
-  }
-  }
-)
+
 bot.on("message", async message => {
 if (message.content.startsWith(prefix + 'ping')) {
     try {
@@ -929,7 +904,7 @@ bot.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   
-if (command === `mem`) {
+if (command === `meme`) {
 
     const got = require('got')
           
@@ -938,9 +913,12 @@ if (command === `mem`) {
       let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
           Memembed = new Discord.MessageEmbed()
+      .setTitle(`here is your meme sir`)
+      .setAuthor('`MEME`')
       .setImage(image)
+      .addField('↓**Reminder**↓','remember, I do not have any control of what memes I send \<:Smugyes:735651807551946773>', true)
+      .setFooter('from r/memes')
       .setTimestamp()
-      .addField('remember, I do not have any control of what memes I send \<:Smugyes:735651807551946773>')
       message.channel.send(Memembed);
     }).catch(console.log)
   }
