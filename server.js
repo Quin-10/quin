@@ -869,38 +869,7 @@ if (command === `killmyself`) {
       .setFooter(`reason: suicide`)
      return message.channel.send(suicideEmbed) 
 }})
-bot.on("message", async message => {
-const args = message.content.slice(prefix.length).trim().split(" ")
-  const db = require("quick.db")
-  
-if (message.content.startsWith(`${prefix}prefix`)) {
-      
-  if (message.author.bot) return; // Ignore if the user is a bot.
-  
-  let pref = db.get(`prefix.${message.guild.id}`);
-  let prefix;
-  
-  if (!pref) {
-    prefix = "E/"; // If the server doesn't have any custom prefix, return default.
-  } else {
-    prefix = pref;
-  }
-  
-  
-    if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
-    let data = db.get(`prefix.${message.guild.id}`);
-    if (message.flags[0] === "default") {
-      await db.delete(`prefix.${message.guild.id}`);
-      return message.channel.send("The server prefix has been changed into default.");
-    }
-    
-    let symbol = args.join(" ")
-    if (!symbol) return message.channel.send("Please input the prefix.");
-    
-    db.set(`prefix.${message.guild.id}`, symbol);
-    return message.channel.send(`The server prefix has been changed to **${symbol}**`);
-  }
-})
+
 bot.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
