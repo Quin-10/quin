@@ -893,4 +893,21 @@ if (command === `killmyself`) {
       .setFooter(`reason: suicide`)
      return message.channel.send(suicideEmbed) 
 }})
+const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  
+if (command === `prefix`) {
+    if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
+    let data = db.get(`prefix.${message.guild.id}`);
+    if (message.flags[0] === "default") {
+      await db.delete(`prefix.${message.guild.id}`);
+      return message.channel.send("The server prefix has been changed into default.");
+    }
+    
+    let symbol = args.join(" ");
+    if (!symbol) return message.channel.send("Please input the prefix.");
+    
+    db.set(`prefix.${message.guild.id}`, symbol);
+    return message.channel.send(`The server prefix has been changed to **${symbol}**`);
+  }
 bot.login(TOKEN)
