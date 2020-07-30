@@ -927,23 +927,5 @@ const args = message.content.slice(prefix.length).trim().split(" ")
       // Let's test it out!
     })
   }})
-bot.on("message", message => {
-const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  const db = require("quick.db")
-  
-    if (command === `setw`) {
-    let channel = message.mentions.channels.first()
 
-    if(!channel) {
-      return message.channel.send("Please Mention the channel first")
-    }
-
-    //Now we gonna use quick.db
-
-    db.set(`welchannel_${message.guild.id}`, channel.id)
-
-    message.channel.send(`Welcome Channel is seted as ${channel}`)
-  }
-})
 bot.login(TOKEN)
