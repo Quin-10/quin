@@ -925,21 +925,21 @@ if (message.content.startsWith(`${prefix}prefix`)) {
     return message.channel.send(`The server prefix has been changed to **${symbol}**`);
   }
 })
-
-if (msg.startsWith(prefix + "meme") || message.content.startsWith(prefix + "memes")) {
+bot.on("message", async message => {
+if (message.content.startsWith(prefix + "meme") || message.content.startsWith(prefix + "memes")) {
     const got = require('got'),
           {MessageEmbed} = require('discord.js');
     
     got('https://www.reddit.com/r/meme/random/.json').then(response => {
       let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
-          embed = new MessageEmbed()
+          HAembed = new MessageEmbed()
       .setImage(image)
       .setTimestamp()
       .setFooter('from: r/meme')
-      message.channel.send(embed);
+      message.channel.send(HAembed);
     }).catch(console.log)
   }
-  
+})
 
 bot.login(TOKEN)
