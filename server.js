@@ -893,10 +893,12 @@ if (command === `killmyself`) {
       .setFooter(`reason: suicide`)
      return message.channel.send(suicideEmbed) 
 }})
-const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+bot.on("message", async message => {
+
   
-if (command === `prefix`) {
+if (message.content.startsWith(`${prefix}prefix`)) {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const db = require("quick.db")
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
     let data = db.get(`prefix.${message.guild.id}`);
     if (message.flags[0] === "default") {
@@ -904,10 +906,27 @@ if (command === `prefix`) {
       return message.channel.send("The server prefix has been changed into default.");
     }
     
-    let symbol = args.join(" ");
+    let symbol = args.join(" ")
     if (!symbol) return message.channel.send("Please input the prefix.");
     
     db.set(`prefix.${message.guild.id}`, symbol);
     return message.channel.send(`The server prefix has been changed to **${symbol}**`);
+  }})
+
+if (message.content.startsWith(`${prefix}afk`)) {
+    const status = new db.table("AFKs");
+    let afk = await status.fetch(message.author.id);
+    const embed = new Discord.MessageEmbed().setColor(0xffffff)
+    
+    if (!afk) {
+      embed.setDescription(`**${message.author.tag}** now AFK.`)
+      embed.setFooter(`Reason: ${args.join(" ") ? args.join(" ") : "AFK"}`)
+      status.set(message.author.id, args.join(" ") || `AFK`);
+    } else {
+      embed.setDescription("You are no longer AFK.");
+      status.delete(message.author.id);
+    }
+    
+    message.channel.send(embed)
   }
 bot.login(TOKEN)
