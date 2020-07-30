@@ -883,6 +883,7 @@ if (command === `meme`) {
       let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
           Memembed = new Discord.MessageEmbed()
+      .setColor('00B0F5')
       .setTitle(`here is your meme sir`)
       .setAuthor('`MEME`')
       .setImage(image)
