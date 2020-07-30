@@ -894,14 +894,23 @@ if (command === `killmyself`) {
      return message.channel.send(suicideEmbed) 
 }})
 bot.on("message", async message => {
-
+const args = message.content.slice(prefix.length).trim().split(" ")
+  const db = require("quick.db")
   
 if (message.content.startsWith(`${prefix}prefix`)) {
-  bot.on("message", async message => {
-      const db = require('quick.db')
-      const args = message.content.slice(prefix.length).trim().split(" ")
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const db = require("quick.db")
+      
+  if (message.author.bot) return; // Ignore if the user is a bot.
+  
+  let pref = db.get(`prefix.${message.guild.id}`);
+  let prefix;
+  
+  if (!pref) {
+    prefix = "E/"; // If the server doesn't have any custom prefix, return default.
+  } else {
+    prefix = pref;
+  }
+  
+  
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
     let data = db.get(`prefix.${message.guild.id}`);
     if (message.flags[0] === "default") {
@@ -914,7 +923,23 @@ if (message.content.startsWith(`${prefix}prefix`)) {
     
     db.set(`prefix.${message.guild.id}`, symbol);
     return message.channel.send(`The server prefix has been changed to **${symbol}**`);
-  }})
+  }
+})
 
+if (msg.startsWith(prefix + "meme") || message.content.startsWith(prefix + "memes")) {
+    const got = require('got'),
+          {MessageEmbed} = require('discord.js');
+    
+    got('https://www.reddit.com/r/meme/random/.json').then(response => {
+      let content = JSON.parse(response.body),
+          image = content[0].data.children[0].data.url,
+          embed = new MessageEmbed()
+      .setImage(image)
+      .setTimestamp()
+      .setFooter('from: r/meme')
+      message.channel.send(embed);
+    }).catch(console.log)
+  }
+  
 
 bot.login(TOKEN)
