@@ -795,9 +795,10 @@ return message.channel.send('the role isn`t specified')
                     
                let hi = await message.channel.send(embed2)
                hi.react('🌱')
+      if (message.reaction.emoji.name === "🌱") {
                await message.guild.members.cache.get(message.author.id).roles.add(role)
-      
-      .then(sentMessage => {
+      }
+    (sentMessage => {
       sentMessage.delete()
       message.channel.send(embed2)
                })
