@@ -897,6 +897,9 @@ bot.on("message", async message => {
 
   
 if (message.content.startsWith(`${prefix}prefix`)) {
+  bot.on("message", async message => {
+      const db = require('quick.db')
+      const args = message.content.slice(prefix.length).trim().split(" ")
   const args = message.content.slice(prefix.length).trim().split(" ")
   const db = require("quick.db")
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
@@ -913,20 +916,5 @@ if (message.content.startsWith(`${prefix}prefix`)) {
     return message.channel.send(`The server prefix has been changed to **${symbol}**`);
   }})
 
-if (message.content.startsWith(`${prefix}afk`)) {
-    const status = new db.table("AFKs");
-    let afk = await status.fetch(message.author.id);
-    const embed = new Discord.MessageEmbed().setColor(0xffffff)
-    
-    if (!afk) {
-      embed.setDescription(`**${message.author.tag}** now AFK.`)
-      embed.setFooter(`Reason: ${args.join(" ") ? args.join(" ") : "AFK"}`)
-      status.set(message.author.id, args.join(" ") || `AFK`);
-    } else {
-      embed.setDescription("You are no longer AFK.");
-      status.delete(message.author.id);
-    }
-    
-    message.channel.send(embed)
-  }
+
 bot.login(TOKEN)
