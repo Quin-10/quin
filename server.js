@@ -926,18 +926,22 @@ if (message.content.startsWith(`${prefix}prefix`)) {
   }
 })
 bot.on("message", async message => {
-if (message.content.startsWith(prefix + "meme") || message.content.startsWith(prefix + "memes")) {
-    const got = require('got'),
-          {MessageEmbed} = require('discord.js');
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  
+if (command === `mem`) {
+
+    const got = require('got')
+          
     
     got('https://www.reddit.com/r/meme/random/.json').then(response => {
       let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
-          HAembed = new MessageEmbed()
+          Memembed = new Discord.MessageEmbed()
       .setImage(image)
       .setTimestamp()
       .setFooter('from: r/meme')
-      message.channel.send(HAembed);
+      message.channel.send(Memembed);
     }).catch(console.log)
   }
 })
