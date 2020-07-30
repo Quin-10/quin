@@ -927,5 +927,5 @@ const args = message.content.slice(prefix.length).trim().split(" ")
       // Let's test it out!
     })
   }})
-
+    var square = choices[Math.floor(Math.random() * 1 + 7)];
 bot.login(TOKEN)
