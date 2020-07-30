@@ -940,7 +940,7 @@ if (command === `mem`) {
           Memembed = new Discord.MessageEmbed()
       .setImage(image)
       .setTimestamp()
-      .setFooter('from: r/meme')
+      .addField('remember, I do not have any control of what memes I send \<:Smugyes:735651807551946773>')
       message.channel.send(Memembed);
     }).catch(console.log)
   }
