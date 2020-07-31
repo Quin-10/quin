@@ -1,6 +1,6 @@
 // inside a command, event listener, etc.
 //circle
-var prefix = "E"
+var prefix = "E/"
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -21,6 +21,7 @@ bot.on("message", message => {
       return;
     }
     message.channel.send("it was fun while it lasted :[");
+    var prefix = "E/"
   }
 });
 bot.on("message", message => {
@@ -811,7 +812,7 @@ return message.channel.send('the role isn`t specified')
 bot.on("message", async message => {
   if(message.content.startsWith(`${prefix}giveaway`)) {
     const ms = require("ms")
-  const args = message.content.slice(prefix.length).trim().split(" ")
+  const args = message.content.split(`${prefix}giveaway`).slice(1).join(" ")
 if (!args[0]) return message.channel.send(`You did not specify your time!`);
     if (!args[0].endsWith("d") && !args[0].endsWith("h") && !args[0].endsWith("m"))
       return message.channel.send(`The time needs to have days (d) or hours (h) or minutes (m)`);
