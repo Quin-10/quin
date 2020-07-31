@@ -908,48 +908,9 @@ bot.on("guildMemberRemove", (member) => { //usageof welcome event
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
     const moment = require("moment")
-    const user = message.mentions.members.first()
-    const createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
+    const createdate = moment.utc.format("dddd, MMMM Do YYYY, HH:mm:ss");
     message.channel.send(`${createdate}`)
   }
 })
-bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}sniper`)) {
 
-  if (message.partial) await message.fetch();
-  // Uncached message can be fetched.
-  
-  // If the system are doing in DM, return it.
-  if (!message.guild || message.channel.type === "dm") return;
-  
-  // If the user was a robot, return.
-  if (message.author.bot || message.author === bot.user) return;
-  
-  // Save the content.
-  db.set(`snipe.${message.guild.id}.content`, message.content);
-  
-  // Save the user tag.
-  db.set(`snipe.${message.guild.id}.user`, message.author.tag);
-  
-  // Save the channel.
-  db.set(`snipe.${message.guild.id}.user`, message.channel.id);
-  
-  // Reset the snipe database every minute.
-  setTimeout(function() {
-    db.delete(`snipe.${message.guild.id}`);
-  }, 60000) // 60 seconds in milliseconds.
-}}
-)
-bot.on("message", async message => {
-const db = require("quick.db"); // v7.1.1
-const data = db.get(`snipe.${message.guild.id}`)
-if (!data) {
-return message.channel.send('ha empty')
-}
-const content = data.content,
-      user = data.user,
-      channel = data.channel
-message.channel.send(`${content}`)
-}
-)
 bot.login(TOKEN)
