@@ -259,17 +259,7 @@ bot.on("message", message => {
     message.channel.send(ballEmbed);
   }
 });
-bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  if (command === `${prefix}time`) {
-    const exampleEmbed1 = new Discord.MessageEmbed()
-      .setTimestamp()
 
-      .setFooter("here is the time");
-    message.channel.send(exampleEmbed1);
-  }
-});
 
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
@@ -462,7 +452,7 @@ bot.on("message", message => {
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
+    const createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
     if (member.user.bot) {
       return;
     }
@@ -898,7 +888,7 @@ bot.on("guildMemberAdd", (member) => { //usageof welcome event
   
   bot.channels.cache.get(chx).send(wembed) //get channel and send embed
 })
-bot.on("guildMember", (member) => { //usageof welcome event
+bot.on("guildMemberRemove", (member) => { //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
   
   if(chx === null) { //check if var have value or not
@@ -918,9 +908,9 @@ bot.on("guildMember", (member) => { //usageof welcome event
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
     const moment = require("moment")
-const user = message.author
-let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
-message.channel.send(`Today it is **${createdate}**`)
+    const user = message.mentions.members.first()
+    const createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
+    message.channel.send(`${createdate}`)
   }
 })
 bot.login(TOKEN)
