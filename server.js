@@ -1,6 +1,6 @@
 // inside a command, event listener, etc.
 //circle
-var prefix = "E/"
+var prefix = "E/";
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -21,7 +21,7 @@ bot.on("message", message => {
       return;
     }
     message.channel.send("it was fun while it lasted :[");
-    var prefix = "E/"
+    var prefix = "E/";
   }
 });
 bot.on("message", message => {
@@ -32,17 +32,21 @@ bot.on("message", message => {
   }
 });
 
+bot.on("message", message => {
+  let args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  let command = args.shift().toLowerCase();
+});
 
 bot.on("message", message => {
-  let args = message.content.slice(prefix.length).trim().split(" ")
-  let command = args.shift().toLowerCase()
-  }
-)
-
-bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  if (command ===`nitro`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `nitro`) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -55,23 +59,25 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `${prefix}delete`) {
     message.delete();
   }
 });
 bot.on("message", message => {
-  
   if (message.content === `E/`) {
     message.channel.send(
       `${message.author}  umm I hate to burst your bubble but... there's a command missing`
     );
-  }
-  else if (message.content === `e/`) {
+  } else if (message.content === `e/`) {
     message.channel.send(
       `${message.author}  umm I hate to burst your bubble but... there's a command missing`
-      )}
+    );
+  }
 });
 
 bot.on("message", message => {
@@ -81,7 +87,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-
   const meanWords = [
     "your a dumb bot",
     "I hate Mr circle",
@@ -112,7 +117,6 @@ bot.on("message", message => {
   }
 });
 
-
 bot.on("message", message => {
   const infoWords = ["@yahoo.com", "@gmail.com"];
   if (infoWords.some(word => message.content.includes(word))) {
@@ -122,16 +126,17 @@ bot.on("message", message => {
   }
 });
 
-
-
-
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  if (command ===`say`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `say`) {
     if (message.author.bot) {
-return }
+      return;
+    }
     var tex = message.content
       .split(" ")
       .slice(1)
@@ -149,8 +154,11 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
@@ -162,8 +170,11 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `slots`) {
     var choices = [
       ` [**01**]`,
@@ -204,17 +215,19 @@ bot.on("message", message => {
       ` [**08**]`
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
-const slotEmbed = new Discord.MessageEmbed()
+    const slotEmbed = new Discord.MessageEmbed()
 
       .setTitle(`${message.author.username} ooh lets see what you got`)
-.setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`)
-message.channel.send(slotEmbed)
-    
+      .setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`);
+    message.channel.send(slotEmbed);
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `8ball`) {
     if (
       !message.content
@@ -260,13 +273,16 @@ bot.on("message", message => {
   }
 });
 
-
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `announce`) {
     if (message.author.bot) {
-return }
+      return;
+    }
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make an announcment "
@@ -289,7 +305,7 @@ return }
 });
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}reactroles`)) {
-    return
+    return;
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make a reaction role message"
@@ -301,15 +317,14 @@ bot.on("message", message => {
       .split(`${prefix}reactroles ${channel}`)
       .slice(1)
       .join(" ");
-const role = message.mentions.roles.first()
+    const role = message.mentions.roles.first();
     const anEmbed = new Discord.MessageEmbed()
       .setTitle("<:Announce:731965302971302000>`NEW ROLE REACTIONS`")
       .setDescription(announcelely)
       .setColor("49328");
-    channel.send(anEmbed).then (sentMessage => {
-      sentMessage.react("🟣")
-    
-    })
+    channel.send(anEmbed).then(sentMessage => {
+      sentMessage.react("🟣");
+    });
   }
 });
 
@@ -322,11 +337,15 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `ban`) {
     if (message.author.bot) {
-return }
+      return;
+    }
     const user = message.mentions.users.first();
     if (!message.member.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"]))
       return message.channel.send(
@@ -336,7 +355,10 @@ return }
       .split(`${prefix}ban ${user}`)
       .slice(1)
       .join(" ");
-    if (!reason) return message.channel.send('you need a specific reason to ban someone, nincompoop')
+    if (!reason)
+      return message.channel.send(
+        "you need a specific reason to ban someone, nincompoop"
+      );
     if (user.id === message.author.id)
       return message.channel.send(
         "are you crazy? you cannot ban yourself bruh"
@@ -358,8 +380,11 @@ return }
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
@@ -367,21 +392,28 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `giverole`) {
     if (message.author.bot) {
-return }
-    const role = message.mentions.roles.first()
-    const member = message.mentions.members.first()
-    member.roles.add(role).then
+      return;
+    }
+    const role = message.mentions.roles.first();
+    const member = message.mentions.members.first();
+    member.roles.add(role).then;
     message.channel.send("ok I gave the role to the user you mentioned");
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
   if (command === `memberstatus`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
@@ -396,43 +428,56 @@ bot.on("message", message => {
       const totaldnd = fetchedMembers.filter(
         member => member.presence.status === "dnd"
       );
-      
-      
+
       const all = fetchedMembers;
-      
-message.guild.bots.fetch().then(fetchedBots => {
-      const totalbot = fetchedBots
-      
-      
-      const statusEmbed = new Discord.MessageEmbed()
-        .setColor("303136")
-        .setTimestamp()
-        .setTitle(`**STATS**`)
-        .setDescription(
-          `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `
-        );
-      message.channel.send(statusEmbed);
-  })
+
+      message.guild.bots.fetch().then(fetchedBots => {
+        const totalbot = fetchedBots;
+
+        const statusEmbed = new Discord.MessageEmbed()
+          .setColor("303136")
+          .setTimestamp()
+          .setTitle(`**STATS**`)
+          .setDescription(
+            `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `
+          );
+        message.channel.send(statusEmbed);
+      });
     });
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `textChannel`) {
-    message.guild.channels.create('new-channel', { type: 'text', reason: 'New channel added for fun!' })
-    
+    message.guild.channels.create("new-channel", {
+      type: "text",
+      reason: "New channel added for fun!"
+    });
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  if (command === `avatar`){
-    const avaEmbed = new Discord.MessageEmbed().setTitle("this is your avatar")
-      .setImage(message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }))
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `avatar`) {
+    const avaEmbed = new Discord.MessageEmbed()
+      .setTitle("this is your avatar")
+      .setImage(
+        message.author.displayAvatarURL({
+          format: "png",
+          dynamic: true,
+          size: 2048
+        })
+      );
     message.channel.send(avaEmbed);
   }
-})
+});
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}nuking`)) {
@@ -445,14 +490,19 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  const moment = require("moment")
-  if (command === `userprofile`){
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  const moment = require("moment");
+  if (command === `userprofile`) {
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    const createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
+    const createdate = moment
+      .utc(user.createdAt)
+      .format("dddd, MMMM Do YYYY, HH:mm:ss");
     if (member.user.bot) {
       return;
     }
@@ -470,10 +520,12 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `botprofile`) {
-    
     const member = message.mentions.members.first();
 
     const user = message.mentions.members.first();
@@ -484,7 +536,7 @@ bot.on("message", message => {
     if (!member.user.bot) {
       return;
     }
-    
+
     const picEmbed = new Discord.MessageEmbed()
       .setColor("303136")
       .setTitle(`${member.user.username}`, "card", true)
@@ -496,22 +548,27 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `${prefix}pinned`) {
     const pin = message.channel.messages.fetchPinned();
   }
 });
 
 bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `lead`) {
     var high = message.guildMember.roles.highest;
     message.channel.send(high);
   }
 });
-
 
 bot.on("message", message => {
   const swearWords2 = ["19202993$329"];
@@ -521,12 +578,15 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   let x = Date.now() - message.guild.createdAt;
-  let h = Math.floor(x / 86400000) // 86400000, 5 digits-zero.
-    let created = (message.guild.createdAt); // Install "dateformat" first.
-    
+  let h = Math.floor(x / 86400000); // 86400000, 5 digits-zero.
+  let created = message.guild.createdAt; // Install "dateformat" first.
+
   if (command === `serverinfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
@@ -549,8 +609,11 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `mail`) {
     var user = message.mentions.members.first();
     var hm = message.content
@@ -575,8 +638,11 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `coolSize`) {
     let user = message.mentions.members.first();
     if (user === undefined) {
@@ -617,8 +683,6 @@ bot.on("message", message => {
   }
 });
 
-
-
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}messageReact`)) {
     var emote = message.content
@@ -631,8 +695,11 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `pinme`) {
     const pinning = message.content
       .split(`pinme`)
@@ -656,259 +723,320 @@ bot.on("message", message => {
       });
   }
 });
- //using quick.db package
-
+//using quick.db package
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}killme`)) {
-const user = message.mentions.members.first()
-message.guild.members.ban(user);
+    const user = message.mentions.members.first();
+    message.guild.members.ban(user);
   }
-})
+});
 
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  const user = message.mentions.users.first()
-  
-  
-    if (command === `kill`) {
-      if (!user) {
-message.channel.send('please specify the user you want to kill')
-  }
-      
-      if (user == message.author) {
-        const suicidEmbed = new Discord.MessageEmbed()
-      .setColor(`8B0B0B`)
-      .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
-      .setFooter(`reason: suicide`)
-     return message.channel.send(suicidEmbed) 
-      }
-      if(user.bot) {
-return message.channel.send('bots don`t die')
-      }
-const choices = [
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  const user = message.mentions.users.first();
+
+  if (command === `kill`) {
+    if (!user) {
+      message.channel.send("please specify the user you want to kill");
+    }
+
+    if (user == message.author) {
+      const suicidEmbed = new Discord.MessageEmbed()
+        .setColor(`8B0B0B`)
+        .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
+        .setFooter(`reason: suicide`);
+      return message.channel.send(suicidEmbed);
+    }
+    if (user.bot) {
+      return message.channel.send("bots don`t die");
+    }
+    const choices = [
       `swimming in lava`,
-  `slipping on a soap bar`,
-  `drinking corona`,
-  `having to many homework assignments`,
-  `not subscribing to my owner: Quin10 Animates`,
-  `liking morgz`,
-  `poking her/himself in the eye`,
-  `getting hit by my hammer`,
-  `saying club penguin is kill`,
-  `dying`,
-  `getting hit by a car`,
-  `not getting his/her picture in 3d`,
-  `shining a flashlight in their eyes`,
-  `being called a simp`,
-  `waisting money on discord nitro 𝓒𝓵𝓪𝓼𝓼𝓲𝓬`,
-  `being crucified`,
-  `being a furry`,
-  `not being thicc`,
-  `being a simp`,
-  `being an introvert`,
-  `being a gachatuber`,
-  `hating paper mario TOK`,
-  `being a tik toker`,
-  `drinking acid`,
-  `stepping on nails`,
-  `burning`,
-  `choking`,
-  `B E L T`,
-  `stabbed`,
-  `kissing someone`,
-  `waisting money on discord nitro`,
+      `slipping on a soap bar`,
+      `drinking corona`,
+      `having to many homework assignments`,
+      `not subscribing to my owner: Quin10 Animates`,
+      `liking morgz`,
+      `poking her/himself in the eye`,
+      `getting hit by my hammer`,
+      `saying club penguin is kill`,
+      `dying`,
+      `getting hit by a car`,
+      `not getting his/her picture in 3d`,
+      `shining a flashlight in their eyes`,
+      `being called a simp`,
+      `waisting money on discord nitro 𝓒𝓵𝓪𝓼𝓼𝓲𝓬`,
+      `being crucified`,
+      `being a furry`,
+      `not being thicc`,
+      `being a simp`,
+      `being an introvert`,
+      `being a gachatuber`,
+      `hating paper mario TOK`,
+      `being a tik toker`,
+      `drinking acid`,
+      `stepping on nails`,
+      `burning`,
+      `choking`,
+      `B E L T`,
+      `stabbed`,
+      `kissing someone`,
+      `waisting money on discord nitro`
     ];
-      
 
     var deaths = choices[Math.floor(Math.random() * choices.length)];
-      var colorCho= [
-'yellow'
-        ]
-      var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
-      const deathEmbed = new Discord.MessageEmbed()
+    var colorCho = ["yellow"];
+    var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
+    const deathEmbed = new Discord.MessageEmbed()
       .setColor(`YELLOW`)
       .setTitle(`**${user.tag}** died \<:Knife:738090560316768266> `)
-      .setFooter(`reason: ${deaths}`)
-      message.channel.send(deathEmbed)
-    }
-})
+      .setFooter(`reason: ${deaths}`);
+    message.channel.send(deathEmbed);
+  }
+});
 bot.on("message", message => {
-const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
-  
-    if (command === `varif`) {
-      message.channel.send('ok')
-message.react('👍').then(() => message.react('👎'));
-      
-    
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
 
-const filter = (reaction, user) => {
-	return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
-};
+  if (command === `varif`) {
+    message.channel.send("ok");
+    message.react("👍").then(() => message.react("👎"));
 
-message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-	.then(collected => {
-		const reaction = collected.first();
+    const filter = (reaction, user) => {
+      return (
+        ["👍", "👎"].includes(reaction.emoji.name) &&
+        user.id === message.author.id
+      );
+    };
 
-		if (reaction.emoji.name === '👍') {
-			message.reply('you reacted with a thumbs up.');
-      
-		} else {
-			message.reply('you reacted with a thumbs down.');
-		}
-	})
-	.catch(collected => {
-		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
-	});
-    }})
+    message
+      .awaitReactions(filter, { max: 1, time: 60000, errors: ["time"] })
+      .then(collected => {
+        const reaction = collected.first();
 
-
+        if (reaction.emoji.name === "👍") {
+          message.reply("you reacted with a thumbs up.");
+        } else {
+          message.reply("you reacted with a thumbs down.");
+        }
+      })
+      .catch(collected => {
+        message.reply(
+          "you reacted with neither a thumbs up, nor a thumbs down."
+        );
+      });
+  }
+});
 
 bot.on("message", async message => {
-const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
-  
-    if (command === `varif1`) {
-      const role = message.mentions.roles.first()
-      const rules = message.content.split(`${prefix}varif1 ${role}`).slice(1).join(" ")
-      if (!message.content.split(`${prefix}varif1 ${role}`).slice(1).join(" ")) {
-return message.channel.send('what is the description of the role')
-      }
-      if(!role) {
-return message.channel.send('the role isn`t specified')
-      }
-      if (!message.member.hasPermission("MANAGE_ROLES",)) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === `varif1`) {
+    const role = message.mentions.roles.first();
+    const rules = message.content
+      .split(`${prefix}varif1 ${role}`)
+      .slice(1)
+      .join(" ");
+    if (
+      !message.content
+        .split(`${prefix}varif1 ${role}`)
+        .slice(1)
+        .join(" ")
+    ) {
+      return message.channel.send("what is the description of the role");
+    }
+    if (!role) {
+      return message.channel.send("the role isn`t specified");
+    }
+    if (!message.member.hasPermission("MANAGE_ROLES")) {
       return message.channel.send("you do not have permissons");
     }
- message.delete
-      var embed2 = new Discord.MessageEmbed()
-                    .setColor('#add8e6')
-                    .setAuthor('Reaction role')
-                    .setDescription(`${rules}`)
-                    
-               let hi = await message.channel.send(embed2)
-               hi.react('🌱')
-      if (message.reaction.emoji.name === "🌱") {
-               await message.guild.members.cache.get(message.author.id).roles.add(role)
-      }
-    (sentMessage => {
-      sentMessage.delete()
-      message.channel.send(embed2)
-               })
-    }
-})
+    message.delete;
+    var embed2 = new Discord.MessageEmbed()
+      .setColor("#add8e6")
+      .setAuthor("Reaction role")
+      .setDescription(`${rules}`);
 
+    let hi = await message.channel.send(embed2);
+    hi.react("🌱");
+    if (message.reaction.emoji.name === "🌱") {
+      await message.guild.members.cache.get(message.author.id).roles.add(role);
+    }
+    sentMessage => {
+      sentMessage.delete();
+      message.channel.send(embed2);
+    };
+  }
+});
 
 bot.on("message", async message => {
-if (message.content.startsWith(prefix + 'ping')) {
+  if (message.content.startsWith(prefix + "ping")) {
     try {
       const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
       const embed = new Discord.MessageEmbed()
-      .setColor("RANDOM") // Tired of choosing the embed colors? Just type "RANDOM" on it!
-      .addField("⌛ Latency", `**${m.createdTimestamp -  message.createdTimestamp}ms**`)
-      .addField("💓 API", `**${Math.floor(bot.ws.ping)}ms**`) // Use "client.ping" if your Discord.js is < 1.15.1 --- Use "client.ws.ping" if your Discord.js is > 12.0.0
+        .setColor("RANDOM") // Tired of choosing the embed colors? Just type "RANDOM" on it!
+        .addField(
+          "⌛ Latency",
+          `**${m.createdTimestamp - message.createdTimestamp}ms**`
+        )
+        .addField("💓 API", `**${Math.floor(bot.ws.ping)}ms**`); // Use "client.ping" if your Discord.js is < 1.15.1 --- Use "client.ws.ping" if your Discord.js is > 12.0.0
       return m.edit(`🏓 Pong!`, embed);
     } catch (error) {
       return message.channel.send(`Something went wrong: ${error.message}`);
       // Restart the bot as usual.
     }
-  }}) // easy way.
+  }
+}); // easy way.
 bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
-if (command === `killmyself`) {
-        const suicideEmbed = new Discord.MessageEmbed()
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === `killmyself`) {
+    const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
-      .setTitle(`**${message.author.tag}** died <:Bloodyknife:738090624326041711>`)
-      .setFooter(`reason: suicide`)
-     return message.channel.send(suicideEmbed) 
-}})
+      .setTitle(
+        `**${message.author.tag}** died <:Bloodyknife:738090624326041711>`
+      )
+      .setFooter(`reason: suicide`);
+    return message.channel.send(suicideEmbed);
+  }
+});
 
 bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
-if (command === `meme`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
 
-    const got = require('got')
-          
-    
-    got('https://www.reddit.com/r/meme/random/.json').then(response => {
-      let content = JSON.parse(response.body),
+  if (command === `meme`) {
+    const got = require("got");
+
+    got("https://www.reddit.com/r/meme/random/.json")
+      .then(response => {
+        let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
           Memembed = new Discord.MessageEmbed()
-      .setColor('00B0F5')
-      .setTitle(`here is your meme sir`)
-      .setAuthor('`MEME`')
-      .setImage(image)
-      .addField('↓**Reminder**↓','remember, I do not have any control of what memes I send \<:Smugyes:735651807551946773>', true)
-      .setFooter('from r/memes')
-      .setTimestamp()
-      message.channel.send(Memembed);
-    }).catch(console.log)
+            .setColor("00B0F5")
+            .setTitle(`here is your meme sir`)
+            .setAuthor("`MEME`")
+            .setImage(image)
+            .addField(
+              "↓**Reminder**↓",
+              "remember, I do not have any control of what memes I send <:Smugyes:735651807551946773>",
+              true
+            )
+            .setFooter("from r/memes")
+            .setTimestamp();
+        message.channel.send(Memembed);
+      })
+      .catch(console.log);
   }
-})
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}setted`)) {
-let channel = message.mentions.channels.first() //mentioned channel
-    
-    if(!channel) { //if channel is not mentioned
-      return message.channel.send("Please Mention the channel first")
+    let channel = message.mentions.channels.first(); //mentioned channel
+
+    if (!channel) {
+      //if channel is not mentioned
+      return message.channel.send("Please Mention the channel first");
     }
-    
+
     //Now we gonna use quick.db
-    
-    db.set(`welchannel_${message.guild.id}`, channel.id) //set id in var
-    
-    message.channel.send(`Welcome Channel is seted as ${channel}`) //send success message
-  }
-})
-  
-const db = require("quick.db") //using quick.db package
 
-bot.on("guildMemberAdd", (member) => { //usageof welcome event
+    db.set(`welchannel_${message.guild.id}`, channel.id); //set id in var
+
+    message.channel.send(`Welcome Channel is seted as ${channel}`); //send success message
+  }
+});
+
+const db = require("quick.db"); //using quick.db package
+
+bot.on("guildMemberAdd", member => {
+  //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
-  
-  if(chx === null) { //check if var have value or not
+
+  if (chx === null) {
+    //check if var have value or not
     return;
   }
 
   let wembed = new Discord.MessageEmbed() //define embed
-  .setAuthor(member.user.username, member.user.avatarURL())
-  .setColor("#ff2050")
-  .setThumbnail(member.user.avatarURL())
-  .setDescription(`We are very happy to have you in our server haha`)
-  .setFooter('Welcome')
-      .setTimestamp()
-  
-  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
-})
-bot.on("guildMemberRemove", (member) => { //usageof welcome event
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`We are very happy to have you in our server haha`)
+    .setFooter("Welcome")
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
+bot.on("guildMemberRemove", member => {
+  //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
-  
-  if(chx === null) { //check if var have value or not
+
+  if (chx === null) {
+    //check if var have value or not
     return;
   }
 
   let wembed = new Discord.MessageEmbed() //define embed
-  .setAuthor(member.user.username, member.user.avatarURL())
-  .setColor("#ff2050")
-  .setThumbnail(member.user.avatarURL())
-  .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
-  .setFooter('goodbye')
-      .setTimestamp()
-  
-  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
-})
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
+    .setFooter("goodbye")
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
     const dates = Date().getTime();
-    message.channel.send(`${dates}`)
+    message.channel.send(`${dates}`);
   }
-})
-bot.login(TOKEN)
+});
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}anfk`)) {
+    let afk = new db.table("AFKs"),
+      authorStatus = await afk.fetch(message.author.id),
+      mentioned = message.mentions.members.first();
+
+    if (mentioned) {
+      let status = await afk.fetch(mentioned.id);
+
+      if (status) {
+        const embed = new Discord.MessageEmbed()
+          .setColor(0xffffff)
+          .setDescription(
+            `This user (${mentioned.user.tag}) is AFK: **${status}**`
+          );
+        message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+      }
+    }
+
+    if (authorStatus) {
+      const embed = new Discord.MessageEmbed()
+        .setColor(0xffffff)
+        .setDescription(`**${message.author.tag}** is no longer AFK.`);
+      message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+      afk.delete(message.author.id);
+    }
+  }
+});
+bot.login(TOKEN);
