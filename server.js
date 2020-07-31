@@ -865,11 +865,11 @@ if (command === `meme`) {
   
 const db = require("quick.db") //using quick.db package
 
-bot.on("guildMemberAdd", (member) => { //usage of welcome event
+bot.on("guildMemberAdd", (member) => { //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
   
   if(chx === null) { //check if var have value or not
-    return;
+    return;i
   }
 
   let wembed = new Discord.MessageEmbed() //define embed
