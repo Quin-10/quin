@@ -913,4 +913,32 @@ bot.on("message", message => {
     message.channel.send(`${createdate}`)
   }
 })
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}sniper`)) {
+const db = require("quick.db"); // v7.1.1
+
+  if (message.partial) await message.fetch();
+  // Uncached message can be fetched.
+  
+  // If the system are doing in DM, return it.
+  if (!message.guild || message.channel.type === "dm") return;
+  
+  // If the user was a robot, return.
+  if (message.author.bot || message.author === bot.user) return;
+  
+  // Save the content.
+  db.set(`snipe.${message.guild.id}.content`, message.content);
+  
+  // Save the user tag.
+  db.set(`snipe.${message.guild.id}.user`, message.author.tag);
+  
+  // Save the channel.
+  db.set(`snipe.${message.guild.id}.user`, message.channel.id);
+  
+  // Reset the snipe database every minute.
+  setTimeout(function() {
+    db.delete(`snipe.${message.guild.id}`);
+  }, 60000) // 60 seconds in milliseconds.
+}}
+)
 bot.login(TOKEN)
