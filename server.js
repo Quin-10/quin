@@ -1,5 +1,6 @@
 // inside a command, event listener, etc.
 //circle
+var prefix = "E"
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -29,7 +30,7 @@ bot.on("message", message => {
     );
   }
 });
-var prefix = "E/"
+
 
 bot.on("message", message => {
   let args = message.content.slice(prefix.length).trim().split(" ")
@@ -899,30 +900,6 @@ if (command === `meme`) {
 })
 
 
-bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  const ms = require('ms')
-if (command === `uptime`) {
-message.channel.send(`my uptime is ${ms}`)
-}
-})
-bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  const db = require("quick.db")
-  if (command === `uptime`) {
-    if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
-    let data = db.get(`prefix.${message.guild.id}`);
-    if (message.flags[0] === "default") {
-      await db.delete(`prefix.${message.guild.id}`);
-      return message.channel.send("The server prefix has been changed into default.");
-    }
 
-    let symbol = args.join(" ");
-    if (!symbol) return message.channel.send("Please input the prefix.");
 
-    db.set(`prefix.${message.guild.id}`, symbol);
-    return message.channel.send(`The server prefix has been changed to **${symbol}**`);
-  }})
 bot.login(TOKEN)
