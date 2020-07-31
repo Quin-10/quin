@@ -1042,8 +1042,9 @@ bot.on("message", async message => {
 
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}date`)) {
-        let time = new Date;
-        message.channel.send(`Today is **${time}**`);
+    const moment = require('moment')
+        const timer = new Date().getTime()
+        message.channel.send(`Today is **${timer}**`);
   }
 })
 bot.login(TOKEN);
