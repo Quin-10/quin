@@ -809,44 +809,6 @@ return message.channel.send('the role isn`t specified')
                })
     }
 })
-bot.on("message", async message => {
-  if(message.content.startsWith(`${prefix}giveaway`)) {
-    const ms = require("ms")
-  const args = message.content.split(`${prefix}giveaway`).slice(1).join(" ")
-if (!args[0]) return message.channel.send(`You did not specify your time!`);
-    if (!args[0].endsWith("d") && !args[0].endsWith("h") && !args[0].endsWith("m"))
-      return message.channel.send(`The time needs to have days (d) or hours (h) or minutes (m)`);
-    if (isNaN(args[0][0])) return message.channel.send(`It must be a number you know that?`);
-
-    let prize = args.slice(1).join(" ");
-    if (!prize) return message.channel.send(`No prize specified!`);
-  
-    let Embed = new Discord.MessageEmbed()
-      .setTitle(`New giveaway!`)
-      .setDescription(`Host: ${message.author}\nTime: ${args[0]}\nPrize: ${prize}`)
-      .setTimestamp(Date.now() + ms(args[0]))
-      .setColor(`BLUE`);
-    let m = await message.channel.send(Embed);
-    m.react("🎉");
-    setTimeout(() => {
-      if (m.reactions.cache.get("🎉").count <= 1) {
-        const embed = new Discord.MessageEmbed()
-        .setColor("RED")
-        .setDescription("No winners")
-        m.edit(embed)
-        return message.channel.send(`Couldnt generate a winner as there is no one in that giveaway!`);
-      }
-
-      let winner = m.reactions.cache.get("🎉").users.cache.filter((b) => !b.bot).random();
-      
-      const embed = new Discord.MessageEmbed()
-      .setColor("GREEN")
-      .setDescription(`Winner: ${winner}`)
-      m.edit(embed)
-      
-      message.channel.send(`The winnder of the giveaway is ${winner}`);
-    }, ms(args[0]));
-  }})
 
 
 bot.on("message", async message => {
@@ -899,8 +861,33 @@ if (command === `meme`) {
     }).catch(console.log)
   }
 })
+bot.on('message', async message => {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const db = require("quick.db")
+  if (message.author.bot) return; // Ignore if the user is a bot.
 
+  let pref = db.get(`prefix.${message.guild.id}`);
+  let prefix;
 
+  if (!pref) {
+    prefix = "E/"; // If the server doesn't have any custom prefix, return default.
+  } else {
+    prefix = pref;
+  }
+if (message.content.startsWith(prefix + "prefix")) {
+    if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
+    let data = db.get(`prefix.${message.guild.id}`);
+    if (message.flags[0] === "default") {
+      await db.delete(`prefix.${message.guild.id}`);
+      return message.channel.send("The server prefix has been changed into default.");
+    }
+
+    let symbol = args.join(" ");
+    if (!symbol) return message.channel.send("Please input the prefix.");
+
+    db.set(`prefix.${message.guild.id}`, symbol);
+    return message.channel.send(`The server prefix has been changed to **${symbol}**`);
+  }})
 
 
 bot.login(TOKEN)
