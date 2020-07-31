@@ -457,10 +457,12 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
+  const moment = require("moment")
   if (command === `userprofile`){
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
+    let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
     if (member.user.bot) {
       return;
     }
@@ -472,7 +474,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nCREATED: ${createdate}`
       );
     message.channel.send(picEmbed);
   }
@@ -890,8 +892,9 @@ bot.on("guildMemberAdd", (member) => { //usageof welcome event
   .setAuthor(member.user.username, member.user.avatarURL())
   .setColor("#ff2050")
   .setThumbnail(member.user.avatarURL())
-  .setDescription(`We are very happy to have you in our server`)
-  .setTimestamp()
+  .setDescription(`We are very happy to have you in our server haha`)
+  .setFooter('Welcome')
+      .setTimestamp()
   
   bot.channels.cache.get(chx).send(wembed) //get channel and send embed
 })
