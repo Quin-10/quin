@@ -861,33 +861,25 @@ if (command === `meme`) {
     }).catch(console.log)
   }
 })
-bot.on('message', async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const db = require("quick.db")
-  if (message.author.bot) return; // Ignore if the user is a bot.
 
-  let pref = db.get(`prefix.${message.guild.id}`);
-  let prefix;
+  
+const db = require("quick.db") //using quick.db package
 
-  if (!pref) {
-    prefix = "E/"; // If the server doesn't have any custom prefix, return default.
-  } else {
-    prefix = pref;
+bot.on("guildMemberAdd", (member) => { //usage of welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+  
+  if(chx === null) { //check if var have value or not
+    return;
   }
-if (message.content.startsWith(prefix + "prefix")) {
-    if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have any permissions to do this!");
-    let data = db.get(`prefix.${message.guild.id}`);
-    if (message.flags[0] === "default") {
-      await db.delete(`prefix.${message.guild.id}`);
-      return message.channel.send("The server prefix has been changed into default.");
-    }
 
-    let symbol = args.join(" ");
-    if (!symbol) return message.channel.send("Please input the prefix.");
-
-    db.set(`prefix.${message.guild.id}`, symbol);
-    return message.channel.send(`The server prefix has been changed to **${symbol}**`);
-  }})
+  let wembed = new Discord.MessageEmbed() //define embed
+  .setAuthor(member.user.username, member.user.avatarURL())
+  .setColor("#ff2050")
+  .setThumbnail(member.user.avatarURL())
+  .setDescription(`We are very happy to have you in our server`);
+  
+  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
+})
 
 
 bot.login(TOKEN)
