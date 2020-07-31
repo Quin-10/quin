@@ -861,7 +861,21 @@ if (command === `meme`) {
     }).catch(console.log)
   }
 })
-
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}setted`)) {
+let channel = message.mentions.channels.first() //mentioned channel
+    
+    if(!channel) { //if channel is not mentioned
+      return message.channel.send("Please Mention the channel first")
+    }
+    
+    //Now we gonna use quick.db
+    
+    db.set(`welchannel_${message.guild.id}`, channel.id) //set id in var
+    
+    message.channel.send(`Welcome Channel is seted as ${channel}`) //send success message
+  }
+})
   
 const db = require("quick.db") //using quick.db package
 
@@ -869,14 +883,15 @@ bot.on("guildMemberAdd", (member) => { //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
   
   if(chx === null) { //check if var have value or not
-    return;i
+    return;
   }
 
   let wembed = new Discord.MessageEmbed() //define embed
   .setAuthor(member.user.username, member.user.avatarURL())
   .setColor("#ff2050")
   .setThumbnail(member.user.avatarURL())
-  .setDescription(`We are very happy to have you in our server`);
+  .setDescription(`We are very happy to have you in our server`)
+  .setTimestamp()
   
   bot.channels.cache.get(chx).send(wembed) //get channel and send embed
 })
