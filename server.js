@@ -484,7 +484,10 @@ bot.on("message", message => {
 
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    if (!user.bot) {
+    if (!member.user.bot) {
+      return;
+    }
+    if (!member.user.bot) {
       return;
     }
     
@@ -493,7 +496,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} `
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nOWNER ${bot.owner} `
       );
     message.channel.send(picEmbed);
   }
@@ -899,7 +902,9 @@ if (command === `meme`) {
 bot.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  
+  const ms = require('ms')
 if (command === `uptime`) {
 message.channel.send(`my uptime is ${ms}`)
+}
+})
 bot.login(TOKEN)
