@@ -898,6 +898,29 @@ bot.on("guildMemberAdd", (member) => { //usageof welcome event
   
   bot.channels.cache.get(chx).send(wembed) //get channel and send embed
 })
+bot.on("guildMember", (member) => { //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+  
+  if(chx === null) { //check if var have value or not
+    return;
+  }
 
-
+  let wembed = new Discord.MessageEmbed() //define embed
+  .setAuthor(member.user.username, member.user.avatarURL())
+  .setColor("#ff2050")
+  .setThumbnail(member.user.avatarURL())
+  .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
+  .setFooter('goodbye')
+      .setTimestamp()
+  
+  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
+})
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}time`)) {
+    const moment = require("moment")
+const user = message.author
+let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
+message.channel.send(`Today it is **${createdate}**`)
+  }
+})
 bot.login(TOKEN)
