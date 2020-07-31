@@ -907,10 +907,8 @@ bot.on("guildMemberRemove", (member) => { //usageof welcome event
 })
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
-    const moment = require("moment")
-    const createdate = moment.utc.format("dddd, MMMM Do YYYY, HH:mm:ss");
-    message.channel.send(`${createdate}`)
+    const dates = Date().getTime();
+    message.channel.send(`${dates}`)
   }
 })
-
 bot.login(TOKEN)
