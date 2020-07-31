@@ -915,7 +915,6 @@ bot.on("message", message => {
 })
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}sniper`)) {
-const db = require("quick.db"); // v7.1.1
 
   if (message.partial) await message.fetch();
   // Uncached message can be fetched.
@@ -940,5 +939,17 @@ const db = require("quick.db"); // v7.1.1
     db.delete(`snipe.${message.guild.id}`);
   }, 60000) // 60 seconds in milliseconds.
 }}
+)
+bot.on("message", async message => {
+const db = require("quick.db"); // v7.1.1
+const data = db.get(`snipe.${message.guild.id}`)
+if (!data) {
+return message.channel.send('ha empty')
+}
+const content = data.content,
+      user = data.user,
+      channel = data.channel
+message.channel.send(`${content}`)
+}
 )
 bot.login(TOKEN)
