@@ -1107,20 +1107,6 @@ const types = message.guild.messages.cache.size
 message.channel.send(`${types}`)
     }
 })
-bot.on("message", async message => {
-  const filter = m => m.content.includes('discord');
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-if (message.content.startsWith(`${prefix}tricky`)) {
-  message.channel.send('no lol')
-collector.on('collect', m => {
-	console.log(`Collected ${m.content}`);
-});
-}
-  if (message.content.startsWith(`${prefix}tricky`)) {
-    message.channel.send
-collector.on('end', collected => {
-	console.log(`Collected ${collected.size} items`);
-});
-}
-)
+
 bot.login(TOKEN);
+  
