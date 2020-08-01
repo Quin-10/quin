@@ -1066,4 +1066,14 @@ setInterval(QuinBot, 60000)
 message.channel.send('ok I ping')
 }
 })
+bot.on("message", async message => {
+if (message.content.startsWith(`${prefix}prune`)) { 
+  const args = message.content.split(`${prefix}prune`).slice(1).join(" ")// You can make an aliases. Just like that.
+    
+    await message.delete()
+    await message.channel.bulkDelete(args)
+    .then(messages => message.channel.send(`Deleted ${messages.size}/${args} messages.`)).then(d => d.delete({timeout: 10000})) // How long this message will be deleted (in ms)
+    .catch(() => message.channel.send("Something went wrong, while deleting messages.")) // This error will be displayed when the bot doesn't have an access to do it.
+  }
+})
 bot.login(TOKEN);
