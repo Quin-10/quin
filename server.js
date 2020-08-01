@@ -1084,8 +1084,12 @@ bot.on("message", async message => {
 
 if (message.content.startsWith(`${prefix}up`)){
   const uptimebed = new Discord.MessageEmbed()
-  .setAuthor(`upee`)
-  .setDescription(`Days: ${days} \nHours: ${hours} \nMinutes: ${minutes} \nSeconds: ${seconds}`)
+  .setAuthor(bot.user.tag, bot.user.avatarURL())
+  .setColor('43B581')
+  .setThumbnail(bot.user.avatarURL())
+  .setFooter(`The bot's uptime`)
+  .setTimestamp()
+  .setDescription(`**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`)
 message.channel.send(uptimebed)
 }
 })
