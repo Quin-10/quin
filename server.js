@@ -1076,8 +1076,9 @@ if (message.content.startsWith(`${prefix}prune`)) {
   }
 })
 bot.on("message", async message => {
+  const ms = require("ms")
 if (message.content.startsWith(`${prefix}up`)){
-message.channel.send(`my uptime is ${bot.uptime}`)
+message.channel.send(`my uptime is ${ms(this.bot.uptime, { long: true})}`)
 }
 })
 bot.login(TOKEN);
