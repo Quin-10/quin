@@ -959,7 +959,7 @@ bot.on("message", message => {
 
     //Now we gonna use quick.db
 
-    db.set(`wechannel_${message.guild.id}`, channel.id); //set id in var
+    db.set(`welchannel_${message.guild.id}`, channel.id); //set id in var
 
     message.channel.send(`Welcome Channel is seted as ${channel}`); //send success message
   }
