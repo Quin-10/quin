@@ -1116,5 +1116,7 @@ message.channel.send(`**${messageCount}** sent.`)
   .catch(console.error);
 }
 })
+
+
 bot.login(TOKEN);
   
