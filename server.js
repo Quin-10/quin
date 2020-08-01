@@ -949,8 +949,10 @@ bot.on("message", async message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}setted`)) {
+  if (message.content.startsWith(`${prefix}welcome`)) {
+    
     let channel = message.mentions.channels.first(); //mentioned channel
+    
 
     if (!channel) {
       //if channel is not mentioned
@@ -968,6 +970,7 @@ bot.on("message", message => {
 const db = require("quick.db"); //using quick.db package
 
 bot.on("guildMemberAdd", member => {
+  
   //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
 
@@ -980,7 +983,7 @@ bot.on("guildMemberAdd", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`We are very happy to have you in our server haha`)
+    .setDescription(`Welcome to ${member.guild.name} ${member}`)
     .setFooter("Welcome")
     .setTimestamp();
 
