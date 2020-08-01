@@ -959,7 +959,7 @@ bot.on("message", message => {
 
     //Now we gonna use quick.db
 
-    db.set(`welchannel_${message.guild.id}`, channel.id); //set id in var
+    db.set(`wechannel_${message.guild.id}`, channel.id); //set id in var
 
     message.channel.send(`Welcome Channel is seted as ${channel}`); //send success message
   }
@@ -1007,7 +1007,7 @@ bot.on("guildMemberRemove", member => {
 });
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
-    const dates = Date().getTime();
+    const dates = new Date()
     message.channel.send(`${dates}`);
   }
 });
