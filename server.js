@@ -983,8 +983,8 @@ bot.on("guildMemberAdd", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`Welcome to ${member.guild.name} ${member}`)
-    .setFooter("Welcome")
+    .setDescription(`Welcome to **${member.guild.name}**, ${member.user}`)
+    .setFooter(`Member Number **#${member.guild.members.cache.size}**`)
     .setTimestamp();
 
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
