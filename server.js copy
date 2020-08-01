@@ -444,7 +444,7 @@ bot.on("message", message => {
         message.channel.send(statusEmbed);
       });
     });
-  }db
+  }
 });
 bot.on("message", message => {
   const args = message.content
@@ -955,7 +955,35 @@ bot.on("message", message => {
     message.channel.send(`${dates}`);
   }
 });
+bot.on("message", async message => {
+  const db = require("quick.db")
+  if (message.content.startsWith(`${prefix}anfk`)) {
+    let afk = new db.table("AFKs"),
+      authorStatus = await afk.fetch(message.author.id),
+      mentioned = message.mentions.members.first();
 
+    if (mentioned) {
+      let status = await afk.fetch(mentioned.id);
+
+      if (status) {
+        const embed = new Discord.MessageEmbed()
+          .setColor(0xffffff)
+          .setDescription(
+            `This user (${mentioned.user.tag}) is AFK: **${status}**`
+          );
+        message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+      }
+    }
+
+    if (authorStatus) {
+      const embed = new Discord.MessageEmbed()
+        .setColor(0xffffff)
+        .setDescription(`**${message.author.tag}** is no longer AFK.`);
+      message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+      afk.delete(message.author.id);
+    }
+  }
+});
 
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}date`)) {
