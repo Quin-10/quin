@@ -983,8 +983,9 @@ bot.on("guildMemberAdd", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`Welcome to **${member.guild.name}**, ${member.user}`)
-    .setFooter(`Member Number **#${member.guild.members.cache.size}**`)
+    .setDescription(`Welcome to **${member.guild.name}**, **${member.user.tag}**`)
+  .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
+    .setFooter(`Welcome`)
     .setTimestamp();
 
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
@@ -1002,7 +1003,7 @@ bot.on("guildMemberRemove", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
+    .setDescription(`bye bye **${member.user.username}** we will or won't miss you`)
     .setFooter("goodbye")
     .setTimestamp();
 
