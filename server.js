@@ -1050,9 +1050,11 @@ bot.on("message", async message => {
 })
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}hapy`)) {
-function ping mr circle() { 
+function Mrcirclebot() { 
 fetch('https://mr-circle.glitch.me')
+console.log('pong')
 } 
-setInterval(pingMrcircle, 60000)
-  }})
+setInterval(Mrcirclebot, 60000);
+  }
+})
 bot.login(TOKEN);
