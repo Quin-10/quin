@@ -1082,7 +1082,7 @@ bot.on("message", async message => {
       let minutes = Math.floor(bot.uptime / 60000) % 60;
       let seconds = Math.floor(bot.uptime / 1000) % 60;
 
-if (message.content.startsWith(`${prefix}up`)){
+if (message.content.startsWith(`${prefix}uptime`)){
   const uptimebed = new Discord.MessageEmbed()
   .setAuthor(bot.user.tag, bot.user.avatarURL())
   .setColor('43B581')
