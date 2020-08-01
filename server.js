@@ -1093,4 +1093,11 @@ if (message.content.startsWith(`${prefix}up`)){
 message.channel.send(uptimebed)
 }
 })
+bot.on('message', message => {
+    if (message.content === "$loop") { 
+      var interval = setInterval (function () {
+        message.channel.send("123")
+      }, 1 * 1000); 
+    }
+});
 bot.login(TOKEN);
