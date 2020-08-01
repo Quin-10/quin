@@ -1094,10 +1094,17 @@ message.channel.send(uptimebed)
 }
 })
 bot.on('message', message => {
-    if (message.content === "$loop") { 
+    if (message.content.startsWith(`${prefix}loop`)) {
+      const game = message.content.split(`${prefix}loop`)
       var interval = setInterval (function () {
         message.channel.send("123")
-      }, 1 * 1000); 
+      }, 1 * game); 
     }
 });
+bot.on('message', message => {
+    if (message.content.startsWith(`${prefix}mess`)) {
+const types = message.guild.messages.cache.size
+message.channel.send(`${types}`)
+    }
+})
 bot.login(TOKEN);
