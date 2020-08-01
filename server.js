@@ -1086,7 +1086,7 @@ if (message.content.startsWith(`${prefix}uptime`)){
   const uptimebed = new Discord.MessageEmbed()
   .setAuthor(bot.user.tag, bot.user.avatarURL())
   .setColor('43B581')
-  .setThumbnail(bot.user.avatarURL())
+  .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FB127D091-527A-4151-A780-168585DFF6D7.png?v=1596317347762')
   .setFooter(`The bot's uptime`)
   .setTimestamp()
   .setDescription(`**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`)
@@ -1107,4 +1107,20 @@ const types = message.guild.messages.cache.size
 message.channel.send(`${types}`)
     }
 })
+bot.on("message", async message => {
+  const filter = m => m.content.includes('discord');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+if (message.content.startsWith(`${prefix}tricky`)) {
+  message.channel.send('no lol')
+collector.on('collect', m => {
+	console.log(`Collected ${m.content}`);
+});
+}
+  if (message.content.startsWith(`${prefix}tricky`)) {
+    message.channel.send
+collector.on('end', collected => {
+	console.log(`Collected ${collected.size} items`);
+});
+}
+)
 bot.login(TOKEN);
