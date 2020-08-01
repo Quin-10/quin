@@ -1077,8 +1077,16 @@ if (message.content.startsWith(`${prefix}prune`)) {
 })
 bot.on("message", async message => {
   const ms = require("ms")
+  let days = Math.floor(bot.uptime / 86400000);
+      let hours = Math.floor(bot.uptime / 3600000) % 24;
+      let minutes = Math.floor(bot.uptime / 60000) % 60;
+      let seconds = Math.floor(bot.uptime / 1000) % 60;
+
 if (message.content.startsWith(`${prefix}up`)){
-message.channel.send(`my uptime is ${ms(this.bot.uptime, { long: true})}`)
+  const uptimebed = new Discord.MessageEmbed()
+  .setAuthor(`upee`)
+  .setDescription(`Days: ${days} \nHours: ${hours} \nMinutes: ${minutes} \nSeconds: ${seconds}`)
+message.channel.send(uptimebed)
 }
 })
 bot.login(TOKEN);
