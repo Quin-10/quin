@@ -1048,5 +1048,18 @@ bot.on("message", async message => {
         message.channel.send(`Today is **${timer}**`);
   }
 })
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}hapy`)) {
+const fetch = require('node-fetch')
+function QuinBot() { 
+fetch('https://mr-circle.glitch.me')
+console.log('pong')
+} 
+setInterval(QuinBot, 60000)
+  
 
+.then
+message.channel.send('ok I ping')
+}
+})
 bot.login(TOKEN);
