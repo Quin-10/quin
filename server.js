@@ -1048,13 +1048,5 @@ bot.on("message", async message => {
         message.channel.send(`Today is **${timer}**`);
   }
 })
-bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}hapy`)) {
-function Mrcirclebot() { 
-fetch('https://mr-circle.glitch.me')
-console.log('pong')
-} 
-setInterval(Mrcirclebot, 60000);
-  }
-})
+
 bot.login(TOKEN);
