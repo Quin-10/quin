@@ -1039,8 +1039,14 @@ message.guild.messages.fetch().then(fetchedMessages => {
 })
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}gaysize`)) {
-    message.channel.send('no')
-    message.edit('ok')
+    const gaz = [Math.floor(Math.random() * 100 + 1)];
+    const gabe = new Discord.MessageEmbed()
+    .setTitle("THIS IS HOW GAY YOU ARE")
+    .setDescription("gayness")
+    .addField(`**${gaz}%**`)
+    .setFooter(`haha gay`)
+    .setTimestamp()
+         message.channel.send(`${gaz}`)  
   }
 })
 
@@ -1066,7 +1072,12 @@ return message.channel.send(`None`)
       message.channel.send(`${messages.size}`)
     })
   }})
-           
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}foil`)) {
+  const gaz = [Math.floor(Math.random() * 100 + 1)];
+         message.channel.send(`${gaz}`)  
+  }
+})
 bot.login(TOKEN);
   
 
