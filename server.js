@@ -1045,15 +1045,7 @@ const types = message.guild.messages.cache.size
 message.channel.send(`${types}`)
     }
 })
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}counter`)) {
-const messageCount = message.guild.i
 
-// Send the message count in a message. The template literal (${}) adds an 's' if needed.
-message.channel.send(`**${messageCount}** sent.`)
-  .catch(console.error);
-}
-})
 
 
 bot.login(TOKEN);
