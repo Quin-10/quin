@@ -26,20 +26,13 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.tolowerCase(`${prefix}emotes`)) {
+  if (message.content.startsWith(`${prefix}emotes`)) {
     message.channel.send(
       "<:SURPRISED:719733158509281370><:LIKE:719733158332858499><:EYES:719733159608057866><:happy:719733157099733056><:check:719733159079575710><:K_:719733159297679400>these are my favorite emotes lol"
     );
   }
 });
 
-bot.on("message", message => {
-  let args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  let command = args.shift().toLowerCase();
-});
 
 bot.on("message", message => {
   const args = message.content
