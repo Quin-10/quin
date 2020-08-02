@@ -892,7 +892,9 @@ message.channel.send(onbed)
 .setDescription(`now the bot will appear online more often`)
 .setFooter(`pinged`)
 .setTimestamp()
-    onbed.edit(pingbee)
+    
+    onbed.edit('ok')
+    
 }
 })
 bot.on("message", async message => {
@@ -1037,7 +1039,7 @@ message.guild.messages.fetch().then(fetchedMessages => {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}gaysize`)) {
     message.channel.send('no')
-    .edit('ok')
+    message.edit('ok')
   }
 })
 
