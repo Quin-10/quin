@@ -1,7 +1,7 @@
 dependencies:
   date: 1.0.2
   discord.js: 12.2.0
-  discord.js-minesweeper: 1.0.5
+  discord.js-minesweeper: 1.0.6
   express: 4.17.1
   got: 11.5.1
   moment: 2.27.0
@@ -313,12 +313,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
-  /discord.js-minesweeper/1.0.5:
+  /discord.js-minesweeper/1.0.6:
     dev: false
     engines:
       node: '>=8.0.0'
     resolution:
-      integrity: sha512-1aKwIH4rsb1UBDmZ31cAX1FI6TKENZuNIKhhB9vQHSHMEirIf45g/gC/OhmeYiO/IimvNmzesK3eDaWXRjyKxA==
+      integrity: sha512-DQPmprvE8qaMMDqCqYA+L9nBa4+bsaszb4ponnoCr/yFDsmKwM1Vv9qtvmc+jPj6IT6r9rTH6wdETjy2PAhZ9w==
   /discord.js/12.2.0:
     dependencies:
       '@discordjs/collection': 0.1.5
@@ -1178,7 +1178,7 @@ shrinkwrapVersion: 3
 specifiers:
   date: ^1.0.2
   discord.js: ^12.2.0
-  discord.js-minesweeper: ^1.0.5
+  discord.js-minesweeper: ^1.0.6
   express: ^4.17.1
   got: ^11.5.1
   moment: ^2.27.0
