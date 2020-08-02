@@ -35,12 +35,8 @@ bot.on("message", message => {
 
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `nitro`) {
+  
+  if (message.content.startsWith(`${prefix}nitro`)) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -122,12 +118,8 @@ bot.on("message", message => {
 
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `say`) {
+  
+  if (message.content.startsWith(`${prefix}say`)) {
     if (message.author.bot) {
       return;
     }
@@ -148,12 +140,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `mine`) {
+  
+  if (message.content.startsWith`${prefix}mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
     const minesweeper = new Minesweeper({
@@ -169,7 +157,7 @@ bot.on("message", message => {
     .trim()
     .split(" ");
   const command = args.shift().toLowerCase();
-  if (command === `slots`) {
+  if (message.content.startsWith(`${prefix}slots`)) {
     var choices = [
       ` [**01**]`,
       ` [**02**]`,
@@ -217,12 +205,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `8ball`) {
+  
+  if (message.content.startsWith(`${prefix}8ball`)) {
     if (
       !message.content
         .split(" ")
@@ -268,12 +252,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `announce`) {
+
+  if (message.content.startsWith(`${prefix}announce`)) {
     if (message.author.bot) {
       return;
     }
@@ -331,9 +311,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const command = message.content.slice(prefix.length).trim().split(" ").shift().toLowerCase()
   
-  if (command === `ban`) {
+  if (message.content.startsWith(`${prefix}ban`)) {
     if (message.author.bot) {
       return;
     }
@@ -371,24 +350,16 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `serverscircle`) {
+  
+  if (message.content.startsWith(`${prefix}serverscircle`)) {
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
     );
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `giverole`) {
+  
+  if (message.content.startsWith(`${prefix}giverole`)) {
     if (message.author.bot) {
       return;
     }
@@ -399,13 +370,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-
-  if (command === `memberstatus`) {
+  
+  if (message.content.startsWith(`${prefix}memberstatus`)) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
         member => member.presence.status === "online"
@@ -438,11 +404,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
   if (command === `textChannel`) {
     message.guild.channels.create("new-channel", {
       type: "text",
