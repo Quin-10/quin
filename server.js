@@ -895,9 +895,9 @@ if (message.content.startsWith(`${prefix}prune`)) {
 bot.on("message", async message => {
   const bot1 = message.mentions.members.first()
   const ms = require("ms")
-  let days = Math.floor(bot.user.uptime / 86400000);
-      let hours = Math.floor(bot.user.uptime / 3600000) % 24;
-      let minutes = Math.floor(bot.user.uptime / 60000) % 60;
+  let days = Math.floor(bot.uptime / 86400000);
+      let hours = Math.floor(bot.uptime / 3600000) % 24;
+      let minutes = Math.floor(bot.uptime / 60000) % 60;
       let seconds = Math.floor(bot.uptime / 1000) % 60;
 
 if (message.content.startsWith(`${prefix}uptime`)){
