@@ -940,13 +940,66 @@ bot.on("message", async message => {
       let hours = Math.floor(Date.now() / 3600000) % 24;
       let minutes = Math.floor(Date.now() / 60000) % 60;
       let seconds = Math.floor(Date.now() / 1000) % 60;
-message.channel.send(`${hours}:${minutes}:${seconds}`)
+message.channel.send(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`)
     var interal = setInterval (function () {
-        message.edit(`${hours}:${minutes}:${seconds}`)
+        message.edit(`:${hours}:${minutes}:${seconds}`)
       }, 1 * 1000); 
   }
 })
+const channel = message.mentions.channels.first()
+return message.channel.send("Please Mention the channel first");
+    }
 
+    //Now we gonna use quick.db
+
+    db.set(`welchannel_${message.guild.id}`, channel.id); //set id in var
+
+    message.channel.send(`Welcome Channel is seted as ${channel}`); //send success message
+  }
+});
+
+const db = require("quick.db"); //using quick.db package
+
+bot.on("guildMemberAdd", member => {
+  
+  //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+
+  if (chx === null) {
+    //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`Welcome to **${member.guild.name}**, **${member.user.tag}**`)
+  .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
+    .setFooter(`Welcome`)
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
+bot.on("guildMemberRemove", member => {
+  //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+
+  if (chx === null) {
+    //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`bye bye **${member.user.username}** we will or won't miss you`)
+    .setFooter("goodbye")
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
 
 bot.login(TOKEN);
   
