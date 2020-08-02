@@ -26,7 +26,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}emotes`)) {
+  if (message.content.tolowerCase(`${prefix}emotes`)) {
     message.channel.send(
       "<:SURPRISED:719733158509281370><:LIKE:719733158332858499><:EYES:719733159608057866><:happy:719733157099733056><:check:719733159079575710><:K_:719733159297679400>these are my favorite emotes lol"
     );
