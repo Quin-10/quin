@@ -1017,7 +1017,7 @@ bot.on("guildMemberRemove", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`bye bye **${member.user.username}** we will or won't miss you`)
+    .setDescription(`bye bye **${member.user.username}**`)
     .setFooter("goodbye")
     .setTimestamp();
 
@@ -1082,8 +1082,21 @@ bot.on("message", message => {
 })
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}fon`)) {
+  }})
 
+bot.on("message", async message => {
+  if (message.content.startsWith(``)) {
+const fetch = require('node-fetch')
+function QunBot() { 
+fetch('https://mr-circle.glitch.me')
+console.log('pong')
+} 
+setInterval(QunBot, 6000)
   
+
+
+  }
+})
 bot.login(TOKEN);
   
 
