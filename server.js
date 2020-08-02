@@ -405,7 +405,7 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   
-  if (command === `textChannel`) {
+  if (message.content.startsWith(`textChannel`)) {
     message.guild.channels.create("new-channel", {
       type: "text",
       reason: "New channel added for fun!"
@@ -413,12 +413,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `avatar`) {
+  
+  if (message.content.startsWith(`avatar`)) {
     const avaEmbed = new Discord.MessageEmbed()
       .setTitle("this is your avatar")
       .setImage(
@@ -443,13 +439,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
   const moment = require("moment");
-  if (command === `userprofile`) {
+  if (message.content.startsWith(`${prefix}userprofile`)) {
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
@@ -473,12 +465,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `botprofile`) {
+  
+  
+  if (message.content.startsWith(`${prefix}botprofile`)) {
     const member = message.mentions.members.first();
 
     const user = message.mentions.members.first();
@@ -501,23 +490,16 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `${prefix}pinned`) {
+  
+  if (message.content.startsWith(`${prefix}pinned`)) {
     const pin = message.channel.messages.fetchPinned();
   }
 });
 
 bot.on("message", async message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `lead`) {
+  
+  
+  if (message.content.startsWith(`${prefix}lead`)) {
     var high = message.guildMember.roles.highest;
     message.channel.send(high);
   }
@@ -531,16 +513,12 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
   let x = Date.now() - message.guild.createdAt;
   let h = Math.floor(x / 86400000); // 86400000, 5 digits-zero.
   let created = message.guild.createdAt; // Install "dateformat" first.
 
-  if (command === `serverinfo`) {
+  if (message.content.startsWith(`serverinfo`)) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
@@ -562,12 +540,8 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `mail`) {
+  
+  if (message.content.startsWith(`${prefix}mail`)) {
     var user = message.mentions.members.first();
     var hm = message.content
       .split(`${user}`)
@@ -591,12 +565,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `coolSize`) {
+  
+  
+  if (message.content.startsWith(`${prefix}coolSize`)) {
     let user = message.mentions.members.first();
     if (user === undefined) {
       user = message.author;
@@ -686,14 +657,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
   const user = message.mentions.users.first();
 
-  if (command === `kill`) {
+  if (message.content.startsWith(`${prefix}kill`)) {
     if (!user) {
       message.channel.send("please specify the user you want to kill");
     }
@@ -753,13 +720,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
 
-  if (command === `varif`) {
+  if (message.content.startsWith(`varif`)) {
     message.channel.send("ok");
     message.react("👍").then(() => message.react("👎"));
 
