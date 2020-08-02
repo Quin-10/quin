@@ -1022,9 +1022,9 @@ bot.on("message", message => {
 })
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}play`)) {
-message.guild.messages.fetch().then(fetchedMessages => {
+message.guild.fetchMessages().then(fetchedMessages => {
   const al = fetchedMessages
-  message.channel.send(`${al}`)
+  message.channel.send(`${al.size}`)
   })
   }
 })
