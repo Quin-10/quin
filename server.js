@@ -1,7 +1,7 @@
 // inside a command, event listener, etc.
 
 
-var prefix = "E/";
+var prefix = "E/" || "e/"
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -941,10 +941,13 @@ bot.on("message", async message => {
       let minutes = Math.floor(Date.now() / 60000) % 60;
       let seconds = Math.floor(Date.now() / 1000) % 60;
 message.channel.send(`${hours}:${minutes}:${seconds}`)
-    var interval = setInterval (function () {
+    var interal = setInterval (function () {
         message.edit(`${hours}:${minutes}:${seconds}`)
       }, 1 * 1000); 
   }
 })
+
+
 bot.login(TOKEN);
   
+
