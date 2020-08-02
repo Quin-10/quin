@@ -1053,7 +1053,11 @@ bot.on("message", message => {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}wot`)) {
    const channel = message.mentions.channels.first()
-    channel.messages.fetch().then((messages)
+    channel.messages.fetch().then((messages) => {
+      message.channel.send(`${messages.size}`)
+    })
+  }})
+           
 bot.login(TOKEN);
   
 
