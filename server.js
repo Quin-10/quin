@@ -338,8 +338,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
+  const command = message.content.slice(prefix.length).trim().split(" ").shift().toLowerCase()
+  
   if (command === `ban`) {
     if (message.author.bot) {
       return;
