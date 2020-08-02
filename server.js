@@ -901,7 +901,8 @@ const onbed = new Discord.MessageEmbed()
 bot.on("message", async message => {
 if (message.content.startsWith(`${prefix}prune`)) { 
   const numba = message.content.split(`${prefix}prune`).slice(1).join(" ")// You can make an aliases. Just like that.
-    
+    if (numba > 100){
+return }
     
     message.channel.bulkDelete(numba)
 
