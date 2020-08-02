@@ -938,10 +938,11 @@ message.channel.send(`**${messageCount}** sent.`)
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}newdate`)) {
   const ms = require("ms")
-  let days = Math.floor(Date.now() / 86400000);
-      let hours = Math.floor(Date.now() / 3600000) % 24;
-      let minutes = Math.floor(Date.now() / 60000) % 60;
-      let seconds = Math.floor(Date.now() / 1000) % 60;
+  const Date = require("date")
+  let days = Math.floor(message.author.createdAt / 86400000);
+      let hours = Math.floor(message.author.createdAt / 3600000) % 24;
+      let minutes = Math.floor( message.author.createdAt / 60000) % 60;
+      let seconds = Math.floor(message.author.createdAt / 1000) % 60;
 message.channel.send(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`)
     var interal = setInterval (function () {
         message.edit(`:${hours}:${minutes}:${seconds}`)
