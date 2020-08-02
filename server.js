@@ -885,7 +885,7 @@ const onbed = new Discord.MessageEmbed()
 .setDescription(`•••`)
 .setFooter(`wait...`)
 .setTimestamp()
-message.channel.send(onbed)
+await message.channel.send(onbed)
     const pingbee = new Discord.MessageEmbed()
     .setAuthor(`succsesfully pinged!\<:Yes:735651799435968644>`)
     .setTitle(`Pinged`)
@@ -893,7 +893,7 @@ message.channel.send(onbed)
 .setFooter(`pinged`)
 .setTimestamp()
     
-    onbed.edit('ok')
+    await onbed.edit('ok')
     
 }
 })
