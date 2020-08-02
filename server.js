@@ -335,7 +335,7 @@ bot.on("message", message => {
       "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FF0826EC9-3966-4B08-899B-3DC9653F517D.png?v=1595110044169"
     );
   }
- });
+});
 bot.on("message", message => {
   const args = message.content
     .slice(prefix.length)
@@ -948,11 +948,99 @@ bot.on("message", async message => {
       .catch(console.log);
   }
 });
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}welcome`)) {
+    
+    let channel = message.mentions.channels.first(); //mentioned channel
+    
 
+    if (!channel) {
+      //if channel is not mentioned
+      return message.channel.send("Please Mention the channel first");
+    }
+
+    //Now we gonna use quick.db
+
+    db.set(`welchannel_${message.guild.id}`, channel.id); //set id in var
+
+    message.channel.send(`Welcome Channel is seted as ${channel}`); //send success message
+  }
+});
+
+const db = require("quick.db"); //using quick.db package
+
+bot.on("guildMemberAdd", member => {
+  
+  //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+
+  if (chx === null) {
+    //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`Welcome to **${member.guild.name}**, **${member.user.tag}**`)
+  .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
+    .setFooter(`Welcome`)
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
+bot.on("guildMemberRemove", member => {
+  //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+
+  if (chx === null) {
+    //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`bye bye **${member.user.username}** we will or won't miss you`)
+    .setFooter("goodbye")
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
     const dates = new Date()
     message.channel.send(`${dates}`);
+  }
+});
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}anfk`)) {
+    let afk = new db.table("AFKs"),
+      authorStatus = await afk.fetch(message.author.id),
+      mentioned = message.mentions.members.first();
+
+    if (mentioned) {
+      let status = await afk.fetch(mentioned.id);
+
+      if (status) {
+        const embed = new Discord.MessageEmbed()
+          .setColor(0xffffff)
+          .setDescription(
+            `This user (${mentioned.user.tag}) is AFK: **${status}**`
+          );
+        message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+      }
+    }
+
+    if (authorStatus) {
+      const embed = new Discord.MessageEmbed()
+        .setColor(0xffffff)
+        .setDescription(`**${message.author.tag}** is no longer AFK.`);
+      message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
+      afk.delete(message.author.id);
+    }
   }
 });
 
