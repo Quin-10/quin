@@ -870,7 +870,7 @@ bot.on("message", async message => {
   }
 })
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}hapy`)) {
+  if (message.content.startsWith(`${prefix}online`)) {
 const fetch = require('node-fetch')
 function QuinBot() { 
 fetch('https://mr-circle.glitch.me')
@@ -880,7 +880,7 @@ setInterval(QuinBot, 6000)
   
 
 .then
-message.channel.send('ok I ping')
+const onbed = new Discord.MessageEmbed()
 }
 })
 bot.on("message", async message => {
@@ -1027,6 +1027,8 @@ bot.on("message", message => {
     
   }
 })
+
+
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}help`)) {
     const finalembed = new Discord.MessageEmbed()
