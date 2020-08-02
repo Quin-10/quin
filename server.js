@@ -1,6 +1,5 @@
 // inside a command, event listener, etc.
 //circle
-var prefix = "E/"
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -21,7 +20,6 @@ bot.on("message", message => {
       return;
     }
     message.channel.send("it was fun while it lasted :[");
-    var prefix = "E/"
   }
 });
 bot.on("message", message => {
@@ -31,7 +29,7 @@ bot.on("message", message => {
     );
   }
 });
-
+var prefix = "E/"
 
 bot.on("message", message => {
   let args = message.content.slice(prefix.length).trim().split(" ")
@@ -130,8 +128,6 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command ===`say`) {
-    if (message.author.bot) {
-return }
     var tex = message.content
       .split(" ")
       .slice(1)
@@ -259,14 +255,22 @@ bot.on("message", message => {
     message.channel.send(ballEmbed);
   }
 });
+bot.on("message", message => {
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
+  if (command === `${prefix}time`) {
+    const exampleEmbed1 = new Discord.MessageEmbed()
+      .setTimestamp()
 
+      .setFooter("here is the time");
+    message.channel.send(exampleEmbed1);
+  }
+});
 
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `announce`) {
-    if (message.author.bot) {
-return }
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make an announcment "
@@ -289,7 +293,6 @@ return }
 });
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}reactroles`)) {
-    return
     if (!message.member.hasPermission(["ADMINISTRATOR"])) {
       return message.channel.send(
         "you need the permission: `ADMINISTRATOR` to make a reaction role message"
@@ -325,8 +328,6 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `ban`) {
-    if (message.author.bot) {
-return }
     const user = message.mentions.users.first();
     if (!message.member.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"]))
       return message.channel.send(
@@ -370,8 +371,6 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
   if (command === `giverole`) {
-    if (message.author.bot) {
-return }
     const role = message.mentions.roles.first()
     const member = message.mentions.members.first()
     member.roles.add(role).then
@@ -381,7 +380,6 @@ return }
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  
   if (command === `memberstatus`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
@@ -396,14 +394,11 @@ bot.on("message", message => {
       const totaldnd = fetchedMembers.filter(
         member => member.presence.status === "dnd"
       );
-      
-      
+      const totalbot = fetchedMembers.filter(
+        member => bot.user.presence.status === "online"
+      );
       const all = fetchedMembers;
-      
-message.guild.bots.fetch().then(fetchedBots => {
-      const totalbot = fetchedBots
-      
-      
+
       const statusEmbed = new Discord.MessageEmbed()
         .setColor("303136")
         .setTimestamp()
@@ -412,7 +407,6 @@ message.guild.bots.fetch().then(fetchedBots => {
           `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `
         );
       message.channel.send(statusEmbed);
-  })
     });
   }
 });
@@ -447,12 +441,10 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  const moment = require("moment")
   if (command === `userprofile`){
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    const createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
     if (member.user.bot) {
       return;
     }
@@ -464,7 +456,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nCREATED: ${createdate}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}`
       );
     message.channel.send(picEmbed);
   }
@@ -478,10 +470,7 @@ bot.on("message", message => {
 
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    if (!member.user.bot) {
-      return;
-    }
-    if (!member.user.bot) {
+    if (!user.bot) {
       return;
     }
     
@@ -490,7 +479,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}  `
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} `
       );
     message.channel.send(picEmbed);
   }
@@ -523,11 +512,7 @@ bot.on("message", message => {
 bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase()
-  let x = Date.now() - message.guild.createdAt;
-  let h = Math.floor(x / 86400000) // 86400000, 5 digits-zero.
-    let created = (message.guild.createdAt); // Install "dateformat" first.
-    
-  if (command === `serverinfo`) {
+  if (command === `${prefix}serverInfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
@@ -541,7 +526,7 @@ bot.on("message", message => {
       .setTitle(`SERVER INFO`)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: **${created} since ${h} day(s)**`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.tag}**`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
@@ -657,6 +642,19 @@ bot.on("message", message => {
   }
 });
  //using quick.db package
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}newPre`)) {
+  const db = require('quick.db')
+  const args = message.content.slice(prefix.length).trim().split(' ');
+let prefix = args[0]
+if(!prefix) return message.channel.send('whats the prefix')
+  let preEmbed = Discord.MessageEmbed()
+  .setTitle('new prefix')
+  .addField(`prefix has been changed to ${prefix}`)
+  db.set(`prefix_${message.guild.id}`, prefix)
+  message.channel.send(preEmbed)
+}
+})
 
 
 bot.on("message", message => {
@@ -676,18 +674,10 @@ bot.on("message", message => {
       if (!user) {
 message.channel.send('please specify the user you want to kill')
   }
-      
-      if (user == message.author) {
-        const suicidEmbed = new Discord.MessageEmbed()
-      .setColor(`8B0B0B`)
-      .setTitle(`**${user.tag}** died <:Bloodyknife:738090624326041711>`)
-      .setFooter(`reason: suicide`)
-     return message.channel.send(suicidEmbed) 
-      }
       if(user.bot) {
 return message.channel.send('bots don`t die')
       }
-const choices = [
+var choices = [
       `swimming in lava`,
   `slipping on a soap bar`,
   `drinking corona`,
@@ -720,8 +710,6 @@ const choices = [
   `kissing someone`,
   `waisting money on discord nitro`,
     ];
-      
-
     var deaths = choices[Math.floor(Math.random() * choices.length)];
       var colorCho= [
 'yellow'
@@ -729,7 +717,7 @@ const choices = [
       var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
       const deathEmbed = new Discord.MessageEmbed()
       .setColor(`YELLOW`)
-      .setTitle(`**${user.tag}** died \<:Knife:738090560316768266> `)
+      .setTitle(`**${user.tag}** died`)
       .setFooter(`reason: ${deaths}`)
       message.channel.send(deathEmbed)
     }
@@ -773,142 +761,19 @@ const args = message.content.slice(prefix.length).trim().split(" ")
   
   
     if (command === `varif1`) {
+      const channel = message.mentions.channels.first()
       const role = message.mentions.roles.first()
-      const rules = message.content.split(`${prefix}varif1 ${role}`).slice(1).join(" ")
-      if (!message.content.split(`${prefix}varif1 ${role}`).slice(1).join(" ")) {
-return message.channel.send('what is the description of the role')
-      }
-      if(!role) {
-return message.channel.send('the role isn`t specified')
-      }
-      if (!message.member.hasPermission("MANAGE_ROLES",)) {
-      return message.channel.send("you do not have permissons");
-    }
- message.delete
-      var embed2 = new Discord.MessageEmbed()
+      const rules = message.content.split(`${prefix}varif1 ${role} ${channel}`)
+  var embed2 = new Discord.MessageEmbed()
                     .setColor('#add8e6')
-                    .setAuthor('Reaction role')
+                    .setAuthor('Server Rules')
                     .setDescription(`${rules}`)
                     
-               let hi = await message.channel.send(embed2)
+               let hi = await channel.send(embed2)
                hi.react('🌱')
-      if (message.reaction.emoji.name === "🌱") {
-               await message.guild.members.cache.get(message.author.id).roles.add(role)
-      }
-    (sentMessage => {
-      sentMessage.delete()
-      message.channel.send(embed2)
-               })
+               await message.guild.members.cache.get(message.author.id).roles.add(role);
+      channel.send(embed2)
+      
     }
-})
-
-
-bot.on("message", async message => {
-if (message.content.startsWith(prefix + 'ping')) {
-    try {
-      const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
-      const embed = new Discord.MessageEmbed()
-      .setColor("RANDOM") // Tired of choosing the embed colors? Just type "RANDOM" on it!
-      .addField("⌛ Latency", `**${m.createdTimestamp -  message.createdTimestamp}ms**`)
-      .addField("💓 API", `**${Math.floor(bot.ws.ping)}ms**`) // Use "client.ping" if your Discord.js is < 1.15.1 --- Use "client.ws.ping" if your Discord.js is > 12.0.0
-      return m.edit(`🏓 Pong!`, embed);
-    } catch (error) {
-      return message.channel.send(`Something went wrong: ${error.message}`);
-      // Restart the bot as usual.
-    }
-  }}) // easy way.
-bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
-if (command === `killmyself`) {
-        const suicideEmbed = new Discord.MessageEmbed()
-      .setColor(`8B0B0B`)
-      .setTitle(`**${message.author.tag}** died <:Bloodyknife:738090624326041711>`)
-      .setFooter(`reason: suicide`)
-     return message.channel.send(suicideEmbed) 
-}})
-
-bot.on("message", async message => {
-  const args = message.content.slice(prefix.length).trim().split(" ")
-  const command = args.shift().toLowerCase()
-  
-if (command === `meme`) {
-
-    const got = require('got')
-          
-    
-    got('https://www.reddit.com/r/meme/random/.json').then(response => {
-      let content = JSON.parse(response.body),
-          image = content[0].data.children[0].data.url,
-          Memembed = new Discord.MessageEmbed()
-      .setColor('00B0F5')
-      .setTitle(`here is your meme sir`)
-      .setAuthor('`MEME`')
-      .setImage(image)
-      .addField('↓**Reminder**↓','remember, I do not have any control of what memes I send \<:Smugyes:735651807551946773>', true)
-      .setFooter('from r/memes')
-      .setTimestamp()
-      message.channel.send(Memembed);
-    }).catch(console.log)
-  }
-})
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}setted`)) {
-let channel = message.mentions.channels.first() //mentioned channel
-    
-    if(!channel) { //if channel is not mentioned
-      return message.channel.send("Please Mention the channel first")
-    }
-    
-    //Now we gonna use quick.db
-    
-    db.set(`welchannel_${message.guild.id}`, channel.id) //set id in var
-    
-    message.channel.send(`Welcome Channel is seted as ${channel}`) //send success message
-  }
-})
-  
-const db = require("quick.db") //using quick.db package
-
-bot.on("guildMemberAdd", (member) => { //usageof welcome event
-  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
-  
-  if(chx === null) { //check if var have value or not
-    return;
-  }
-
-  let wembed = new Discord.MessageEmbed() //define embed
-  .setAuthor(member.user.username, member.user.avatarURL())
-  .setColor("#ff2050")
-  .setThumbnail(member.user.avatarURL())
-  .setDescription(`We are very happy to have you in our server haha`)
-  .setFooter('Welcome')
-      .setTimestamp()
-  
-  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
-})
-bot.on("guildMemberRemove", (member) => { //usageof welcome event
-  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
-  
-  if(chx === null) { //check if var have value or not
-    return;
-  }
-
-  let wembed = new Discord.MessageEmbed() //define embed
-  .setAuthor(member.user.username, member.user.avatarURL())
-  .setColor("#ff2050")
-  .setThumbnail(member.user.avatarURL())
-  .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
-  .setFooter('goodbye')
-      .setTimestamp()
-  
-  bot.channels.cache.get(chx).send(wembed) //get channel and send embed
-})
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}time`)) {
-    const dates = Date().getTime();
-    message.channel.send(`${dates}`)
-  }
 })
 bot.login(TOKEN)
