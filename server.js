@@ -1020,6 +1020,14 @@ bot.on("message", message => {
     .addField(`FUN`, `8ball, kill`)
     }
 })
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}play`)) {
+message.guild.messages.fetch().then(fetchedMessages => {
+  const al = fetchedMessages
+  message.channel.send(`${al}`)
+  })
+  }
+})
 bot.login(TOKEN);
   
 
