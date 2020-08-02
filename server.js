@@ -1042,11 +1042,11 @@ bot.on("message", message => {
     const gaz = [Math.floor(Math.random() * 100 + 1)];
     const gabe = new Discord.MessageEmbed()
     .setTitle("THIS IS HOW GAY YOU ARE")
-    .setDescription("gayness")
-    .addField(`**${gaz}%**`)
-    .setFooter(`haha gay`)
+    .setColor('FF95A1')
+    .addField(`Gay Machine`,`**${gaz}%**`, true)
+    .setFooter(``)
     .setTimestamp()
-         message.channel.send(`${gaz}`)  
+         message.channel.send(gabe)  
   }
 })
 
