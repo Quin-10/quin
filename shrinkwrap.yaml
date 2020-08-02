@@ -1,12 +1,10 @@
 dependencies:
-  date: 1.0.2
   discord.js: 12.2.0
   discord.js-minesweeper: 1.0.5
   express: 4.17.1
   got: 11.5.1
   moment: 2.27.0
   ms: 2.1.2
-  node-fetch: 2.6.0
   quick.db: 7.1.1
 packages:
   /@discordjs/collection/0.1.5:
@@ -248,10 +246,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
-  /date/1.0.2:
-    dev: false
-    resolution:
-      integrity: sha1-nxUD1lGYQ9lIZvx5qR6b6I3LR3Y=
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -1176,12 +1170,10 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  date: ^1.0.2
   discord.js: ^12.2.0
   discord.js-minesweeper: ^1.0.5
   express: ^4.17.1
   got: ^11.5.1
   moment: ^2.27.0
   ms: ^2.1.2
-  node-fetch: ^2.6.0
   quick.db: ^7.1.1
