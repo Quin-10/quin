@@ -881,6 +881,18 @@ setInterval(QuinBot, 6000)
 
 .then
 const onbed = new Discord.MessageEmbed()
+.setTitle(`pinging...`)
+.setDescription(`•••`)
+.setFooter(`wait...`)
+.setTimestamp()
+message.channel.send(onbed)
+    const pingbee = new Discord.MessageEmbed()
+    .setAuthor(`succsesfully pinged!\<:Yes:735651799435968644>`)
+    .setTitle(`Pinged`)
+.setDescription(`now the bot will appear online more often`)
+.setFooter(`pinged`)
+.setTimestamp()
+    message.edit(pingbee)
 }
 })
 bot.on("message", async message => {
