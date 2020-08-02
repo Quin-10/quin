@@ -1029,6 +1029,11 @@ message.guild.messages.fetch().then(fetchedMessages => {
   })
   }
 })
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}gaySize`)) {
+    
+  }
+})
 bot.login(TOKEN);
   
 
