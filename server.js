@@ -1,6 +1,6 @@
 // inside a command, event listener, etc.
-
-var prefix = "E/";
+//circle
+var prefix = "!"
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -21,7 +21,7 @@ bot.on("message", message => {
       return;
     }
     message.channel.send("it was fun while it lasted :[");
-    var prefix = "E/";
+    
   }
 });
 bot.on("message", message => {
@@ -337,7 +337,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.split(`${prefix}`)
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
   const command = args.shift().toLowerCase();
   if (command === `ban`) {
     if (message.author.bot) {
@@ -945,15 +948,70 @@ bot.on("message", async message => {
       .catch(console.log);
   }
 });
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}setted`)) {
+    let channel = message.mentions.channels.first(); //mentioned channel
 
+    if (!channel) {
+      //if channel is not mentioned
+      return message.channel.send("Please Mention the channel first");
+    }
+
+    //Now we gonna use quick.db
+
+    db.set(`welchannel_${message.guild.id}`, channel.id); //set id in var
+
+    message.channel.send(`Welcome Channel is seted as ${channel}`); //send success message
+  }
+});
+
+const db = require("quick.db"); //using quick.db package
+
+bot.on("guildMemberAdd", member => {
+  //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+
+  if (chx === null) {
+    //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`We are very happy to have you in our server haha`)
+    .setFooter("Welcome")
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
+bot.on("guildMemberRemove", member => {
+  //usageof welcome event
+  let chx = db.get(`welchannel_${member.guild.id}`); //defining var
+
+  if (chx === null) {
+    //check if var have value or not
+    return;
+  }
+
+  let wembed = new Discord.MessageEmbed() //define embed
+    .setAuthor(member.user.username, member.user.avatarURL())
+    .setColor("#ff2050")
+    .setThumbnail(member.user.avatarURL())
+    .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
+    .setFooter("goodbye")
+    .setTimestamp();
+
+  bot.channels.cache.get(chx).send(wembed); //get channel and send embed
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
-    const dates = new Date()
+    const dates = Date().getTime();
     message.channel.send(`${dates}`);
   }
 });
 bot.on("message", async message => {
-  const db = require("quick.db")
   if (message.content.startsWith(`${prefix}anfk`)) {
     let afk = new db.table("AFKs"),
       authorStatus = await afk.fetch(message.author.id),
@@ -1004,49 +1062,4 @@ setInterval(QuinBot, 60000)
 message.channel.send('ok I ping')
 }
 })
-bot.on("message", async message => {
-if (message.content.startsWith(`${prefix}prune`)) { 
-  const numba = message.content.split(`${prefix}prune`).slice(1).join(" ")// You can make an aliases. Just like that.
-    
-    
-    message.channel.bulkDelete(numba)
-
-  }
-})
-bot.on("message", async message => {
-  const ms = require("ms")
-  let days = Math.floor(bot.uptime / 86400000);
-      let hours = Math.floor(bot.uptime / 3600000) % 24;
-      let minutes = Math.floor(bot.uptime / 60000) % 60;
-      let seconds = Math.floor(bot.uptime / 1000) % 60;
-
-if (message.content.startsWith(`${prefix}uptime`)){
-  const uptimebed = new Discord.MessageEmbed()
-  .setAuthor(bot.user.tag, bot.user.avatarURL())
-  .setColor('43B581')
-  .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FB127D091-527A-4151-A780-168585DFF6D7.png?v=1596317347762')
-  .setFooter(`The bot's uptime`)
-  .setTimestamp()
-  .setDescription(`**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`)
-message.channel.send(uptimebed)
-}
-})
-bot.on('message', message => {
-    if (message.content.startsWith(`${prefix}loop`)) {
-      const game = message.content.split(`${prefix}loop`)
-      var interval = setInterval (function () {
-        message.channel.send("123")
-      }, 1 * game); 
-    }
-});
-bot.on('message', message => {
-    if (message.content.startsWith(`${prefix}mess`)) {
-const types = message.guild.messages.cache.size
-message.channel.send(`${types}`)
-    }
-})
-
-
-
 bot.login(TOKEN);
-  
