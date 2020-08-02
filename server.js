@@ -949,10 +949,8 @@ bot.on("message", async message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}welcome`)) {
-    
+  if (message.content.startsWith(`${prefix}setted`)) {
     let channel = message.mentions.channels.first(); //mentioned channel
-    
 
     if (!channel) {
       //if channel is not mentioned
@@ -970,7 +968,6 @@ bot.on("message", message => {
 const db = require("quick.db"); //using quick.db package
 
 bot.on("guildMemberAdd", member => {
-  
   //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
 
@@ -983,9 +980,8 @@ bot.on("guildMemberAdd", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`Welcome to **${member.guild.name}**, **${member.user.tag}**`)
-  .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
-    .setFooter(`Welcome`)
+    .setDescription(`We are very happy to have you in our server haha`)
+    .setFooter("Welcome")
     .setTimestamp();
 
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
@@ -1003,7 +999,7 @@ bot.on("guildMemberRemove", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`bye bye **${member.user.username}** we will or won't miss you`)
+    .setDescription(`bye bye ${member.user.username} we will or won't miss you`)
     .setFooter("goodbye")
     .setTimestamp();
 
@@ -1011,7 +1007,7 @@ bot.on("guildMemberRemove", member => {
 });
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
-    const dates = new Date()
+    const dates = Date().getTime();
     message.channel.send(`${dates}`);
   }
 });
@@ -1065,46 +1061,5 @@ setInterval(QuinBot, 60000)
 .then
 message.channel.send('ok I ping')
 }
-})
-bot.on("message", async message => {
-if (message.content.startsWith(`${prefix}prune`)) { 
-  const numba = message.content.split(`${prefix}prune`).slice(1).join(" ")// You can make an aliases. Just like that.
-    
-    
-    message.channel.bulkDelete(numba)
-
-  }
-})
-bot.on("message", async message => {
-  const ms = require("ms")
-  let days = Math.floor(bot.uptime / 86400000);
-      let hours = Math.floor(bot.uptime / 3600000) % 24;
-      let minutes = Math.floor(bot.uptime / 60000) % 60;
-      let seconds = Math.floor(bot.uptime / 1000) % 60;
-
-if (message.content.startsWith(`${prefix}uptime`)){
-  const uptimebed = new Discord.MessageEmbed()
-  .setAuthor(bot.user.tag, bot.user.avatarURL())
-  .setColor('43B581')
-  .setThumbnail(bot.user.avatarURL())
-  .setFooter(`The bot's uptime`)
-  .setTimestamp()
-  .setDescription(`**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`)
-message.channel.send(uptimebed)
-}
-})
-bot.on('message', message => {
-    if (message.content.startsWith(`${prefix}loop`)) {
-      const game = message.content.split(`${prefix}loop`)
-      var interval = setInterval (function () {
-        message.channel.send("123")
-      }, 1 * game); 
-    }
-});
-bot.on('message', message => {
-    if (message.content.startsWith(`${prefix}mess`)) {
-const types = message.guild.messages.cache.size
-message.channel.send(`${types}`)
-    }
 })
 bot.login(TOKEN);
