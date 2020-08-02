@@ -753,13 +753,9 @@ bot.on("message", message => {
 });
 
 bot.on("message", async message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
 
-  if (command === `varif1`) {
+  if (message.content.startsWith(`${prefix}varif1`)) {
     const role = message.mentions.roles.first();
     const rules = message.content
       .split(`${prefix}varif1 ${role}`)
@@ -816,13 +812,9 @@ bot.on("message", async message => {
   }
 }); // easy way.
 bot.on("message", async message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
 
-  if (command === `killmyself`) {
+  if (message.content.startsWith(`killmyself`)) {
     const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
       .setTitle(
@@ -834,13 +826,9 @@ bot.on("message", async message => {
 });
 
 bot.on("message", async message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  
 
-  if (command === `meme`) {
+  if (message.content.startsWith(`${prefix}meme`)) {
     const got = require("got");
 
     got("https://www.reddit.com/r/meme/random/.json")
@@ -871,35 +859,7 @@ bot.on("message", message => {
     message.channel.send(`${dates}`);
   }
 });
-bot.on("message", async message => {
-  const db = require("quick.db")
-  if (message.content.startsWith(`${prefix}anfk`)) {
-    let afk = new db.table("AFKs"),
-      authorStatus = await afk.fetch(message.author.id),
-      mentioned = message.mentions.members.first();
 
-    if (mentioned) {
-      let status = await afk.fetch(mentioned.id);
-
-      if (status) {
-        const embed = new Discord.MessageEmbed()
-          .setColor(0xffffff)
-          .setDescription(
-            `This user (${mentioned.user.tag}) is AFK: **${status}**`
-          );
-        message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
-      }
-    }
-
-    if (authorStatus) {
-      const embed = new Discord.MessageEmbed()
-        .setColor(0xffffff)
-        .setDescription(`**${message.author.tag}** is no longer AFK.`);
-      message.channel.send(embed).then(i => i.delete({ timeout: 5000 }));
-      afk.delete(message.author.id);
-    }
-  }
-});
 
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}date`)) {
@@ -973,7 +933,18 @@ message.channel.send(`**${messageCount}** sent.`)
   .catch(console.error);
 }
 })
-
-
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}newdate`)) {
+  const ms = require("ms")
+  let days = Math.floor(Date.now() / 86400000);
+      let hours = Math.floor(Date.now() / 3600000) % 24;
+      let minutes = Math.floor(Date.now() / 60000) % 60;
+      let seconds = Math.floor(Date.now() / 1000) % 60;
+message.channel.send(`${hours}:${minutes}:${seconds}`)
+    var interval = setInterval (function () {
+        message.edit(`${hours}:${minutes}:${seconds}`)
+      }, 1 * 1000); 
+  }
+})
 bot.login(TOKEN);
   
