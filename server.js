@@ -1,6 +1,7 @@
 // inside a command, event listener, etc.
 
 var prefix = "E/";
+
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -337,8 +338,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.split(`${prefix}`)
-  const command = args.shift().toLowerCase();
+  const args = message.content.slice(prefix.length).trim().split(" ")
+  const command = args.shift().toLowerCase()
   if (command === `ban`) {
     if (message.author.bot) {
       return;
