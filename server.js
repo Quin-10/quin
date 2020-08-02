@@ -1009,18 +1009,11 @@ bot.on("guildMemberRemove", member => {
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}clap`)) {
     
-        const clapping = message.content.split(`${prefix}`).slice(1).join(" ")
+        const clapping = message.content.split(`${prefix}`).slice(1).join()
         message.channel.send(`${clapping}`);
   }
 })
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}help`)) {
-    const finalembed = new Discord.MessageEmbed()
-    .setTitle(`Help`)
-    .setAuthor(bot.tag, bot.avatarURL, true)
-    .addField(`FUN`, `8ball, kill`)
-    }
-})
+
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}play`)) {
 message.guild.messages.fetch().then(fetchedMessages => {
@@ -1030,9 +1023,17 @@ message.guild.messages.fetch().then(fetchedMessages => {
   }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}gaySize`)) {
+  if (message.content.startsWith(`${prefix}gaysize`)) {
     
   }
+})
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}help`)) {
+    const finalembed = new Discord.MessageEmbed()
+    .setTitle(`Help`)
+    .setAuthor(bot.tag, bot.avatarURL, true)
+    .addField(`FUN`, `8ball, kill`)
+    }
 })
 bot.login(TOKEN);
   
