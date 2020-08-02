@@ -1080,6 +1080,7 @@ bot.on("message", message => {
          message.channel.send(`${gaz}`)  
   }
 })
+calculator:
 bot.login(TOKEN);
   
 
