@@ -1005,6 +1005,13 @@ bot.on("guildMemberRemove", member => {
 
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
 });
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}clap`)) {
+    
+        const clapping = message.content.split(`   `).slice(1).join("")
+        message.channel.send(`${clapping}`);
+  }
+})
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}help`)) {
     const finalembed = new Discord.MessageEmbed()
