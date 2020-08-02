@@ -893,13 +893,15 @@ if (message.content.startsWith(`${prefix}prune`)) {
   }
 })
 bot.on("message", async message => {
+  const bot1 = message.mentions.members.first()
   const ms = require("ms")
-  let days = Math.floor(bot.uptime / 86400000);
-      let hours = Math.floor(bot.uptime / 3600000) % 24;
-      let minutes = Math.floor(bot.uptime / 60000) % 60;
+  let days = Math.floor(bot.user.uptime / 86400000);
+      let hours = Math.floor(bot.user.uptime / 3600000) % 24;
+      let minutes = Math.floor(bot.user.uptime / 60000) % 60;
       let seconds = Math.floor(bot.uptime / 1000) % 60;
 
 if (message.content.startsWith(`${prefix}uptime`)){
+  
   const uptimebed = new Discord.MessageEmbed()
   .setAuthor(bot.user.tag, bot.user.avatarURL())
   .setColor('43B581')
@@ -936,10 +938,10 @@ message.channel.send(`**${messageCount}** sent.`)
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}newdate`)) {
   const ms = require("ms")
-  let days = Math.floor(Date.now() / 86400000);
-      let hours = Math.floor(Date.now() / 3600000) % 24;
-      let minutes = Math.floor(Date.now() / 60000) % 60;
-      let seconds = Math.floor(Date.now() / 1000) % 60;
+  let days = Math.floor(ms() / 86400000);
+      let hours = Math.floor(ms() / 3600000) % 24;
+      let minutes = Math.floor(ms() / 60000) % 60;
+      let seconds = Math.floor(ms() / 1000) % 60;
 message.channel.send(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`)
     var interal = setInterval (function () {
         message.edit(`:${hours}:${minutes}:${seconds}`)
