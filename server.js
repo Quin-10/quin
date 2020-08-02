@@ -1,6 +1,7 @@
 // inside a command, event listener, etc.
 //circle
-var prefix = "E/";
+//
+let prefix = 'e/'
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -21,7 +22,7 @@ bot.on("message", message => {
       return;
     }
     message.channel.send("it was fun while it lasted :[");
-    var prefix = "E/";
+    
   }
 });
 bot.on("message", message => {
@@ -444,7 +445,7 @@ bot.on("message", message => {
         message.channel.send(statusEmbed);
       });
     });
-  }db
+  }
 });
 bot.on("message", message => {
   const args = message.content
