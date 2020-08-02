@@ -1037,7 +1037,7 @@ message.guild.messages.fetch().then(fetchedMessages => {
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}gaysize`)) {
     message.channel.send('no')
-    message.channel.edit('ok')
+    .edit('ok')
   }
 })
 
@@ -1051,9 +1051,15 @@ bot.on("message", message => {
     }
 })
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}wot`)) {
+  if (message.content.startsWith(`${prefix}fetchM`)) {
    const channel = message.mentions.channels.first()
     channel.messages.fetch().then((messages) => {
+      if (messages.size == "50"){
+return message.channel.send(`${messages.size}**+**`)
+}
+      if (messages.size == "0"){
+return message.channel.send(`None`)
+}
       message.channel.send(`${messages.size}`)
     })
   }})
