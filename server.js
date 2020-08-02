@@ -885,15 +885,16 @@ const onbed = new Discord.MessageEmbed()
 .setDescription(`•••`)
 .setFooter(`wait...`)
 .setTimestamp()
-await message.channel.send(onbed)
+ 
     const pingbee = new Discord.MessageEmbed()
-    .setAuthor(`succsesfully pinged!\<:Yes:735651799435968644>`)
-    .setTitle(`Pinged`)
+    .setAuthor(`succsesfully pinged!`)
+    .setTitle(`Pinged \<:Yes:735651799435968644>`)
 .setDescription(`now the bot will appear online more often`)
 .setFooter(`pinged`)
 .setTimestamp()
+    message.channel.send(pingbee)
     
-    await onbed.edit('ok')
+    
     
 }
 })
