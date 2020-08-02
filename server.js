@@ -1086,7 +1086,7 @@ if (message.content.startsWith(`${prefix}uptime`)){
   const uptimebed = new Discord.MessageEmbed()
   .setAuthor(bot.user.tag, bot.user.avatarURL())
   .setColor('43B581')
-  .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FB127D091-527A-4151-A780-168585DFF6D7.png?v=1596317347762')
+  .setThumbnail(bot.user.avatarURL())
   .setFooter(`The bot's uptime`)
   .setTimestamp()
   .setDescription(`**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`)
@@ -1107,14 +1107,4 @@ const types = message.guild.messages.cache.size
 message.channel.send(`${types}`)
     }
 })
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}counter`)) {
-const messageCount = message.guild.id.messageCount;
-
-// Send the message count in a message. The template literal (${}) adds an 's' if needed.
-message.channel.send(`**${messageCount}** sent.`)
-  .catch(console.error);
-}
-})
 bot.login(TOKEN);
-  
