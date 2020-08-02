@@ -1065,10 +1065,10 @@ bot.on("message", message => {
   if (message.content.startsWith(`${prefix}fetchM`)) {
    const channel = message.mentions.channels.first()
     channel.messages.fetch().then((messages) => {
-      if (messages.size == "50"){
+      if (messages.size < 50){
 return message.channel.send(`${messages.size}**+**`)
 }
-      if (messages.size == "0"){
+      if (messages.size == 0){
 return message.channel.send(`None`)
 }
       message.channel.send(`${messages.size}`)
