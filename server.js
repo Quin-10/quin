@@ -892,7 +892,7 @@ message.channel.send(onbed)
 .setDescription(`now the bot will appear online more often`)
 .setFooter(`pinged`)
 .setTimestamp()
-    message.edit(pingbee)
+    onbed.edit(pingbee)
 }
 })
 bot.on("message", async message => {
@@ -1036,7 +1036,8 @@ message.guild.messages.fetch().then(fetchedMessages => {
 })
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}gaysize`)) {
-    
+    message.channel.send('no')
+    message.channel.edit('ok')
   }
 })
 
@@ -1049,6 +1050,10 @@ bot.on("message", message => {
     .addField(`FUN`, `8ball, kill`)
     }
 })
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}wot`)) {
+   const channel = message.mentions.channels.first()
+    channel.messages.fetch().then((messages)
 bot.login(TOKEN);
   
 
