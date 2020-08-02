@@ -8,6 +8,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 //the discord login bot
+//args
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
@@ -21,7 +22,7 @@ bot.on("message", message => {
       return;
     }
     message.channel.send("it was fun while it lasted :[");
-    var prefix = "E/";
+    
   }
 });
 bot.on("message", message => {
@@ -337,7 +338,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content.split(`${prefix}`)
+  const args = message.content.slice(prefix.length).trim().split(" ")
   const command = args.shift().toLowerCase();
   if (command === `ban`) {
     if (message.author.bot) {
