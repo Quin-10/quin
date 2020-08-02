@@ -1080,7 +1080,10 @@ bot.on("message", message => {
          message.channel.send(`${gaz}`)  
   }
 })
-calculator:
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}fon`)) {
+
+  
 bot.login(TOKEN);
   
 
