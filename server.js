@@ -1,5 +1,5 @@
 // inside a command, event listener, etc.
-//circle
+
 var prefix = "E/";
 var express = require("express");
 var app = express();
@@ -337,10 +337,7 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
+  const args = message.content.split(`${prefix}`)
   const command = args.shift().toLowerCase();
   if (command === `ban`) {
     if (message.author.bot) {
