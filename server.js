@@ -1008,7 +1008,7 @@ bot.on("guildMemberRemove", member => {
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}clap`)) {
     
-        const clapping = message.content.split(`   `).slice(1).join("")
+        const clapping = message.content.split(`${prefix}`).slice(1).join(" ")
         message.channel.send(`${clapping}`);
   }
 })
