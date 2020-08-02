@@ -946,7 +946,10 @@ message.channel.send(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds 
       }, 1 * 1000); 
   }
 })
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}setted`)) {
 const channel = message.mentions.channels.first()
+if (!channel) {
 return message.channel.send("Please Mention the channel first");
     }
 
