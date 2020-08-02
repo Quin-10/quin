@@ -1,7 +1,7 @@
 // inside a command, event listener, etc.
 //circle
 //
-let prefix = 'e/'
+
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -925,7 +925,7 @@ bot.on("message", async message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === `meme`) {
+  if (command === `mem`) {
     const got = require("got");
 
     got("https://www.reddit.com/r/meme/random/.json")
@@ -1033,4 +1033,5 @@ message.channel.send(`**${messageCount}** sent.`)
 
 
 bot.login(TOKEN);
+var prefix = "Et"
   
