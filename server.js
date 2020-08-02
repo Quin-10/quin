@@ -1005,7 +1005,14 @@ bot.on("guildMemberRemove", member => {
 
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
 });
-
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}help`)) {
+    const finalembed = new Discord.MessageEmbed()
+    .setTitle(`Help`)
+    .setAuthor(bot.tag, bot.avatarURL, true)
+    .addField(`FUN`, `8ball, kill`)
+    }
+})
 bot.login(TOKEN);
   
 
