@@ -460,7 +460,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nROLES: ${member.user.roles.cache.size}`
+        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** \nTIMES MENTIONED: ${member.mentions.cache.size}`
       );
     message.channel.send(picEmbed);
   }
