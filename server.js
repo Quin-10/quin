@@ -1122,6 +1122,10 @@ const roastC =[
     const funi = message.content.split(`${prefix}laugh`).slice(1).join("")
     if (!funi) return message.channel.send(`what’s so funny!?`)
     message.channel.send(`${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`)
+  } else if (message.content.startsWith(`${prefix}talkkid`)) {
+const unamed = message.content.split(`${prefix}talkkid`).slice(1).join(" ")
+if (!unamed) return message.channel.send(`what do you want to say to the stupid kid?`)
+    message.channel.send(`${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`)
   }
   })
 bot.on("message", async message => {
