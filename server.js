@@ -442,11 +442,13 @@ bot.on("message", message => {
   
   const moment = require("moment");
   if (message.content.startsWith(`${prefix}userprofile`)) {
-    const dateformat = require("date")
+    const dateformat = require("date-format")
+    let x = Date.now() - user.createdAt
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    let created = dateformat(message.guild.createdAt);
+    const created = Math.floor(x / 86400000)
+    let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
     if (member.user.bot) {
       return;
     }
@@ -458,7 +460,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nCREATED: ${createdate}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nCREATED: ${created}`
       );
     message.channel.send(picEmbed);
   }
