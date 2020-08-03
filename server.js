@@ -1089,7 +1089,14 @@ return message.channel.send(`what sentence makes your face turn into this ( ͡°
     message.channel.send(`someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`)
   } else if  (message.content.startsWith(`${prefix}roast me`)) {
 const roastC =[
-"bruh you are so lonely that you"
+"bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
+  "you suck so much that you were put up for adoption more than how many miliseconds earth existed",
+  "you look like those bobble head toys",
+  "your IQ is less then the number of people that are older than 1 googleplex",
+  `you're the reason why people say "don't do drugs" `,
+  `you're an idiot                 look right                 you're stupid`,
+  'wow, imagine choking on your own spit',
+  `you suck at being a modertator, an infant can do better`
 ]
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
