@@ -1130,7 +1130,22 @@ return
 message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poopy head"`)
     }
     message.channel.send(`${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`)
-  }
+  } else if (message.content.startsWith(`${prefix}topic`)) {
+    const choiceT = [
+`what do you wanna be when you grow up?`,
+      `what's your favorite gaming console?`,
+      `what's your favorite piece of candy?`,
+      `do you like school?`,
+      `do you hate school?`,
+      ``,
+      ``,
+      ``,
+      ``,
+      ``,
+      ``,
+      ``,
+    ]
+  var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
   })
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
