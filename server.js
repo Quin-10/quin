@@ -443,12 +443,12 @@ bot.on("message", message => {
   const moment = require("moment");
   if (message.content.startsWith(`${prefix}userprofile`)) {
     const dateformat = require("date-format")
-    let x = Date.now() - user.createdAt
+    
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    const created = Math.floor(x / 86400000)
-    let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
+    let nickname = member.nickname !== undefined && member.nickname !== null ? member.nickname : "None";
+    
     if (member.user.bot) {
       return;
     }
@@ -460,7 +460,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nCREATED: ${created}`
+        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nNICKNAME: ${nickname}`
       );
     message.channel.send(picEmbed);
   }
