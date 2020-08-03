@@ -461,7 +461,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** \nCreated `
+        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** `
       );
     message.channel.send(picEmbed);
   }
