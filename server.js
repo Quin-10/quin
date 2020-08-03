@@ -442,12 +442,11 @@ bot.on("message", message => {
   
   const moment = require("moment");
   if (message.content.startsWith(`${prefix}userprofile`)) {
+    const dateformat = require("date")
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    const createdate = moment
-      .utc(user.createdAt)
-      .format("dddd, MMMM Do YYYY, HH:mm:ss");
+    let created = dateformat(message.guild.createdAt);
     if (member.user.bot) {
       return;
     }
