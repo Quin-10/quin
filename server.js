@@ -1082,10 +1082,15 @@ bot.on("message", message => {
 })
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}lenny`)) {
-    const lemon = message.content.split(`${prefix}lenny`).slice.join("")
-    message.channel.send(``)
-  }})
-
+    const lemon = message.content.split(`${prefix}lenny`).slice(1).join("")
+    if(!lemon) {
+return message.channel.send(`what sentence makes your face turn into this ( ͡° ͜ʖ ͡°)?`)
+}
+    message.channel.send(`someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`)
+  } else if  (message.content.startsWith(`${prefix}roast me`)) {
+const roastC =[
+"bruh you are so lonely that you"
+]
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
 const fetch = require('node-fetch')
