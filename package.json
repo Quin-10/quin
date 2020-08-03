@@ -18,7 +18,8 @@
     "date": "^1.0.2",
     "node-fetch": "^2.6.0",
     "quick.db": "^7.1.1",
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "date-format": "^3.0.0"
   },
   "engines": {
     "node": "12.x"

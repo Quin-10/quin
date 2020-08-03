@@ -1,5 +1,6 @@
 dependencies:
   date: 1.0.2
+  date-format: 3.0.0
   discord.js: 12.2.0
   discord.js-minesweeper: 1.0.6
   express: 4.17.1
@@ -248,6 +249,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+  /date-format/3.0.0:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-eyTcpKOcamdhWJXj56DpQMo1ylSQpcGtGKXcU0Tb97+K56/CF5amAqqqNj0+KvA0iw2ynxtHWFsPDSClCxe48w==
   /date/1.0.2:
     dev: false
     resolution:
@@ -1177,6 +1184,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   date: ^1.0.2
+  date-format: ^3.0.0
   discord.js: ^12.2.0
   discord.js-minesweeper: ^1.0.6
   express: ^4.17.1

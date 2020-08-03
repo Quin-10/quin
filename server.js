@@ -513,9 +513,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
+  const dateformat = require("date-format")
   let x = Date.now() - message.guild.createdAt;
-  let h = Math.floor(x / 86400000); // 86400000, 5 digits-zero.
+  let h = Math.floor(x / 86400000);
+  let created = dateformat(message.guild.createdAt);// 86400000, 5 digits-zero.
    // Install "dateformat" first.
 let icon = message.guild.iconURL({size: 2048}); 
   if (message.content.startsWith(`${prefix}serverinfo`)) {
@@ -533,7 +534,7 @@ let icon = message.guild.iconURL({size: 2048});
     .setThumbnail(icon)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED:`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: ${created}`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
