@@ -1146,28 +1146,32 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
       `what school do you go to?`,
       `do you own a pet?`,
       `what's your favorite resturaunt?`,
-      `how tall are youL`,
+      `how tall are you?`,
       `do you like me?`,
       `what's your favorite color?`,
       `are you right handed or left handed?`,
       `what does your name start with in the alphabet?`,
-      `do you like your name`,
+      `do you like your name?`,
       `where are you right now?`,
       `what's your favorite video game?`,
       `are you on break or you are still going to still?`,
-      `what's your favorit cartoon show?`,
-      s`,
-      ``,
-      ``,
-      ``,
-      ``,
-      ``,
-      ``,
-      ``,
-      ``,
-      ``,
+      `what's your favorite cartoon show?`,
+      `what's your best friends name?`,
+      `are you an introvert or an extrovert?`,
+      `how long are you asleep?`,
+      `if you could live anywhere on the earth where would live?`,
+      `if you won $1,000,000 what would you spend it on?`,
+      `what do you do in your free time?`,
+      `what's your worst subject to learn in school?`,
+      `what's your favorite subject to learn in school?`,
+      `what is your biggest fear?`,
+      `what's the most expensive thing in your bedroom?`,
     ]
   var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
+    const topicbed = new Discord.MessageEmbed()
+    .setTitle(`**topic**`)
+    .addField(`${topics}`)
+    message.channel.send(topicbed)
   }
   })
 bot.on("message", async message => {
