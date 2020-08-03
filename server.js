@@ -516,9 +516,9 @@ bot.on("message", message => {
   
   let x = Date.now() - message.guild.createdAt;
   let h = Math.floor(x / 86400000); // 86400000, 5 digits-zero.
-  let created = message.guild.createdAt; // Install "dateformat" first.
-
-  if (message.content.startsWith(`serverinfo`)) {
+   // Install "dateformat" first.
+let icon = message.guild.iconURL({size: 2048}); 
+  if (message.content.startsWith(`${prefix}serverinfo`)) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
@@ -530,9 +530,10 @@ bot.on("message", message => {
     const infoEmbed = new Discord.MessageEmbed()
 
       .setTitle(`SERVER INFO`)
+    .setThumbnail(icon)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: **${created} since ${h} day(s)**`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED:`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
