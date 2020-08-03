@@ -1138,7 +1138,7 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
       `do you like school?`,
       `do you hate school?`,
       `do you like discord?`,
-      `are you underaged? don't worry I won't snitch?`,
+      `are you underaged? don't worry I won't snitch`,
       `are you a bot developer like Quin10?`,
       `what's your favorite season?`,
       `what device are you talking to me on?`,
@@ -1169,8 +1169,9 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
     ]
   var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
     const topicbed = new Discord.MessageEmbed()
-    .setTitle(`**topic**`)
-    .addField(`${topics}`)
+    .setColor('#303136')
+    .setTitle(`\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`)
+    .setDescription(`${topics}`,)
     message.channel.send(topicbed)
   }
   })
