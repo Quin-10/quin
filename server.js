@@ -442,7 +442,8 @@ bot.on("message", message => {
   const moment = require("moment");
   if (message.content.startsWith(`${prefix}userprofile`)) {
     const dateformat = require("date-format")
-    
+    let y = Date.now() - message.guild.members.cache.get(member.user.id).joinedAt; // Since the user joined the server.
+    let joined = Math.floor(y / 86400000);
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
@@ -460,7 +461,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** \nTIMES MENTIONED: ${member.mentions.cache.size}`
+        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** \nJOINED ${joined}`
       );
     message.channel.send(picEmbed);
   }
