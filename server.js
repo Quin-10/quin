@@ -1137,6 +1137,28 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
       `what's your favorite piece of candy?`,
       `do you like school?`,
       `do you hate school?`,
+      `do you like discord?`,
+      `are you underaged? don't worry I won't snitch?`,
+      `are you a bot developer like Quin10?`,
+      `what's your favorite season?`,
+      `what device are you talking to me on?`,
+      `what's your favorite show?`,
+      `what school do you go to?`,
+      `do you own a pet?`,
+      `what's your favorite resturaunt?`,
+      `how tall are youL`,
+      `do you like me?`,
+      `what's your favorite color?`,
+      `are you right handed or left handed?`,
+      `what does your name start with in the alphabet?`,
+      `do you like your name`,
+      `where are you right now?`,
+      `what's your favorite video game?`,
+      `are you on break or you are still going to still?`,
+      `what's your favorit cartoon show?`,
+      s`,
+      ``,
+      ``,
       ``,
       ``,
       ``,
@@ -1146,6 +1168,7 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
       ``,
     ]
   var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
+  }
   })
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
