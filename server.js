@@ -446,6 +446,7 @@ bot.on("message", message => {
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
+    let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
     let nickname = member.nickname !== undefined && member.nickname !== null ? member.nickname : "None";
     
     if (member.user.bot) {
@@ -459,7 +460,7 @@ bot.on("message", message => {
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot} \nNICKNAME: ${nickname}`
+        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}**`
       );
     message.channel.send(picEmbed);
   }
@@ -468,7 +469,7 @@ bot.on("message", message => {
   
   
   if (message.content.startsWith(`${prefix}botprofile`)) {
-    const member = message.mentions.members.first();
+    const member = message.mentions.members.first()
 
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
