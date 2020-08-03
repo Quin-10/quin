@@ -1087,17 +1087,24 @@ bot.on("message", async message => {
 return message.channel.send(`what sentence makes your face turn into this ( ͡° ͜ʖ ͡°)?`)
 }
     message.channel.send(`someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`)
-  } else if  (message.content.startsWith(`${prefix}roast me`)) {
+  } else if  (message.content.startsWith(`${prefix}roas`)) {
 const roastC =[
 "bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
   "you suck so much that you were put up for adoption more than how many miliseconds earth existed",
   "you look like those bobble head toys",
   "your IQ is less then the number of people that are older than 1 googleplex",
   `you're the reason why people say "don't do drugs" `,
-  `you're an idiot                 look right                 you're stupid`,
+  'you‘re an idiot                 `look right`                 you’re stupid',
   'wow, imagine choking on your own spit',
-  `you suck at being a modertator, an infant can do better`
+  `you suck at being a modertator, an infant can do better`,
+  `imagine being so lonely to the point that you're talking to a bot`,
+  `you're a waste of 1000000 pounds`,
+  `the best compliment you gotten was that you were mediocre`
 ]
+ var burned = roastC[Math.floor(Math.random() * roastC.length)];
+    message.channel.send(`${burned}`)
+  } else if (message.content.startsWith(`${prefix}laugh`)) {
+})
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
 const fetch = require('node-fetch')
