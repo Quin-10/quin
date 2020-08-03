@@ -1081,7 +1081,9 @@ bot.on("message", message => {
   }
 })
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}fon`)) {
+  if (message.content.startsWith(`${prefix}lenny`)) {
+    const lemon = message.content.split(`${prefix}lenny`).slice.join("")
+    message.channel.send(``)
   }})
 
 bot.on("message", async message => {
