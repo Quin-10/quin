@@ -442,8 +442,6 @@ bot.on("message", message => {
   const moment = require("moment");
   if (message.content.startsWith(`${prefix}userprofile`)) {
     const dateformat = require("date-format")
-    let y = Date.now() - member.joinedAt; // Since the user joined the server.
-    let joined = Math.floor(y / 86400000);
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
