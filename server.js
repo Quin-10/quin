@@ -388,8 +388,7 @@ bot.on("message", message => {
 
       const all = fetchedMembers;
 
-      message.guild.bots.fetch().then(fetchedBots => {
-        const totalbot = fetchedBots;
+      
 
         const statusEmbed = new Discord.MessageEmbed()
           .setColor("303136")
@@ -400,9 +399,9 @@ bot.on("message", message => {
           );
         message.channel.send(statusEmbed);
       });
-    });
+    };
   }
-});
+);
 bot.on("message", message => {
   
   if (message.content.startsWith(`textChannel`)) {
