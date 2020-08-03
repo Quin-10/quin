@@ -1104,7 +1104,15 @@ const roastC =[
  var burned = roastC[Math.floor(Math.random() * roastC.length)];
     message.channel.send(`${burned}`)
   } else if (message.content.startsWith(`${prefix}laugh`)) {
-})
+    const hmlol = [
+      "\<:Smugno:735651807610536117>"
+]
+    var bo = hmlol[Math.floor(Math.random() * hmlol.length)];
+    const funi = message.content.split(`${prefix}laugh`).slice(1).join("")
+    if (!funi) return message.channel.send(`what’s so funny!?`)
+    message.channel.send(`${message.author.username}: "${funi} "\n\n\n\neveryone:`)
+  }
+  })
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
 const fetch = require('node-fetch')
