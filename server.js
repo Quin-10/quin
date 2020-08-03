@@ -1125,6 +1125,10 @@ const roastC =[
   } else if (message.content.startsWith(`${prefix}talkkid`)) {
 const unamed = message.content.split(`${prefix}talkkid`).slice(1).join(" ")
 if (!unamed) return message.channel.send(`what do you want to say to the stupid kid?`)
+    if (unamed === 'N') {
+return 
+message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poopy head"`)
+    }
     message.channel.send(`${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`)
   }
   })
