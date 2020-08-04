@@ -230,7 +230,7 @@ const command = args.shift().toLowerCase();
     if (!message.content.endsWith(`?`)) {
       return message.channel.send(
         "please put `?` at the end of your question."
-      );
+      );//propro
     }
     if (message.channel.type == "dm") {
       return;
@@ -320,9 +320,9 @@ bot.on("message", message => {
   if (message.content === "propro") {
     message.delete();
     bot.user.setAvatar(
-      "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FF0826EC9-3966-4B08-899B-3DC9653F517D.png?v=1595110044169"
-    );
-  }
+      "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FFFFD470B-9164-4FED-B203-A396FA3A3D15.png?v=1596580039359"
+ )
+      }
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
