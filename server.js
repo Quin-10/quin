@@ -1175,7 +1175,8 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
     .setTitle(`\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`)
     .setDescription(`${topics}`,)
     message.channel.send(topicbed)
-  }
+  } else if (message.content.startsWith(`${prefix}quote`)) {
+}
   })
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
