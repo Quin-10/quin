@@ -530,7 +530,7 @@ bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command === `serverinfo`)) {
+  if (command === `serverinfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
@@ -553,7 +553,10 @@ const command = args.shift().toLowerCase();
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}mail`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `mail`) {
     var user = message.mentions.members.first();
     var hm = message.content
       .split(`${user}`)
@@ -577,7 +580,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}coolSize`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `coolSize`) {
     let user = message.mentions.members.first();
     if (user === undefined) {
       user = message.author;
@@ -618,7 +624,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}messageReact`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command ===`messageReact`) {
     var emote = message.content
       .split(`messageReact`)
       .slice(1)
@@ -629,11 +638,9 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
   if (command === `pinme`) {
     const pinning = message.content
       .split(`pinme`)
@@ -667,9 +674,12 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
   const user = message.mentions.users.first();
 
-  if (message.content.startsWith(`${prefix}kill`)) {
+  if (command === `kill`) {
     if (!user) {
       message.channel.send("please specify the user you want to kill");
     }
@@ -799,7 +809,10 @@ bot.on("message", async message => {
 });
 
 bot.on("message", async message => {
-  if (message.content.startsWith(prefix + "ping")) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "ping") {
     try {
       const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
       const embed = new Discord.MessageEmbed()
@@ -817,7 +830,10 @@ bot.on("message", async message => {
   }
 }); // easy way.
 bot.on("message", async message => {
-  if (message.content.startsWith(`killmyself`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command ===`killmyself`) {
     const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
       .setTitle(
@@ -829,7 +845,10 @@ bot.on("message", async message => {
 });
 
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}meme`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `meme`) {
     const got = require("got");
 
     got("https://www.reddit.com/r/meme/random/.json")
@@ -855,7 +874,10 @@ bot.on("message", async message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}time`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `time`) {
     const dates = new Date();
     message.channel.send(`${dates}`);
   }
@@ -868,9 +890,12 @@ bot.on("message", async message => {
     const timer = new Date();
     message.channel.send(`Today is **${timer}**`);
   }
-});
+})
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}onlin`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `onlin`) {
     const fetch = require("node-fetch");
     function QuinBot() {
       fetch("https://mr-circle.glitch.me");
@@ -893,7 +918,10 @@ bot.on("message", async message => {
   }
 });
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}prune`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command =&`prune`)) {
     const numba = message.content
       .split(`${prefix}prune`)
       .slice(1)
