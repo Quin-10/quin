@@ -144,7 +144,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith`${prefix}mine`) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
     const minesweeper = new Minesweeper({
@@ -155,12 +158,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (message.content.startsWith(`${prefix}slots`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `slots`) {
     var choices = [
       ` [**01**]`,
       ` [**02**]`,
@@ -208,7 +209,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}8ball`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `8ball`) {
     if (
       !message.content
         .split(" ")
@@ -254,7 +258,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}announce`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `announce`) {
     if (message.author.bot) {
       return;
     }
@@ -312,7 +319,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}ban`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `ban`) {
     if (message.author.bot) {
       return;
     }
@@ -350,7 +360,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}serverscircle`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `serverscircle`) {
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
     );
@@ -368,7 +381,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}memberstatus`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `memberstatus`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
         member => member.presence.status === "online"
@@ -419,19 +435,13 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}nuking`)) {
-    if (!message.member.hasPermission("MANAGE_CHANNELS")) {
-      return message.channel.send("you do not have permissons");
-    }
-    let clearchannel = message.channel.mentions.first();
-    message.clearAll();
-  }
-});
 
 bot.on("message", message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
   const moment = require("moment");
-  if (message.content.startsWith(`${prefix}userprofile`)) {
+  if (command === `userprofile`) {
     const dateformat = require("date-format");
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
@@ -462,6 +472,9 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}botprofile`)) {
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
     const member = message.mentions.members.first();
 
     const user = message.mentions.members.first();
@@ -491,7 +504,7 @@ bot.on("message", message => {
 
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}lead`)) {
-    var high = message.guildMember.roles.highest;
+    var high = message.member.roles.highest;
     message.channel.send(high);
   }
 });
