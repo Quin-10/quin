@@ -22,7 +22,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}emotes`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `emotes`) {
     message.channel.send(
       "<:SURPRISED:719733158509281370><:LIKE:719733158332858499><:EYES:719733159608057866><:happy:719733157099733056><:check:719733159079575710><:K_:719733159297679400>these are my favorite emotes lol"
     );
@@ -30,7 +33,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}nitro`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `nitro`) {
     var choices = [
       "nitro is too expensive",
       "10 dollars, just to make gif emojis!?",
@@ -114,7 +120,10 @@ bot.on("message", async message => {
 
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}say`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command ===`say`) {
     if (message.author.bot) {
       return;
     }
@@ -1193,5 +1202,13 @@ bot.on("message", async message => {
     setInterval(QunBot, 60000);
   }
 });
-
+bot.on("message", message => {
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "hi") {
+message.channel.send('high')
+// the rest of
+  }
+})
 bot.login(TOKEN);
