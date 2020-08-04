@@ -102,8 +102,10 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  const infoWords = ["@yahoo.com", "@gmail.com"];
-  if (infoWords.some(word => message.content.includes(word))) {
+  const args = message.content.split(' ')
+  
+  const infoWords = ["@yahoo.com", "@gmail.com", "fuck", "ass", "cunt", "damn", "bitch", "e"];
+  if (infoWords.some(word => message.content.toLowerCase().includes(word))) {
     return;
     message.delete();
     message.member.send("are you trying to leak your account?");
