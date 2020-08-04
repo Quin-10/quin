@@ -503,8 +503,12 @@ bot.on("message", message => {
 });
 
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}lead`)) {
-    var high = message.member.roles.highest;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command ===`lead`) {
+    const member = message.mentions.members.first
+    var high = member.roles.highest.name
     message.channel.send(high);
   }
 });
@@ -523,7 +527,10 @@ bot.on("message", message => {
   let created = dateformat(message.guild.createdAt); // 86400000, 5 digits-zero.
   // Install "dateformat" first.
   let icon = message.guild.iconURL({ size: 2048 });
-  if (message.content.startsWith(`${prefix}serverinfo`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `serverinfo`)) {
     const choices = [
       "<:Sweat:735651779152314376>",
       "<:Eyes:735650818983985222>",
