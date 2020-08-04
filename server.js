@@ -17,10 +17,9 @@ bot.once("ready", () => {
 });
 //hello command
 bot.on("message", message => {
-  if (message.content === "Hello") {
-    if (!message.channel.type == "dm") {
-      return;
-    }
+  if (message.channel.type === "dm") return
+  if (message.content.startsWith("Hello")) {
+    
     message.member.send("it was fun while it lasted :[");
     
   }
