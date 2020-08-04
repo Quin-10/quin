@@ -101,11 +101,11 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", message => {
-  const args = message.content.split(' ')
+bot.on("message", async message => {
   
-  const infoWords = ["@yahoo.com", "@gmail.com", "fuck", "ass", "cunt", "damn", "bitch", "e"];
-  if (infoWords.some(word => message.content.toLowerCase().includes(word))) {
+  
+  const infoWords = ["@yahoo.com", "@gmail.com", "fuck", "ass", "cunt", "damn", "bitch", "o"];
+  if (infoWords.some(word => message.content.includes(word))) {
     return;
     message.delete();
     message.member.send("are you trying to leak your account?");
@@ -1193,4 +1193,5 @@ bot.on("message", async message => {
     setInterval(QunBot, 60000);
   }
 });
+
 bot.login(TOKEN);
