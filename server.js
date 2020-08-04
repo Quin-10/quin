@@ -18,10 +18,10 @@ bot.once("ready", () => {
 //hello command
 bot.on("message", message => {
   if (message.content === "Hello") {
-    if (message.type == "text") {
-return
-}
-    message.member.send("it was fun while it lasted :[");
+    if (message.channel.type == "dm") {
+      return;
+    }
+    message.channel.send("it was fun while it lasted :[");
     
   }
 });
