@@ -921,7 +921,7 @@ bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command =&`prune`)) {
+  if (command === `prune`) {
     const numba = message.content
       .split(`${prefix}prune`)
       .slice(1)
@@ -939,8 +939,10 @@ bot.on("message", async message => {
   let hours = Math.floor(bot.uptime / 3600000) % 24;
   let minutes = Math.floor(bot.uptime / 60000) % 60;
   let seconds = Math.floor(bot.uptime / 1000) % 60;
-
-  if (message.content.startsWith(`${prefix}uptime`)) {
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `uptime`) {
     const uptimebed = new Discord.MessageEmbed()
       .setAuthor(bot.user.tag, bot.user.avatarURL())
       .setColor("43B581")
@@ -994,7 +996,10 @@ bot.on("message", async message => {
   }
 });
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}setted`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `setted`) {
     const channel = message.mentions.channels.first();
     if (!channel) {
       return message.channel.send("Please Mention the channel first");
@@ -1070,7 +1075,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}gaysize`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `gaysize`) {
     const gaz = [Math.floor(Math.random() * 100 + 1)];
     const gabe = new Discord.MessageEmbed()
       .setTitle("THIS IS HOW GAY YOU ARE")
@@ -1091,7 +1099,10 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}fetchM`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command ===`fetchM`) {
     const channel = message.mentions.channels.first();
     channel.messages.fetch().then(messages => {
       if (messages.size < 50) {
@@ -1105,13 +1116,19 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}foil`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === `randomnumber`) {
     const gaz = [Math.floor(Math.random() * 100 + 1)];
     message.channel.send(`${gaz}`);
   }
 });
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}lenny`)) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command ===`lenny`) {
     const lemon = message.content
       .split(`${prefix}lenny`)
       .slice(1)
@@ -1124,7 +1141,10 @@ bot.on("message", async message => {
     message.channel.send(
       `someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`
     );
-  } else if (message.content.startsWith(`${prefix}roas`)) {
+  }
+  
+  else if (command === `roas`) {
+    
     const roastC = [
       "bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
       "you suck so much that you were put up for adoption more than how many miliseconds earth existed",
@@ -1164,7 +1184,7 @@ bot.on("message", async message => {
     message.channel.send(
       `${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`
     );
-  } else if (message.content.startsWith(`${prefix}talkkid`)) {
+  } else if (command === `talkkid`) {
     const unamed = message.content
       .split(`${prefix}talkkid`)
       .slice(1)
@@ -1180,7 +1200,7 @@ bot.on("message", async message => {
     message.channel.send(
       `${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`
     );
-  } else if (message.content.startsWith(`${prefix}topic`)) {
+  } else if (command === `topic`) {
     const choiceT = [
       `what do you wanna be when you grow up?`,
       `what's your favorite gaming console?`,
@@ -1225,7 +1245,7 @@ bot.on("message", async message => {
       )
       .setDescription(`${topics}`);
     message.channel.send(topicbed);
-  } else if (message.content.startsWith(`${prefix}quote`)) {
+  } else if (command === `quote`) {
     const quoted = message.content
       .split(`${prefix}quote`)
       .slice(0)
