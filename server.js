@@ -1,7 +1,6 @@
 // inside a command, event listener, etc.
 
-
-var prefix = "E/" || "e/"
+var prefix = "E/" || "e/";
 var express = require("express");
 var app = express();
 app.get("/", (request, response) => {
@@ -17,11 +16,9 @@ bot.once("ready", () => {
 });
 //hello command
 bot.on("message", message => {
-  if (message.channel.type === "dm") return
+  if (message.channel.type === "dm") return;
   if (message.content.startsWith("Hello")) {
-    
     message.member.send("it was fun while it lasted :[");
-    
   }
 });
 bot.on("message", message => {
@@ -32,9 +29,7 @@ bot.on("message", message => {
   }
 });
 
-
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}nitro`)) {
     var choices = [
       "nitro is too expensive",
@@ -117,7 +112,6 @@ bot.on("message", message => {
 
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}say`)) {
     if (message.author.bot) {
       return;
@@ -139,7 +133,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  
   if (message.content.startsWith`${prefix}mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
@@ -204,7 +197,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}8ball`)) {
     if (
       !message.content
@@ -251,7 +243,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-
   if (message.content.startsWith(`${prefix}announce`)) {
     if (message.author.bot) {
       return;
@@ -310,7 +301,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}ban`)) {
     if (message.author.bot) {
       return;
@@ -349,7 +339,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}serverscircle`)) {
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
@@ -357,7 +346,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}giverole`)) {
     if (message.author.bot) {
       return;
@@ -369,7 +357,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}memberstatus`)) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
@@ -387,22 +374,18 @@ bot.on("message", message => {
 
       const all = fetchedMembers;
 
-      
-
-        const statusEmbed = new Discord.MessageEmbed()
-          .setColor("303136")
-          .setTimestamp()
-          .setTitle(`**STATS**`)
-          .setDescription(
-            `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `
-          );
-        message.channel.send(statusEmbed);
-      });
-    };
+      const statusEmbed = new Discord.MessageEmbed()
+        .setColor("303136")
+        .setTimestamp()
+        .setTitle(`**STATS**`)
+        .setDescription(
+          `\<:Idle:729453479919353867>IDLE: **${totalidle.size}** \n\<:Offline:729453722500857947>OFFLINE: **${totalOffline.size}** \n\<:Online:729453404375613462>ONLINE: **${totalOnline.size}** \n\<:Donotdisturb:729453626421936190> DON'T DISTURB: **${totaldnd.size}** \n\<:check:719733159079575710> ALL: **${all.size}** `
+        );
+      message.channel.send(statusEmbed);
+    });
   }
-);
+});
 bot.on("message", message => {
-  
   if (message.content.startsWith(`textChannel`)) {
     message.guild.channels.create("new-channel", {
       type: "text",
@@ -411,7 +394,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`avatar`)) {
     const avaEmbed = new Discord.MessageEmbed()
       .setTitle("this is your avatar")
@@ -437,16 +419,20 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  
   const moment = require("moment");
   if (message.content.startsWith(`${prefix}userprofile`)) {
-    const dateformat = require("date-format")
+    const dateformat = require("date-format");
     const member = message.mentions.members.first();
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
-    let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
-    let nickname = member.nickname !== undefined && member.nickname !== null ? member.nickname : "None";
-    
+    let joindate = moment
+      .utc(member.joinedAt)
+      .format("dddd, MMMM Do YYYY, HH:mm:ss");
+    let nickname =
+      member.nickname !== undefined && member.nickname !== null
+        ? member.nickname
+        : "None";
+
     if (member.user.bot) {
       return;
     }
@@ -464,10 +450,8 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
-  
   if (message.content.startsWith(`${prefix}botprofile`)) {
-    const member = message.mentions.members.first()
+    const member = message.mentions.members.first();
 
     const user = message.mentions.members.first();
     const picture = member.user.displayAvatarURL();
@@ -489,15 +473,12 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}pinned`)) {
     const pin = message.channel.messages.fetchPinned();
   }
 });
 
 bot.on("message", async message => {
-  
-  
   if (message.content.startsWith(`${prefix}lead`)) {
     var high = message.guildMember.roles.highest;
     message.channel.send(high);
@@ -512,12 +493,12 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  const dateformat = require("date-format")
+  const dateformat = require("date-format");
   let x = Date.now() - message.guild.createdAt;
   let h = Math.floor(x / 86400000);
-  let created = dateformat(message.guild.createdAt);// 86400000, 5 digits-zero.
-   // Install "dateformat" first.
-let icon = message.guild.iconURL({size: 2048}); 
+  let created = dateformat(message.guild.createdAt); // 86400000, 5 digits-zero.
+  // Install "dateformat" first.
+  let icon = message.guild.iconURL({ size: 2048 });
   if (message.content.startsWith(`${prefix}serverinfo`)) {
     const choices = [
       "<:Sweat:735651779152314376>",
@@ -530,7 +511,7 @@ let icon = message.guild.iconURL({size: 2048});
     const infoEmbed = new Discord.MessageEmbed()
 
       .setTitle(`SERVER INFO`)
-    .setThumbnail(icon)
+      .setThumbnail(icon)
       .setColor("363940")
       .setDescription(
         ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: ${created}`
@@ -541,7 +522,6 @@ let icon = message.guild.iconURL({size: 2048});
 });
 
 bot.on("message", message => {
-  
   if (message.content.startsWith(`${prefix}mail`)) {
     var user = message.mentions.members.first();
     var hm = message.content
@@ -566,8 +546,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  
-  
   if (message.content.startsWith(`${prefix}coolSize`)) {
     let user = message.mentions.members.first();
     if (user === undefined) {
@@ -658,7 +636,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  
   const user = message.mentions.users.first();
 
   if (message.content.startsWith(`${prefix}kill`)) {
@@ -721,8 +698,6 @@ bot.on("message", message => {
   }
 });
 bot.on("message", message => {
-  
-
   if (message.content.startsWith(`varif`)) {
     message.channel.send("ok");
     message.react("👍").then(() => message.react("👎"));
@@ -754,8 +729,6 @@ bot.on("message", message => {
 });
 
 bot.on("message", async message => {
-  
-
   if (message.content.startsWith(`${prefix}varif1`)) {
     const role = message.mentions.roles.first();
     const rules = message.content
@@ -813,8 +786,6 @@ bot.on("message", async message => {
   }
 }); // easy way.
 bot.on("message", async message => {
-  
-
   if (message.content.startsWith(`killmyself`)) {
     const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
@@ -827,8 +798,6 @@ bot.on("message", async message => {
 });
 
 bot.on("message", async message => {
-  
-
   if (message.content.startsWith(`${prefix}meme`)) {
     const got = require("got");
 
@@ -856,122 +825,120 @@ bot.on("message", async message => {
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}time`)) {
-    const dates = new Date()
+    const dates = new Date();
     message.channel.send(`${dates}`);
   }
 });
 
-
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}date`)) {
-    const moment = require('moment')
-    const Date = require('date')
-        const timer = new Date
-        message.channel.send(`Today is **${timer}**`);
+    const moment = require("moment");
+    const Date = require("date");
+    const timer = new Date();
+    message.channel.send(`Today is **${timer}**`);
   }
-})
+});
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}onlin`)) {
-const fetch = require('node-fetch')
-function QuinBot() { 
-fetch('https://mr-circle.glitch.me')
-console.log('pong')
-} 
-setInterval(QuinBot, 60000)
-  
+    const fetch = require("node-fetch");
+    function QuinBot() {
+      fetch("https://mr-circle.glitch.me");
+      console.log("pong");
+    }
+    setInterval(QuinBot, 60000).then;
+    const onbed = new Discord.MessageEmbed()
+      .setTitle(`pinging...`)
+      .setDescription(`•••`)
+      .setFooter(`wait...`)
+      .setTimestamp();
 
-.then
-const onbed = new Discord.MessageEmbed()
-.setTitle(`pinging...`)
-.setDescription(`•••`)
-.setFooter(`wait...`)
-.setTimestamp()
- 
     const pingbee = new Discord.MessageEmbed()
-    .setAuthor(`succsesfully pinged!`)
-    .setTitle(`Pinged \<:Yes:735651799435968644>`)
-.setDescription(`now the bot will appear online more often`)
-.setFooter(`pinged`)
-.setTimestamp()
-    message.channel.send(pingbee)
-    
-    
-    
-}
-})
-bot.on("message", async message => {
-if (message.content.startsWith(`${prefix}prune`)) { 
-  const numba = message.content.split(`${prefix}prune`).slice(1).join(" ")// You can make an aliases. Just like that.
-    if (numba > 99) return message.channel.send(`too many messages to delete`)
-  if (numba < 2) return message.channel.send(`too little messages to delete`)
-    
-    
-    message.channel.bulkDelete(numba)
-
+      .setAuthor(`succsesfully pinged!`)
+      .setTitle(`Pinged \<:Yes:735651799435968644>`)
+      .setDescription(`now the bot will appear online more often`)
+      .setFooter(`pinged`)
+      .setTimestamp();
+    message.channel.send(pingbee);
   }
-})
-bot.on("message", async message => {
-  const bot1 = message.mentions.members.first()
-  const ms = require("ms")
-  let days = Math.floor(bot.uptime / 86400000);
-      let hours = Math.floor(bot.uptime / 3600000) % 24;
-      let minutes = Math.floor(bot.uptime / 60000) % 60;
-      let seconds = Math.floor(bot.uptime / 1000) % 60;
-
-if (message.content.startsWith(`${prefix}uptime`)){
-  
-  const uptimebed = new Discord.MessageEmbed()
-  .setAuthor(bot.user.tag, bot.user.avatarURL())
-  .setColor('43B581')
-  .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FB127D091-527A-4151-A780-168585DFF6D7.png?v=1596317347762')
-  .setFooter(`The bot's uptime`)
-  .setTimestamp()
-  .setDescription(`**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`)
-message.channel.send(uptimebed)
-}
-})
-bot.on('message', message => {
-    if (message.content.startsWith(`${prefix}loop`)) {
-      const game = message.content.split(`${prefix}loop`)
-      var interval = setInterval (function () {
-        message.channel.send("123")
-      }, 1 * game); 
-    }
 });
-bot.on('message', message => {
-    if (message.content.startsWith(`${prefix}mess`)) {
-const types = message.guild.messages.cache.size
-message.channel.send(`${types}`)
-    }
-})
-bot.on('message', message => {
-if (message.content.startsWith(`${prefix}counter`)) {
-const messageCount = message.guild.i
+bot.on("message", async message => {
+  if (message.content.startsWith(`${prefix}prune`)) {
+    const numba = message.content
+      .split(`${prefix}prune`)
+      .slice(1)
+      .join(" "); // You can make an aliases. Just like that.
+    if (numba > 99) return message.channel.send(`too many messages to delete`);
+    if (numba < 2) return message.channel.send(`too little messages to delete`);
 
-// Send the message count in a message. The template literal (${}) adds an 's' if needed.
-message.channel.send(`**${messageCount}** sent.`)
-  .catch(console.error);
-}
-})
+    message.channel.bulkDelete(numba);
+  }
+});
+bot.on("message", async message => {
+  const bot1 = message.mentions.members.first();
+  const ms = require("ms");
+  let days = Math.floor(bot.uptime / 86400000);
+  let hours = Math.floor(bot.uptime / 3600000) % 24;
+  let minutes = Math.floor(bot.uptime / 60000) % 60;
+  let seconds = Math.floor(bot.uptime / 1000) % 60;
+
+  if (message.content.startsWith(`${prefix}uptime`)) {
+    const uptimebed = new Discord.MessageEmbed()
+      .setAuthor(bot.user.tag, bot.user.avatarURL())
+      .setColor("43B581")
+      .setThumbnail(
+        "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FB127D091-527A-4151-A780-168585DFF6D7.png?v=1596317347762"
+      )
+      .setFooter(`The bot's uptime`)
+      .setTimestamp()
+      .setDescription(
+        `**Days:** ${days} \n**Hours:** ${hours} \n**Minutes:** ${minutes} \n**Seconds:** ${seconds}`
+      );
+    message.channel.send(uptimebed);
+  }
+});
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}loop`)) {
+    const game = message.content.split(`${prefix}loop`);
+    var interval = setInterval(function() {
+      message.channel.send("123");
+    }, 1 * game);
+  }
+});
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}mess`)) {
+    const types = message.guild.messages.cache.size;
+    message.channel.send(`${types}`);
+  }
+});
+bot.on("message", message => {
+  if (message.content.startsWith(`${prefix}counter`)) {
+    const messageCount = message.guild.i;
+
+    // Send the message count in a message. The template literal (${}) adds an 's' if needed.
+    message.channel.send(`**${messageCount}** sent.`).catch(console.error);
+  }
+});
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}newdate`)) {
-  const ms = require("ms")
-  const Date = require("date")
-  let days = Math.floor(message.author.createdAt / 86400000);
-      let hours = Math.floor(message.author.createdAt / 3600000) % 24;
-      let minutes = Math.floor( message.author.createdAt / 60000) % 60;
-      let seconds = Math.floor(message.author.createdAt / 1000) % 60;
-message.channel.send(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`)
-    var interal = setInterval (function () {
-        message.edit(`:${hours}:${minutes}:${seconds}`)
-      }, 1 * 1000); 
+    const ms = require("ms");
+    const Date = require("date");
+    let days = Math.floor(message.author.createdAt / 86400000);
+    let hours = Math.floor(message.author.createdAt / 3600000) % 24;
+    let minutes = Math.floor(message.author.createdAt / 60000) % 60;
+    let seconds = Math.floor(message.author.createdAt / 1000) % 60;
+    message.channel.send(
+      `Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`
+    );
+    var interal = setInterval(function() {
+      message.edit(`:${hours}:${minutes}:${seconds}`);
+    }, 1 * 1000);
   }
-})
+});
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}setted`)) {
-const channel = message.mentions.channels.first()
-if (!channel) {
-return message.channel.send("Please Mention the channel first");
+    const channel = message.mentions.channels.first();
+    if (!channel) {
+      return message.channel.send("Please Mention the channel first");
     }
 
     //Now we gonna use quick.db
@@ -985,7 +952,6 @@ return message.channel.send("Please Mention the channel first");
 const db = require("quick.db"); //using quick.db package
 
 bot.on("guildMemberAdd", member => {
-  
   //usageof welcome event
   let chx = db.get(`welchannel_${member.guild.id}`); //defining var
 
@@ -998,8 +964,10 @@ bot.on("guildMemberAdd", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`Welcome to **${member.guild.name}**, **${member.user.tag}**`)
-  .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
+    .setDescription(
+      `Welcome to **${member.guild.name}**, **${member.user.tag}**`
+    )
+    .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
     .setFooter(`Welcome`)
     .setTimestamp();
 
@@ -1026,114 +994,136 @@ bot.on("guildMemberRemove", member => {
 });
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}clap`)) {
-    
-        const clapping = message.content.split(`${prefix}`).slice(1).join()
-        message.channel.send(`${clapping}`);
+    const clapping = message.content
+      .split(`${prefix}`)
+      .slice(1)
+      .join();
+    message.channel.send(`${clapping}`);
   }
-})
+});
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}play`)) {
-message.guild.messages.fetch().then(fetchedMessages => {
-  const al = fetchedMessages
-  message.channel.send(`${al.size}`)
-  })
+    message.guild.messages.fetch().then(fetchedMessages => {
+      const al = fetchedMessages;
+      message.channel.send(`${al.size}`);
+    });
   }
-})
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}gaysize`)) {
     const gaz = [Math.floor(Math.random() * 100 + 1)];
     const gabe = new Discord.MessageEmbed()
-    .setTitle("THIS IS HOW GAY YOU ARE")
-    .setColor('FF95A1')
-    .addField(`Gay Machine`,`**${gaz}%**`, true)
-    .setFooter(``)
-    .setTimestamp()
-         message.channel.send(gabe)  
+      .setTitle("THIS IS HOW GAY YOU ARE")
+      .setColor("FF95A1")
+      .addField(`Gay Machine`, `**${gaz}%**`, true)
+      .setFooter(``)
+      .setTimestamp();
+    message.channel.send(gabe);
   }
-})
-
+});
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}help`)) {
     const finalembed = new Discord.MessageEmbed()
-    .setTitle(`Help`)
-    .setAuthor(bot.tag, bot.avatarURL, true)
-    .addField(`FUN`, `8ball, kill`)
-    }
-})
+      .setTitle(`Help`)
+      .setAuthor(bot.tag, bot.avatarURL, true)
+      .addField(`FUN`, `8ball, kill`);
+  }
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}fetchM`)) {
-   const channel = message.mentions.channels.first()
-    channel.messages.fetch().then((messages) => {
-      if (messages.size < 50){
-return message.channel.send(`${messages.size}**+**`)
-}
-      if (messages.size == 0){
-return message.channel.send(`None`)
-}
-      message.channel.send(`${messages.size}`)
-    })
-  }})
+    const channel = message.mentions.channels.first();
+    channel.messages.fetch().then(messages => {
+      if (messages.size < 50) {
+        return message.channel.send(`${messages.size}**+**`);
+      }
+      if (messages.size == 0) {
+        return message.channel.send(`None`);
+      }
+      message.channel.send(`${messages.size}`);
+    });
+  }
+});
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}foil`)) {
-  const gaz = [Math.floor(Math.random() * 100 + 1)];
-         message.channel.send(`${gaz}`)  
+    const gaz = [Math.floor(Math.random() * 100 + 1)];
+    message.channel.send(`${gaz}`);
   }
-})
+});
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}lenny`)) {
-    const lemon = message.content.split(`${prefix}lenny`).slice(1).join("")
-    if(!lemon) {
-return message.channel.send(`what sentence makes your face turn into this ( ͡° ͜ʖ ͡°)?`)
-}
-    message.channel.send(`someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`)
-  } else if  (message.content.startsWith(`${prefix}roas`)) {
-const roastC =[
-"bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
-  "you suck so much that you were put up for adoption more than how many miliseconds earth existed",
-  "you look like those bobble head toys",
-  "your IQ is less then the number of people that are older than 1 googleplex",
-  `you're the reason why people say "don't do drugs" `,
-  'you‘re an idiot                 `look right`                 you’re stupid',
-  'wow, imagine choking on your own spit',
-  `you suck at being a modertator, an infant can do better`,
-  `imagine being so lonely to the point that you're talking to a bot`,
-  `you're a waste of 1000000 pounds`,
-  `the best compliment you gotten was that you were mediocre`
-]
- var burned = roastC[Math.floor(Math.random() * roastC.length)];
-    message.channel.send(`${burned}`)
+    const lemon = message.content
+      .split(`${prefix}lenny`)
+      .slice(1)
+      .join("");
+    if (!lemon) {
+      return message.channel.send(
+        `what sentence makes your face turn into this ( ͡° ͜ʖ ͡°)?`
+      );
+    }
+    message.channel.send(
+      `someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`
+    );
+  } else if (message.content.startsWith(`${prefix}roas`)) {
+    const roastC = [
+      "bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
+      "you suck so much that you were put up for adoption more than how many miliseconds earth existed",
+      "you look like those bobble head toys",
+      "your IQ is less then the number of people that are older than 1 googleplex",
+      `you're the reason why people say "don't do drugs" `,
+      "you‘re an idiot                 `look right`                 you’re stupid",
+      "wow, imagine choking on your own spit",
+      `you suck at being a modertator, an infant can do better`,
+      `imagine being so lonely to the point that you're talking to a bot`,
+      `you're a waste of 1000000 pounds`,
+      `the best compliment you gotten was that you were mediocre`
+    ];
+    var burned = roastC[Math.floor(Math.random() * roastC.length)];
+    message.channel.send(`${burned}`);
   } else if (message.content.startsWith(`${prefix}laugh`)) {
     const hmlol = [
       `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n Oof, tough luck kid`,
       `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n Oof, tough luck kid`,
-  `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
+      `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
       `\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266> \n DANG! that joke was so bad that they want to kill you. not only is your comedy career over, but so is your time on earth`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-`\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-    `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-    ]
+      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
+      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`
+    ];
     var bo = hmlol[Math.floor(Math.random() * hmlol.length)];
-    const funi = message.content.split(`${prefix}laugh`).slice(1).join("")
-    if (!funi) return message.channel.send(`what’s so funny!?`)
-    message.channel.send(`${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`)
+    const funi = message.content
+      .split(`${prefix}laugh`)
+      .slice(1)
+      .join("");
+    if (!funi) return message.channel.send(`what’s so funny!?`);
+    message.channel.send(
+      `${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`
+    );
   } else if (message.content.startsWith(`${prefix}talkkid`)) {
-const unamed = message.content.split(`${prefix}talkkid`).slice(1).join(" ")
-if (!unamed) return message.channel.send(`what do you want to say to the stupid kid?`)
-    if (unamed === 'N') {
-return 
-message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poopy head"`)
+    const unamed = message.content
+      .split(`${prefix}talkkid`)
+      .slice(1)
+      .join(" ");
+    if (!unamed)
+      return message.channel.send(`what do you want to say to the stupid kid?`);
+    if (unamed === "N") {
+      return;
+      message.channel.send(
+        `${message.author.username}: "lol"\n\n\nkid: "you're a poopy head"`
+      );
     }
-    message.channel.send(`${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`)
+    message.channel.send(
+      `${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`
+    );
   } else if (message.content.startsWith(`${prefix}topic`)) {
     const choiceT = [
-`what do you wanna be when you grow up?`,
+      `what do you wanna be when you grow up?`,
       `what's your favorite gaming console?`,
       `what's your favorite piece of candy?`,
       `do you like school?`,
@@ -1166,34 +1156,39 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
       `what's your worst subject to learn in school?`,
       `what's your favorite subject to learn in school?`,
       `what is your biggest fear?`,
-      `what's the most expensive thing in your bedroom?`,
-    ]
-  var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
+      `what's the most expensive thing in your bedroom?`
+    ];
+    var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
     const topicbed = new Discord.MessageEmbed()
-    .setColor('#303136')
-    .setTitle(`\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`)
-    .setDescription(`${topics}`,)
-    message.channel.send(topicbed)
+      .setColor("#303136")
+      .setTitle(
+        `\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`
+      )
+      .setDescription(`${topics}`);
+    message.channel.send(topicbed);
   } else if (message.content.startsWith(`${prefix}quote`)) {
-    const quoted = message.content.split(`${prefix}quote`).slice(0).join(" ")
-    const dat = message.content.split(`${prefix}quote ${quoted}`).slice(1).join(" ")
-    if (!quoted) return message.channel.send(`what do you want to quote`)
-    message.channel.send(` "${quoted} "\n\n\n\n~${message.author.username}, 2420`)
-}
-  })
+    const quoted = message.content
+      .split(`${prefix}quote`)
+      .slice(0)
+      .join(" ");
+    const dat = message.content
+      .split(`${prefix}quote ${quoted}`)
+      .slice(1)
+      .join(" ");
+    if (!quoted) return message.channel.send(`what do you want to quote`);
+    message.channel.send(
+      ` "${quoted} "\n\n\n\n~${message.author.username}, 2420`
+    );
+  }
+});
 bot.on("message", async message => {
   if (message.content.startsWith(``)) {
-const fetch = require('node-fetch')
-function QunBot() { 
-fetch('https://mr-circle.glitch.me')
-console.log('pong')
-} 
-setInterval(QunBot, 60000)
-  
-
-
+    const fetch = require("node-fetch");
+    function QunBot() {
+      fetch("https://mr-circle.glitch.me");
+      console.log("pong");
+    }
+    setInterval(QunBot, 60000);
   }
-})
+});
 bot.login(TOKEN);
-  
-
