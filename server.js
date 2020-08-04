@@ -1176,6 +1176,10 @@ message.channel.send(`${message.author.username}: "lol"\n\n\nkid: "you're a poop
     .setDescription(`${topics}`,)
     message.channel.send(topicbed)
   } else if (message.content.startsWith(`${prefix}quote`)) {
+    const quoted = message.content.split(`${prefix}quote`).slice(0).join(" ")
+    const dat = message.content.split(`${prefix}quote ${quoted}`).slice(1).join(" ")
+    if (!quoted) return message.channel.send(`what do you want to quote`)
+    message.channel.send(` "${quoted} "\n\n\n\n~${message.author.username}, 2420`)
 }
   })
 bot.on("message", async message => {
