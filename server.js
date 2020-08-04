@@ -271,7 +271,7 @@ bot.on("message", message => {
 
     var $L = `\n`;
     const anEmbed = new Discord.MessageEmbed()
-      .setTitle("<:Announce:731965302971302000>`NEW ANNOUNCMENT`")
+      .setTitle("<:Announce:731965302971302000>**NEW ANNOUNCMENT**")
       .setDescription(announcelel)
       .setColor("49328");
     channel.send(anEmbed);
