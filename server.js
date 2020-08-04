@@ -878,7 +878,7 @@ function QuinBot() {
 fetch('https://mr-circle.glitch.me')
 console.log('pong')
 } 
-setInterval(QuinBot, 6000)
+setInterval(QuinBot, 60000)
   
 
 .then
@@ -1189,7 +1189,7 @@ function QunBot() {
 fetch('https://mr-circle.glitch.me')
 console.log('pong')
 } 
-setInterval(QunBot, 6000)
+setInterval(QunBot, 60000)
   
 
 
