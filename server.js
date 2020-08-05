@@ -1202,13 +1202,7 @@ const command = args.shift().toLowerCase();
       .join(" ");
     if (!unamed)
       return message.channel.send(`what do you want to say to the stupid kid?`);
-    if (unamed === "lol your mom") {
-      return;
     
-      message.channel.send(
-        `${message.author.username}: "lol"\n\n\nkid: "you're a poopy head"`
-      );
-    }
     message.channel.send(
       `${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`
     );
@@ -1221,7 +1215,7 @@ const command = args.shift().toLowerCase();
       `do you hate school?`,
       `do you like discord?`,
       `are you underaged? don't worry I won't snitch`,
-      `are you a bot developer like Quin10?`,
+      `are you a bot developer?`,
       `what's your favorite season?`,
       `what device are you talking to me on?`,
       `what's your favorite show?`,
