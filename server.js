@@ -1301,4 +1301,16 @@ if (message.author.bot) return
     message.channel.send("eww ping");
   }
 });
+bot.on("message", message => {
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "shoot") {
+let ch = message.mentions.channels.first() || message.channel
+let channel = bot.snipe.get(ch.id)
+if (channel == null || !channel) return ('nothin bro')
+    message.channel.send(`${channel.content}`)
+  }
+})
+
 bot.login(TOKEN);
