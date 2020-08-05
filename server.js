@@ -1166,7 +1166,7 @@ const command = args.shift().toLowerCase();
     ];
     var burned = roastC[Math.floor(Math.random() * roastC.length)];
     message.channel.send(`${burned}`);
-  } else if (command === "laugh") {
+  } else if (command === `laugh`) {
     const hmlol = [
      
             `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
