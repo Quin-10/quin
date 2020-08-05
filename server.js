@@ -1195,14 +1195,14 @@ const command = args.shift().toLowerCase();
     message.channel.send(
       `${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`
     );
-  } else if (command === `talk kid`) {
+  } else if (command === `talkkid`) {
     const unamed = message.content
-      .split(`${prefix}talk kid`)
+      .split(`${prefix}talkkid`)
       .slice(1)
       .join(" ");
     if (!unamed)
       return message.channel.send(`what do you want to say to the stupid kid?`);
-    if (message.author.id == "63997165803533840") {
+    if (unamed === "lol your mom") {
       return;
     
       message.channel.send(
