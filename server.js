@@ -1166,37 +1166,22 @@ const command = args.shift().toLowerCase();
     ];
     var burned = roastC[Math.floor(Math.random() * roastC.length)];
     message.channel.send(`${burned}`);
-  } else if (message.content.startsWith(`${prefix}laugh`)) {
+  } else if (command === "laugh") {
     const hmlol = [
-     `\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036> the whole audience doesn't get the joke`,
-      `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n could be better`,
-      `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n could be better`,
-      `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
-      `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
-     `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
-      `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
-`\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> they didn't like the joke`,
-      `\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> they didn't like the joke`,
-      `\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> they didn't like the joke`,
-      `\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266> \n DANG! that joke was so bad that they want to kill you. not only is your comedy career over, but so is your time on earth`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
+     
+            `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
     ]
     var bo = hmlol[Math.floor(Math.random() * hmlol.length)];
     const funi = message.content
-      .split(`${prefix}laugh`)
+      .split(``)
       .slice(1)
-      .join("");
+      .join(" ");
     if (!funi) return message.channel.send(`what’s so funny!?`);
     message.channel.send(
-      `${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`
+      `${message.author.username}: "${funi} "\n\n\n\neveryone:ok`
     );
   } else if (command === `talkkid`) {
     const unamed = message.content
