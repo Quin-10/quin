@@ -1126,7 +1126,7 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === `randomnumber`) {
-    const gaz = [Math.floor(Math.random() * 100 + 1)];
+    const gaz = [Math.floor(Math.random() * 1000 + 1)];
     message.channel.send(`${gaz}`);
   }
 });
@@ -1299,4 +1299,11 @@ const rando = message.guild.members.cache.random()
 message.channel.send(`${rando}`)
   }
 })
+bot.on("message", message => {
+  const swearWords2 = [""];
+
+  if (swearWords2.some(word => message.content.includes(word))) {
+    message.channel.send("ok");
+  }
+});
 bot.login(TOKEN);
