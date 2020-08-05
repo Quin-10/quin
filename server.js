@@ -1294,9 +1294,9 @@ bot.on("message", message => {
 if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command === "ramb") {
+  if (command === "someone") {
 const rando = message.guild.members.cache.random()
-message.channel.send(`rando`)
+message.channel.send(`${rando}`)
   }
 })
 bot.login(TOKEN);
