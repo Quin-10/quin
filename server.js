@@ -1204,6 +1204,7 @@ const command = args.shift().toLowerCase();
       return message.channel.send(`what do you want to say to the stupid kid?`);
     if (message.author.id == "639971658035363840") {
       return;
+    
       message.channel.send(
         `${message.author.username}: "lol"\n\n\nkid: "you're a poopy head"`
       );
@@ -1300,10 +1301,10 @@ message.channel.send(`${rando}`)
   }
 })
 bot.on("message", message => {
-  const swearWords2 = [""];
-
+  const swearWords2 = ["<@711610924489769078>"];
+if (message.author.bot) return
   if (swearWords2.some(word => message.content.includes(word))) {
-    message.channel.send("ok");
+    message.channel.send("eww ping");
   }
 });
 bot.login(TOKEN);
