@@ -589,7 +589,7 @@ bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command === `coolSize`) {
+  if (command === `coolsize`) {
     let user = message.mentions.members.first();
     if (user === undefined) {
       user = message.author;
@@ -621,6 +621,7 @@ const command = args.shift().toLowerCase();
 
     var square = choices[Math.floor(Math.random() * choices.length)];
     const coolEmbed = new Discord.MessageEmbed()
+    .setColor('303136')
       .setTitle("**COOL POWER MACHINE**")
       .setDescription(`this is how cool ${user} is:`)
       .addField("cool power machine results:", `${square}`, true);
