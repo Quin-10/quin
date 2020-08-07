@@ -371,7 +371,7 @@ bot.on("message", message => {
 const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
     message.channel.send(
-      `**Mr Circle** server count: **${bot.guilds.random}** servers! `
+      `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
     );
   }
 });
