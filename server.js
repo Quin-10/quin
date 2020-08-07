@@ -371,7 +371,7 @@ bot.on("message", message => {
 const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
     message.channel.send(
-      `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
+      `**Mr Circle** server count: **${bot.guilds.random}** servers! `
     );
   }
 });
@@ -629,7 +629,7 @@ const command = args.shift().toLowerCase();
     message.channel.send(coolEmbed);
   }
 });
-
+//serverscircle
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
