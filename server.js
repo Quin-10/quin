@@ -901,8 +901,9 @@ const command = args.shift().toLowerCase();
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}circledate`)) {
     const moment = require("moment");
+    const date = require("date");
     const user = message.mentions.members.first()
-    const timer =  moment.utc(user.createdAt).format("dddd, MMMM Do YYYY");
+    const timer = date.now() - message.guild.members.cache.get(user.id).createdAt
     message.channel.send(`that bot was created **${timer}**`);
   }
 })
