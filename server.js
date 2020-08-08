@@ -901,8 +901,7 @@ const command = args.shift().toLowerCase();
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}date`)) {
     const moment = require("moment");
-    const Date = require("date");
-    const timer = new Date();
+    const timer = new Date - bot.createdTimestamp
     message.channel.send(`Today is **${timer}**`);
   }
 })
@@ -910,7 +909,7 @@ bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command === `onlin`) {
+  if (command === `pong`) {
     const fetch = require("node-fetch");
     function QuinBot() {
       fetch("https://mr-circle.glitch.me");
