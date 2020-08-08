@@ -27,6 +27,7 @@ bot.on("message", message => {
     message.member.send("it was fun while it lasted :[");
   }
 });
+
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
@@ -1308,7 +1309,7 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === "shoot") {
-
+bot.user.setActivity('my prefix is "E/"')
   }
 })
 
