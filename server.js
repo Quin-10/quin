@@ -477,7 +477,8 @@ const command = args.shift().toLowerCase();
       .setTitle(`${member.user.username}`, "card", true)
       .setThumbnail(picture)
       .setDescription(
-        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** `
+        `NAME:**${member.user.tag}** \nSTATUS: **${member.presence.status}** \nBOT: **${member.user.bot}** \nNICKNAME: **${nickname}** \nJOINDATE: **${joindate}** \nHIGHEST ROLE: **${member.roles.highest.name}** \nROLES: **${member.roles.cache.size}** 
+`
       );
     message.channel.send(picEmbed);
   }
@@ -1302,7 +1303,12 @@ message.channel.send(`${rando}`)
   }
 })
 bot.on("message", message => {
-  const swearWords2 = ["<@711610924489769078>"];
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "curse") {
+  const bee = message.content.split(`${prefix}curse`).slice(1).join(" ")
+  const swearWords2 = ["<@71161092448976978>"];
 if (message.author.bot) return
   if (swearWords2.some(word => message.content.includes(word))) {
     message.channel.send("eww ping");
