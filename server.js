@@ -371,8 +371,9 @@ bot.on("message", message => {
 const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
     const mr = new Discord.MessageEmbed()
-    .setTitle(`Mr Circle guild stats`)
-    .setDescription(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!\n**Mr Circle** role count: **${bot.roles.cache.size}** roles!`)
+    .setColor('F9A61A')
+    .setTitle(`**MR CIRCLE GUILD STATS**`)
+    .setDescription(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!`)
     
     message.channel.send(mr);
   }
@@ -380,7 +381,7 @@ const command = args.shift().toLowerCase();
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}giverole`)) {
     if (message.author.bot) {
-      return;
+      return message.channel.send('no')
     }
     const role = message.mentions.roles.first();
     const member = message.mentions.members.first();
