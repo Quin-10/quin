@@ -903,8 +903,8 @@ bot.on("message", async message => {
     const moment = require("moment");
     const date = require("date");
     const user = message.mentions.members.first()
-    const timer = date.now() - message.guild.members.cache.get(user.id).createdAt
-    message.channel.send(`that bot was created **${timer}**`);
+    const timer = moment.utc(bot.user.createdAt).format("dddd MMMM Do YYYY"); 
+    message.channel.send(`I was created **${timer}**`);
   }
 })
 bot.on("message", async message => {
