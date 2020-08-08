@@ -371,10 +371,10 @@ bot.on("message", message => {
 const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
     const mr = new Discord.MessageEmbed()
-    .setTitle(`Mr Cirfle`)
-    message.channel.send(
-      `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
-    );
+    .setTitle(`Mr Circle guild stats`)
+    .setDescription(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!\n**Mr Circle** role count: **${bot.roles.cache.size}** roles!`)
+    
+    message.channel.send(mr);
   }
 });
 bot.on("message", message => {
