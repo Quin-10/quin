@@ -1134,7 +1134,7 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === `randomnumber`) {
-    const gaz = [Math.floor(Math.random() * 1000 + 1)];
+    const gaz = [Math.floor(Math.random() *  100 + 0)];
     message.channel.send(`${gaz}`);
   }
 });
@@ -1302,18 +1302,7 @@ const rando = message.guild.members.cache.random()
 message.channel.send(`${rando}`)
   }
 })
-bot.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command === "curse") {
-  const bee = message.content.split(`${prefix}curse`).slice(1).join(" ")
-  const swearWords2 = ["<@71161092448976978>"];
-if (message.author.bot) return
-  if (swearWords2.some(word => message.content.includes(word))) {
-    message.channel.send("eww ping");
-  }
-});
+
 bot.on("message", message => {
 if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
