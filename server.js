@@ -315,7 +315,7 @@ bot.on("message", message => {
     });
   }
 });
-
+//serverscircle
 bot.on("message", message => {
   if (message.content === "propro") {
     message.delete();
@@ -370,6 +370,8 @@ bot.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
+    const mr = new Discord.MessageEmbed()
+    .setTitle(`Mr Cirfle`)
     message.channel.send(
       `**Mr Circle** server count: **${bot.guilds.cache.size}** servers! `
     );
