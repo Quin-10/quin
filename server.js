@@ -1269,7 +1269,9 @@ const command = args.shift().toLowerCase();
       .split(`${prefix}quote ${quoted}`)
       .slice(1)
       .join(" ");
-    if (!quoted) return message.channel.send(`what do you want to quote`);
+    if (!quoted) {
+      return message.channel.send(`what do you want to quote`);
+    }
     message.channel.send(
       ` "${quoted} "\n\n\n\n~${message.author.username}, 2420`
     );
@@ -1290,7 +1292,7 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === "hi") {
-message.channel.send('high')
+message.channel.send('hello')
 // the rest of
   }
 })
