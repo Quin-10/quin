@@ -972,28 +972,7 @@ const command = args.shift().toLowerCase();
     message.channel.send(uptimebed);
   }
 });
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}loop`)) {
-    const game = message.content.split(`${prefix}loop`);
-    var interval = setInterval(function() {
-      message.channel.send("123");
-    }, 1 * game);
-  }
-});
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}mess`)) {
-    const types = message.guild.messages.cache.size;
-    message.channel.send(`${types}`);
-  }
-});
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}counter`)) {
-    const messageCount = message.guild.i;
 
-    // Send the message count in a message. The template literal (${}) adds an 's' if needed.
-    message.channel.send(`**${messageCount}** sent.`).catch(console.error);
-  }
-});
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}newdate`)) {
     const ms = require("ms");
@@ -1071,24 +1050,8 @@ bot.on("guildMemberRemove", member => {
 
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
 });
-bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}clap`)) {
-    const clapping = message.content
-      .split(`${prefix}`)
-      .slice(1)
-      .join();
-    message.channel.send(`${clapping}`);
-  }
-});
 
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}play`)) {
-    message.guild.messages.fetch().then(fetchedMessages => {
-      const al = fetchedMessages;
-      message.channel.send(`${al.size}`);
-    });
-  }
-});
+
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
@@ -1110,23 +1073,23 @@ bot.on("message", message => {
     const finalembed = new Discord.MessageEmbed()
       .setTitle(`Help`)
       .setAuthor(bot.tag, bot.avatarURL, true)
-      .addField(`FUN`, `8ball, kill`);
+      .addField(`FUN`, `8ball, kill, gaysize, coolsize, joke, talkkid, quote`);
   }
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command ===`fetchM`) {
+  if (command ===`fetchm`) {
     const channel = message.mentions.channels.first();
     channel.messages.fetch().then(messages => {
-      if (messages.size < 50) {
-        return message.channel.send(`${messages.size}**+**`);
+      if (messages.size == 50) {
+        return message.channel.send(`**50+** messages are in that channel`);
       }
       if (messages.size == 0) {
-        return message.channel.send(`None`);
+        return message.channel.send(`No messages are in that channel`);
       }
-      message.channel.send(`${messages.size}`);
+      message.channel.send(`**${messages.size}** messages are in that channel`);
     });
   }
 });
@@ -1158,7 +1121,7 @@ const command = args.shift().toLowerCase();
     );
   }
   
-  else if (command === `roas`) {
+  else if (command === `burn`) {
     
     const roastC = [
       "bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
