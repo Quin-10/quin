@@ -899,10 +899,10 @@ const command = args.shift().toLowerCase();
 });
 
 bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}date`)) {
+  if (message.content.startsWith(`${prefix}circledate`)) {
     const moment = require("moment");
-    const timer = new Date - bot.createdTimestamp
-    message.channel.send(`Today is **${timer}**`);
+    const timer =  moment.utc(bot.user.createdAt).format("dddd, MMMM Do YYYY");
+    message.channel.send(`I was created at **${timer}**`);
   }
 })
 bot.on("message", async message => {
