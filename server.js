@@ -1243,12 +1243,8 @@ const command = args.shift().toLowerCase();
   } else if (command === "newnickname") {
 const user = message.mentions.members.first()
 const name = message.content.split(`${prefix}newnickname ${user}`).slice(1).join(" ")
-if (!name) return message.channel.send(`what's the new nickname`)
-    
-
-    if(!user) return message.channel.send('who`s nickname are you changing?')
      user.setNickname(`${name}`)
-   await message.channel.send(`**${user.user.username}'s** new nickname is **${name}**\n Previous nickname: **${user.user.nickname}**`)
+    
   }
 });
 bot.on("message", async message => {
