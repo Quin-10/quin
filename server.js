@@ -1245,6 +1245,9 @@ const user = message.mentions.members.first()
 if (!user) return message.channel.send('who`s nickname do you want to change?')
     const name = message.content.split(`${prefix}newnickname ${user}`)
     if(!name) return message.channel.send(`what do you want their nickname to be`)
+    
+    message.channel.send(`**${user.tag}'s** new nickname is ${name}`)
+    await user.setNickname(name)
   }
 });
 bot.on("message", async message => {
