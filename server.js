@@ -552,6 +552,7 @@ const command = args.shift().toLowerCase();
       "<:Lolz:735651656817049701>",
       "<:Happy:735650561952710718>"
     ];
+    const emo = message.guild.emojis.cache.random()
     var output1 = choices[Math.floor(Math.random() * choices.length)];
     const infoEmbed = new Discord.MessageEmbed()
 
@@ -559,7 +560,7 @@ const command = args.shift().toLowerCase();
       .setThumbnail(icon)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${output1} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: ${created}`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${emo} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: ${created}`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
@@ -1273,6 +1274,7 @@ const command = args.shift().toLowerCase();
   if (command === "someone") {
 const rando = message.guild.members.cache.random()
 message.channel.send(`${rando}`)
+    message.channel.send(``)
   }
 })
 
