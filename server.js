@@ -1240,6 +1240,11 @@ const command = args.shift().toLowerCase();
     message.channel.send(
       ` "${quoted} "\n\n\n\n~${message.author.username}, 2420`
     );
+  } else if (command === "newnickname") {
+const user = message.mentions.members.first()
+if (!user) return message.channel.send('who`s nickname do you want to change?')
+    const name = message.content.split(`${prefix}newnickname ${user}`)
+    if(!name) return message.channel.send(`what do you want their nickname to be`)
   }
 });
 bot.on("message", async message => {
