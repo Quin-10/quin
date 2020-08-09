@@ -1248,7 +1248,7 @@ if (!name) return message.channel.send(`what's the new nickname`)
 
     if(!user) return message.channel.send('who`s nickname are you changing?')
      user.setNickname(`${name}`)
-   await message.channel.send(`**${user}'s** new nickname is**${name}**\n Previous nickname ${user.nickname}`)
+   await message.channel.send(`**${user.user.username}'s** new nickname is **${name}**\n Previous nickname: **${user.user.nickname}**`)
   }
 });
 bot.on("message", async message => {
