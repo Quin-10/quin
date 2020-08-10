@@ -1240,7 +1240,6 @@ const command = args.shift().toLowerCase();
   } else if (command === "newnickname") {
 const user = message.mentions.members.first()
 const name = message.content.split(`${prefix}newnickname ${user}`).slice(1).join(" ")
-message.channel.send(`${user.user.tag} new nickname is now ${name}`)
      user.setNickname(`${name}`)
     
   }
