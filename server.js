@@ -749,7 +749,7 @@ const command = args.shift().toLowerCase();
     var colors10 = colorCho[Math.floor(Math.random() * choices.length)];
     const deathEmbed = new Discord.MessageEmbed()
       .setColor(`YELLOW`)
-      .setTitle(`**${user.tag}** died \<:Knife:738090560316768266> `)
+      .setTitle(`**${user.tag}** died \<:Y_:742229584816242730> `)
       .setFooter(`reason: ${deaths}`);
     message.channel.send(deathEmbed);
   }
@@ -849,7 +849,7 @@ const command = args.shift().toLowerCase();
     const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
       .setTitle(
-        `**${message.author.tag}** died <:Bloodyknife:738090624326041711>`
+        `**${message.author.tag}** died \<:Y_:742229584816242730>`
       )
       .setFooter(`reason: suicide`);
     return message.channel.send(suicideEmbed);
