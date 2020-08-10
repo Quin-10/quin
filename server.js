@@ -1279,11 +1279,15 @@ bot.user.setActivity('my prefix is "E/"')
     message.channel.send(message)
   } 
 })
-bot.on("message", message => {
-  const swearW = ["argh"]
-if (message.guild.id = "728121511038156841") message.channel.send('yests')
-  if (swearW.some(world => message.content.includes(world))) {
-    message.channel.send("o");
-  }
-});
+bot.on('message', async message => {
+  //SWEAR WORD FILTER (episode 12)
+  if(!message.guild.id == "728121511038156841") return
+const swearWords = ['swear1', 'swear2']
+ if(swearWords.some(word => message.content.includes(word)) ) {
+message.delete()
+
+  message.member.send('That word is not allowed!')
+  
+}
+})
 bot.login(TOKEN);
