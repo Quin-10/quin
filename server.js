@@ -792,12 +792,8 @@ bot.on("message", async message => {
       .split(`${prefix}varif1 ${role}`)
       .slice(1)
       .join(" ");
-    if (
-      !message.content
-        .split(`${prefix}varif1 ${role}`)
-        .slice(1)
-        .join(" ")
-    ) {
+    if 
+      (!rules) {
       return message.channel.send("what is the description of the role");
     }
     if (!role) {
@@ -815,7 +811,7 @@ bot.on("message", async message => {
     let hi = await message.channel.send(embed2);
     hi.react("🌱");
     if (message.reaction.emoji.name === "🌱") {
-      await message.guild.members.cache.get(message.author.id).roles.add(role);
+      await message.guild.members.cache.get(message.author.id).roles.add('728409313999060993');
     }
     sentMessage => {
       sentMessage.delete();
