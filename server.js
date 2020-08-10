@@ -1290,6 +1290,13 @@ message.delete()
   
 }
 })
-
-
+bot.on('message', async message => {
+if(message.guild.id == "728121511038156841") return
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "sho") {
+    message.channel.send('yo')
+  }
+})
 bot.login(TOKEN);
