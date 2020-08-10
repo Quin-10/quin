@@ -1119,7 +1119,7 @@ const command = args.shift().toLowerCase();
       `someone:${lemon}\n\n\ ${message.author.username}: ( ͡° ͜ʖ ͡°)`
     );
   }
-  
+  //includes
   else if (command === `burn`) {
     
     const roastC = [
@@ -1277,7 +1277,13 @@ const command = args.shift().toLowerCase();
   if (command === "shoot") {
 bot.user.setActivity('my prefix is "E/"')
     message.channel.send(message)
-  }
+  } 
 })
-
+bot.on("message", message => {
+  const swearW = ["argh"]
+if (message.guild.id = "728121511038156841") message.channel.send('yests')
+  if (swearW.some(world => message.content.includes(world))) {
+    message.channel.send("o");
+  }
+});
 bot.login(TOKEN);
