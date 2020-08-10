@@ -811,7 +811,7 @@ bot.on("message", async message => {
     let hi = await message.channel.send(embed2);
     hi.react("🌱");
     if (message.reaction.emoji.name === "🌱") {
-      await message.guild.members.cache.get(message.author.id).roles.add('728409313999060993');
+      message.reply('k boomer')
     }
     sentMessage => {
       sentMessage.delete();
@@ -980,11 +980,12 @@ bot.on("message", async message => {
     let hours = Math.floor(message.author.createdAt / 3600000) % 24;
     let minutes = Math.floor(message.author.createdAt / 60000) % 60;
     let seconds = Math.floor(message.author.createdAt / 1000) % 60;
+    const m = await message.channel.send('yo')
     message.channel.send(
       `Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`
     );
     var interal = setInterval(function() {
-      message.edit(`:${hours}:${minutes}:${seconds}`);
+      m.edit(`:${hours}:${minutes}:${seconds}`);
     }, 1 * 1000);
   }
 });
