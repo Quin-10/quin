@@ -1276,6 +1276,7 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
 const command = args.shift().toLowerCase();
   if (command === "shoot") {
 bot.user.setActivity('my prefix is "E/"')
+    message.channel.send(message)
   }
 })
 
