@@ -1343,4 +1343,35 @@ const command = args.shift().toLowerCase();
     )
   }
   })
+bot.on("message", message => {
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  
+  if (command === "pow") {
+message.channel.send('👍rock paper sissors').then(sentMessage => {
+ sentMessage.react('👍')
+
+    sentMessage.react('👎')
+})
+const filter = (reaction, user) => {
+	return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+message.awaitReactions(filter, { max: 1, time: 600000000000000000000000000000000000000000000, errors: ['time'] })
+	(collected => {
+		const reaction = collected.first();
+
+		if (reaction.emoji.name === '👍') {
+			message.reply('you reacted with a thumbs up.');
+		} else {
+			message.reply('you reacted with a thumbs down.');
+		}
+	})
+	.catch(collected => {
+		message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
+	});
+  }
+})
+//message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 bot.login(TOKEN);
