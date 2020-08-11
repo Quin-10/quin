@@ -1352,7 +1352,8 @@ const command = args.shift().toLowerCase();
 const rps = new Discord.MessageEmbed()
 
 .setTitle(`*Rock, Paper, Siscors*`)
-.setDescription(``)
+.setDescription(`\<:Normal:742695354658717697> you: \n \<:Bot:735655208503345245> me:`)
+message.channel.send(rps)
   }
 })
 bot.login(TOKEN);
