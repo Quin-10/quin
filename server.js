@@ -1314,9 +1314,18 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === "gendr") {
-    if (reaction.emoji.name === '👍') message.channel.send('hello')
-    message.channel.send(`hi`)
-    message.react('👍')
+    let channel = bot.channels.cache.get("733431233144553502"); // We want to sent the embed, directly to this channel.
+    const zembed = new Discord.MessageEmbed()
+    .setColor(0xffffff)
+    .setTitle("Pick your roles!")
+    .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`) // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
+    channel.send(zembed).then(async msg => {
+      await message.react("1️⃣");
+      await message.react("2️⃣");
+      // We're gonna using an await, to make the react are right in order.
+    })
   }
-}})                       
+  }
+})    
+
 bot.login(TOKEN);
