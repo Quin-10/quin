@@ -1316,17 +1316,20 @@ const gabe = new Discord.MessageEmbed()
   }
 });
 bot.on('message', async message => {
-if(message.guild.id == "728121511038156841") return
+
 if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === "gender") {
 const gend1 = [Math.floor(Math.random() * 100 + 1)];
-    const gend2 = [Math.floor(Math.random() * 100 - gend1)];
+    const gend2 = [Math.floor(Math.random() * `${gend1}` + 0)];
+    var x = 5;
+var y = 2;
+var z = x * y;
 const gabe = new Discord.MessageEmbed()
       
       .setColor("GREEN")
-      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is **${luckness}%** lucky!`, true)
+      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is ${gend1} ${gend2}`, true)
       .setFooter(``)
       .setTimestamp();
     message.channel.send(gabe);
