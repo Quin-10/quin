@@ -1303,20 +1303,18 @@ const gabe = new Discord.MessageEmbed()
       
       .setColor(`PURPLE`)
       .addField(`♀**Gender Machine**♂`, `${message.author.tag} is **${gend1}%** boy! And **${gend2}%** girl!`, true)
-      .setFooter(`girl? (or) boy?`)
+      .setFooter(`girl? (or) boy`)
       .setTimestamp();
     message.channel.send(gabe);
   }
 });
-bot.on('message', async message => {
+bot.on('message', message => {
 if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
-  if (command === "reen") {
-        const lzembed = new Discord.MessageEmbed()
-    .setTitle("Pick your roles!")
-    .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`) // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
-    message.send(lzembed)
+  if (command === "polo") {
+         // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
+    message.send('lzembed')
       
       // We're gonna using an await, to make the react are right in order.
     
@@ -1326,5 +1324,20 @@ const command = args.shift().toLowerCase();
   
 
   })
-
+bot.on("message", message => {
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "pow") {
+    const embed = new Discord.MessageEmbed()
+    .setColor(0xffffff)
+    .setTitle("Pick your roles!")
+    .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`) // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
+    message.channel.send(embed).then(async msg => {
+      await message.react("1️⃣");
+      await message.react("2️⃣");
+      // We're gonna using an await, to make the react are right in order.
+    })
+  }
+  })
 bot.login(TOKEN);
