@@ -1322,14 +1322,19 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
 const command = args.shift().toLowerCase();
   if (command === "gender") {
 const gend1 = [Math.floor(Math.random() * 100 + 1)];
-    const gend2 = [Math.floor(Math.random() * `${gend1}` + 0)];
+    const gend2 = 100 - gend1 
     var x = 5;
 var y = 2;
 var z = x * y;
+    const roasC =[
+"BLUE",
+      "RED"
+]
+    var bured = roasC[Math.floor(Math.random() * roasC.length)];
 const gabe = new Discord.MessageEmbed()
       
-      .setColor("GREEN")
-      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is ${gend1} ${gend2}`, true)
+      .setColor(`${bured}`)
+      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is **${gend1}%** boy! And **${gend2}%** girl!`, true)
       .setFooter(``)
       .setTimestamp();
     message.channel.send(gabe);
