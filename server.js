@@ -1349,12 +1349,16 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
 const command = args.shift().toLowerCase();
   
   if (command === "rp") {
-    const tri = message.content.split(` `).slice(1).join(" ")
-    if (tri == "hat") return message.channel.send('woah there')
-const rps = new Discord.MessageEmbed()
+    var gamemsg
+    const compchoices = ["rock", "paper", "scissors"]
+    const playerchoices = message.content.split(` `).slice(1).join(" ")
+    if (playerchoices == "rock") {
+      if (compchoices == "paper") gamemsg = "you lose"
+      if (compchoices == "scissors") gamemsg = "you win"
+var rps = new Discord.MessageEmbed()
 
-.setTitle(`*Rock, Paper, Siscors*`)
-.setDescription(`\<:Normal:742695354658717697> you: \n \<:Bot:735655208503345245> me:`)
+.setTitle(`*Rock, Paper, Scissors*`)
+.setDescription(`\<:Normal:742695354658717697> you: \n \<:Bot:735655208503345245> me:\n `)
 message.channel.send(rps)
   }
 })
