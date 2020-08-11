@@ -16,7 +16,6 @@ bot.once("ready", () => {
 });
 //hello command
 bot.on("message", message => {
-  
   if (message.content === "Hello") {
     if (!message.channel.type === "dm") {
       return;
@@ -30,8 +29,11 @@ bot.on("message", message => {
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `emotes`) {
     message.channel.send(
       "<:SURPRISED:719733158509281370><:LIKE:719733158332858499><:EYES:719733159608057866><:happy:719733157099733056><:check:719733159079575710><:K_:719733159297679400>these are my favorite emotes lol"
@@ -41,8 +43,11 @@ const command = args.shift().toLowerCase();
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `nitro`) {
     var choices = [
       "nitro is too expensive",
@@ -115,9 +120,16 @@ bot.on("message", message => {
 });
 
 bot.on("message", async message => {
-  
-  
-  const infoWords = ["@yahoo.com", "@gmail.com", "fuck", "ass", "cunt", "damn", "bitch", "o"];
+  const infoWords = [
+    "@yahoo.com",
+    "@gmail.com",
+    "fuck",
+    "ass",
+    "cunt",
+    "damn",
+    "bitch",
+    "o"
+  ];
   if (infoWords.some(word => message.content.includes(word))) {
     return;
     message.delete();
@@ -128,9 +140,12 @@ bot.on("message", async message => {
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command ===`say`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `say`) {
     if (message.author.bot) {
       return;
     }
@@ -152,8 +167,11 @@ bot.on("message", message => {
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `mine`) {
     const Minesweeper = require("discord.js-minesweeper");
 
@@ -166,8 +184,11 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `slots`) {
     var choices = [
       ` [**01**]`,
@@ -217,8 +238,11 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `8ball`) {
     if (
       !message.content
@@ -231,7 +255,7 @@ const command = args.shift().toLowerCase();
     if (!message.content.endsWith(`?`)) {
       return message.channel.send(
         "please put `?` at the end of your question."
-      );//propro
+      ); //propro
     }
     if (message.channel.type == "dm") {
       return;
@@ -266,8 +290,11 @@ const command = args.shift().toLowerCase();
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `announce`) {
     if (message.author.bot) {
       return;
@@ -322,13 +349,16 @@ bot.on("message", message => {
     message.delete();
     bot.user.setAvatar(
       "https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F455BEB54-D8CC-49D4-ABCA-39F1547FB24A.png?v=1596581902133"
-      )
-      }
+    );
+  }
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `ban`) {
     if (message.author.bot) {
       return;
@@ -368,24 +398,32 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `serverscircle`) {
     const mr = new Discord.MessageEmbed()
-    .setColor('F9A61A')
-    .setTitle(`**MR CIRCLE GUILD STATS**`)
-    .setDescription(`**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!`)
-    
+      .setColor("F9A61A")
+      .setTitle(`**MR CIRCLE GUILD STATS**`)
+      .setDescription(
+        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!`
+      );
+
     message.channel.send(mr);
   }
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `giverole`) {
     if (message.author.bot) {
-      return message.channel.send('no')
+      return message.channel.send("no");
     }
     const role = message.mentions.roles.first();
     const member = message.mentions.members.first();
@@ -395,8 +433,11 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `memberstatus`) {
     message.guild.members.fetch().then(fetchedMembers => {
       const totalOnline = fetchedMembers.filter(
@@ -448,11 +489,13 @@ bot.on("message", message => {
   }
 });
 
-
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   const moment = require("moment");
   if (command === `userprofile`) {
     const dateformat = require("date-format");
@@ -487,8 +530,11 @@ const command = args.shift().toLowerCase();
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}botprofile`)) {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+    const args = message.content
+      .slice(prefix.length)
+      .trim()
+      .split(" ");
+    const command = args.shift().toLowerCase();
     const member = message.mentions.members.first();
 
     const user = message.mentions.members.first();
@@ -518,11 +564,14 @@ bot.on("message", message => {
 
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command ===`lead`) {
-    const member = message.mentions.members.first
-    var high = member.roles.highest.name
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `lead`) {
+    const member = message.mentions.members.first;
+    var high = member.roles.highest.name;
     message.channel.send(high);
   }
 });
@@ -542,8 +591,11 @@ bot.on("message", message => {
   // Install "dateformat" first.
   let icon = message.guild.iconURL({ size: 2048 });
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `serverinfo`) {
     const choices = [
       "<:Sweat:735651779152314376>",
@@ -552,7 +604,7 @@ const command = args.shift().toLowerCase();
       "<:Lolz:735651656817049701>",
       "<:Happy:735650561952710718>"
     ];
-    const emo = message.guild.emojis.cache.random()
+    const emo = message.guild.emojis.cache.random();
     var output1 = choices[Math.floor(Math.random() * choices.length)];
     const infoEmbed = new Discord.MessageEmbed()
 
@@ -569,8 +621,11 @@ const command = args.shift().toLowerCase();
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `mail`) {
     var user = message.mentions.members.first();
     var hm = message.content
@@ -596,8 +651,11 @@ const command = args.shift().toLowerCase();
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `coolsize`) {
     let user = message.mentions.members.first();
     if (user === undefined) {
@@ -630,7 +688,7 @@ const command = args.shift().toLowerCase();
 
     var square = choices[Math.floor(Math.random() * choices.length)];
     const coolEmbed = new Discord.MessageEmbed()
-    .setColor('303136')
+      .setColor("303136")
       .setTitle("**COOL POWER MACHINE**")
       .setDescription(`this is how cool ${user} is:`)
       .addField("cool power machine results:", `${square}`, true);
@@ -641,9 +699,12 @@ const command = args.shift().toLowerCase();
 //serverscircle
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command ===`messageReact`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `messageReact`) {
     var emote = message.content
       .split(`messageReact`)
       .slice(1)
@@ -655,8 +716,11 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `pinme`) {
     const pinning = message.content
       .split(`pinme`)
@@ -691,8 +755,11 @@ bot.on("message", message => {
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   const user = message.mentions.users.first();
 
   if (command === `kill`) {
@@ -762,8 +829,7 @@ bot.on("message", async message => {
       .split(`${prefix}varif1 ${role}`)
       .slice(1)
       .join(" ");
-    if 
-      (!rules) {
+    if (!rules) {
       return message.channel.send("what is the description of the role");
     }
     if (!role) {
@@ -781,7 +847,7 @@ bot.on("message", async message => {
     let hi = await message.channel.send(embed2);
     hi.react("🌱");
     if (message.reaction.emoji.name === "🌱") {
-      message.reply('k boomer')
+      message.reply("k boomer");
     }
     sentMessage => {
       sentMessage.delete();
@@ -792,8 +858,11 @@ bot.on("message", async message => {
 
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === "ping") {
     try {
       const m = await message.channel.send("Pinging..."); // Make sure the async is written, top of the client.on("message", ...)
@@ -813,14 +882,15 @@ const command = args.shift().toLowerCase();
 }); // easy way.
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command ===`killmyself`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `killmyself`) {
     const suicideEmbed = new Discord.MessageEmbed()
       .setColor(`8B0B0B`)
-      .setTitle(
-        `**${message.author.tag}** died \<:Y_:742229584816242730>`
-      )
+      .setTitle(`**${message.author.tag}** died \<:Y_:742229584816242730>`)
       .setFooter(`reason: suicide`);
     return message.channel.send(suicideEmbed);
   }
@@ -828,8 +898,11 @@ const command = args.shift().toLowerCase();
 
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `meme`) {
     const got = require("got");
 
@@ -857,8 +930,11 @@ const command = args.shift().toLowerCase();
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `time`) {
     const dates = new Date();
     message.channel.send(`${dates}`);
@@ -869,16 +945,19 @@ bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}circledate`)) {
     const moment = require("moment");
     const date = require("date");
-  
-    const user = message.mentions.members.first()
-    const timer = moment.utc(bot.user.createdAt).format("dddd MMMM Do YYYY"); 
+
+    const user = message.mentions.members.first();
+    const timer = moment.utc(bot.user.createdAt).format("dddd MMMM Do YYYY");
     message.channel.send(`I was created **${timer}*`);
   }
-})
+});
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `pong`) {
     const fetch = require("node-fetch");
     function QuinBot() {
@@ -903,8 +982,11 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `prune`) {
     const numba = message.content
       .split(`${prefix}prune`)
@@ -923,9 +1005,12 @@ bot.on("message", async message => {
   let hours = Math.floor(bot.uptime / 3600000) % 24;
   let minutes = Math.floor(bot.uptime / 60000) % 60;
   let seconds = Math.floor(bot.uptime / 1000) % 60;
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `uptime`) {
     const uptimebed = new Discord.MessageEmbed()
       .setAuthor(bot.user.tag, bot.user.avatarURL())
@@ -950,18 +1035,24 @@ bot.on("message", async message => {
     let hours = Math.floor(message.author.createdAt / 3600000) % 24;
     let minutes = Math.floor(message.author.createdAt / 60000) % 60;
     let seconds = Math.floor(message.author.createdAt / 1000) % 60;
-    const m = await message.channel.send(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`)
-    
-    
+    const m = await message.channel.send(
+      `Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`
+    );
+
     var interal = setInterval(function() {
-      m.edit(`Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`);
+      m.edit(
+        `Days ${days}\nHours ${hours}\nMinutes ${minutes}\nSeconds ${seconds}`
+      );
     }, 1 * 1000);
   }
 });
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `setted`) {
     const channel = message.mentions.channels.first();
     if (!channel) {
@@ -1020,11 +1111,13 @@ bot.on("guildMemberRemove", member => {
   bot.channels.cache.get(chx).send(wembed); //get channel and send embed
 });
 
-
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `gaysize`) {
     const gaz = [Math.floor(Math.random() * 100 + 1)];
     const gabe = new Discord.MessageEmbed()
@@ -1047,9 +1140,12 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command ===`fetchm`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `fetchm`) {
     const channel = message.mentions.channels.first();
     channel.messages.fetch().then(messages => {
       if (messages.size == 50) {
@@ -1064,18 +1160,24 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === `randomnumber`) {
-    const gaz = [Math.floor(Math.random() *  100 + 0)];
+    const gaz = [Math.floor(Math.random() * 100 + 0)];
     message.channel.send(`${gaz}`);
   }
 });
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command ===`lenny`) {
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `lenny`) {
     const lemon = message.content
       .split(`${prefix}lenny`)
       .slice(1)
@@ -1091,7 +1193,6 @@ const command = args.shift().toLowerCase();
   }
   //includes
   else if (command === `burn`) {
-    
     const roastC = [
       "bruh you are so lonely that you made a bubble as a friend like spongebob spuarepants",
       "you suck so much that you were put up for adoption more than how many miliseconds earth existed",
@@ -1109,14 +1210,14 @@ const command = args.shift().toLowerCase();
     message.channel.send(`${burned}`);
   } else if (command === `laugh`) {
     const hmlol = [
-     `\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036> \n they don't get the joke`,
+      `\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036> \n they don't get the joke`,
       `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n could be better`,
       `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n could be better`,
       `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
       `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
-     `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
       `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
-`\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> they didn't like the joke`,
+      `\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773>\<:Smugyes:735651807551946773> \n it was kinda funny`,
+      `\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> they didn't like the joke`,
       `\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> \n they didn't like the joke`,
       `\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492>\<:Sleep:735651061804564492> \n ithey didn't like the joke`,
       `\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266>\<:MAD:735650742748053525> \<:Knife:738090560316768266> \n DANG! that joke was so bad that they want to kill you. not only is your comedy career over, but so is your time on earth`,
@@ -1124,9 +1225,8 @@ const command = args.shift().toLowerCase();
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
       `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`,
-
-]
+      `\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701>\<:Lolz:735651656817049701> \n That joke was very funny, the audience is begging for more`
+    ];
     var bo = hmlol[Math.floor(Math.random() * hmlol.length)];
     const funi = message.content
       .split(`${prefix}laugh`)
@@ -1143,7 +1243,7 @@ const command = args.shift().toLowerCase();
       .join(" ");
     if (!unamed)
       return message.channel.send(`what do you want to say to the stupid kid?`);
-    
+
     message.channel.send(
       `${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`
     );
@@ -1207,7 +1307,6 @@ const command = args.shift().toLowerCase();
     message.channel.send(
       ` "${quoted} "\n\n\n\n~${message.author.username}, 2420`
     );
-
   }
 });
 bot.on("message", async message => {
@@ -1221,156 +1320,191 @@ bot.on("message", async message => {
   }
 });
 bot.on("message", message => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === "hi") {
-message.channel.send('hello')
-// the rest of
+    message.channel.send("hello");
+    // the rest of
   }
-})
+});
 bot.on("message", message => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === "someone") {
-const rando = message.guild.members.cache.random()
-message.channel.send(`${rando}`)
-    message.channel.send(``)
+    const rando = message.guild.members.cache.random();
+    message.channel.send(`${rando}`);
+    message.channel.send(``);
   }
-})
+});
 
 bot.on("message", message => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === "shoot") {
-bot.user.setActivity('my prefix is "E/"')
-    message.channel.send(message)
-  } 
-})
-bot.on('message', async message => {
-  //SWEAR WORD FILTER (episode 12)
-  if(!message.guild.id === "728121511038156841") return
-const swearWords = ['swear1', 'swear2']
- if(swearWords.some(word => message.content.includes(word)) ) {
-message.delete()
-
-  message.member.send('That word is not allowed!')
-  
-}
-})
-bot.on('message', async message => {
-if(message.guild.id == "728121511038156841") return
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command === "sho") {
-    message.channel.send('yo')
+    bot.user.setActivity('my prefix is "E/"');
+    message.channel.send(message);
   }
-})
-bot.on('message', async message => {
-if(message.guild.id == "728121511038156841") return
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+});
+bot.on("message", async message => {
+  //SWEAR WORD FILTER (episode 12)
+  if (!message.guild.id === "728121511038156841") return;
+  const swearWords = ["swear1", "swear2"];
+  if (swearWords.some(word => message.content.includes(word))) {
+    message.delete();
+
+    message.member.send("That word is not allowed!");
+  }
+});
+bot.on("message", async message => {
+  if (message.guild.id == "728121511038156841") return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === "sho") {
+    message.channel.send("yo");
+  }
+});
+bot.on("message", async message => {
+  if (message.guild.id == "728121511038156841") return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === "lucksize") {
-const luckness = [Math.floor(Math.random() * 100 + 1)];
-const gabe = new Discord.MessageEmbed()
-      
+    const luckness = [Math.floor(Math.random() * 100 + 1)];
+    const gabe = new Discord.MessageEmbed()
+
       .setColor("GREEN")
-      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is **${luckness}%** lucky!`, true)
+      .addField(
+        `🍀**Luck Machine**🍀`,
+        `${message.author.tag} is **${luckness}%** lucky!`,
+        true
+      )
       .setFooter(``)
       .setTimestamp();
     message.channel.send(gabe);
   }
 });
-bot.on('message', async message => {
-
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+bot.on("message", async message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
   if (command === "gender") {
-const gend1 = [Math.floor(Math.random() * 100 + 1)];
-    const gend2 = 100 - gend1 
-    
+    const gend1 = [Math.floor(Math.random() * 100 + 1)];
+    const gend2 = 100 - gend1;
+
     var x = 5;
-var y = 2;
-var z = x * y;
-    
-    
-const gabe = new Discord.MessageEmbed()
-      
+    var y = 2;
+    var z = x * y;
+
+    const gabe = new Discord.MessageEmbed()
+
       .setColor(`PURPLE`)
-      .addField(`♀**Gender Machine**♂`, `${message.author.tag} is **${gend1}%** boy! And **${gend2}%** girl!`, true)
+      .addField(
+        `♀**Gender Machine**♂`,
+        `${message.author.tag} is **${gend1}%** boy! And **${gend2}%** girl!`,
+        true
+      )
       .setFooter(`girl? (or) boy`)
       .setTimestamp();
     message.channel.send(gabe);
   }
 });
-bot.on('message', message => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  if (command === "polo") {
-         // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
-    message.send('lzembed')
-      
-      // We're gonna using an await, to make the react are right in order.
-    
-      
-      // We're gonna using an await, to make the react are right in order.
-    }
-  
-
-  })
 bot.on("message", message => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === "polo") {
+    // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
+    message.send("lzembed");
+
+    // We're gonna using an await, to make the react are right in order.
+
+    // We're gonna using an await, to make the react are right in order.
+  }
+});
+bot.on("message", message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
   if (command === "pow") {
     const embed = new Discord.MessageEmbed()
-    .setColor(0xffffff)
-    .setTitle("Pick your roles!")
-    .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`) // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
-    message.channel.send(embed)
-      .then(sentMessage => {
-	sentMessage.react('👍');
+      .setColor(0xffffff)
+      .setTitle("Pick your roles!")
+      .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`); // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
+    message.channel.send(embed).then(
+      sentMessage => {
+        sentMessage.react("👍");
       }
-      
+
       // We're gonna using an await, to make the react are right in order.
-    )
+    );
   }
-  })
+});
 bot.on("message", message => {
-if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content.slice(prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
-  
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
   if (command === "rp") {
-    var gamemsg
-    const hoices = ["rock", "paper", "scissors"]
-    const compchoices = hoices[Math.floor(Math.random() * 3)]
-    const playerchoices = message.content.split(` `).slice(1).join(" ")
+    var gamemsg;
+    const hoices = ["rock", "paper", "scissors"];
+    const compchoices = hoices[Math.floor(Math.random() * 3)];
+    const playerchoices = message.content
+      .split(` `)
+      .slice(1)
+      .join(" ");
     if (playerchoices == "rock") {
-      if (compchoices == "paper") gamemsg = "you lose"
-      if (compchoices == "scissors") gamemsg = "you win"
+      if (compchoices == "paper") gamemsg = "you lose";
+      if (compchoices == "scissors") gamemsg = "you win";
     }
     if (playerchoices == "paper") {
-      if (compchoices == "scissors") gamemsg = "you lose"
-      if (compchoices == "rock") gamemsg = "you win"
+      if (compchoices == "scissors") gamemsg = "you lose";
+      if (compchoices == "rock") gamemsg = "you win";
     }
     if (playerchoices == "scissors") {
-      if (compchoices == "paper") gamemsg = "you win"
-      if (compchoices == "rock") gamemsg = "you lose"
-    }
-    if gamemsg 
-var rps = new Discord.MessageEmbed()
-.setColor()
-.setTitle(`*Rock, Paper, Scissors*`)
-.setDescription(`\<:Normal:742695354658717697> **you:** ${playerchoices} \n\<:Bot:735655208503345245> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`)
-message.channel.send(rps)
+      if (compchoices == "paper") gamemsg = "you win";
+      if (compchoices == "rock") gamemsg = "you lose";
+    } 
+    if (compchoices == playerchoices) gamemsg = "its a tie"
+if (gamemsg == undefined) return
+    var rps = new Discord.MessageEmbed()
+      .setColor()
+      .setTitle(`*Rock, Paper, Scissors*`)
+      .setDescription(
+        `\<:Normal:742695354658717697> **you:** ${playerchoices} \n\<:Bot:735655208503345245> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
+      );
+    message.channel.send(rps);
   }
-})
+});
 bot.login(TOKEN);
