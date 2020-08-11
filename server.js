@@ -1350,15 +1350,26 @@ const command = args.shift().toLowerCase();
   
   if (command === "rp") {
     var gamemsg
-    const compchoices = ["rock", "paper", "scissors"]
+    const hoices = ["rock", "paper", "scissors"]
+    const compchoices = hoices[Math.floor(Math.random() * 3)]
     const playerchoices = message.content.split(` `).slice(1).join(" ")
     if (playerchoices == "rock") {
       if (compchoices == "paper") gamemsg = "you lose"
       if (compchoices == "scissors") gamemsg = "you win"
+    }
+    if (playerchoices == "paper") {
+      if (compchoices == "scissors") gamemsg = "you lose"
+      if (compchoices == "rock") gamemsg = "you win"
+    }
+    if (playerchoices == "scissors") {
+      if (compchoices == "paper") gamemsg = "you win"
+      if (compchoices == "rock") gamemsg = "you lose"
+    }
+    if gamemsg 
 var rps = new Discord.MessageEmbed()
-
+.setColor()
 .setTitle(`*Rock, Paper, Scissors*`)
-.setDescription(`\<:Normal:742695354658717697> you: \n \<:Bot:735655208503345245> me:\n `)
+.setDescription(`\<:Normal:742695354658717697> **you:** ${playerchoices} \n\<:Bot:735655208503345245> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`)
 message.channel.send(rps)
   }
 })
