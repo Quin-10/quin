@@ -1299,4 +1299,37 @@ const command = args.shift().toLowerCase();
     message.channel.send('yo')
   }
 })
+bot.on('message', async message => {
+if(message.guild.id == "728121511038156841") return
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "lucksize") {
+const luckness = [Math.floor(Math.random() * 100 + 1)];
+const gabe = new Discord.MessageEmbed()
+      
+      .setColor("GREEN")
+      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is **${luckness}%** lucky!`, true)
+      .setFooter(``)
+      .setTimestamp();
+    message.channel.send(gabe);
+  }
+});
+bot.on('message', async message => {
+if(message.guild.id == "728121511038156841") return
+if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content.slice(prefix.length).trim().split(' ');
+const command = args.shift().toLowerCase();
+  if (command === "gender") {
+const gend1 = [Math.floor(Math.random() * 100 + 1)];
+    const gend2 = [Math.floor(Math.random() * 100 - gend1)];
+const gabe = new Discord.MessageEmbed()
+      
+      .setColor("GREEN")
+      .addField(`🍀**Luck Machine**🍀`, `${message.author.tag} is **${luckness}%** lucky!`, true)
+      .setFooter(``)
+      .setTimestamp();
+    message.channel.send(gabe);
+  }
+});
 bot.login(TOKEN);
