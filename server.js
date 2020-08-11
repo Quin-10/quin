@@ -1328,16 +1328,21 @@ bot.on("message", message => {
 if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
+  if (message.reaction.emoji.name === '👍') {
+    message.channel.send('nice')
+  }
   if (command === "pow") {
     const embed = new Discord.MessageEmbed()
     .setColor(0xffffff)
     .setTitle("Pick your roles!")
     .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`) // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
-    message.channel.send(embed).then(async msg => {
-      await message.react("1️⃣");
-      await message.react("2️⃣");
+    message.channel.send(embed)
+      .then(sentMessage => {
+	sentMessage.react('👍');
+      }
+      
       // We're gonna using an await, to make the react are right in order.
-    })
+    )
   }
   })
 bot.login(TOKEN);
