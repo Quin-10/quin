@@ -1500,8 +1500,6 @@ bot.on("message", message => {
     if (compchoices == playerchoices) gamemsg = "its a tie"
 if (gamemsg == undefined) return message.channel.send('The only choices are: `scissors` `rock` `paper`')
    if (gamemsg = "you win") colour = "GREEN"
-    if (gamemsg = "you lose") colour = "RED"
-    if (gamemsg = "its a tie") colour = "YELLOW"
     var rps = new Discord.MessageEmbed()
       .setColor(`${colour}`)
       .setTitle(`**Rock, Paper, Scissors**`)
