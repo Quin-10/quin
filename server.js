@@ -1507,7 +1507,9 @@ if (gamemsg == undefined) return message.channel.send('The only choices are: `sc
       .setTitle(`**Rock, Paper, Scissors**`)
       .setDescription(
         `\<:Normal:742695354658717697> **you:** ${playerchoices} \n\<:Bot:735655208503345245> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
-      );
+      )
+    .setFooter('did you win or lose?')
+    .setTimestamp()
     message.channel.send(rps);
   }
 });
