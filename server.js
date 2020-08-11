@@ -1476,10 +1476,10 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "rp") {
+  if (command === "rps") {
     var gamemsg;
     const hoices = ["rock", "paper", "scissors"];
-    const compchoices = hoices[Math.floor(Math.random() * 3)];
+    const compchoices = hoices[Math.floor(Math.random() * hoices.length)];
     var colour;
     const playerchoices = message.content
       .split(` `)
