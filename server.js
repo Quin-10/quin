@@ -1478,45 +1478,36 @@ bot.on("message", message => {
 
   if (command === "rp") {
     var gamemsg;
-    var colour;
-    var respon;
     const hoices = ["rock", "paper", "scissors"];
     const compchoices = hoices[Math.floor(Math.random() * 3)];
-    
+    var colour;
     const playerchoices = message.content
       .split(` `)
       .slice(1)
       .join(" ");
     if (playerchoices == "rock") {
-      if (compchoices == "paper") gamemsg = "you lose"; colour = "RED";
-      if (compchoices == "scissors") gamemsg = "you win"; colour = "GREEN";
+      if (compchoices == "paper") gamemsg = "you lose";
+      if (compchoices == "scissors") gamemsg = "you win";
     }
     if (playerchoices == "paper") {
-      if (compchoices == "scissors") gamemsg = "you lose"; colour = "RED";
-      if (compchoices == "rock") gamemsg = "you win"; colour = "GREEN";
+      if (compchoices == "scissors") gamemsg = "you lose";
+      if (compchoices == "rock") gamemsg = "you win";
     }
     if (playerchoices == "scissors") {
-      if (compchoices == "paper") {
- gamemsg = "you win"
- colour = "GREEN"
- respon = "Dangit. I losed"
-      }
-      if (compchoices == "rock") {
-gamemsg = "you lose"
- colour = "RED"; 
-respon = "haha I win"
-      }
+      if (compchoices == "paper") gamemsg = "you win";
+      if (compchoices == "rock") gamemsg = "you lose";
     } 
-    if (compchoices == playerchoices) gamemsg = "its a tie"; respon = "lol a tie"
+    if (compchoices == playerchoices) gamemsg = "its a tie"
 if (gamemsg == undefined) return message.channel.send('The only choices are: `scissors` `rock` `paper`')
-   
+   if (gamemsg = "you win") colour = "GREEN"
+    if (gamemsg = "you lose") colour = "RED"
+    if (gamemsg = "its a tie") colour = "YELLOW"
     var rps = new Discord.MessageEmbed()
-      .setColor(colour)
+      .setColor(`${colour}`)
       .setTitle(`**Rock, Paper, Scissors**`)
       .setDescription(
         `\<:Normal:742695354658717697> **you:** ${playerchoices} \n\<:Bot:735655208503345245> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
-      )
-    .setFooter(`${respon}`)
+      );
     message.channel.send(rps);
   }
 });
