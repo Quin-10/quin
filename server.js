@@ -1350,7 +1350,7 @@ const command = args.shift().toLowerCase();
   
   if (command === "rp") {
     const tri = message.content.split(` `).slice(1).join(" ")
-    if (!tri == ) return message.channel.send('woah there')
+    if (tri == "hat") return message.channel.send('woah there')
 const rps = new Discord.MessageEmbed()
 
 .setTitle(`*Rock, Paper, Siscors*`)
