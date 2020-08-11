@@ -1333,7 +1333,7 @@ const gabe = new Discord.MessageEmbed()
       
       .setColor(`PURPLE`)
       .addField(`♀**Gender Machine**♂`, `${message.author.tag} is **${gend1}%** boy! And **${gend2}%** girl!`, true)
-      .setFooter(`girl? `)
+      .setFooter(`girl? (or) boy?`)
       .setTimestamp();
     message.channel.send(gabe);
   }
