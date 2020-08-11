@@ -756,9 +756,10 @@ const command = args.shift().toLowerCase();
 });
 bot.on("message", message => {
   if (message.content.startsWith(`varif`)) {
-    message.channel.send("ok");
-    message.react("👍").then(() => message.react("👎"));
-
+    message.channel.send("ok").then
+    sentMessage => {
+      sentMessage.react("👍")
+    }
     const filter = (reaction, user) => {
       return (
         ["👍", "👎"].includes(reaction.emoji.name) &&
@@ -1344,7 +1345,7 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === "gendr") {
-    message.channel.send(`${Math.random() * + 1}`)
+    message.channel.send(`${Math.random() * 100000 + 1}`)
   }
 })
                          
