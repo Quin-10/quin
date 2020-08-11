@@ -1348,7 +1348,9 @@ if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   
-  if (command === "rps") {
+  if (command === "rp") {
+    const tri = message.content.split(`${prefix}rps`).slice(1).join("")
+    if (!tri) return message.channel.send('woah there')
 const rps = new Discord.MessageEmbed()
 
 .setTitle(`*Rock, Paper, Siscors*`)
