@@ -754,37 +754,6 @@ const command = args.shift().toLowerCase();
     message.channel.send(deathEmbed);
   }
 });
-bot.on("message", message => {
-  if (message.content.startsWith(`varif`)) {
-    message.channel.send("ok").then
-    sentMessage => {
-      sentMessage.react("👍")
-    }
-    const filter = (reaction, user) => {
-      return (
-        ["👍", "👎"].includes(reaction.emoji.name) &&
-        user.id === message.author.id
-      );
-    };
-
-    message
-      .awaitReactions(filter, { max: 1, time: 60000, errors: ["time"] })
-      .then(collected => {
-        const reaction = collected.first();
-
-        if (reaction.emoji.name === "👍") {
-          message.reply("you reacted with a thumbs up.");
-        } else {
-          message.reply("you reacted with a thumbs down.");
-        }
-      })
-      .catch(collected => {
-        message.reply(
-          "you reacted with neither a thumbs up, nor a thumbs down."
-        );
-      });
-  }
-});
 
 bot.on("message", async message => {
   if (message.content.startsWith(`${prefix}varif1`)) {
@@ -1340,13 +1309,14 @@ const gabe = new Discord.MessageEmbed()
   }
 });
 bot.on('message', async message => {
-
+const filter = (reaction, user) => {
 if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
   if (command === "gendr") {
-    message.channel.send(`${Math.random() * 100000 + 1}`)
+    if (reaction.emoji.name === '👍') message.channel.send('hello')
+    message.channel.send(`hi`)
+    message.react('👍')
   }
-})
-                         
+}})                       
 bot.login(TOKEN);
