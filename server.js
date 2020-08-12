@@ -970,14 +970,14 @@ bot.on("message", async message => {
       .setDescription(`•••`)
       .setFooter(`wait...`)
       .setTimestamp();
-
+const m = await message.channel.send(onbed)
     const pingbee = new Discord.MessageEmbed()
       .setAuthor(`succsesfully pinged!`)
       .setTitle(`Pinged \<:Yes:735651799435968644>`)
       .setDescription(`now the bot will appear online more often`)
       .setFooter(`pinged`)
       .setTimestamp();
-    message.channel.send(pingbee);
+    m.edit(pingbee);
   }
 });
 bot.on("message", async message => {
