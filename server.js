@@ -1401,7 +1401,7 @@ bot.on("message", async message => {
       .setTimestamp();
     message.channel.send(gabe);
   }
-});
+});//onlin
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content
