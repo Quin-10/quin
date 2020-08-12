@@ -1414,7 +1414,8 @@ bot.on("message", message => {
   const command = args.shift().toLowerCase();
   if (command === "polo") {
     // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
-    message.send("lzembed");
+    const user = quin#9143
+  user.send("lzembed");
 
     // We're gonna using an await, to make the react are right in order.
 
