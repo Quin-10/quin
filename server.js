@@ -1247,9 +1247,51 @@ if (unamed == "lol your mom") return message.channel.send(`${message.author.user
     message.channel.send(
       `${message.author.username}: "${unamed}"\n\n\nkid: "lol your mom"`
     );
-
-  
-    
+  } else if (command === `topic`) {
+    const choiceT = [
+      `what do you wanna be when you grow up?`,
+      `what's your favorite gaming console?`,
+      `what's your favorite piece of candy?`,
+      `do you like school?`,
+      `do you hate school?`,
+      `do you like discord?`,
+      `are you underaged? don't worry I won't snitch`,
+      `are you a bot developer?`,
+      `what's your favorite season?`,
+      `what device are you talking to me on?`,
+      `what's your favorite show?`,
+      `what school do you go to?`,
+      `do you own a pet?`,
+      `what's your favorite resturaunt?`,
+      `how tall are you?`,
+      `do you like me?`,
+      `what's your favorite color?`,
+      `are you right handed or left handed?`,
+      `what does your name start with in the alphabet?`,
+      `do you like your name?`,
+      `where are you right now?`,
+      `what's your favorite video game?`,
+      `are you on break or you are still going to still?`,
+      `what's your favorite cartoon show?`,
+      `what's your best friends name?`,
+      `are you an introvert or an extrovert?`,
+      `how long are you asleep?`,
+      `if you could live anywhere on the earth where would live?`,
+      `if you won $1,000,000 what would you spend it on?`,
+      `what do you do in your free time?`,
+      `what's your worst subject to learn in school?`,
+      `what's your favorite subject to learn in school?`,
+      `what is your biggest fear?`,
+      `what's the most expensive thing in your bedroom?`
+    ];
+    var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
+    const topicbed = new Discord.MessageEmbed()
+      .setColor("#303136")
+      .setTitle(
+        `\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`
+      )
+      .setDescription(`${topics}`);
+    message.channel.send(topicbed);
   } else if (command === `quote`) {
     const quoted = message.content
       .split(`${prefix}quote`)
@@ -1305,12 +1347,27 @@ bot.on("message", message => {
 });
 
 bot.on("message", message => {
-  if (message.content.startsWith('')) {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === "shoot") {
     bot.user.setActivity('my prefix is "E/"');
     message.channel.send(message);
   }
 });
+bot.on("message", async message => {
+  //SWEAR WORD FILTER (episode 12)
+  if (!message.guild.id === "728121511038156841") return;
+  const swearWords = ["swear1", "swear2"];
+  if (swearWords.some(word => message.content.includes(word))) {
+    message.delete();
 
+    message.member.send("That word is not allowed!");
+  }
+});
 bot.on("message", async message => {
   if (message.guild.id == "728121511038156841") return;
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -1398,7 +1455,7 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "powdeskinoap") {
+  if (command === "pow") {
     const embed = new Discord.MessageEmbed()
       .setColor(0xffffff)
       .setTitle("Pick your roles!")
@@ -1406,10 +1463,10 @@ bot.on("message", message => {
     message.channel.send(embed).then(
       sentMessage => {
         sentMessage.react("👍");
-      } 
+      }
+
       // We're gonna using an await, to make the react are right in order.
     );
-    
   }
 });
 bot.on("message", message => {
@@ -1459,59 +1516,4 @@ if (gamemsg == undefined) return message.channel.send('The only choices are: `sc
     message.channel.send(rps);
   }
 });//60
-bot.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-
-   if (command === `toc`) {
-    const choiceT = [
-      `what do you wanna be when you grow up?`,
-      `what's your favorite gaming console?`,
-      `what's your favorite piece of candy?`,
-      `do you like school?`,
-      `do you hate school?`,
-      `do you like discord?`,
-      `are you underaged? don't worry I won't snitch`,
-      `are you a bot developer?`,
-      `what's your favorite season?`,
-      `what device are you talking to me on?`,
-      `what's your favorite show?`,
-      `what school do you go to?`,
-      `do you own a pet?`,
-      `what's your favorite resturaunt?`,
-      `how tall are you?`,
-      `do you like me?`,
-      `what's your favorite color?`,
-      `are you right handed or left handed?`,
-      `what does your name start with in the alphabet?`,
-      `do you like your name?`,
-      `where are you right now?`,
-      `what's your favorite video game?`,
-      `are you on break or you are still going to still?`,
-      `what's your favorite cartoon show?`,
-      `what's your best friends name?`,
-      `are you an introvert or an extrovert?`,
-      `how long are you asleep?`,
-      `if you could live anywhere on the earth where would live?`,
-      `if you won $1,000,000 what would you spend it on?`,
-      `what do you do in your free time?`,
-      `what's your worst subject to learn in school?`,
-      `what's your favorite subject to learn in school?`,
-      `what is your biggest fear?`,
-      `what's the most expensive thing in your bedroom?`
-    ];
-    var topicsn = choiceT[Math.floor(Math.random() * choiceT.length)];
-    const topicbed = new Discord.MessageEmbed()
-      .setColor("#303136")
-      .setTitle(
-        `\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`
-      )
-      .setDescription(`${topicsn}`);
-    message.channel.send(topicbed)
-   }
-})
 bot.login(TOKEN);
