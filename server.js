@@ -1358,16 +1358,7 @@ bot.on("message", message => {
     message.channel.send(message);
   }
 });
-bot.on("message", async message => {
-  //SWEAR WORD FILTER (episode 12)
-  if (!message.guild.id === "728121511038156841") return;
-  const swearWords = ["swear1", "swear2"];
-  if (swearWords.some(word => message.content.includes(word))) {
-    message.delete();
 
-    message.member.send("That word is not allowed!");
-  }
-});
 bot.on("message", async message => {
   if (message.guild.id == "728121511038156841") return;
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -1455,7 +1446,7 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "pow") {
+  if (command === "powdeskinoap") {
     const embed = new Discord.MessageEmbed()
       .setColor(0xffffff)
       .setTitle("Pick your roles!")
@@ -1463,10 +1454,10 @@ bot.on("message", message => {
     message.channel.send(embed).then(
       sentMessage => {
         sentMessage.react("👍");
-      }
-
+      } 
       // We're gonna using an await, to make the react are right in order.
     );
+    
   }
 });
 bot.on("message", message => {
