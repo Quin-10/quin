@@ -1505,7 +1505,7 @@ if (gamemsg == undefined) return message.channel.send('The only choices are: `sc
     .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F8993D458-9276-4844-95D3-15F0D53619D6.png?v=1597170109761')
       .setTitle(`**Rock, Paper, Scissors**`)
       .setDescription(
-        `\<:Normal:742695354658717697> **you:** ${playerchoices} \n\<:Bot:735655208503345245> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
+        `\<:Left:742957781904130099> **you:** ${playerchoices} \n\<:Right:742957759091179520> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
       )
     .setFooter('did you win or lose?')
     .setTimestamp()
