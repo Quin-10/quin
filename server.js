@@ -1318,6 +1318,7 @@ bot.on("message", async message => {
     }
     setInterval(QunBot, 60000);
   }
+  
 });
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -1514,5 +1515,5 @@ if (gamemsg == undefined) return message.channel.send('The only choices are: `sc
     .setTimestamp()
     message.channel.send(rps);
   }
-});
+});//60
 bot.login(TOKEN);
