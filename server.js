@@ -408,7 +408,7 @@ bot.on("message", message => {
       .setColor("F9A61A")
       .setTitle(`**MR CIRCLE GUILD STATS**`)
       .setDescription(
-        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users! **${bot.roles.cache.size}** users!`
+        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!\n**Mr Circle** emoji count: **${bot.emojis.cache.size}** users!`
       );
 
     message.channel.send(mr);
