@@ -1208,7 +1208,7 @@ bot.on("message", async message => {
     ];
     var burned = roastC[Math.floor(Math.random() * roastC.length)];
     message.channel.send(`${burned}`);
-  } else if (command === `laugh`) {
+  } else if (command === `joke`) {
     const hmlol = [
       `\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036>\<:Uh:735651154209407036> \n they don't get the joke`,
       `\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117>\<:Smugno:735651807610536117> \n could be better`,
