@@ -1486,25 +1486,25 @@ bot.on("message", message => {
       .slice(1)
       .join(" ");
     if (playerchoices == "rock") {
-      if (compchoices == "paper") gamemsg = "you lose";
-      if (compchoices == "scissors") gamemsg = "you win";
+      if (compchoices == "paper") gamemsg = "you lose"; colour = "FF3846"
+      if (compchoices == "scissors") gamemsg = "you win"; colour = "46D373"
     }
     if (playerchoices == "paper") {
-      if (compchoices == "scissors") gamemsg = "you lose";
-      if (compchoices == "rock") gamemsg = "you win";
+      if (compchoices == "scissors") gamemsg = "you lose"; colour = "FF3846"
+      if (compchoices == "rock") gamemsg = "you win"; colour = "46D373"
     }
     if (playerchoices == "scissors") {
-      if (compchoices == "paper") gamemsg = "you win";
-      if (compchoices == "rock") gamemsg = "you lose";
+      if (compchoices == "paper") gamemsg = "you win"; colour = "46D373"
+      if (compchoices == "rock") gamemsg = "you lose"; colour = "FF3846"
     } 
     if (compchoices == playerchoices) {
-gamemsg = "its a tie"
-message.channel.send('wow')
+gamemsg = "its a tie"; colour = "FFC84A"
+
     }
 if (gamemsg == undefined) return message.channel.send('The only choices are: `scissors` `rock` `paper`')
-   
+   //FFC84A
     var rps = new Discord.MessageEmbed()
-      .setColor(`FFC84A`)
+      .setColor(`${colour}`)
     .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F8993D458-9276-4844-95D3-15F0D53619D6.png?v=1597170109761')
       .setTitle(`**Rock, Paper, Scissors**`)
       .setDescription(
