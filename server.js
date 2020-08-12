@@ -1229,7 +1229,7 @@ bot.on("message", async message => {
     ];
     var bo = hmlol[Math.floor(Math.random() * hmlol.length)];
     const funi = message.content
-      .split(`${prefix}laugh`)
+      .split(`${prefix}joke`)
       .slice(1)
       .join(" ");
     if (!funi) return message.channel.send(`what’s so funny!?`);
