@@ -1487,14 +1487,14 @@ bot.on("message", message => {
       .join(" ");
     if (playerchoices == "rock") {
       if (compchoices == "paper") gamemsg = "you lose"; colour = "FF3846"
-      if (compchoices == "scissors") gamemsg = "you win"; 
+      if (compchoices == "scissors") gamemsg = "you win"; colour = "46D373"
     }
     if (playerchoices == "paper") {
       if (compchoices == "scissors") gamemsg = "you lose"; colour = "FF3846"
-      if (compchoices == "rock") gamemsg = "you win"; 
+      if (compchoices == "rock") gamemsg = "you win"; colour = "46D373"
     }
     if (playerchoices == "scissors") {
-      if (compchoices == "paper") gamemsg = "you win"; 
+      if (compchoices == "paper") gamemsg = "you win"; colour = "46D373"
       if (compchoices == "rock") gamemsg = "you lose"; colour = "FF3846"
     } 
     if (compchoices == playerchoices) {
