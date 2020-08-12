@@ -1504,13 +1504,13 @@ bot.on("message", message => {
       `what is your biggest fear?`,
       `what's the most expensive thing in your bedroom?`
     ];
-    var topics = choiceT[Math.floor(Math.random() * choiceT.length)];
+    var topicsn = choiceT[Math.floor(Math.random() * choiceT.length)];
     const topicbed = new Discord.MessageEmbed()
       .setColor("#303136")
       .setTitle(
         `\<:Downvote:738090947186786366>**TOPIC**\<:Upvote:738090888353546311>`
       )
-      .setDescription(`${topics}`);
+      .setDescription(`${topicsn}`);
     message.channel.send(topicbed)
    }
 })
