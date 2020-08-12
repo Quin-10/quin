@@ -1497,7 +1497,10 @@ bot.on("message", message => {
       if (compchoices == "paper") gamemsg = "you win";
       if (compchoices == "rock") gamemsg = "you lose";
     } 
-    if (compchoices == playerchoices) gamemsg = "its a tie"
+    if (compchoices == playerchoices) {
+gamemsg = "its a tie"
+message.channel.send('wow')
+    }
 if (gamemsg == undefined) return message.channel.send('The only choices are: `scissors` `rock` `paper`')
    
     var rps = new Discord.MessageEmbed()
@@ -1505,7 +1508,7 @@ if (gamemsg == undefined) return message.channel.send('The only choices are: `sc
     .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F8993D458-9276-4844-95D3-15F0D53619D6.png?v=1597170109761')
       .setTitle(`**Rock, Paper, Scissors**`)
       .setDescription(
-        `\<:Left:742957781904130099> **you:** ${playerchoices} \n\<:Right:742957759091179520> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
+        `\<:Player1:742961378318483537> **you:** ${playerchoices} \n\<:Player2:742961465769590784> **me:** ${compchoices}\n\<:Shock:742227974685851739> **Result:** ${gamemsg}`
       )
     .setFooter('did you win or lose?')
     .setTimestamp()
