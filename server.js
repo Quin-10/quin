@@ -822,39 +822,7 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", async message => {
-  if (message.content.startsWith(`${prefix}varif1`)) {
-    const role = message.mentions.roles.first();
-    const rules = message.content
-      .split(`${prefix}varif1 ${role}`)
-      .slice(1)
-      .join(" ");
-    if (!rules) {
-      return message.channel.send("what is the description of the role");
-    }
-    if (!role) {
-      return message.channel.send("the role isn`t specified");
-    }
-    if (!message.member.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("you do not have permissons");
-    }
-    message.delete;
-    var embed2 = new Discord.MessageEmbed()
-      .setColor("#add8e6")
-      .setAuthor("Reaction role")
-      .setDescription(`${rules}`);
 
-    let hi = await message.channel.send(embed2);
-    hi.react("🌱");
-    if (message.reaction.emoji.name === "🌱") {
-      message.reply("k boomer");
-    }
-    sentMessage => {
-      sentMessage.delete();
-      message.channel.send(embed2);
-    };
-  }
-});
 
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
