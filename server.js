@@ -408,7 +408,7 @@ bot.on("message", message => {
       .setColor("F9A61A")
       .setTitle(`**MR CIRCLE GUILD STATS**`)
       .setDescription(
-        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!`
+        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users! **${bot.roles.cache.size}** users!`
       );
 
     message.channel.send(mr);
@@ -422,6 +422,12 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
   if (command === `giverole`) {
+    if (!message.member.hasPermission(["MANAGE_MESSAGES"])) {
+      return message.channel.send(
+        "you need the permission(s) `MANAGE_MESSAGES` to use this command"
+      );
+    }
+
     if (message.author.bot) {
       return message.channel.send("no");
     }
@@ -466,14 +472,9 @@ bot.on("message", message => {
     });
   }
 });
-bot.on("message", message => {
-  if (message.content.startsWith(`textChannel`)) {
-    message.guild.channels.create("new-channel", {
-      type: "text",
-      reason: "New channel added for fun!"
-    });
-  }
-});
+
+  
+
 bot.on("message", message => {
   if (message.content.startsWith(`avatar`)) {
     const avaEmbed = new Discord.MessageEmbed()
@@ -1026,6 +1027,11 @@ bot.on("message", async message => {
     if (!channel) {
       return message.channel.send("Please Mention the channel first");
     }
+    if (!message.member.hasPermission(["MANAGE_MESSAGES"])) {
+      return message.channel.send(
+        "you need the permission(s) `MANAGE_MESSAGES` to use this command"
+      );
+    }
 
     //Now we gonna use quick.db
 
@@ -1309,7 +1315,7 @@ bot.on("message", message => {
   const command = args.shift().toLowerCase();
   if (command === "someone") {
     const rando = message.guild.members.cache.random();
-    message.channel.send(`${rando}`);
+    message.channel.send(`${rando.user.tag}`);
     message.channel.send(``);
   }
 });
@@ -1321,7 +1327,7 @@ bot.on("message", message => {
     .trim()
     .split(" ");
   const command = args.shift().toLowerCase();
-  if (command === "shoot") {
+  if (command === "shot") {
     bot.user.setActivity('my prefix is "E/"');
     message.channel.send(message);
   }
