@@ -1418,4 +1418,24 @@ bot.on("message", message => {
     message.channel.send(`**${clp}**`)
   }
 })
+bot.on("message", message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === "diceroll") {
+    const dices = [6, 5, 4, 3, 2, 1]
+    const diceso = [6, 5, 4, 3, 2, 1]
+    const rollin = dices[Math.floor(Math.random() * dices.length)];
+    const rollino = diceso[Math.floor(Math.random() * diceso.length)];
+    const out = rollin + rollino
+    const rolled = new Discord.MessageEmbed()
+    .setAuthor('Roll dices!')
+    .setTitle(`This Is What `)
+    message.channel.send(`${rollin} + ${rollino} = ${out}`)
+    }
+})
 bot.login(TOKEN);
