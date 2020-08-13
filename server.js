@@ -1500,6 +1500,9 @@ bot.on("message", message => {
   const command = args.shift().toLowerCase();
 
   if (command === "clap") {
-    const clp = message.content.split(``).slice(1).join(" ")
-    message.channel.send(`${clap}`)
+    const clp = message.content.split(``).slice(8).join("👏")
+    if (!clp) return message.channel.send('what do you want the message to say with clap emojis?')
+    message.channel.send(`${clp}`)
+  }
+})
 bot.login(TOKEN);
