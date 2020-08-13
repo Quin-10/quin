@@ -41,25 +41,7 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `nitro`) {
-    var choices = [
-      "nitro is too expensive",
-      "10 dollars, just to make gif emojis!?",
-      "I'm sueing discord",
-      "I once had 3 invites on a server because that was the requirement for nitro, yet the owner of the server, didn't give me it"
-    ];
-    var output = choices[Math.floor(Math.random() * choices.length)];
 
-    message.channel.send(`${message.author}**${output}**!`);
-  }
-});
 bot.on("message", message => {
   const args = message.content
     .slice(prefix.length)
@@ -70,17 +52,7 @@ bot.on("message", message => {
     message.delete();
   }
 });
-bot.on("message", message => {
-  if (message.content === `E/`) {
-    message.channel.send(
-      `${message.author}  umm I hate to burst your bubble but... there's a command missing`
-    );
-  } else if (message.content === `e/`) {
-    message.channel.send(
-      `${message.author}  umm I hate to burst your bubble but... there's a command missing`
-    );
-  }
-});
+
 
 bot.on("message", message => {
   if (message.content.startsWith(`${prefix}dm`)) {
@@ -138,16 +110,12 @@ bot.on("message", message => {
       .slice(1)
       .join(" ");
     if (!tex) return message.reply("what do you want to say?");
+    
     message.channel.send(tex);
   }
 });
 
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}someboy`)) {
-    const someone = message.guild.members.random();
-    message.channel.send(`the random person is${someone}`);
-  }
-});
+
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -214,9 +182,11 @@ bot.on("message", message => {
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
     const slotEmbed = new Discord.MessageEmbed()
-
-      .setTitle(`${message.author.username} ooh lets see what you got`)
-      .setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`);
+.setAuthor('A Slot Machine!')
+      .setTitle(`${message.author.tag} ooh lets see what you got`)
+      .setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`)
+    .setFooter('a slot machine')
+    .setTimestamp()
     message.channel.send(slotEmbed);
   }
 });
@@ -303,30 +273,7 @@ bot.on("message", message => {
     channel.send(anEmbed);
   }
 });
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}reactroles`)) {
-    return;
-    if (!message.member.hasPermission(["ADMINISTRATOR"])) {
-      return message.channel.send(
-        "you need the permission: `ADMINISTRATOR` to make a reaction role message"
-      );
-    }
 
-    var channel = message.mentions.channels.first();
-    var announcelely = message.content
-      .split(`${prefix}reactroles ${channel}`)
-      .slice(1)
-      .join(" ");
-    const role = message.mentions.roles.first();
-    const anEmbed = new Discord.MessageEmbed()
-      .setTitle("<:Announce:731965302971302000>`NEW ROLE REACTIONS`")
-      .setDescription(announcelely)
-      .setColor("49328");
-    channel.send(anEmbed).then(sentMessage => {
-      sentMessage.react("🟣");
-    });
-  }
-});
 //serverscircle
 bot.on("message", message => {
   if (message.content === "propro") {
