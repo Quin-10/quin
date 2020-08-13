@@ -119,23 +119,7 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", async message => {
-  const infoWords = [
-    "@yahoo.com",
-    "@gmail.com",
-    "fuck",
-    "ass",
-    "cunt",
-    "damn",
-    "bitch",
-    "o"
-  ];
-  if (infoWords.some(word => message.content.includes(word))) {
-    return;
-    message.delete();
-    message.member.send("are you trying to leak your account?");
-  }
-});
+
 
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
@@ -408,7 +392,7 @@ bot.on("message", message => {
       .setColor("F9A61A")
       .setTitle(`**MR CIRCLE GUILD STATS**`)
       .setDescription(
-        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!\n**Mr Circle** emoji count: **${bot.emojis.cache.size}** users!`
+        `**Mr Circle** server count: **${bot.guilds.cache.size}** servers!\n**Mr Circle** channel count: **${bot.channels.cache.size}** channels!\n**Mr Circle** user count: **${bot.users.cache.size}** users!\n**Mr Circle** emoji count: **${bot.emojis.cache.size}** emojis!`
       );
 
     message.channel.send(mr);
@@ -528,40 +512,8 @@ bot.on("message", message => {
     message.channel.send(picEmbed);
   }
 });
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}botprofile`)) {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-    const args = message.content
-      .slice(prefix.length)
-      .trim()
-      .split(" ");
-    const command = args.shift().toLowerCase();
-    const member = message.mentions.members.first();
 
-    const user = message.mentions.members.first();
-    const picture = member.user.displayAvatarURL();
-    if (!member.user.bot) {
-      return;
-    }
-    if (!member.user.bot) {
-      return;
-    }
 
-    const picEmbed = new Discord.MessageEmbed()
-      .setColor("303136")
-      .setTitle(`${member.user.username}`, "card", true)
-      .setThumbnail(picture)
-      .setDescription(
-        `NAME:${member.user.tag} \nSTATUS: ${member.presence.status} \nBOT: ${member.user.bot}  `
-      );
-    message.channel.send(picEmbed);
-  }
-});
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}pinned`)) {
-    const pin = message.channel.messages.fetchPinned();
-  }
-});
 
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -570,7 +522,7 @@ bot.on("message", async message => {
     .trim()
     .split(" ");
   const command = args.shift().toLowerCase();
-  if (command === `lead`) {
+  if (command === `highest role`) {
     const member = message.mentions.members.first;
     var high = member.roles.highest.name;
     message.channel.send(high);
@@ -613,7 +565,7 @@ bot.on("message", message => {
       .setThumbnail(icon)
       .setColor("363940")
       .setDescription(
-        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${emo} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}** \n Owner: **${message.guild.owner.user.tag}** \n DATE CREATED: ${created}`
+        ` NAME: **${message.guild.name}** \n  CHANNELS: **${message.guild.channels.cache.size}** \n  SERVER ID: **${message.guild.id}** \n ${emo} EMOJIS: **${message.guild.emojis.cache.size}** \n REGION: **${message.guild.region}** \n  ROLES: **${message.guild.roles.cache.size}**\n HIGHEST ROLE: **${message.guild.roles.highest.name}**\n OWNER: **${message.guild.owner.user.tag}** \n DATE CREATED: ${created}`
       );
     message.channel.send(infoEmbed);
     message.channel.send("");
@@ -1209,7 +1161,7 @@ bot.on("message", async message => {
     if (!funi) return message.channel.send(`what’s so funny!?`);
     message.channel.send(
       `${message.author.username}: "${funi} "\n\n\n\neveryone:${bo}`
-    );
+    );//servers
   } else if (command === `talkkid`) {
     const unamed = message.content
       .split(` `)
