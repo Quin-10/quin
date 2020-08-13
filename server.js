@@ -576,7 +576,7 @@ bot.on("message", async message => {
     message.channel.send(high);
   }
 });
-
+//clap
 bot.on("message", message => {
   const swearWords2 = ["19202993$329"];
 
@@ -1093,7 +1093,7 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
   if (command === `gaysize`) {
-    const gaz = [Math.floor(Math.random() * 100 + 1)];
+    const gaz = [Math.floor(Math.random() * 100 + 0)];
     const gabe = new Discord.MessageEmbed()
       .setTitle("THIS IS HOW GAY YOU ARE")
       .setColor("FF95A1")
@@ -1491,4 +1491,15 @@ if (gamemsg == undefined) return message.channel.send('The only choices are: `sc
     message.channel.send(rps);
   }
 });//60
+bot.on("message", message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === "clap") {
+    const clp = message.content.split(``).slice(1).join(" ")
+    message.channel.send(`${clap}`)
 bot.login(TOKEN);
