@@ -1389,6 +1389,7 @@ bot.on("message", message => {
   }
 })
 bot.on("message", message => {
+  const Date = require("date")
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content
     .slice(prefix.length)
@@ -1409,6 +1410,8 @@ bot.on("message", message => {
     .addField(`\<:Thinking:742695359158943745>Output\<:Thinking:742695359158943745>`,`🎲 **Dice 1:** ${rollin} \n🎲 **Dice 2:** ${rollino} \n\<:Shock:742227974685851739>**Result:** ${out}`)
     .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F678DAE04-C594-458B-9B9E-B86DD1180728.png?v=1597292301492')
     message.channel.send(rolled)
+    const yey = new Date.now()
+    message.channel.send(`${yey}`)
     }
 })
 bot.login(TOKEN);
