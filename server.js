@@ -1500,9 +1500,23 @@ bot.on("message", message => {
   const command = args.shift().toLowerCase();
 
   if (command === "clap") {
-    const clp = message.content.split(``).slice(8).join("👏")
-    if (!clp) return message.channel.send('what do you want the message to say with clap emojis?')
+    const clp = message.content.split(``).slice(6).join("👏")
+    if (!clp) return message.channel.send('what do you want the message to say?')
     message.channel.send(`${clp}`)
+  }
+})
+bot.on("message", message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === "space") {
+    const clp = message.content.split(``).slice(7).join("   ")
+    if (!clp) return message.channel.send('what do you want the message to say?')
+    message.channel.send(`**${clp}**`)
   }
 })
 bot.login(TOKEN);
