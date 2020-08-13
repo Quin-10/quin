@@ -1434,8 +1434,9 @@ bot.on("message", message => {
     const out = rollin + rollino
     const rolled = new Discord.MessageEmbed()
     .setAuthor('Roll dices!')
-    .setTitle(`This Is What `)
-    message.channel.send(`${rollin} + ${rollino} = ${out}`)
+    .setTitle(`This Is What ${message.author.tag} Rolled!`)
+    .addField(`\<:Thinking:742695359158943745>Output\<:Thinking:742695359158943745>`,`🎲 Dice 1: **${rollin}** \n🎲 Dice 2: **${rollino}** \nResult: **${out}**`)
+    message.channel.send(rolled)
     }
 })
 bot.login(TOKEN);
