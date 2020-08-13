@@ -60,38 +60,6 @@ bot.on("message", message => {
   }
 });
 
-bot.on("message", message => {
-  const meanWords = [
-    "your a dumb bot",
-    "I hate Mr circle",
-    "<@711610924489769078> you suck",
-    "boo",
-    "I hate you",
-    "you suck",
-    "your the worst bot",
-    "I don't like you",
-    "dumb bot"
-  ];
-  if (meanWords.some(word => message.content.includes(word))) {
-    if (!message.channel.type == "dm") {
-      return;
-    }
-    if (message.channel.type == "text") {
-      return;
-    }
-
-    message.author.send(`${message.author} humans like you have low iQs`);
-  }
-});
-bot.on("message", message => {
-  if (message.content.startsWith(`${prefix}roast`)) {
-    message.channel.send(
-      `you suck\n \n this is why your gf dumped you, oh wait, you don't have one lol\n \n listen kid, why are you talking to a bot I'm not a real person, do you have not a social life??`
-    );
-  }
-});
-
-
 
 // expected output : seconds elapsed = 2
 bot.on("message", message => {
@@ -182,6 +150,7 @@ bot.on("message", message => {
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
     const slotEmbed = new Discord.MessageEmbed()
+    .setColor('42801')
 .setAuthor('A Slot Machine!')
       .setTitle(`${message.author.tag} ooh lets see what you got`)
       .setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`)
