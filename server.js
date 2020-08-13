@@ -150,9 +150,10 @@ bot.on("message", message => {
     ];
     var output = choices[Math.floor(Math.random() * choices.length)];
     const slotEmbed = new Discord.MessageEmbed()
-    .setColor('42801')
+    .setColor('27999')
 .setAuthor('A Slot Machine!')
-      .setTitle(`${message.author.tag} ooh lets see what you got`)
+      .setTitle(`${message.author.tag} Let's See What You Got`)
+    .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FCA5E5A4B-9855-44FE-8391-124EF36E8850.png?v=1592968948396')
       .setDescription(`\n🟦🟦🟦🟦\n🟦${output3}🟦\n🟦${output2}🟦\n🟦${output}🟦\n🟦🟦🟦🟦`)
     .setFooter('a slot machine')
     .setTimestamp()
