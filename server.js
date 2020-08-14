@@ -1408,6 +1408,5 @@ bot.on("messageDelete", message => {
  .setTimestamp()
   bot.channels.cache.get(leg).send(ybed);
 })
- bot.on   
-guildCreate
+ 
 bot.login(TOKEN);
