@@ -1409,7 +1409,7 @@ bot.on("messageDelete", message => {
   bot.channels.cache.get(leg).send(ybed);
 })
     
-bot.on("guildBanAdd", (guild, message) => {
+bot.on("guildBanAdd", message => {
  const lg = db.get(`logchannel_${message.guild.id}`)
  
   bot.channels.cache.get(lg).send('ybed');
