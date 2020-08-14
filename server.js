@@ -1410,8 +1410,10 @@ bot.on("messageDelete", message => {
 })
  bot.on("messageUpdate", async (newMessage, message) => {
    message.channel.send(`${newMessage}`)
- }) else
-bot.on("messageUpdate", async (oldMessage, message) => {
-})
+   
+ })
+
+        
+
  
 bot.login(TOKEN);
