@@ -279,7 +279,7 @@ bot.on("message", message => {
         "are you crazy? you cannot ban yourself bruh"
       );
     message.guild.members.ban(user);
-    const channel = bot.channels.cache.get("728762042974076960");
+    const chanel = bot.channels.cache.get("728762042974076960");
     const exampleEmbedlol = new Discord.MessageEmbed()
       .setColor("#FF5541")
       .setTitle("he/she got banned")
@@ -290,7 +290,7 @@ bot.on("message", message => {
       )
       .setFooter(`requested by ${message.author.username}`);
     message.channel.send(exampleEmbedlol);
-    channel.send(exampleEmbedlol);
+    chanel.send(exampleEmbedlol);
     user.send(exampleEmbedlol);
   }
 });
