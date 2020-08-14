@@ -1412,6 +1412,10 @@ bot.on("messageDelete", message => {
 bot.on("guildBanAdd", message => {
  const leg = db.get(`logchannel_${message.guild.id}`)
  
-  bot.channels.cache.get(leg).send('ybed');
+  bot.channels.cache.get(leg).send('ybd');
 })
+bot.on("guildCreate", guild => {
+guild.channel.send(`hello, I am **Mr Circle**. My prefix is **E/**`)
+}
+)
 bot.login(TOKEN);
