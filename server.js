@@ -1414,8 +1414,7 @@ bot.on("guildBanAdd", message => {
  
   bot.channels.cache.get(leg).send('ybd');
 })
-bot.on("guildCreate", guild => {
-guild.channel.send(`hello, I am **Mr Circle**. My prefix is **E/**`)
-}
-)
+bot.on("messageUpdate", message => {
+  message.channel.send('yo')
+})
 bot.login(TOKEN);
