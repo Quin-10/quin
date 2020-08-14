@@ -1392,10 +1392,12 @@ bot.on("message", message => {
   const command = args.shift().toLowerCase();
   if (command === "log") {
     const channel = message.mentions.channels.first()
+    if (!channel) return message.channel.send('you need to specify a channel')
     const logchannel = db.fetch(`logchannel_${message.guild.id}`)
-    message.channl.send(`logchannel is setted in ${channel}`)
+    message.channel.send(`logchannel is setted in ${channel}`)
     db.set(`logchannel_${message.guild.id}`, channel.id)
     channel.send('this is my new log channel')
-}})
+}
+})
        
 bot.login(TOKEN);
