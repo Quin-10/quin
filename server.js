@@ -273,7 +273,7 @@ bot.on("message", message => {
       .split(`${prefix}ban ${user}`)
       .slice(1)
       .join(" ");
-    if (!reason) return
+    if (!reason) return message.channel.send('what`s the ducking reason!? imagine banning someone for nothing!')
     if (user.id === message.author.id)
       return message.channel.send(
         "are you crazy? you cannot ban yourself bruh"
@@ -1410,8 +1410,8 @@ bot.on("messageDelete", message => {
 })
     
 bot.on("guildBanAdd", message => {
- const lg = db.get(`logchannel_${message.guild.id}`)
+ const leg = db.get(`logchannel_${message.guild.id}`)
  
-  bot.channels.cache.get(lg).send('ybed');
+  bot.channels.cache.get(leg).send('ybed');
 })
 bot.login(TOKEN);
