@@ -1408,8 +1408,8 @@ bot.on("messageDelete", message => {
  .setTimestamp()
   bot.channels.cache.get(leg).send(ybed);
 })
- 
-
+ bot.on("messageUpdate", message => {
+message.channel.send()
         
 
  
