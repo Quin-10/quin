@@ -273,10 +273,7 @@ bot.on("message", message => {
       .split(`${prefix}ban ${user}`)
       .slice(1)
       .join(" ");
-    if (!reason)
-      return message.channel.send(
-        "you need a specific reason to ban someone, nincompoop"
-      );
+    
     if (user.id === message.author.id)
       return message.channel.send(
         "are you crazy? you cannot ban yourself bruh"
@@ -1412,7 +1409,7 @@ bot.on("messageDelete", message => {
   bot.channels.cache.get(leg).send(ybed);
 })
     
-bot.on("guildMemberBan", message => {
+bot.on("guildBanAdd", message => {
  const leg = db.get(`logchannel_${message.guild.id}`)
  const ybed = new Discord.MessageEmbed()
  .setColor("RED")
