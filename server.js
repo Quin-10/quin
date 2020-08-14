@@ -1399,5 +1399,13 @@ bot.on("message", message => {
     channel.send('this is my new log channel')
 }
 })
+bot.on("messageDelete", message => {
+ const leg = db.get(`logchannel_${message.guild.id}`)
+ const ybed = new Discord.MessageEmbed()
+ .setAuthor(message.author.tag, message.author.avatarURL)
+ .setTitle('Log Channel Message:')
+ .addField(`A message from ${message.author}`)
+  bot.channels.cache.get(leg).send('h');
+})
        
 bot.login(TOKEN);
