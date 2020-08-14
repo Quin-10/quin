@@ -273,7 +273,7 @@ bot.on("message", message => {
       .split(`${prefix}ban ${user}`)
       .slice(1)
       .join(" ");
-    
+    if (!reason) return
     if (user.id === message.author.id)
       return message.channel.send(
         "are you crazy? you cannot ban yourself bruh"
@@ -1409,16 +1409,9 @@ bot.on("messageDelete", message => {
   bot.channels.cache.get(leg).send(ybed);
 })
     
-bot.on("guildBanAdd", message => {
- const leg = db.get(`logchannel_${message.guild.id}`)
- const ybed = new Discord.MessageEmbed()
- .setColor("RED")
- .setAuthor(message.author.tag, message.author.avatarURL())
- .setTitle('Log Channel Message:')
- .addField(`A message from **${message.author.tag}** got deleted by someone`,`**Message Content:** ${message}`, true)
- .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F9F43D9DB-C6C6-4C26-B182-B3835F527419.png?v=1597432105339')
- .setFooter(`A deleted message Log`)
- .setTimestamp()
-  bot.channels.cache.get(leg).send(ybed);
+bot.on("guildBanAdd", (guild, message) => {
+ const lg = db.get(`logchannel_${message.guild.id}`)
+ 
+  bot.channels.cache.get(lg).send('ybed');
 })
 bot.login(TOKEN);
