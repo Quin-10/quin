@@ -817,7 +817,7 @@ const m = await message.channel.send(onbed)
       .setTimestamp();
     m.edit(pingbee);
   }
-});
+});//Activity
 bot.on("message", async message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content
@@ -919,7 +919,7 @@ bot.on("guildMemberAdd", member => {
   if (chx === null) {
     //check if var have value or not
     return;
-  }
+  }//shot
 
   let wembed = new Discord.MessageEmbed() //define embed
     .setAuthor(member.user.username, member.user.avatarURL())
@@ -1211,18 +1211,7 @@ bot.on("message", async message => {
     message.member.send("That word is not allowed!");
   }
 });
-bot.on("message", async message => {
-  if (message.guild.id == "728121511038156841") return;
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === "sho") {
-    message.channel.send("yo");
-  }
-});
+
 bot.on("message", async message => {
   if (message.guild.id == "728121511038156841") return;
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -1291,28 +1280,7 @@ bot.on("message", message => {
     // We're gonna using an await, to make the react are right in order.
   }
 });
-bot.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
 
-  if (command === "pow") {
-    const embed = new Discord.MessageEmbed()
-      .setColor(0xffffff)
-      .setTitle("Pick your roles!")
-      .setDescription(`1️⃣ Minecraft \n\n2️⃣ Roblox`); // We're gonna try an unicode emoji. Let's find it on emojipedia.com !
-    message.channel.send(embed).then(
-      sentMessage => {
-        sentMessage.react("👍");
-      }
-
-      // We're gonna using an await, to make the react are right in order.
-    );
-  }
-});
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content
