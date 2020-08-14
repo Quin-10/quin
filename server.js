@@ -1381,4 +1381,21 @@ bot.on("message", message => {
     
     }
 })
+
+bot.on("message", message => {
+  const db = require("quick.db")
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === "log") {
+    const channel = message.mentions.channels.first()
+    const logchannel = db.fetch(`logchannel_${message.guild.id}`)
+    message.channl.send(`logchannel is setted in ${channel}`)
+    db.set(`logchannel_${message.guild.id}`, channel.id)
+    channel.send('this is my new log channel')
+}})
+       
 bot.login(TOKEN);
