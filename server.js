@@ -1408,13 +1408,6 @@ bot.on("messageDelete", message => {
  .setTimestamp()
   bot.channels.cache.get(leg).send(ybed);
 })
-    
-bot.on("guildBanAdd", message => {
- const leg = db.get(`logchannel_${message.guild.id}`)
- 
-  bot.channels.cache.get(leg).send('ybd');
-})
-bot.on("messageUpdate", message => {
-  message.channel.send('yo')
-})
+ bot.on   
+guildCreate
 bot.login(TOKEN);
