@@ -1408,5 +1408,5 @@ bot.on("messageDelete", message => {
  .setTimestamp()
   bot.channels.cache.get(leg).send(ybed);
 })
- 
+ bot.on("messageUpdate",  => {
 bot.login(TOKEN);
