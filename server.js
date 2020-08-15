@@ -1431,7 +1431,14 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "diceroll") {
+  if (command === "hype") {
     
+    const why = message.content.split(` `).slice(1).join("")
+    if (!why) return message.channel.send('you need to make a reason to report a bug')
+    const reported = new Discord.MessageEmbed()
+    .setAuthor(message.author.tag, message.author.avatarURL())
+    .setTitle('A Bug reported')
+    .setDescription(`**Report:** ${why} \nfrom **${message.author.tag}**`)
+    bot.users.cache.get('639971658035363840').send(reported)
   }})
 bot.login(TOKEN);
