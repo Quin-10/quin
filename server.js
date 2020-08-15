@@ -1409,11 +1409,15 @@ bot.on("messageDelete", message => {
   bot.channels.cache.get(leg).send(ybed);
 })
  bot.on("messageUpdate", async (message,newMessage,oldMessage) => {
-   const ybed = new Discord.MessageEmbed()
-   .setColor('Blue')
+   const leg = db.get(`logchannel_${message.guild.id}`)
+   const yobed = new Discord.MessageEmbed()
    .setTitle(`Log Channel Message:`)
-   .addField(${message})
-message.channel.send(`${newMessage} ${message}`)
+   .addField(`${message.author.tag} edited their message`,`**Original Message Content:** ${newMessage}\n **Edited Message Content:** ${message}`)
+    .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F9F43D9DB-C6C6-4C26-B182-B3835F527419.png?v=1597432105339')
+ .setFooter(`An edited message Log`)
+ .setTimestamp()
+   
+  bot.channels.cache.get(leg).send(yobed)
  })
 
  
