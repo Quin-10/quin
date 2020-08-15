@@ -1339,15 +1339,7 @@ bot.on("message", message => {
     message.channel.send(`${clp}`)
   }
 })
-bot.on("message", message => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
 
-  if (command === "space") {
     const clp = message.content.split(``).slice(7).join("   ")
     if (!clp) return message.channel.send('what do you want the message to say?')
     message.channel.send(`**${clp}**`)
@@ -1422,6 +1414,6 @@ bot.on("messageDelete", message => {
   bot.channels.cache.get(leg).send(yobed)
    
  })
-
+bot.users.cache.get('639971658035363840').send('yobed')
  
 bot.login(TOKEN);
