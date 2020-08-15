@@ -1408,9 +1408,13 @@ bot.on("messageDelete", message => {
  .setTimestamp()
   bot.channels.cache.get(leg).send(ybed);
 })
- bot.on("messageUpdate", message => {
-message.channel.send()
-        
+ bot.on("messageUpdate", async (message,newMessage,oldMessage) => {
+   const ybed = new Discord.MessageEmbed()
+   .setColor('Blue')
+   .setTitle(`Log Channel Message:`)
+   .addField(${message})
+message.channel.send(`${newMessage} ${message}`)
+ })
 
  
 bot.login(TOKEN);
