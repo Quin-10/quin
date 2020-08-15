@@ -1414,7 +1414,7 @@ bot.on("messageDelete", message => {
    const yobed = new Discord.MessageEmbed()
    .setColor('BLUE')
    .setTitle(`Log Channel Message:`)
-   .addField(`${message.author.tag} edited their message`,`**Original Message Content:** ${message}\n **Edited Message Content:** ${newMessage}`)
+   .setDescription(`${message.author.tag} edited their message\n**Original Message Content:** ${message}\n **Edited Message Content:** ${newMessage}`)
     .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F9F43D9DB-C6C6-4C26-B182-B3835F527419.png?v=1597432105339')
  .setFooter(`An edited message Log`)
  .setTimestamp()
