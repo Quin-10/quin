@@ -923,7 +923,7 @@ bot.on("guildMemberAdd", member => {
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
     .setDescription(
-      `Welcome to **${member.guild.name}**, **${member.user.tag}**`
+      `**${member.user.tag}** has joined **${member.guild.name}**`
     )
     .addField(`Member Number`, `**#${member.guild.members.cache.size}**`, true)
     .setFooter(`Welcome`)
@@ -944,7 +944,7 @@ bot.on("guildMemberRemove", member => {
     .setAuthor(member.user.username, member.user.avatarURL())
     .setColor("#ff2050")
     .setThumbnail(member.user.avatarURL())
-    .setDescription(`bye bye **${member.user.username}**`)
+    .setDescription(` **${member.user.username}** has left ${member.guild.name}`)
     .setFooter("goodbye")
     .setTimestamp();
 
