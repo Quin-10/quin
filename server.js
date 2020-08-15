@@ -1431,7 +1431,7 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "hype") {
+  if (command === "reportbug") {
     
     const why = message.content.split(` `).slice(1).join(" ")
     if (!why) return message.channel.send('you need to make a reason to report a bug')
