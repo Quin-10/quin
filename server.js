@@ -1433,12 +1433,17 @@ bot.on("message", message => {
 
   if (command === "hype") {
     
-    const why = message.content.split(` `).slice(1).join("")
+    const why = message.content.split(` `).slice(1).join(" ")
     if (!why) return message.channel.send('you need to make a reason to report a bug')
     const reported = new Discord.MessageEmbed()
-    .setAuthor(message.author.tag, message.author.avatarURL())
+.setAuthor(message.author.tag)
+    .setColor('303136')
     .setTitle('A Bug reported')
-    .setDescription(`**Report:** ${why} \nfrom **${message.author.tag}**`)
+    .setDescription(`**Report:** ${why}`)
+    .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2FFF0F12C9-F4F8-42A9-94FC-5D9AC8E2CD85.png?v=1597458089529')
+    .setFooter('there might be a bug on me'
+)
     bot.users.cache.get('639971658035363840').send(reported)
+    
   }})
 bot.login(TOKEN);
