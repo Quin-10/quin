@@ -1446,13 +1446,13 @@ bot.on("message", message => {
     
   }})
 
-bot.on("roleCreate",async (role, message) => {
+bot.on("roleCreate", message => {
   const leg = db.get(`logchannel_${message.guild.id}`)
   
   const yobe = new Discord.MessageEmbed()
   .setColor('GREEN')
   .setTitle(`A Role was created!`)
-  .setDescription(`Role Name: ${role}`)
+  .setDescription(`Role Name:`)
   .setFooter('A new role is created!')
   .setTimestamp()
   bot.channels.cache.get(leg).send(yobe)
