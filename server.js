@@ -1413,7 +1413,7 @@ bot.on("messageDelete", message => {
    const leg = db.get(`logchannel_${message.guild.id}`)
    const yobed = new Discord.MessageEmbed()
    .setColor('BLUE')
-   .setTitle(`Log Channel Message:`)
+   .setTitle(`A Message was edited`)
    .setDescription(`**${message.author.tag}** edited their message\nOriginal Message Content: **${message}**\n Edited Message Content: **${newMessage}**`)
     .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F9F43D9DB-C6C6-4C26-B182-B3835F527419.png?v=1597432105339')
  .setFooter(`An edited message Log`)
@@ -1447,8 +1447,14 @@ bot.on("message", message => {
   }})
 
 bot.on("roleCreate",async (role, message) => {
-  const yobed = new Discord.MessageEmbed()
-  .setTitle(``)
-  bot.channels.cache.get(leg).send(yobed)
+  const leg = db.get(`logchannel_${message.guild.id}`)
+  
+  const yobe = new Discord.MessageEmbed()
+  .setColor('GREEN')
+  .setTitle(`A Role was created!`)
+  .setDescription(`Role Name: ${role}`)
+  .setFooter('A new role is created!')
+  .setTimestamp()
+  bot.channels.cache.get(leg).send(yobe)
 })
 bot.login(TOKEN);
