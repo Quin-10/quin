@@ -1445,4 +1445,10 @@ bot.on("message", message => {
     bot.users.cache.get('639971658035363840').send(reported)
     
   }})
+
+bot.on("roleCreate",async (role, message) => {
+  const yobed = new Discord.MessageEmbed()
+  .setTitle(``)
+  bot.channels.cache.get(leg).send(yobed)
+})
 bot.login(TOKEN);
