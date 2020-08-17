@@ -1464,6 +1464,19 @@ bot.on("message", message => {
 message.channel.send(`ayo ${message.author.email}`)
   }
 })
-bot.on("channelCreate", channel => {
-       })
+bot.on("guildBanAdd", (message,guild,user) => {
+  if (message.author.bot) return
+   const leg = db.get(`logchannel_${message.guild.id}`)
+   const yoed = new Discord.MessageEmbed()
+   .setColor('PURPLE')
+   .setTitle(`A Channel was created`)
+   .setDescription(`Channel Name: ${user}`)
+    .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F9F43D9DB-C6C6-4C26-B182-B3835F527419.png?v=1597432105339')
+ .setFooter(`A channel Log`)
+ .setTimestamp()
+   
+  bot.channels.cache.get(leg).send(yoed)
+   
+ })
+       
 bot.login(TOKEN);
