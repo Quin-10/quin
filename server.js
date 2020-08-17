@@ -741,7 +741,7 @@ bot.on("message", async message => {
   if (command === `meme`) {
     const got = require("got");
 
-    got("https://www.reddit.com/r/quin10/random/.json")
+    got("https://www.reddit.com/r/cartoonfeet/random/.json")
       .then(response => {
         let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
