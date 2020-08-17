@@ -1399,7 +1399,7 @@ bot.on("messageDelete", message => {
   bot.channels.cache.get(leg).send(ybed);
 })
  bot.on("messageUpdate", (message,newMessage) => {
-   if (message.author.id == '711610924489769078') return
+   if (message.author.bot) return
    const leg = db.get(`logchannel_${message.guild.id}`)
    const yobed = new Discord.MessageEmbed()
    .setColor('BLUE')
