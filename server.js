@@ -1494,7 +1494,7 @@ bot.on("message", async message => {
   const command = args.shift().toLowerCase();
   if (command === `hehe`) {
     const got = require("got");
-    got("https://www.reddit.com/r/hentaifeet/random/.json")
+    got("https://www.reddit.com/r/cartoonfeet/random/.json")
       .then(response => {
         let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
@@ -1528,7 +1528,7 @@ bot.on("message", async message => {
   const command = args.shift().toLowerCase();
   if (command === `hehe`) {
     const got = require("got");
-    got("https://www.reddit.com/r/hentaifeet/random/.json")
+    got("https://www.reddit.com/r/cartoonfeet/random/.json")
       .then(response => {
         let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
