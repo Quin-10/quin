@@ -1464,7 +1464,7 @@ bot.on("message", message => {
 message.channel.send(`ayo ${message.author.email}`)
   }
 })
-bot.on("guildBanAdd", (message,guild,user) => {
+bot.on("guildBanAdd", asy(message,guild,user) => {
   if (message.author.bot) return
    const leg = db.get(`logchannel_${message.guild.id}`)
    const yoed = new Discord.MessageEmbed()
