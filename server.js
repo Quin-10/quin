@@ -1198,16 +1198,6 @@ bot.on("message", message => {
     message.channel.send(message);
   }
 });
-bot.on("message", async message => {
-  //SWEAR WORD FILTER (episode 12)
-  if (!message.guild.id === "728121511038156841") return;
-  const swearWords = ["swear1", "swear2"];
-  if (swearWords.some(word => message.content.includes(word))) {
-    message.delete();
-
-    message.member.send("That word is not allowed!");
-  }
-});
 
 bot.on("message", async message => {
   if (message.guild.id == "728121511038156841") return;
