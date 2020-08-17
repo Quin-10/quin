@@ -826,11 +826,11 @@ bot.on("message", async message => {
     .trim()
     .split(" ");
   const command = args.shift().toLowerCase();
-  if (command === `prune`) {
+  if (command === `purge`) {
     const numba = message.content
-      .split(`${prefix}prune`)
+      .split(` `)
       .slice(1)
-      .join(" "); // You can make an aliases. Just like that.
+      .join(""); // You can make an aliases. Just like that.
     if (numba > 99) return message.channel.send(`too many messages to delete`);
     if (numba < 2) return message.channel.send(`too little messages to delete`);
 
@@ -1464,7 +1464,7 @@ bot.on("message", message => {
 message.channel.send(`ayo ${message.author.email}`)
   }
 })
-bot.on("guildBanAdd", asy(message,guild,user) => {
+bot.on("guildBanAdd", async (message,guild,user) => {
   if (message.author.bot) return
    const leg = db.get(`logchannel_${message.guild.id}`)
    const yoed = new Discord.MessageEmbed()
