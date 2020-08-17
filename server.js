@@ -1482,10 +1482,76 @@ bot.on("message", async message => {
         
       message.channel.send(
       Memembed
-      );
+      )
+    })
+  }})
+    bot.on("message", async message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `hehe`) {
+    const got = require("got");
+    got("https://www.reddit.com/r/hentaifeet/random/.json")
+      .then(response => {
+        let content = JSON.parse(response.body),
+          image = content[0].data.children[0].data.url,
+            
+          Memembed = new Discord.MessageEmbed()
+            .setColor("00B0F5")
+            .setTitle(`here is your meme sir`)
+            .setAuthor("`MEME`")
+            .setImage(image)
+  
+            .addField(
+              "↓**Reminder**↓",
+              "remember, I do not have any control of what memes I send <:Smugyes:735651807551946773>",
+              true
+            )
+            .setFooter("from r/memes")
+            .setTimestamp();
+      
+        
+      message.channel.send(
+      Memembed
+      )
+    })
+  }})
+    bot.on("message", async message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `hehe`) {
+    const got = require("got");
+    got("https://www.reddit.com/r/hentaifeet/random/.json")
+      .then(response => {
+        let content = JSON.parse(response.body),
+          image = content[0].data.children[0].data.url,
+            
+          Memembed = new Discord.MessageEmbed()
+            .setColor("00B0F5")
+            .setTitle(`here is your meme sir`)
+            .setAuthor("`MEME`")
+            .setImage(image)
+  
+            .addField(
+              "↓**Reminder**↓",
+              "remember, I do not have any control of what memes I send <:Smugyes:735651807551946773>",
+              true
+            )
+            .setFooter("from r/memes")
+            .setTimestamp();
+      
+        
+      message.channel.send(
+      Memembed
+      )
+    })
+  }})
     
-      })
-  } else if
-}
-});
 bot.login(TOKEN);
