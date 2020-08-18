@@ -1463,7 +1463,13 @@ bot.on("roleCreate", (role, message) => {
   const command = args.shift().toLowerCase();
 
   if (command === "canvas") {
+    const time = message.content.split(' ').slice(1).join("")
+    var timeout = setTimeout (function () {
+        message.channel.send("123")
+      }, 1 * time); 
+  }
+  
+});
+
     
-    }
- })
 bot.login(TOKEN);
