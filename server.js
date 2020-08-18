@@ -1464,9 +1464,25 @@ bot.on("roleCreate", (role, message) => {
 
   if (command === "canvas") {
     const time = message.content.split(' ').slice(1).join("")
+    const tim = message.content.split('').slice(1).join("")
     var timeout = setTimeout (function () {
-        message.channel.send("123")
+        message.channel.send()
       }, 1 * time); 
+  }
+  
+});
+bot.on("message", async message => {
+  const Canvas = require("canvas")
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === "canada") {
+    const time = message.content.slice(1)
+    message.channel.send(`${time}`)
   }
   
 });
