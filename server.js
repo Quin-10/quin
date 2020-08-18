@@ -1468,11 +1468,13 @@ bot.on("message", message => {
   if (message.content === "E/verif") {
     
     message.channel.send(`${code}`)
-  } else if (message.content === `${code}`) {
+  } else if (message.content === `fheyiitsqdnh(ftghtrfh`) {
     if (message.author.bot) return
 message.channel.send('ok boymer')
   } else if (message.content === "0182") {
-message.members.addrole('')
+    message.delete()
+
+    
    }
 }
 )
