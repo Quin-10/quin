@@ -1463,11 +1463,13 @@ bot.on("message", message => {
     
   
 
-  if (message.content === "E/verify") {
+  if (message.content === "E/verif") {
     
     message.channel.send(`${code}`)
-  } else if (message.content === `${code}`) {
+  } else if (message.content === `$nwnkwk`) {
 message.channel.send('ok boymer')
+  } else if (message.content === "0182") {
+
    }
 }
 )
