@@ -1452,29 +1452,24 @@ bot.on("roleCreate", async (message,role) => {
   bot.channels.cache.get(leg).send(yobe)
 })
 bot.on("message", message => {
-  const Date = require("date")
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-
-  if (command === "verify") {
-    const numbas = [1,2,3,4,5,6,7,8,9]
-    const numbas1 = [1,2,3,4,5,6,7,8,9]
-    const numbas2 = [1,2,3,4,5,6,7,8,9]
-    const numbas3 = [1,2,3,4,5,6,7,8,9]
+  const numbas = [1, 2, 3, 4, 5]
+    const numbas1 = [1, 2, 3, 4, 5]
+    const numbas2 = [1, 2, 3, 4, 5]
+    const numbas3 = [1, 2, 3, 4, 5]
     const code = numbas[Math.floor(Math.random() * numbas.length)];
     const code1 = numbas1[Math.floor(Math.random() * numbas1.length)];
     const code2 = numbas2[Math.floor(Math.random() * numbas2.length)];
     const code3 = numbas3[Math.floor(Math.random() * numbas3.length)];
     
-    message.channel.send(`${code}${code1}${code2}${code3}`)
-   if (message.content === `${code}${code1}${code2}${code3}`) {
+  
+
+  if (message.content === "E/verify") {
+    
+    message.channel.send(`${code}`)
+  } else if (message.content === `${code}`) {
 message.channel.send('ok boymer')
    }
 }
-})
+)
        
 bot.login(TOKEN);
