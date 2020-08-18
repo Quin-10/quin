@@ -1453,30 +1453,7 @@ bot.on("roleCreate", (role, message) => {
   .setTimestamp()
   bot.channels.cache.get(leg).send(yobe)
 })
-bot.on("message", message => {
-  const numbas = ["1", "2", "3", "4", "5"]
-    const numbas1 = ["1", "2", "3", "4", "5"]
-    const numbas2 = ["1", "2", "3", "4", "5"]
-    const numbas3 = ["1", "2", "3", "4", "5"]
-    const code = numbas[Math.floor(Math.random() * numbas.length)];
-    const code1 = numbas1[Math.floor(Math.random() * numbas1.length)];
-    const code2 = numbas2[Math.floor(Math.random() * numbas2.length)];
-    const code3 = numbas3[Math.floor(Math.random() * numbas3.length)];
-    
-  
 
-  if (message.content === "E/verif") {
-    
-    message.channel.send(`${code}`)
-  } else if (message.content === `fheyiitsqdnh(ftghtrfh`) {
-    if (message.author.bot) return
-message.channel.send('ok boymer')
-  } else if (message.content === "0182") {
-    message.delete()
-
-    
-   }
-}
 )
  bot.on("message", async message => {
   const Canvas = require("canvas")
