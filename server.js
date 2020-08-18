@@ -741,7 +741,7 @@ bot.on("message", async message => {
   if (command === `meme`) {
     const got = require("got");
 
-    got("https://www.deviantart.com/feet/random/.json")
+    got("https://www.reddit.com/r/hentaifeet/random/.json")
       .then(response => {
         let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
@@ -767,6 +767,21 @@ bot.on("message", async message => {
       })
   }
 });
+bot.on("message", async message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+  if (command === `mme`) {
+const {MessageAttachment} = require('discord.js');
+    const {body} = fetch('https://nekos.life/api/v2/img/pat').then(res => res.json()).then(result => {
+      if (!result.url) return message.channel.send("Something went wrong.");
+      const attachment = new MessageAttachment(result.url);
+      message.channel.send(":)", attachment)
+    })
+  }})
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
