@@ -741,7 +741,7 @@ bot.on("message", async message => {
   if (command === `meme`) {
     const got = require("got");
 
-    got("https://www.reddit.com/r/meme/random/.json")
+    got("https://www.deviantart.com/feet/random/.json")
       .then(response => {
         let content = JSON.parse(response.body),
           image = content[0].data.children[0].data.url,
@@ -762,6 +762,7 @@ bot.on("message", async message => {
       message.channel.send(
       Memembed
       );
+      
     
       })
   }
@@ -1469,7 +1470,7 @@ bot.on("message", message => {
   } else if (message.content === `$nwnkwk`) {
 message.channel.send('ok boymer')
   } else if (message.content === "0182") {
-
+message.members.addrole('')
    }
 }
 )
