@@ -767,22 +767,7 @@ bot.on("message", async message => {
       })
   }
 })
-bot.on("message", async message => {
-  const fetch = require("fetch")
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
-  if (command === `mme`) {
-const {MessageAttachment} = require('discord.js');
-    const {body} = fetch('https://nekos.life/api/v2/img/pat').then(res => res.json()).then(result => {
-      if (!result.url) return message.channel.send("Something went wrong.");
-      const attachment = new MessageAttachment(result.url);
-      message.channel.send(":)", attachment)
-    })
-  }})
+
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -1490,5 +1475,33 @@ message.members.addrole('')
    }
 }
 )
-       
+ bot.on("message", message => {
+  const Canvas = require("canvas")
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+
+  if (command === "canvas") {
+    let aage = new Canvas(600,100)
+    .setColor("#ffffff")
+.addRect(0, 0, 500, 250) //we gonna replace it with image
+.setColor("#ff2050")
+.addRect(0, 0, 500, 80)
+.setColor("#ffffff")
+.setTextFont('bold 40px Impact') //you can make it bold
+.addText("PROFILE CARD", 110, 55)
+.setColor("#ff2050")
+.setTextFont('bold 20px Impact') 
+.addText(`ID - ${message.author.id}`, 30, 140)
+.addText(`TAG - ${message.author.tag}`, 30, 170)
+.addText(`GUILD NAME - ${message.guild.name}`, 30, 200)
+.setColor("#ffffff")
+.addCircle(60, 40, 33)
+
+    message.channel.send({files: [aage]})
+    }
+ })
 bot.login(TOKEN);

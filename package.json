@@ -20,7 +20,8 @@
     "quick.db": "^7.1.1",
     "ms": "^2.1.2",
     "date-format": "^3.0.0",
-    "fetch": "^1.1.0"
+    "fetch": "^1.1.0",
+    "canvas": "^2.6.1"
   },
   "engines": {
     "node": "12.x"
