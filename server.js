@@ -766,8 +766,9 @@ bot.on("message", async message => {
     
       })
   }
-});
+})
 bot.on("message", async message => {
+  const fetch = require("fetch")
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content
     .slice(prefix.length)

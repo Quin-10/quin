@@ -1,19 +1,20 @@
 dependencies:
   date: 1.0.2
   date-format: 3.0.0
-  discord.js: 12.2.0
+  discord.js: 12.3.1
   discord.js-minesweeper: 1.0.6
   express: 4.17.1
+  fetch: 1.1.0
   got: 11.5.1
   moment: 2.27.0
   ms: 2.1.2
   node-fetch: 2.6.0
   quick.db: 7.1.1
 packages:
-  /@discordjs/collection/0.1.5:
+  /@discordjs/collection/0.1.6:
     dev: false
     resolution:
-      integrity: sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
+      integrity: sha512-utRNxnd9kSS2qhyivo9lMlt5qgAUasH2gb7BEOn6p0efFh24gjGomHzWKMAPn2hEReOPQZCJaRKoURwRotKucQ==
   /@discordjs/form-data/3.0.1:
     dependencies:
       asynckit: 0.4.0
@@ -135,6 +136,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==
+  /biskviit/1.0.1:
+    dependencies:
+      psl: 1.8.0
+    dev: false
+    engines:
+      node: '>=1.0.0'
+    resolution:
+      integrity: sha1-A3oM1LcbnjMf2QoRIt4X3EnkIKc=
   /bl/4.0.2:
     dependencies:
       buffer: 5.6.0
@@ -326,28 +335,21 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-DQPmprvE8qaMMDqCqYA+L9nBa4+bsaszb4ponnoCr/yFDsmKwM1Vv9qtvmc+jPj6IT6r9rTH6wdETjy2PAhZ9w==
-  /discord.js/12.2.0:
+  /discord.js/12.3.1:
     dependencies:
-      '@discordjs/collection': 0.1.5
+      '@discordjs/collection': 0.1.6
       '@discordjs/form-data': 3.0.1
       abort-controller: 3.0.0
       node-fetch: 2.6.0
       prism-media: 1.2.2
       setimmediate: 1.0.5
       tweetnacl: 1.0.3
-      ws: 7.3.0
+      ws: 7.3.1
     dev: false
     engines:
       node: '>=12.0.0'
-    peerDependencies:
-      bufferutil: ^4.0.1
-      erlpack: discordapp/erlpack
-      libsodium-wrappers: ^0.7.6
-      sodium: ^3.0.2
-      utf-8-validate: ^5.0.2
-      zlib-sync: ^0.1.6
     resolution:
-      integrity: sha512-Ueb/0SOsxXyqwvwFYFe0msMrGqH1OMqpp2Dpbplnlr4MzcRrFWwsBM9gKNZXPVBHWUKiQkwU8AihXBXIvTTSvg==
+      integrity: sha512-mSFyV/mbvzH12UXdS4zadmeUf8IMQOo/YdunubG1wWt1xjWvtaJz/s9CGsFD2B5pTw1W/LXxxUbrQjIZ/xlUdw==
   /ee-first/1.1.1:
     dev: false
     resolution:
@@ -358,6 +360,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /encoding/0.1.12:
+    dependencies:
+      iconv-lite: 0.4.24
+    dev: false
+    resolution:
+      integrity: sha1-U4tm8+5izRq1HsMjgp0flIDHS+s=
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -423,6 +431,13 @@ packages:
       node: '>= 0.10.0'
     resolution:
       integrity: sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g==
+  /fetch/1.1.0:
+    dependencies:
+      biskviit: 1.0.1
+      encoding: 0.1.12
+    dev: false
+    resolution:
+      integrity: sha1-CoJ58Gvjf58Ou1Z1YKMKSA2lmi4=
   /file-uri-to-path/1.0.0:
     dev: false
     resolution:
@@ -850,6 +865,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-dh/frvCBVmSsDYzw6n926jv974gddhkFPfiN8hPOi30Wax25QZyZEGveluCgliBnqmuM+UJmBErbAUFIoDbjOw==
+  /psl/1.8.0:
+    dev: false
+    resolution:
+      integrity: sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==
   /pump/3.0.0:
     dependencies:
       end-of-stream: 1.4.4
@@ -1166,7 +1185,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
-  /ws/7.3.0:
+  /ws/7.3.1:
     dev: false
     engines:
       node: '>=8.3.0'
@@ -1174,7 +1193,7 @@ packages:
       bufferutil: ^4.0.1
       utf-8-validate: ^5.0.2
     resolution:
-      integrity: sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==
+      integrity: sha512-D3RuNkynyHmEJIpD2qrgVkc9DQ23OrN/moAwZX4L8DfvszsJxpjQuUq3LMx6HoYji9fbIOBY18XWBsAux1ZZUA==
   /yallist/3.1.1:
     dev: false
     resolution:
@@ -1185,9 +1204,10 @@ shrinkwrapVersion: 3
 specifiers:
   date: ^1.0.2
   date-format: ^3.0.0
-  discord.js: ^12.2.0
+  discord.js: ^12.3.1
   discord.js-minesweeper: ^1.0.6
   express: ^4.17.1
+  fetch: ^1.1.0
   got: ^11.5.1
   moment: ^2.27.0
   ms: ^2.1.2
