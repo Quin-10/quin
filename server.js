@@ -1442,7 +1442,7 @@ bot.on("message", message => {
     
   }})
 
-bot.on("roleCreate",  (message, role) => {
+bot.on("roleCreate", (role, message) => {
   const leg = db.get(`logchannel_${message.guild.id}`)
   
   const yobe = new Discord.MessageEmbed()
