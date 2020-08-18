@@ -1481,7 +1481,7 @@ bot.on("message", async message => {
   const command = args.shift().toLowerCase();
 
   if (command === "canada") {
-    const time = message.content.slice(1)
+    const time = message.content.split('canada').first()
     message.channel.send(`${time}`)
   }
   
