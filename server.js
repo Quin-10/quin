@@ -1460,23 +1460,21 @@ bot.on("message", message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "reportbg") {
-message.channel.send(`ayo ${message.author.email}`)
-  }
+  if (command === "verify") {
+    const numbas = [1,2,3,4,5,6,7,8,9]
+    const numbas1 = [1,2,3,4,5,6,7,8,9]
+    const numbas2 = [1,2,3,4,5,6,7,8,9]
+    const numbas3 = [1,2,3,4,5,6,7,8,9]
+    const code = numbas[Math.floor(Math.random() * numbas.length)];
+    const code1 = numbas1[Math.floor(Math.random() * numbas1.length)];
+    const code2 = numbas2[Math.floor(Math.random() * numbas2.length)];
+    const code3 = numbas3[Math.floor(Math.random() * numbas3.length)];
+    
+    message.channel.send(`${code}${code1}${code2}${code3}`)
+   if (message.content === `${code}${code1}${code2}${code3}`) {
+message.channel.send('ok boymer')
+   }
+}
 })
-bot.on("guildBanAdd", async (message,guild,user) => {
-  if (message.author.bot) return
-   const leg = db.get(`logchannel_${message.guild.id}`)
-   const yoed = new Discord.MessageEmbed()
-   .setColor('PURPLE')
-   .setTitle(`A Channel was created`)
-   .setDescription(`Channel Name: ${user}`)
-    .setThumbnail('https://cdn.glitch.com/55924b02-3b4c-417c-80be-e9b40f99619e%2F9F43D9DB-C6C6-4C26-B182-B3835F527419.png?v=1597432105339')
- .setFooter(`A channel Log`)
- .setTimestamp()
-   
-  bot.channels.cache.get(leg).send(yoed)
-   
- })
        
 bot.login(TOKEN);
