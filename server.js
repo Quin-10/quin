@@ -1453,8 +1453,6 @@ bot.on("roleCreate", (role, message) => {
   .setTimestamp()
   bot.channels.cache.get(leg).send(yobe)
 })
-
-)
  bot.on("message", async message => {
   const Canvas = require("canvas")
   if (!message.content.startsWith(prefix) || message.author.bot) return;
