@@ -1529,5 +1529,16 @@ if (asdm == "<")  res = numb1 < numb2
     }
 });
 
+bot.on("message", async message => {
+  const Canvas = require("canvas")
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  const args = message.content
+    .slice(prefix.length)
+    .trim()
+    .split(" ");
+  const command = args.shift().toLowerCase();
+if (command = "verify6289")
+  member
+
     
 bot.login(TOKEN);
