@@ -1499,9 +1499,12 @@ if (asdm == "/") res = numb1 / numb2
     if (asdm == "+")  res = parseInt(numb1) + parseInt(numb2)
     if (asdm == "*")  res = numb1 * numb2
     if (asdm == "-")  res = numb1 - numb2
-    const yimes = ["9 + 5", "8 / 2", "4 * 12", "27 - 17"]
+    if (asdm == ">")  res = numb1 > numb2
+if (asdm == "<")  res = numb1 < numb2
+    if (asdm == "%")  res = numb1 % numb2
+    const yimes = ["9 + 5", "8 / 2", "4 * 12", "27 - 17", "20 > 8", "69 < 420", "30 % 2"]
     const dime = yimes[Math.floor(Math.random() * yimes.length)];
-  if (res == undefined) return message.channel.send(`this is an example of how you use this command \n\n ${dime}`)
+  if (res == undefined) return message.channel.send(`this is an example of how you use this command \n\n **${dime}**`)
     const calculationembed = new Discord.MessageEmbed()
     .setColor('GREY')
     .setTitle(`\<:Cool:735651810966241391> Calculation! \<:Cool:735651810966241391>`)
