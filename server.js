@@ -1468,10 +1468,15 @@ bot.on("roleCreate", (role, message) => {
     
     var timeout = setTimeout (function () {
       const reminder = new Discord.MessageEmbed()
+      .setColor('ORANGE')
       .setTitle(`Your Timer Is up!`)
-      .setDescription(`${tim}`)
-        message.channel.send()
-      }, 1000 * time); 
+      .setDescription(`Reminder: ${time} \n requested by: ${message.author}`)
+    
+      .setFooter('timer stopped')
+      .setTimestamp()
+        message.channel.send(reminder)
+      message.member.send(reminder)
+      }, 1000 * tim); 
   }
   
 });
@@ -1484,9 +1489,8 @@ bot.on("message", async message => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "canada") {
-    const time = message.content.split('canada').first()
-    message.channel.send(`${time}`)
+  if (command === "calc") {
+    const numb1 =
   }
   
 });
