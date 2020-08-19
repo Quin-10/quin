@@ -1496,7 +1496,7 @@ const numb2 = args[2]
 var res;
     const y = 7 + 4
 if (asdm == "/") res = numb1 / numb2
-    if (asdm == "+")  res = numb1 / numb2
+    if (asdm == "+")  res = numb1 + numb2
     if (asdm == "*")  res = numb1 * numb2
     if (asdm == "-")  res = numb1 - numb2
   else message.channel.send('wrong')
