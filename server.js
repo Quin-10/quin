@@ -1537,8 +1537,16 @@ bot.on("message", async message => {
     .trim()
     .split(" ");
   const command = args.shift().toLowerCase();
-if (command = "verify6289")
-  member
+  const typin = ["die","death","rip"]
+  const cod = typin[Math.floor(Math.random() * typin.length)];
+  if (command === 'verifym') {
+    message.member.send(`${cod}`)
+  }
+if (command === cod) {
+  message.member.addRole('728396441571033119')
+  message.delete()
+}
+})
 
     
 bot.login(TOKEN);
