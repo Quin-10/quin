@@ -1490,9 +1490,12 @@ bot.on("message", async message => {
   const command = args.shift().toLowerCase();
 
   if (command === "calc") {
-    const numb1 =
-  }
-  
+    const numb1 = args[0]
+    const asdm = args[1]
+const numb2 = args[2]
+const res = numb1 | asdm | numb2
+  message.channel.send(`${numb1} ${asdm} ${numb2} = ${res}`)
+    }
 });
 
     
