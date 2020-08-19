@@ -1503,7 +1503,7 @@ if (asdm == "/") res = numb1 / numb2
     const dime = yimes[Math.floor(Math.random() * yimes.length)];
   if (res == undefined) return message.channel.send(`this is an example of how you use this command \n\n ${dime}`)
     const calculationembed = new Discord.MessageEmbed()
-    .setColor
+    .setColor('GREY')
     .setTitle(`\<:Cool:735651810966241391> Calculation! \<:Cool:735651810966241391>`)
     .setDescription(`${numb1} ${asdm} ${numb2} = ${res}`)
     .setFooter('are you cheating on your homework?')
