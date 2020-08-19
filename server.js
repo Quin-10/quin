@@ -1464,7 +1464,7 @@ bot.on("roleCreate", (role, message) => {
 
   if (command === "canvas") {
     const tim = args[0]
-    const time = args[1]
+    const time = message.content.split(args[0]).slice(1).join("")
     
     var timeout = setTimeout (function () {
       const reminder = new Discord.MessageEmbed()
