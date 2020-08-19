@@ -1453,22 +1453,25 @@ bot.on("roleCreate", (role, message) => {
   .setTimestamp()
   bot.channels.cache.get(leg).send(yobe)
 })
- bot.on("message", async (args,message) => {
+ bot.on("message", async message => {
   const Canvas = require("canvas")
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args1 = message.content
+  const args = message.content
     .slice(prefix.length)
     .trim()
     .split(" ");
-  const command = args1.shift().toLowerCase();
+  const command = args.shift().toLowerCase();
 
   if (command === "canvas") {
-    const tim = args[1]
-    const time = args[2]
+    const tim = args[0]
+    const time = args[1]
     
     var timeout = setTimeout (function () {
-        message.channel.send(`${tim} and ${time}`)
-      }, 1 * time); 
+      const reminder = new Discord.MessageEmbed()
+      .setTitle(`Your Timer Is up!`)
+      .setDescription(`${tim}`)
+        message.channel.send()
+      }, 1000 * time); 
   }
   
 });
