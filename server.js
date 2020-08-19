@@ -1462,7 +1462,7 @@ bot.on("roleCreate", (role, message) => {
     .split(" ");
   const command = args.shift().toLowerCase();
 
-  if (command === "canvas") {
+  if (command === "settimer") {
     const tim = args[0]
     const time = message.content.split(args[0]).slice(1).join("")
     
@@ -1513,7 +1513,7 @@ if (asdm == "/") res = numb1 / numb2
     if (asdm == "-")  res = numb1 - numb2
     if (asdm == ">")  res = numb1 > numb2
 if (asdm == "<")  res = numb1 < numb2
-    if (asdm == "%")  res = numb1 % numb2
+    if (asdm == "%")  res = percent
     const yimes = ["9 + 5", "8 / 2", "4 * 12", "27 - 17", "20 > 8", "69 < 420", "30 % 2"]
     const dime = yimes[Math.floor(Math.random() * yimes.length)];
   if (res == undefined) return message.channel.send(`this is an example of how you use this command \n\n **${dime}**`)
