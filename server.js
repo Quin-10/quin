@@ -1496,11 +1496,13 @@ const numb2 = args[2]
 var res;
     const y = 7 + 4
 if (asdm == "/") res = numb1 / numb2
-    if (asdm == "+")  res = numb1 + numb2
+    if (asdm == "+")  res = parseInt(numb1) + parseInt(numb2)
     if (asdm == "*")  res = numb1 * numb2
     if (asdm == "-")  res = numb1 - numb2
-  else message.channel.send('wrong')
-  message.channel.send(`${numb1} ${asdm} ${numb2} = ${res}`)
+  if (!isNaN(parseInt)) return message.channel.send('wrong')
+    const a = message.channel.send(`${numb1} ${asdm} ${numb2} = ${res}`)
+    if (res == NaN) a.edit(`That Is An Invalid Equation`)
+  
     }
 });
 
