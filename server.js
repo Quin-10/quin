@@ -1453,21 +1453,21 @@ bot.on("roleCreate", (role, message) => {
   .setTimestamp()
   bot.channels.cache.get(leg).send(yobe)
 })
- bot.on("message", async message => {
+ bot.on("message", async (args,message) => {
   const Canvas = require("canvas")
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-  const args = message.content
+  const args1 = message.content
     .slice(prefix.length)
     .trim()
     .split(" ");
-  const command = args.shift().toLowerCase();
+  const command = args1.shift().toLowerCase();
 
   if (command === "canvas") {
-    const tim = message.content.split('!').slice(1).join("")
-    const time = message.content.split(`?`).slice(tim).join("")
+    const tim = args[1]
+    const time = args[2]
     
     var timeout = setTimeout (function () {
-        message.channel.send(`${time} and ${tim}`)
+        message.channel.send(`${tim} and ${time}`)
       }, 1 * time); 
   }
   
