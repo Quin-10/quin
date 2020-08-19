@@ -1494,15 +1494,21 @@ bot.on("message", async message => {
     const asdm = args[1]
 const numb2 = args[2]
 var res;
-    const y = 7 + 4
+    
 if (asdm == "/") res = numb1 / numb2
     if (asdm == "+")  res = parseInt(numb1) + parseInt(numb2)
     if (asdm == "*")  res = numb1 * numb2
     if (asdm == "-")  res = numb1 - numb2
     const yimes = ["9 + 5", "8 / 2", "4 * 12", "27 - 17"]
-    const dime = [Math.floor(Math.random() * yimes.length)];
+    const dime = yimes[Math.floor(Math.random() * yimes.length)];
   if (res == undefined) return message.channel.send(`this is an example of how you use this command \n\n ${dime}`)
-    const a = message.channel.send(`${numb1} ${asdm} ${numb2} = ${res}`)
+    const calculationembed = new Discord.MessageEmbed()
+    .setColor
+    .setTitle(`\<:Cool:735651810966241391> Calculation! \<:Cool:735651810966241391>`)
+    .setDescription(`${numb1} ${asdm} ${numb2} = ${res}`)
+    .setFooter('are you cheating on your homework?')
+    .setTimestamp()
+     message.channel.send(calculationembed)
     
   
     }
