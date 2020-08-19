@@ -1463,8 +1463,9 @@ bot.on("roleCreate", (role, message) => {
   const command = args.shift().toLowerCase();
 
   if (command === "canvas") {
-    const time = message.content.split(' ').slice(1).join("")
     const tim = message.content.split('!').slice(1).join("")
+    const time = message.content.split(`?`).slice(tim).join("")
+    
     var timeout = setTimeout (function () {
         message.channel.send(`${time} and ${tim}`)
       }, 1 * time); 
