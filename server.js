@@ -1493,7 +1493,12 @@ bot.on("message", async message => {
     const numb1 = args[0]
     const asdm = args[1]
 const numb2 = args[2]
-const res = numb1 | asdm | numb2
+var res;
+if (asdm = "/") res = numb1/numb2
+    if (asdm == "+") res = numb1+numb2
+    if (asdm == "*") res = numb1*numb2
+    if (asdm == "-") res = numb1-numb2
+    
   message.channel.send(`${numb1} ${asdm} ${numb2} = ${res}`)
     }
 });
