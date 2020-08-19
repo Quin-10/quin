@@ -1537,8 +1537,14 @@ bot.on("message", async message => {
     .trim()
     .split(" ");
   const command = args.shift().toLowerCase();
-  const typin = ["die","death","rip"]
+  const typin = ["1","2","3","4","5","6","7","8","9",]
+  const typin1 = ["1","2","3","4","5","6","7","8","9",]
+  const typin2 = ["1","2","3","4","5","6","7","8","9",]
+  const typin3 = ["1","2","3","4","5","6","7","8","9",]
   const cod = typin[Math.floor(Math.random() * typin.length)];
+  const cod1 = typin[Math.floor(Math.random() * typin1.length)];
+  const cod2 = typin[Math.floor(Math.random() * typin2.length)];
+  const cod3 = typin[Math.floor(Math.random() * typin2.length)];
   if (command === 'verifym') {
     message.member.send(`${cod}`)
   }
