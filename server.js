@@ -1499,9 +1499,11 @@ if (asdm == "/") res = numb1 / numb2
     if (asdm == "+")  res = parseInt(numb1) + parseInt(numb2)
     if (asdm == "*")  res = numb1 * numb2
     if (asdm == "-")  res = numb1 - numb2
-  if (!isNaN(parseInt)) return message.channel.send('wrong')
+    const yimes = ["9 + 5", "8 / 2", "4 * 12", "27 - 17"]
+    const dime = [Math.floor(Math.random() * yimes.length)];
+  if (res == undefined) return message.channel.send(`this is an example of how you use this command \n\n ${dime}`)
     const a = message.channel.send(`${numb1} ${asdm} ${numb2} = ${res}`)
-    if (res == NaN) a.edit(`That Is An Invalid Equation`)
+    
   
     }
 });
