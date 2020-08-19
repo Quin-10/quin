@@ -1542,8 +1542,12 @@ bot.on("message", async message => {
   if (command === 'verifym') {
     message.member.send(`${cod}`)
   }
-if (command === cod) {
-  message.member.addRole('728396441571033119')
+  const playerchoice = message.content
+      .split(` `)
+      .slice(1)
+      .join(" ");
+if (playerchoice == cod) {
+  message.member.roles.add('728396441571033119')
   message.delete()
 }
 })
