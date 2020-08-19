@@ -452,8 +452,8 @@ bot.on("message", message => {
 });
 bot.on("message", message => {
   const dateformat = require("date-format");
-  let x = Date.now() - message.guild.createdAt;
-  let h = Math.floor(x / 86400000);
+  
+  
   let created = dateformat(message.guild.createdAt); // 86400000, 5 digits-zero.
   // Install "dateformat" first.
   let icon = message.guild.iconURL({ size: 2048 });
@@ -1546,6 +1546,7 @@ bot.on("message", async message => {
   const cod2 = typin2[Math.floor(Math.random() * typin2.length)];
   const cod3 = typin3[Math.floor(Math.random() * typin3.length)];
   const totale = cod+cod1+cod2+cod3
+  const tot = totale
   if (command === 'verifym') {
     message.member.send(`${totale}`)
   }
@@ -1553,7 +1554,7 @@ bot.on("message", async message => {
       .split(` `)
       .slice(1)
       .join(" ");
-if (playerchoice == totale) {
+if (playerchoice == tot) {
   message.member.roles.add('728396441571033119')
   message.delete()
 }
