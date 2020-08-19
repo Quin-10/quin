@@ -1542,17 +1542,18 @@ bot.on("message", async message => {
   const typin2 = ["1","2","3","4","5","6","7","8","9",]
   const typin3 = ["1","2","3","4","5","6","7","8","9",]
   const cod = typin[Math.floor(Math.random() * typin.length)];
-  const cod1 = typin[Math.floor(Math.random() * typin1.length)];
-  const cod2 = typin[Math.floor(Math.random() * typin2.length)];
-  const cod3 = typin[Math.floor(Math.random() * typin2.length)];
+  const cod1 = typin1[Math.floor(Math.random() * typin1.length)];
+  const cod2 = typin2[Math.floor(Math.random() * typin2.length)];
+  const cod3 = typin3[Math.floor(Math.random() * typin3.length)];
+  const totale = cod+cod1+cod2+cod3
   if (command === 'verifym') {
-    message.member.send(`${cod}`)
+    message.member.send(`${totale}`)
   }
   const playerchoice = message.content
       .split(` `)
       .slice(1)
       .join(" ");
-if (playerchoice == cod) {
+if (playerchoice == totale) {
   message.member.roles.add('728396441571033119')
   message.delete()
 }
