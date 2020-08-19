@@ -1494,7 +1494,19 @@ bot.on("message", async message => {
     const asdm = args[1]
 const numb2 = args[2]
 var res;
-    
+   var number = numb1;
+ 
+//The percent that we want to get.
+//i.e. We want to get 22% of 90.
+var percentToGet = numb2;
+ 
+//Turn our percent into a decimal figure.
+//22 will become 0.22 and 60 will become 0.6
+var percentAsDecimal = (percentToGet / 100);
+ 
+//Multiply the percent decimal by the number.
+var percent = percentAsDecimal * number;
+  
 if (asdm == "/") res = numb1 / numb2
     if (asdm == "+")  res = parseInt(numb1) + parseInt(numb2)
     if (asdm == "*")  res = numb1 * numb2
