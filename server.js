@@ -1465,7 +1465,9 @@ bot.on("roleCreate", (role, message) => {
   if (command === "settimer") {
     const tim = args[0]
     const time = message.content.split(args[0]).slice(1).join("")
-    
+    if (!tim) return message.channel.send('what`s the time?')
+    if (!tim == parseInt) message.channel.send('stuped')
+    if (!time) return message.channel.send('what`s the reason?')
     var timeout = setTimeout (function () {
       const reminder = new Discord.MessageEmbed()
       .setColor('ORANGE')
@@ -1535,8 +1537,8 @@ bot.on("message", async message => {
   const args = message.content
     .slice(prefix.length)
     .trim()
-    .split(" ");
-  const command = args.shift().toLowerCase();
+    .split(" ")
+  const command = args.shift().toLowerCase()
   const typin = ["1","2","3","4","5","6","7","8","9"]
   const typin1 = ["1","2","3","4","5","6","7","8","9"]
   const typin2 = ["1","2","3","4","5","6","7","8","9"]
